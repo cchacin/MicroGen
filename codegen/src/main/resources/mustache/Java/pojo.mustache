@@ -1,0 +1,54 @@
+/**
+ * {{#description}}{{.}}{{/description}}{{^description}}{{classname}}{{/description}}
+ */
+{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
+@org.immutables.value.Value.Immutable
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        typeBuilder = "*InternalBuilder",
+        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
+        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
+        implementationNestedInBuilder = true,
+        overshadowImplementation = true,
+        jdkOnly = true
+){{#additionalAnnotations}}
+{{{additionalAnnotations}}}{{/additionalAnnotations}}
+{{>generatedAnnotation}}
+public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
+
+{{#vars}}
+    {{#isEnum}}
+    {{^isContainer}}
+{{>modelInnerEnum}}
+    {{/isContainer}}
+    {{/isEnum}}
+    {{#items.isEnum}}
+        {{#items}}
+        {{^isContainer}}
+{{>modelInnerEnum}}
+        {{/isContainer}}
+        {{/items}}
+    {{/items.isEnum}}
+    /**
+     {{#description}}* {{{description}}}{{/description}}{{^description}}* Get {{name}}{{/description}}
+     *{{#minimum}}
+     * minimum: {{minimum}}{{/minimum}}{{#maximum}}
+     * maximum: {{maximum}}{{/maximum}}
+     * @return {{name}}
+     */
+    {{>beanValidation}}
+    {{#vendorExtensions.extraAnnotation}}
+    {{{vendorExtensions.extraAnnotation}}}
+    {{/vendorExtensions.extraAnnotation}}
+    @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
+    public abstract {{#required}}{{{datatypeWithEnum}}} {{getter}}();{{/required}}{{^required}}java.util.Optional<{{{datatypeWithEnum}}}> {{getter}}();{{/required}}
+
+{{/vars}}
+
+    public static class Builder extends {{classname}}InternalBuilder {
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+}

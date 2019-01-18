@@ -1,0 +1,1825 @@
+openapi: 3.0.0
+info:
+  title: Swagger Codegen Test API
+  description: >-
+    This is a test schema which exercises many of the
+    features of an OpenAPI 3.0 schema.
+  termsOfService: http://example.com
+  contact:
+    name: Developer
+    url: 'http://www.example.com/'
+    email: dev@example.com
+  license:
+    name: Placeholder license name for the Swagger Codegen Test API.
+    url: 'http://www.example.com/'
+  version: '1.0'
+tags:
+  - name: ParametersGroup
+    description: >-
+      This is a grouping of endpoints for testing input parameters. All of the
+      paths in this group start with /test/parameters.
+  - name: OperationsGroup
+    description: >-
+      This is a grouping of endpoints for testing operations. All of the paths
+      in this group start with /test/operations.
+  - name: OverrideGroup
+    description: >-
+      This is a grouping of endpoints for testing operations. All of the paths
+      in this group start with /test/overrides.
+  - name: ModelsGroup
+    description: >-
+      This is a grouping of endpoints for testing models. All of the paths in
+      this group start with /test/models.
+  - name: AuthGroup
+    description: This is a grouping of endpoints for testing securityDefinitions.
+security:
+  - api_key_query: []
+
+paths:
+  /test/models/all:
+    get:
+      tags:
+        - ModelsGroup
+      summary: Return all of the defined models.
+      description: >-
+        This operation returns an AllModels object, which contains all of the
+        defined models.
+      operationId: get_all_models
+      x-has-consumes: 'application/json'
+      parameters:
+        - $ref: '#/components/parameters/ClientIdParameter'
+        - $ref: '#/components/parameters/ClientVersionIdParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllModels'
+        '400':
+          description: Invalid client input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+  /test/operations/defaultResponse:
+    get:
+      tags:
+        - ModelsGroup
+      summary: This operation has a default response.
+      description: >-
+        This operation has a default response, and we test if the default
+        response is returned if an HTTP status code that is not specified is
+        encountered.
+      x-unit-tests:
+        - B28
+      operationId: getDefaultResponse
+      parameters:
+        - $ref: '#/components/parameters/ClientIdParameter'
+        - $ref: '#/components/parameters/ClientVersionIdParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllModels'
+        default:
+          description: >-
+            Default response. If a status code that is not 200 is returned, then
+            this response should be returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+  /test/parameters/body:
+    post:
+      tags:
+        - ParametersGroup
+      summary: 'Summary: This operation is for testing body input parameters.'
+      description: >-
+        Description: This operation is for testing an input parameter serialized
+        in the body of the request.
+      x-unit-tests:
+        - B5
+      operationId: postBodyParameterJSON
+      responses:
+        '200':
+          description: Success with no response model
+        '400':
+          description: Failure with no response model
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ErrorInfo'
+        description: This parameter will be serialized in the request body.
+        required: true
+  /test/parameters/urlEncoded:
+    post:
+      tags:
+        - ParametersGroup
+      summary: 'Summary: This endpoint is for testing url-enoded input parameters.'
+      description: 'Desciption: This operation is for testing url-encoded input parameters.'
+      x-unit-tests:
+        - B5
+      operationId: postFormDataParametersUrlEncoded
+      responses:
+        '200':
+          description: Success with no response model
+        '400':
+          description: Failure with no response model
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                stringParam:
+                  description: This is an in=body type=string input parameter
+                  type: string
+                numberParam:
+                  description: This is an in=body type=number input parameter
+                  type: number
+                integerParam:
+                  description: This is an in=body type=integer input parameter
+                  type: integer
+                booleanParam:
+                  description: This is an in=body type=boolean input parameter
+                  type: boolean
+  /test/parameters/multiPartFormData:
+    post:
+      tags:
+        - ParametersGroup
+      summary: >-
+        Summary: This endpoint is for testing multipart/form-data input
+        parameters.
+      description: >-
+        Desciption: This operation is for testing multipart/form-data input
+        parameters.
+      x-unit-tests:
+        - B7
+      operationId: postFormDataParameterMultipartFormData
+      responses:
+        '200':
+          description: Success with no response model
+        '400':
+          description: Failure with no response model
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fileParam:
+                  description: This is an in=formData type=file input parameter
+                  type: string
+                  format: binary
+              required:
+                - fileParam
+  /test/parameters/{pathParam}/all/{enumPathParam}:
+    get:
+      tags:
+        - ParametersGroup
+      summary: 'Summary: This is an endpoint which tests parameters.'
+      description: 'Description: This is an endpoint which tests input parameters.'
+      x-unit-tests:
+        - B1
+        - B2
+      operationId: getParametersScalars
+      parameters:
+        - name: pathParam
+          in: path
+          description: 'This is a description of pathParam, a path parameter.'
+          required: true
+          schema:
+            type: string
+        - name: enumPathParam
+          in: path
+          description: 'This is a description of enumPathParams, an Enum path parameter.'
+          required: true
+          schema:
+            type: string
+            enum:
+              - enumValue1
+              - enumValue2
+              - enumValue3
+        - name: queryParamStringOptional
+          in: query
+          description: This is an optional string parameter. It provides a default value.
+          x-unit-tests:
+            - B8
+          required: false
+          schema:
+            type: string
+            default: queryParamStringOptionalDefaultValue
+        - name: queryParamStringRequired
+          in: query
+          description: This is a required string parameter.
+          required: true
+          schema:
+            type: string
+        - name: queryParamNumberRequired
+          in: query
+          description: >-
+            This is a description of queryParamDoubleRequired, a required double
+            query parameter
+          required: true
+          schema:
+            type: number
+        - name: queryParamUUIDRequired
+          in: query
+          description: This is a required UUID parameter.
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: queryParamFloatOptional
+          in: query
+          description: >-
+            This is a description of queryParamFloatOptional, an optional float
+            query parameter
+          required: false
+          schema:
+            type: number
+            format: float
+            default: 1
+        - name: queryParamFloatRequired
+          in: query
+          description: >-
+            This is a description of queryParamFloatRequired, a required float
+            query parameter
+          required: true
+          schema:
+            type: number
+            format: float
+        - name: queryParamDoubleOptional
+          in: query
+          description: >-
+            This is a description of queryParamDoubleOptional, an optional
+            double query parameter
+          required: false
+          schema:
+            type: number
+            format: double
+            default: 1
+        - name: queryParamDoubleRequired
+          in: query
+          description: >-
+            This is a description of queryParamDoubleRequired, a required double
+            query parameter
+          required: true
+          schema:
+            type: number
+            format: double
+        - name: queryParamIntOptional
+          in: query
+          description: >-
+            This is a description of queryParamIntOptional, an optional integer
+            query parameter
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: queryParamIntRequired
+          in: query
+          description: >-
+            This is a description of queryParamIntRequired, a required integer
+            query parameter
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: queryParamInt64Optional
+          in: query
+          description: >-
+            This is a description of queryParamInt64Optional, an optional
+            integer query parameter
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: queryParamInt64Required
+          in: query
+          description: >-
+            This is a description of queryParamInt64Required, a required integer
+            query parameter
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: queryParamBooleanOptional
+          in: query
+          description: >-
+            This is a description of queryParamBooleanOptional, an optional
+            boolean query parameter
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: queryParamBooleanRequired
+          in: query
+          description: >-
+            This is a description of queryParamBooleanRequired, a required
+            boolean query parameter
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllModels'
+        '400':
+          description: Invalid client input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+  /test/parameters/arrays:
+    get:
+      tags:
+        - ParametersGroup
+      summary: 'Summary: This is an endpoint which tests array input parameters.'
+      description: 'Description: This is an endpoint which tests array input parameters.'
+      operationId: getParametersArrays
+      parameters:
+        - name: queryParamStringArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamStringArrayOptional, an optional
+            string array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: queryParamStringArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamStringArrayRequired, a required
+            string array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: queryParamIntArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamIntArrayOptional, an optional Int
+            array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+        - name: queryParamIntArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamIntArrayRequired, a required Int
+            array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+        - name: queryParamInt64ArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamInt64ArrayOptional, an optional
+            Int64 array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        - name: queryParamInt64ArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamInt64ArrayRequired, a required
+            Int64 array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+        - name: queryParamFloatArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamFloatArrayOptional, an optional
+            float array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: number
+              format: float
+        - name: queryParamFloatArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamFloatArrayRequired, a required
+            float array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+              format: float
+        - name: queryParamDoubleArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamDoubleArrayOptional, an optional
+            double array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: number
+              format: double
+        - name: queryParamDoubleArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamDoubleArrayRequired, a required
+            double array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+              format: double
+        - name: queryParamBooleanArrayOptional
+          in: query
+          description: >-
+            This is a description of queryParamBooleanArrayOptional, an optional
+            boolean array query parameter
+          required: false
+          schema:
+            type: array
+            items:
+              type: boolean
+        - name: queryParamBooleanArrayRequired
+          in: query
+          description: >-
+            This is a description of queryParamBooleanArrayRequired, a required
+            boolean array query parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: boolean
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllModels'
+        '400':
+          description: Invalid client input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+  /test/parameters/arrays/collectionFormat:
+    get:
+      tags:
+        - ParametersGroup
+      summary: 'Summary: This is an endpoint which tests collectionFormat.'
+      description: >-
+        Description: This is an endpoint which tests all of the values of
+        collectionFormat on input array parameters.
+      x-unit-tests:
+        - B11
+        - B12
+        - B13
+        - B14
+        - B15
+      operationId: getParametersArraysCollectionFormat
+      parameters:
+        - name: stringArrayCSV
+          in: query
+          description: >-
+            This is a description of stringArrayCSV, an optional array of
+            strings query parameter which uses a comma delimiter.
+          x-unit-tests:
+            - B11
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: stringArraySSV
+          in: query
+          description: >-
+            This is a description of stringArraySSV, an optional array of
+            strings query parameter which uses a space delimiter.
+          x-unit-tests:
+            - B12
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: stringArrayTSV
+          in: query
+          description: >-
+            This is a description of stringArrayTSV, an optional array of
+            strings query parameter which uses a tab delimiter.
+          x-unit-tests:
+            - B13
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: stringArrayPipes
+          in: query
+          description: >-
+            This is a description of stringArrayPipes, an optional array of
+            strings query parameter which uses a | delimiter.
+          x-unit-tests:
+            - B14
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: stringArrayMulti
+          in: query
+          description: >-
+            This is a description of stringArrayMulti, an optional array of
+            strings query parameter which uses a separate query parameter for
+            each element of the array.
+          x-unit-tests:
+            - B15
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: stringArrayPipesOfStringArrayCSV
+          in: query
+          description: >-
+            This is an optional parameter which is a string array of string
+            arrays. The outer delimiter is the pipe ('|') and the inner
+            delimiter is the comma (','). An example would be:
+            'a,b,c|d,e|f,g,h'.
+          x-unit-tests:
+            - B27
+          required: false
+          schema:
+            type: array
+            items:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/parameters/validation:
+    get:
+      tags:
+        - ParametersGroup
+      summary: >-
+        Summary: This is an endpoint which tests validation conditions on
+        parameters.
+      description: >-
+        Description: This is an endpoint which tests various validation
+        conditions for Parameter objects.
+      x-unit-tests:
+        - B16
+        - B17
+        - B18
+        - B19
+        - B20
+        - B21
+        - B22
+        - B23
+        - B24
+        - B25
+        - B26
+      operationId: getParametersValidation
+      parameters:
+        - name: integerParameterWithInclusiveMaximum
+          in: query
+          description: >-
+            This is an integer parameter with a maximum validation constraint of
+            10. Since exclusiveMaximum is not present (and therefore by default
+            is false), then the maximum is inclusive. Therefore, the parameter
+            must be <= 10.
+          x-unit-tests:
+            - B16
+          required: false
+          schema:
+            type: integer
+            maximum: 10
+        - name: integerParameterWithExclusiveMaximum
+          in: query
+          description: >-
+            This is an integer parameter with a maximum validation constraint of
+            10. Since exclusiveMaximum is true, then the parameter must be < 10
+            (as opposed to <= 10).
+          x-unit-tests:
+            - B17
+          required: false
+          schema:
+            type: integer
+            maximum: 10
+            exclusiveMaximum: true
+        - name: integerParameterWithInclusiveMinimum
+          in: query
+          description: >-
+            This is an integer parameter with a minimum validation constraint of
+            10. Since exclusiveMinimum is not present (and therefore by default
+            is false), then the minimum is inclusive. Therefore, the parameter
+            must be >= 10.
+          x-unit-tests:
+            - B18
+          required: false
+          schema:
+            type: integer
+            minimum: 10
+        - name: integerParameterWithExclusiveMinimum
+          in: query
+          description: >-
+            This is an integer parameter with a minimum validation constraint of
+            10. Since exclusiveMaximum is true, then the parameter must be > 10
+            (as opposed to >= 10).
+          x-unit-tests:
+            - B19
+          required: false
+          schema:
+            type: integer
+            minimum: 10
+            exclusiveMaximum: true
+        - name: stringParameterWithMaxLength
+          in: query
+          description: >-
+            This is an string parameter with a maxLength validation constraint
+            of 10, so the length of the string must be <= 10 characters.
+          x-unit-tests:
+            - B20
+          required: false
+          schema:
+            type: string
+            maxLength: 10
+        - name: stringParameterWithMinLength
+          in: query
+          description: >-
+            This is an string parameter with a minLength validation constraint
+            of 10, so the length of the string must be >= 10 characters.
+          x-unit-tests:
+            - B21
+          required: false
+          schema:
+            type: string
+            minLength: 10
+        - name: stringParameterWithPhoneNumberPattern
+          in: query
+          description: >-
+            This is a string parameter with a phone number pattern of
+            '^(\([0-9]{3}\))?[0-9]{3}-[0-9]{4}$' so '555-1212' and
+            '(888)555-1212' would match but '(888)555-1212 ext. 532' and
+            '(800)FLOWERS' would NOT match.
+          x-unit-tests:
+            - B22
+          required: false
+          schema:
+            type: string
+            pattern: '^(\([0-9]{3}\))?[0-9]{3}-[0-9]{4}$'
+        - name: stringArrayParameterWithMaxItems
+          in: query
+          description: >-
+            This is a string array parameter with a maxItems of 3 and
+            collectionFormat=csv, so the number of elements in the
+            comma-delimited string must be <= 3. So therefore 'a,b' and 'a,b,c'
+            would pass validation but 'a,b,c,d' would not.
+          x-unit-tests:
+            - B23
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+            maxItems: 3
+        - name: stringArrayParameterWithMinItems
+          in: query
+          description: >-
+            This is a string array parameter with a minItems of 3 and
+            collectionFormat=csv, so the number of elements in the
+            comma-delimited string must be >= 3. So therefore 'a,b,c' and
+            'a,b,c,d' would pass validation but 'a,b' would not.
+          x-unit-tests:
+            - B24
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+            minItems: 3
+        - name: stringArrayParameterWithUniqueItems
+          in: query
+          description: >-
+            This is a string array parameter with a uniqueItems=true and
+            collectionFormat=csv. So therefore 'a,b,c' and 'a,b,c,d' would pass
+            validation but 'a,b,a' would not.
+          x-unit-tests:
+            - B25
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+            uniqueItems: true
+        - name: integerParameterWithMultipleOf
+          in: query
+          description: >-
+            This is an integer parameter with multipleOf=10. So therefore values
+            of 10, 100, and 10000 would pass validation but 25 would not.
+          x-unit-tests:
+            - B26
+          required: false
+          schema:
+            type: integer
+            multipleOf: 10
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/models/readonly:
+    put:
+      tags:
+        - ModelsGroup
+      summary: 'Summary: This is an endpoint which tests readOnly properties.'
+      description: >-
+        Description: This is an endpoint which tests posting and receiving a
+        model object which has readOnly properties. The readOnly properties
+        should be included in the response but not the request.
+      x-unit-tests:
+        - B46
+      operationId: putModelsReadOnly
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelWithReadOnlyPropertyTest'
+        '400':
+          description: Invalid client input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelWithReadOnlyPropertyTest'
+        description: This is json-serialized property in the body.
+        required: true
+  /test/override/voidReturn:
+    put:
+      tags:
+        - overrideGroup
+      summary: 'Summary: This is an endpoint which tests custom void return types.'
+      description: >-
+        Description: This is an endpoint which tests that generated operations
+        can have a different return type in case they don't return anything.
+      operationId: overrideVoidReturn
+      responses:
+        '204':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/override/nonVoidReturn:
+    put:
+      tags:
+        - overrideGroup
+      summary: 'Summary: This is an endpoint which tests operation overrides.'
+      description: >-
+        Description: This is an endpoint which tests that generated operations
+        can have overriden return types based on vendor extensions.
+      operationId: overrideReturnViaExtension
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelWithReadOnlyPropertyTest'
+        '204':
+          description: Successful Response without body
+        '400':
+          description: Invalid client input
+  /test/override/annotation:
+    put:
+      tags:
+        - overrideGroup
+      summary: >-
+        Summary: This is an endpoint which tests additional annotations for
+        clients.
+      description: >-
+        Description: This is an endpoint which tests that generated operations
+        can have additional annotations added to the method declaration.
+      operationId: addExtraAnnotations
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelWithReadOnlyPropertyTest'
+        '400':
+          description: Invalid client input
+  /test/default/security/with/{pathParam1}/and/{pathParam2}:
+    get:
+      tags:
+        - AuthGroup
+      summary: >-
+        Summary: This is an endpoint for which we use the default
+        securityDefinition
+      description: >-
+        Description: This is an endpoint for which we use the default
+        securityDefinition.
+      operationId: getDataWithDefaultSecurity
+      parameters:
+        - name: pathParam1
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queryParam1
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: pathParam2
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/key/in/query:
+    get:
+      tags:
+        - AuthGroup
+      summary: >-
+        Summary: This is an endpoint for which we use the api_key_query
+        securityDefinition
+      description: >-
+        Description: This is an endpoint for which we use the api_key_query
+        securityDefinition.
+      operationId: getDataWithApiKeyInQuery
+      security:
+        - api_key_query: []
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/key/in/header:
+    get:
+      tags:
+        - AuthGroup
+      summary: >-
+        Summary: This is an endpoint for which we use the api_key_header
+        securityDefinition
+      description: >-
+        Description: This is an endpoint for which we use the api_key_header
+        securityDefinition.
+      operationId: getDataWithApiKeyInHeader
+      security:
+        - api_key_header: []
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+  /test/auth/token:
+    get:
+      tags:
+        - AuthGroup
+      summary: >-
+        Summary: This is an endpoint for which we use the authToken
+        securityDefinition
+      description: >-
+        Description: This is an endpoint for which we use the authToken
+        securityDefinition.
+      operationId: getDataWithAuthToken
+      security:
+        - authToken:
+            - loggedIn
+      responses:
+        '200':
+          description: Successful Response
+        '400':
+          description: Invalid client input
+servers:
+  - url: 'https://api.example.com/api/mobile/'
+components:
+  parameters:
+    ClientIdParameter:
+      name: client_id
+      in: query
+      description: >-
+        Unique string which defines the platform and version. Defined in
+        schema-level parameters section.
+      required: true
+      schema:
+        type: string
+    ClientVersionIdParameter:
+      name: client_version_id
+      in: query
+      description: >-
+        Human readable major.minor string which defines the version. Defined in
+        schema-level parameters section.
+      required: true
+      schema:
+        type: string
+    SortEnumParameter:
+      name: sort
+      in: query
+      description: This parameter controls the sorting order of the results.
+      required: false
+      schema:
+        type: string
+        enum:
+          - relevance
+          - distance
+          - 'price:asc'
+          - 'price:desc'
+          - rating
+        default: relevance
+  securitySchemes:
+    api_key_query:
+      type: apiKey
+      description: This is an api key which is sent as a query parameter.
+      name: client_id
+      in: query
+    api_key_header:
+      type: apiKey
+      description: This is a api key which is sent as a header parameter.
+      name: X-API-Key
+      in: header
+    authToken:
+      type: oauth2
+      description: >-
+        This is the security scheme for placing the OAuth token into the
+        Authorization header
+      flows:
+        implicit:
+          authorizationUrl: 'https://api.example.com/v2/oauth/access_token'
+          scopes:
+            loggedIn: This is the security scope indicating the user must be logged in.
+  schemas:
+    EnumString:
+      type: string
+      description: This is an string enumeration.
+      x-unit-tests:
+        - B29
+      enum:
+        - EnumStringValue1
+        - EnumStringValue2
+        - EnumStringValue3
+    EnumInteger:
+      type: integer
+      description: This is an integer enumeration.
+      x-unit-tests:
+        - B30
+      enum:
+        - 1
+        - 2
+        - 3
+        - 5
+        - 7
+        - 11
+        - 13
+        - 17
+        - 19
+    EnumNumber:
+      type: number
+      description: This is an number enumeration.
+      x-unit-tests:
+        - B30
+      enum:
+        - 1.1
+        - 2.2
+        - 3.3
+        - 4.4
+        - 5.5
+        - 6.6
+        - 7.7
+        - 8.8
+        - 9.9
+    AllPrimitives:
+      title: 'Title: A model which exercises all of the Swagger primitives'
+      description: >-
+        Description: This model object contains one optional property and one
+        required property for each data type defined here:
+        https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#dataTypeFormat.
+      x-unit-tests:
+        - B3
+        - B4
+      type: object
+      required:
+        - myIntRequired
+        - myInt64Required
+        - myFloatRequired
+        - myDoubleRequired
+        - myStringRequired
+        - myBytesRequired
+        - myBinaryRequired
+        - myBooleanRequired
+        - myDateRequired
+        - myDateTimeRequired
+        - myFileRequired
+        - myUUIDRequired
+        - myEnumStringRequired
+        - myEnumIntegerRequired
+        - myEnumNumberRequired
+        - myInlineEnumStringRequired
+        - myInlineEnumIntegerRequired
+        - myInlineEnumNumberRequired
+      properties:
+        myIntOptional:
+          type: integer
+          format: int32
+          description: >-
+            This is an optional property with type=integer and format=int32. It
+            has a default value of 123.
+          x-unit-tests:
+            - B32
+          default: 123
+        myIntRequired:
+          type: integer
+          format: int32
+          description: This is a required property with type=integer and format=int32.
+        myInt64Optional:
+          type: integer
+          format: int64
+          description: This is an optional property with type=integer and format=int64.
+          x-unit-tests:
+            - B32
+        myInt64Required:
+          type: integer
+          format: int64
+          description: This is a required property with type=integer and format=int64.
+        myFloatOptional:
+          type: number
+          format: float
+          description: This is an optional property with type=number and format=float.
+          x-unit-tests:
+            - B32
+        myFloatRequired:
+          type: number
+          format: float
+          description: This is a required property with type=integer and format=float.
+        myDoubleOptional:
+          type: number
+          format: double
+          description: This is an optional property with type=number and format=double.
+          x-unit-tests:
+            - B32
+        myDoubleRequired:
+          type: number
+          format: double
+          description: This is a required property with type=integer and format=double.
+        myStringOptional:
+          type: string
+          description: >-
+            This is an optional property with type=string and no format
+            specifier. It has a default value of myStringOptionalDefaultValue.
+          x-unit-tests:
+            - B9
+          default: myStringOptionalDefaultValue
+        myStringRequired:
+          type: string
+          description: >-
+            This is a required property with type=string and no format
+            specifier.
+        myBytesOptional:
+          type: string
+          format: byte
+          description: This is an optional property with type=string and format=byte.
+        myBytesRequired:
+          type: string
+          format: byte
+          description: This is a required property with type=string and format=byte.
+        myBinaryOptional:
+          type: string
+          format: binary
+          description: This is an optional property with type=string and format=binary.
+        myBinaryRequired:
+          type: string
+          format: binary
+          description: This is a required property with type=string and format=binary.
+        myBooleanOptional:
+          type: boolean
+          description: >-
+            This is an optional property with type=boolean and no format
+            specifier.
+          x-unit-tests:
+            - B32
+        myBooleanRequired:
+          type: boolean
+          description: >-
+            This is a required property with type=boolean and no format
+            specifier.
+        myDateOptional:
+          type: string
+          format: date
+          description: This is an optional property with type=string and format=date.
+        myDateRequired:
+          type: string
+          format: date
+          description: This is a required property with type=string and format=date.
+        myDateTimeOptional:
+          type: string
+          format: date-time
+          description: This is an optional property with type=string and format=date-time.
+        myDateTimeRequired:
+          type: string
+          format: date-time
+          description: This is a required property with type=string and format=date-time.
+        myFileOptional:
+          type: file
+          description: This is an optional property with type=file and no format specifier.
+        myFileRequired:
+          type: file
+          description: This is a required property with type=file and no format specifier.
+        myUUIDOptional:
+          type: string
+          format: uuid
+          description: This is an optional property with type=string and format=uuid.
+        myUUIDRequired:
+          type: string
+          format: uuid
+          description: This is a required property with type=string and format=uuid.
+        myEnumStringOptional:
+          $ref: '#/components/schemas/EnumString'
+          description: >-
+            This is an optional enum property with type=string and three
+            enumerated string values. This property references the EnumString
+            definition.
+          x-unit-tests:
+            - B31
+        myEnumStringRequired:
+          $ref: '#/components/schemas/EnumString'
+          description: >-
+            This is a required enum property with type=string and three
+            enumerated string values. This property references the EnumString
+            definition.
+          x-unit-tests:
+            - B31
+        myEnumIntegerOptional:
+          $ref: '#/components/schemas/EnumInteger'
+          description: >-
+            This is an optional enum property with type=integer. This property
+            references the EnumInteger definition.
+          x-unit-tests:
+            - B31
+        myEnumIntegerRequired:
+          $ref: '#/components/schemas/EnumInteger'
+          description: >-
+            This is a required enum property with type=integer. This property
+            references the EnumInteger definition.
+          x-unit-tests:
+            - B31
+        myEnumNumberOptional:
+          $ref: '#/components/schemas/EnumNumber'
+          description: >-
+            This is an optional enum property with type=number. This property
+            references the EnumNumber definition.
+          x-unit-tests:
+            - B31
+        myEnumNumberRequired:
+          $ref: '#/components/schemas/EnumNumber'
+          description: >-
+            This is a required enum property with type=number. This property
+            references the EnumNumber definition.
+          x-unit-tests:
+            - B31
+        myInlineEnumStringOptional:
+          type: string
+          description: >-
+            This is an optional enum property with type=string and three
+            enumerated string values. This enum is defined inline.
+          enum:
+            - EnumStringValue1
+            - EnumStringValue2
+            - EnumStringValue3
+          x-unit-tests:
+            - B31
+        myInlineEnumStringRequired:
+          type: string
+          description: >-
+            This is a required enum property with type=string and three
+            enumerated string values. This enum is defined inline.
+          enum:
+            - EnumStringValue1
+            - EnumStringValue2
+            - EnumStringValue3
+          x-unit-tests:
+            - B31
+        myInlineEnumIntegerOptional:
+          type: integer
+          format: int32
+          description: >-
+            This is an optional enum property with type=integer. It has three
+            legal values: 12, 34, and 56. This enum is defined inline.
+          enum:
+            - 12
+            - 34
+            - 56
+          x-unit-tests:
+            - B31
+        myInlineEnumIntegerRequired:
+          type: integer
+          format: int32
+          description: >-
+            This is a required enum property with type=integer. It has three
+            legal values: 12, 34, and 56. This enum is defined inline.
+          enum:
+            - 12
+            - 34
+            - 56
+          x-unit-tests:
+            - B31
+        myInlineEnumNumberOptional:
+          type: number
+          format: float
+          description: >-
+            This is an optional enum property with type=number. It has three
+            legal values: 1.2, 3.4, and 5.6. This enum is defined inline.
+          enum:
+            - 1.2
+            - 3.4
+            - 5.6
+          x-unit-tests:
+            - B31
+        myInlineEnumNumberRequired:
+          type: number
+          format: float
+          description: >-
+            This is a required enum property with type=number. It has three
+            legal values: 1.2, 3.4, and 5.6. This enum is defined inline.
+          enum:
+            - 1.2
+            - 3.4
+            - 5.6
+          x-unit-tests:
+            - B31
+        allowEmptyValueTrue:
+          type: string
+          description: >-
+            This is an optional property with type=string and no format
+            specifier. It has allowEmptyValue=true.
+          x-unit-tests:
+            - B10
+    AllPrimitiveArrays:
+      title: A model which exercises arrays of each Swagger primitive
+      description: >-
+        This model object contains one required array property and one optional
+        array property for each data type defined here:
+        https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#dataTypeFormat
+      type: object
+      required:
+        - myIntArrayRequired
+        - myInt64ArrayRequired
+        - myFloatArrayRequired
+        - myDoubleArrayRequired
+        - myStringArrayRequired
+        - myBytesArrayRequired
+        - myBinaryArrayRequired
+        - myBooleanArrayRequired
+        - myDateArrayRequired
+        - myDateTimeArrayRequired
+        - myFileArrayRequired
+        - myUUIDArrayRequired
+        - myEnumStringArrayRequired
+        - myErrorInfoArrayRequired
+        - myModelErrorInfoArrayRequired
+        - myModelStringArrayRequired
+      properties:
+        myIntArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=integer and
+            format=int32.
+          items:
+            type: integer
+            format: int32
+        myIntArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=integer and
+            format=int32.
+          items:
+            type: integer
+            format: int32
+        myInt64ArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=integer and
+            format=int64.
+          items:
+            type: integer
+            format: int64
+        myInt64ArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=integer and
+            format=int64.
+          items:
+            type: integer
+            format: int64
+        myFloatArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=number and
+            format=float.
+          items:
+            type: number
+            format: float
+        myFloatArrayRequired:
+          type: array
+          description: This is a required array property with type=number and format=float.
+          items:
+            type: number
+            format: float
+        myDoubleArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=number and
+            format=double.
+          items:
+            type: number
+            format: double
+        myDoubleArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=number and
+            format=double.
+          items:
+            type: number
+            format: double
+        myStringArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=string and no format
+            specifier.
+          items:
+            type: string
+        myStringArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=string and no format
+            specifier.
+          items:
+            type: string
+        myBytesArrayOptional:
+          type: array
+          description: This is an optional array property with type=string and format=byte.
+          items:
+            type: string
+            format: byte
+        myBytesArrayRequired:
+          type: array
+          description: This is a required array property with type=string and format=byte.
+          items:
+            type: string
+            format: byte
+        myBinaryArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=string and
+            format=binary.
+          items:
+            type: string
+            format: binary
+        myBinaryArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=string and
+            format=binary.
+          items:
+            type: string
+            format: binary
+        myBooleanArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=boolean and no format
+            specifier.
+          items:
+            type: boolean
+        myBooleanArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=boolean and no format
+            specifier.
+          items:
+            type: boolean
+        myDateArrayOptional:
+          type: array
+          description: This is an optional array property with type=string and format=date.
+          items:
+            type: string
+            format: date
+        myDateArrayRequired:
+          type: array
+          description: This is a required array property with type=string and format=date.
+          items:
+            type: string
+            format: date
+        myDateTimeArrayOptional:
+          type: array
+          description: >-
+            This is an optional array property with type=string and
+            format=date-time.
+          items:
+            type: string
+            format: date-time
+        myDateTimeArrayRequired:
+          type: array
+          description: >-
+            This is a required array property with type=string and
+            format=date-time.
+          items:
+            type: string
+            format: date-time
+        myUUIDArrayOptional:
+          type: array
+          description: This is an optional array property with type=string and format=uuid.
+          items:
+            type: string
+            format: uuid
+        myUUIDArrayRequired:
+          type: array
+          description: This is a required array property with type=string and format=uuid.
+          items:
+            type: string
+            format: uuid
+        myEnumStringArrayOptional:
+          type: array
+          description: >-
+            This is an optional property which is an array of enum's with
+            type=string and three enumerated string values.
+          items:
+            $ref: '#/components/schemas/EnumString'
+        myEnumStringArrayRequired:
+          type: array
+          description: >-
+            This is a required property which is an array of enum's with
+            type=string and three enumerated string values.
+          items:
+            $ref: '#/components/schemas/EnumString'
+        myModelStringArrayOptional:
+          $ref: '#/components/schemas/ModelStringArray'
+          description: >-
+            This is an optional property which references ModelStringArray,
+            which is a model definition which is a string array.
+        myModelStringArrayRequired:
+          $ref: '#/components/schemas/ModelStringArray'
+          description: >-
+            This is a required property which references ModelStringArray, which
+            is a model definition which is a string array.
+        myModelErrorInfoArrayOptional:
+          $ref: '#/components/schemas/ModelErrorInfoArray'
+          description: >-
+            This is an optional property which references ModelErrorInfo, which
+            is a model definition which is an ErrorInfo array.
+        myModelErrorInfoArrayRequired:
+          $ref: '#/components/schemas/ModelErrorInfoArray'
+          description: >-
+            This is a required property which references ModelErrorInfo, which
+            is a model definition which is an ErrorInfo array.
+        myErrorInfoArrayOptional:
+          type: array
+          description: This is an optional property which is an array of ErrorInfo objects.
+          items:
+            $ref: '#/components/schemas/ErrorInfo'
+        myErrorInfoArrayRequired:
+          type: array
+          description: This is a required property which is an array of ErrorInfo objects.
+          items:
+            $ref: '#/components/schemas/ErrorInfo'
+        myModelEnumStringArrayOptional:
+          $ref: '#/components/schemas/ModelEnumStringArray'
+          description: >-
+            This is an optional property which references ModelEnumStringArray,
+            which is a model definition which is an EnumString array.
+        myModelEnumStringArrayRequired:
+          $ref: '#/components/schemas/ModelEnumStringArray'
+          description: >-
+            This is a required property which references ModelEnumStringArray,
+            which is a model definition which is an EnumString array.
+    ModelWithPropertyValidation:
+      type: object
+      title: Model object which contains properties that have validation constraints
+      description: This model object contains properties which have validation constraints.
+      x-unit-tests:
+        - B33
+        - B34
+        - B35
+        - B36
+        - B37
+        - B38
+        - B39
+        - B40
+        - B41
+        - B42
+        - B43
+      properties:
+        integerPropertyWithInclusiveMaximum:
+          type: integer
+          description: >-
+            This is an optional integer property with a maximum validation
+            constraint of 10. Since exclusiveMaximum is not present (and
+            therefore by default is false), then the maximum is inclusive.
+            Therefore, the property must be <= 10.
+          x-unit-tests:
+            - B33
+          maximum: 10
+        integerPropertyWithExclusiveMaximum:
+          type: integer
+          description: >-
+            This is an optional integer property with a maximum validation
+            constraint of 10 and exclusiveMaximum=true. Therefore, the property
+            must be < 10 (as opposed to <= 10).
+          x-unit-tests:
+            - B34
+          maximum: 10
+          exclusiveMaximum: true
+        integerPropertyWithInclusiveMinimum:
+          type: integer
+          description: >-
+            This is an optional integer property with a minimum validation
+            constraint of 10. Since exclusiveMinimum is not present (and
+            therefore by default is false), then the minimum is inclusive.
+            Therefore, the property must be >= 10.
+          x-unit-tests:
+            - B35
+          minimum: 10
+        integerPropertyWithExclusiveMinimum:
+          type: integer
+          description: >-
+            This is an optional integer property with a minimum validation
+            constraint of 10 and exclusiveMinimum=true. Therefore, the property
+            must be > 10.
+          x-unit-tests:
+            - B36
+          minimum: 10
+          exclusiveMinimum: true
+        stringPropertyWithMaxLength:
+          type: string
+          description: >-
+            This is an optional string property with a maxLength validation
+            constraint of 10.
+          x-unit-tests:
+            - B37
+          maxLength: 10
+        stringPropertyWithMinLength:
+          type: string
+          description: >-
+            This is an optional string property with a minLength validation
+            constraint of 10.
+          x-unit-tests:
+            - B38
+          minLength: 10
+        stringPropertyWithPhoneNumberPattern:
+          type: string
+          description: >-
+            This is an optional string property with a phone number pattern of
+            '^(\([0-9]{3}\))?[0-9]{3}-[0-9]{4}$' so '555-1212' and
+            '(888)555-1212' would match but '(888)555-1212 ext. 532' and
+            '(800)FLOWERS' would NOT match.
+          x-unit-tests:
+            - B39
+          pattern: '^(\([0-9]{3}\))?[0-9]{3}-[0-9]{4}$'
+        stringArrayPropertyWithMaxItems:
+          type: array
+          description: >-
+            This is an optional string array property with a maxItems=3 so
+            ['a','b'] and ['a','b','c'] would pass validation but
+            ['a','b','c','d'] would NOT pass validation.
+          x-unit-tests:
+            - B40
+          items:
+            type: string
+          maxItems: 3
+        stringArrayPropertyWithMinItems:
+          type: array
+          description: >-
+            This is an optional string array property with a minItems=3 so
+            ['a','b','c'] and ['a','b','c','d'] would pass validation but
+            ['a','b'] would NOT pass validation.
+          x-unit-tests:
+            - B41
+          items:
+            type: string
+          minItems: 3
+        stringArrayPropertyWithUniqueItems:
+          type: array
+          description: >-
+            This is an optional string array property with a uniqueItems=true so
+            ['a','b','c'] and ['a','b','c','d'] would pass validation but
+            ['a','b','a'] would NOT pass validation.
+          x-unit-tests:
+            - B42
+          items:
+            type: string
+          uniqueItems: true
+        integerPropertyWithMultipleOf:
+          type: integer
+          description: >-
+            This is an optional integer property with a multipleOf=10 so 10,
+            100, and 10000 would pass validation but 15 would NOT pass
+            validation.
+          x-unit-tests:
+            - B43
+          multipleOf: 10
+    SampleBase:
+      type: object
+      description: This is an base class object from which other classes will derive.
+      x-unit-tests:
+        - B44
+      properties:
+        baseClassStringProp:
+          type: string
+        baseClassIntegerProp:
+          type: integer
+          format: int32
+    SampleSubClass:
+      description: This is an subclass defived from the SampleBase class.
+      x-unit-tests:
+        - B44
+      allOf:
+        - $ref: '#/components/schemas/SampleBase'
+        - type: object
+          properties:
+            subClassStringProp:
+              type: string
+            subClassIntegerProp:
+              type: integer
+              format: int32
+    BaseCard:
+      type: object
+      description: This is a base card object which uses a 'cardType' discriminator.
+      x-unit-tests:
+        - B45
+      discriminator:
+        propertyName: cardType
+      required:
+        - cardType
+      properties:
+        cardType:
+          type: string
+    PersonCard:
+      description: This is an card object for a Person derived from BaseCard.
+      x-unit-tests:
+        - B45
+      allOf:
+        - $ref: '#/components/schemas/BaseCard'
+        - type: object
+          properties:
+            firstName:
+              type: string
+            lastName:
+              type: string
+    PlaceCard:
+      description: This is an card object for a Person derived from BaseCard.
+      x-unit-tests:
+        - B45
+      allOf:
+        - $ref: '#/components/schemas/BaseCard'
+        - type: object
+          properties:
+            placeName:
+              type: string
+            placeAddress:
+              type: string
+    ModelWithPropertiesAndAdditionalProperties:
+      description: This is a model object that has properties and additionalProperties.
+      x-unit-tests:
+        - B47
+      properties:
+        integerProp:
+          type: integer
+        stringProp:
+          type: string
+      additionalProperties:
+        type: string
+    ModelWithStringAdditionalProperties:
+      description: This is a model object that has additionalProperties with type=string.
+      x-unit-tests:
+        - B47
+      additionalProperties:
+        type: string
+    ModelWithIntegerAdditionalProperties:
+      description: This is a model object that has additionalProperties with type=integer.
+      x-unit-tests:
+        - B47
+      additionalProperties:
+        type: integer
+    ModelWithComplexAdditionalProperties:
+      description: This is a model object that has additionalProperties with type=object.
+      x-unit-tests:
+        - B47
+      additionalProperties:
+        $ref: '#/components/schemas/ErrorInfo'
+    ModelWithMapProperties:
+      description: >-
+        This is a model object that has map properties of type=integer,
+        type=string, and type=<model>.
+      x-unit-tests:
+        - B47
+      properties:
+        stringMap:
+          type: object
+          additionalProperties:
+            type: string
+        integerMap:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        errorInfoMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ErrorInfo'
+        errorInfoArrayMap:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ErrorInfo'
+    ModelWithReadOnlyPropertyTest:
+      description: This is a model object that contains a property with readOnly=true.
+      x-unit-tests:
+        - B46
+      properties:
+        stringPropWithImplicitReadOnlyFalse:
+          type: string
+          description: >-
+            This is a property without a readOnly attribute, meaning that it
+            takes on the default value of readOnly=false. It should be included
+            in both response and request.
+        stringPropWithExplicitReadOnlyFalse:
+          type: string
+          description: >-
+            This is a property with readOnly=false. It should be included in
+            both response and request.
+          readOnly: false
+        stringPropWithReadOnlyTrue:
+          type: string
+          description: >-
+            This is a property with readOnly=true, meaning that it should be
+            included in the response, but not the request.
+          readOnly: true
+    ErrorInfo:
+      description: Example Error object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+    ModelStringArray:
+      type: array
+      description: This model is an array of strings.
+      items:
+        type: string
+    ModelErrorInfoArray:
+      type: array
+      description: This model is an array of ErrorInfo models
+      items:
+        $ref: '#/components/schemas/ErrorInfo'
+    ModelEnumStringArray:
+      type: array
+      description: This model is an array of EnumString models.
+      items:
+        $ref: '#/components/schemas/EnumString'
+    AllModels:
+      type: object
+      description: Model object which contains all other models
+      properties:
+        allPrimitives:
+          $ref: '#/components/schemas/AllPrimitives'
+        allPrimitiveArrays:
+          $ref: '#/components/schemas/AllPrimitiveArrays'
+        error:
+          $ref: '#/components/schemas/ErrorInfo'

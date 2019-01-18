@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>microgen-samples</artifactId>
+        <groupId>com.github.cchacin.microgen</groupId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>microgen-sample-server</artifactId>
+    <name>μGen Samples :: Server</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>value</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>microgen</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.swagger.codegen.v3</groupId>
+                        <artifactId>swagger-codegen-maven-plugin</artifactId>
+                        <version>${swagger.codegen.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <inputSpec>${project.parent.basedir}/openapi3.yml</inputSpec>
+                                    <!-- language file, like e.g. JavaJaxRSCodegen shipped with swagger -->
+                                    <language>io.swagger.codegen.v3.generators.java.MicroGen</language>
+                                    <library>server</library>
+
+                                    <output>${project.basedir}</output>
+                                    <generateApis>true</generateApis>
+                                    <generateSupportingFiles>false</generateSupportingFiles>
+                                    <generateApiDocumentation>false</generateApiDocumentation>
+                                    <generateApiTests>false</generateApiTests>
+                                    <generateModelTests>false</generateModelTests>
+                                    <generateModelDocumentation>false</generateModelDocumentation>
+                                    <generateModels>true</generateModels>
+                                    <modelPackage>petstore.models</modelPackage>
+                                    <apiPackage>petstore.api</apiPackage>
+                                    <configOptions>
+                                        <interfaceOnly>true</interfaceOnly>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                        </executions>
+
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.github.cchacin.microgen</groupId>
+                                <artifactId>microgen-codegen</artifactId>
+                                <version>${project.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
