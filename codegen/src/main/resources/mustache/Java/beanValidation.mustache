@@ -1,0 +1,16 @@
+{{#required}}
+@javax.validation.constraints.NotNull
+{{/required}}
+{{#isContainer}}
+{{^isPrimitiveType}}
+{{^isEnum}}
+@javax.validation.Valid
+{{/isEnum}}
+{{/isPrimitiveType}}
+{{/isContainer}}
+{{#isNotContainer}}
+{{^isPrimitiveType}}
+@javax.validation.Valid
+{{/isPrimitiveType}}
+{{/isNotContainer}}
+{{>beanValidationCore}}

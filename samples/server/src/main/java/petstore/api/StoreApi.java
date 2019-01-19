@@ -1,0 +1,54 @@
+package petstore.api;
+
+import petstore.models.Order;
+
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+public interface StoreApi { 
+
+    /**
+     * Delete purchase order by ID
+     * For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
+     * @param orderId ID of the order that needs to be deleted (required)
+     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     */
+    @javax.ws.rs.DELETE
+    @javax.ws.rs.Path("store/order/{orderId}")
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
+        @javax.ws.rs.PathParam("orderId") @javax.validation.constraints.Min(1) Long orderId) throws javax.ws.rs.WebApplicationException; 
+
+    /**
+     * Returns pet inventories by status
+     * Returns a map of status codes to quantities
+     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     */
+    @javax.ws.rs.GET
+    @javax.ws.rs.Path("store/inventory")
+    @javax.ws.rs.Produces({ "application/json" })
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getInventory(
+        ) throws javax.ws.rs.WebApplicationException; 
+
+    /**
+     * Find purchase order by ID
+     * For valid response try integer IDs with value &gt;&#x3D; 1 and &lt;&#x3D; 10. Other values will generated exceptions
+     * @param orderId ID of pet that needs to be fetched (required)
+     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     */
+    @javax.ws.rs.GET
+    @javax.ws.rs.Path("store/order/{orderId}")
+    @javax.ws.rs.Produces({ "application/xml", "application/json" })
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getOrderById(
+        @javax.ws.rs.PathParam("orderId") @javax.validation.constraints.Min(1) @javax.validation.constraints.Max(10) Long orderId) throws javax.ws.rs.WebApplicationException; 
+
+    /**
+     * Place an order for a pet
+     * 
+     * @param body order placed for purchasing the pet (required)
+     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     */
+    @javax.ws.rs.POST
+    @javax.ws.rs.Path("store/order")
+    @javax.ws.rs.Consumes({ "application/json" })
+    @javax.ws.rs.Produces({ "application/xml", "application/json" })
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
+         @javax.validation.constraints.NotNull @javax.validation.Valid Order body) throws javax.ws.rs.WebApplicationException; 
+} 

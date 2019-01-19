@@ -1,0 +1,8 @@
+{{#isFormParam}}
+        {{#notFile}}@javax.ws.rs.FormParam(value = "{{baseName}}") public abstract {{{dataType}}} {{paramName}}();{{/notFile}}
+        {{#isFile}}
+            @javax.ws.rs.FormParam(value = "{{baseName}}") 
+            public abstract InputStream {{paramName}}InputStream();
+            @javax.ws.rs.FormParam(value = "{{baseName}}")
+            public abstract Attachment {{paramName}}Detail();{{/isFile}}
+{{/isFormParam}}

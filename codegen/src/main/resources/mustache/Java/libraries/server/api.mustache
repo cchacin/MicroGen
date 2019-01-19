@@ -1,0 +1,58 @@
+package {{package}};
+
+{{#imports}}
+import {{import}};
+{{/imports}}
+
+{{#operations}}
+{{>generatedAnnotation}}
+public interface {{classname}} { {{#operation}}
+
+    /**
+     * {{summary}}
+     * {{notes}}
+     {{#allParams}}
+     * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
+     {{/allParams}}
+     {{#bodyParams}}
+     * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
+     {{/bodyParams}}
+     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     */
+    @javax.ws.rs.{{httpMethod}}
+    @javax.ws.rs.Path("{{{path}}}"){{#vendorExtensions.x-has-consumes}}
+    @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/vendorExtensions.x-has-consumes}}{{#vendorExtensions.x-has-produces}}
+    @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/vendorExtensions.x-has-produces}}
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
+        {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Param params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
+        {{#bodyParams}}{{>libraries/server/bodyParams}}{{/bodyParams}}
+    ) throws javax.ws.rs.WebApplicationException;
+
+        {{#hasParams}}
+        @org.immutables.value.Value.Immutable
+        @org.immutables.value.Value.Style(
+            defaultAsDefault = true,
+            typeBuilder = "*InternalBuilder",
+            visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
+            builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
+            implementationNestedInBuilder = true,
+            overshadowImplementation = true,
+            jdkOnly = true
+        )
+        public static abstract class {{operationIdCamelCase}}Param {
+        {{#allParams}}
+            {{>libraries/server/pathParams}}
+            {{>libraries/server/queryParams}}
+            {{>libraries/server/headerParams}}
+            {{>libraries/server/formParams}}
+        {{/allParams}}
+            public static class Builder extends {{operationIdCamelCase}}ParamInternalBuilder {
+            }
+
+            public static Builder builder() {
+                return new Builder();
+            }
+        }
+        {{/hasParams}}
+{{/operation}}
+} {{/operations}}

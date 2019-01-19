@@ -1,0 +1,20 @@
+{{#pattern}} @javax.validation.constraints.Pattern(regexp="{{{pattern}}}"){{/pattern}}{{!
+minLength && maxLength set
+}}{{#minLength}}{{#maxLength}} @javax.validation.constraints.Size(min={{minLength}},max={{maxLength}}){{/maxLength}}{{/minLength}}{{!
+minLength set, maxLength not
+}}{{#minLength}}{{^maxLength}} @javax.validation.constraints.Size(min={{minLength}}){{/maxLength}}{{/minLength}}{{!
+minLength not set, maxLength set
+}}{{^minLength}}{{#maxLength}} @javax.validation.constraints.Size(max={{maxLength}}){{/maxLength}}{{/minLength}}{{!
+@javax.validation.constraints.Size: minItems && maxItems set 
+}}{{#minItems}}{{#maxItems}} @javax.validation.constraints.Size(min={{minItems}},max={{maxItems}}){{/maxItems}}{{/minItems}}{{!
+@javax.validation.constraints.Size: minItems set, maxItems not 
+}}{{#minItems}}{{^maxItems}} @javax.validation.constraints.Size(min={{minItems}}){{/maxItems}}{{/minItems}}{{!
+@javax.validation.constraints.Size: minItems not set && maxItems set 
+}}{{^minItems}}{{#maxItems}} @javax.validation.constraints.Size(max={{maxItems}}){{/maxItems}}{{/minItems}}{{! 
+check for integer or long / all others=decimal type with @javax.validation.constraints.Decimal*
+isInteger set
+}}{{#isInteger}}{{#minimum}} @javax.validation.constraints.Min({{minimum}}){{/minimum}}{{#maximum}} @javax.validation.constraints.Max({{maximum}}){{/maximum}}{{/isInteger}}{{!
+isLong set 
+}}{{#isLong}}{{#minimum}} @javax.validation.constraints.Min({{minimum}}){{/minimum}}{{#maximum}} @javax.validation.constraints.Max({{maximum}}){{/maximum}}{{/isLong}}{{!
+Not Integer, not Long => we have a decimal value!
+}}{{^isInteger}}{{^isLong}}{{#minimum}} @javax.validation.constraints.DecimalMin("{{minimum}}"){{/minimum}}{{#maximum}} @javax.validation.constraints.DecimalMax("{{maximum}}"){{/maximum}}{{/isLong}}{{/isInteger}}
