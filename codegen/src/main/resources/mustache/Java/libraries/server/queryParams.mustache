@@ -2,5 +2,5 @@
         @javax.ws.rs.QueryParam("{{baseName}}")
         {{#useBeanValidation}}{{>libraries/server/beanValidationQueryParams}}{{/useBeanValidation}}
         {{#defaultValue}} @javax.ws.rs.DefaultValue("{{{defaultValue}}}"){{/defaultValue}}
-        public abstract {{{dataType}}} {{paramName}}();
+        {{{dataType}}} {{paramName}}();
 {{/isQueryParam}}

@@ -52,47 +52,47 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetParametersArraysParam {
+    public interface GetParametersArraysParam {
 
         @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
-        public abstract java.util.List<String> queryParamStringArrayOptional();
+        java.util.List<String> queryParamStringArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
-        public abstract java.util.List<String> queryParamStringArrayRequired();
+        java.util.List<String> queryParamStringArrayRequired();
 
         @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
-        public abstract java.util.List<Integer> queryParamIntArrayOptional();
+        java.util.List<Integer> queryParamIntArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
-        public abstract java.util.List<Integer> queryParamIntArrayRequired();
+        java.util.List<Integer> queryParamIntArrayRequired();
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
-        public abstract java.util.List<Long> queryParamInt64ArrayOptional();
+        java.util.List<Long> queryParamInt64ArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
-        public abstract java.util.List<Long> queryParamInt64ArrayRequired();
+        java.util.List<Long> queryParamInt64ArrayRequired();
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
-        public abstract java.util.List<Float> queryParamFloatArrayOptional();
+        java.util.List<Float> queryParamFloatArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
-        public abstract java.util.List<Float> queryParamFloatArrayRequired();
+        java.util.List<Float> queryParamFloatArrayRequired();
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
-        public abstract java.util.List<Double> queryParamDoubleArrayOptional();
+        java.util.List<Double> queryParamDoubleArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
-        public abstract java.util.List<Double> queryParamDoubleArrayRequired();
+        java.util.List<Double> queryParamDoubleArrayRequired();
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
-        public abstract java.util.List<Boolean> queryParamBooleanArrayOptional();
+        java.util.List<Boolean> queryParamBooleanArrayOptional();
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
-        public abstract java.util.List<Boolean> queryParamBooleanArrayRequired();
+        java.util.List<Boolean> queryParamBooleanArrayRequired();
 
-        public static class Builder extends GetParametersArraysParamInternalBuilder {}
+        class Builder extends GetParametersArraysParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -133,29 +133,29 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetParametersArraysCollectionFormatParam {
+    public interface GetParametersArraysCollectionFormatParam {
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
-        public abstract java.util.List<String> stringArrayCSV();
+        java.util.List<String> stringArrayCSV();
 
         @javax.ws.rs.QueryParam("stringArraySSV")
-        public abstract java.util.List<String> stringArraySSV();
+        java.util.List<String> stringArraySSV();
 
         @javax.ws.rs.QueryParam("stringArrayTSV")
-        public abstract java.util.List<String> stringArrayTSV();
+        java.util.List<String> stringArrayTSV();
 
         @javax.ws.rs.QueryParam("stringArrayPipes")
-        public abstract java.util.List<String> stringArrayPipes();
+        java.util.List<String> stringArrayPipes();
 
         @javax.ws.rs.QueryParam("stringArrayMulti")
-        public abstract java.util.List<String> stringArrayMulti();
+        java.util.List<String> stringArrayMulti();
 
         @javax.ws.rs.QueryParam("stringArrayPipesOfStringArrayCSV")
-        public abstract java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV();
+        java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV();
 
-        public static class Builder extends GetParametersArraysCollectionFormatParamInternalBuilder {}
+        class Builder extends GetParametersArraysCollectionFormatParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -211,58 +211,58 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetParametersScalarsParam {
+    public interface GetParametersScalarsParam {
         @javax.ws.rs.PathParam("pathParam")
-        public abstract String pathParam();
+        String pathParam();
 
         @javax.ws.rs.PathParam("enumPathParam")
-        public abstract String enumPathParam();
+        String enumPathParam();
 
         @javax.ws.rs.QueryParam("queryParamStringOptional")
-        public abstract String queryParamStringOptional();
+        String queryParamStringOptional();
 
         @javax.ws.rs.QueryParam("queryParamStringRequired")
-        public abstract String queryParamStringRequired();
+        String queryParamStringRequired();
 
         @javax.ws.rs.QueryParam("queryParamNumberRequired")
-        public abstract java.math.BigDecimal queryParamNumberRequired();
+        java.math.BigDecimal queryParamNumberRequired();
 
         @javax.ws.rs.QueryParam("queryParamUUIDRequired")
-        public abstract java.util.UUID queryParamUUIDRequired();
+        java.util.UUID queryParamUUIDRequired();
 
         @javax.ws.rs.QueryParam("queryParamFloatOptional")
-        public abstract Float queryParamFloatOptional();
+        Float queryParamFloatOptional();
 
         @javax.ws.rs.QueryParam("queryParamFloatRequired")
-        public abstract Float queryParamFloatRequired();
+        Float queryParamFloatRequired();
 
         @javax.ws.rs.QueryParam("queryParamDoubleOptional")
-        public abstract Double queryParamDoubleOptional();
+        Double queryParamDoubleOptional();
 
         @javax.ws.rs.QueryParam("queryParamDoubleRequired")
-        public abstract Double queryParamDoubleRequired();
+        Double queryParamDoubleRequired();
 
         @javax.ws.rs.QueryParam("queryParamIntOptional")
-        public abstract Integer queryParamIntOptional();
+        Integer queryParamIntOptional();
 
         @javax.ws.rs.QueryParam("queryParamIntRequired")
-        public abstract Integer queryParamIntRequired();
+        Integer queryParamIntRequired();
 
         @javax.ws.rs.QueryParam("queryParamInt64Optional")
-        public abstract Long queryParamInt64Optional();
+        Long queryParamInt64Optional();
 
         @javax.ws.rs.QueryParam("queryParamInt64Required")
-        public abstract Long queryParamInt64Required();
+        Long queryParamInt64Required();
 
         @javax.ws.rs.QueryParam("queryParamBooleanOptional")
-        public abstract Boolean queryParamBooleanOptional();
+        Boolean queryParamBooleanOptional();
 
         @javax.ws.rs.QueryParam("queryParamBooleanRequired")
-        public abstract Boolean queryParamBooleanRequired();
+        Boolean queryParamBooleanRequired();
 
-        public static class Builder extends GetParametersScalarsParamInternalBuilder {}
+        class Builder extends GetParametersScalarsParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -323,44 +323,44 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetParametersValidationParam {
+    public interface GetParametersValidationParam {
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMaximum")
-        public abstract Integer integerParameterWithInclusiveMaximum();
+        Integer integerParameterWithInclusiveMaximum();
 
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMaximum")
-        public abstract Integer integerParameterWithExclusiveMaximum();
+        Integer integerParameterWithExclusiveMaximum();
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMinimum")
-        public abstract Integer integerParameterWithInclusiveMinimum();
+        Integer integerParameterWithInclusiveMinimum();
 
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMinimum")
-        public abstract Integer integerParameterWithExclusiveMinimum();
+        Integer integerParameterWithExclusiveMinimum();
 
         @javax.ws.rs.QueryParam("stringParameterWithMaxLength")
-        public abstract String stringParameterWithMaxLength();
+        String stringParameterWithMaxLength();
 
         @javax.ws.rs.QueryParam("stringParameterWithMinLength")
-        public abstract String stringParameterWithMinLength();
+        String stringParameterWithMinLength();
 
         @javax.ws.rs.QueryParam("stringParameterWithPhoneNumberPattern")
-        public abstract String stringParameterWithPhoneNumberPattern();
+        String stringParameterWithPhoneNumberPattern();
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMaxItems")
-        public abstract java.util.List<String> stringArrayParameterWithMaxItems();
+        java.util.List<String> stringArrayParameterWithMaxItems();
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMinItems")
-        public abstract java.util.List<String> stringArrayParameterWithMinItems();
+        java.util.List<String> stringArrayParameterWithMinItems();
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithUniqueItems")
-        public abstract java.util.List<String> stringArrayParameterWithUniqueItems();
+        java.util.List<String> stringArrayParameterWithUniqueItems();
 
         @javax.ws.rs.QueryParam("integerParameterWithMultipleOf")
-        public abstract Integer integerParameterWithMultipleOf();
+        Integer integerParameterWithMultipleOf();
 
-        public static class Builder extends GetParametersValidationParamInternalBuilder {}
+        class Builder extends GetParametersValidationParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -403,15 +403,14 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class PostFormDataParameterMultipartFormDataParam {
+    public interface PostFormDataParameterMultipartFormDataParam {
 
         @javax.ws.rs.FormParam(value = "fileParam")
         public abstract byte[] fileParam();
 
-        public static class Builder
-            extends PostFormDataParameterMultipartFormDataParamInternalBuilder {}
+        class Builder extends PostFormDataParameterMultipartFormDataParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -442,7 +441,7 @@ public interface ParametersGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class PostFormDataParametersUrlEncodedParam {
+    public interface PostFormDataParametersUrlEncodedParam {
 
         @javax.ws.rs.FormParam(value = "stringParam")
         public abstract String stringParam();
@@ -456,9 +455,9 @@ public interface ParametersGroupApi {
         @javax.ws.rs.FormParam(value = "booleanParam")
         public abstract Boolean booleanParam();
 
-        public static class Builder extends PostFormDataParametersUrlEncodedParamInternalBuilder {}
+        class Builder extends PostFormDataParametersUrlEncodedParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }

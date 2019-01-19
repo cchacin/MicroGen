@@ -32,17 +32,17 @@ public interface ModelsGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetAllModelsParam {
+    public interface GetAllModelsParam {
 
         @javax.ws.rs.QueryParam("client_id")
-        public abstract String clientId();
+        String clientId();
 
         @javax.ws.rs.QueryParam("client_version_id")
-        public abstract String clientVersionId();
+        String clientVersionId();
 
-        public static class Builder extends GetAllModelsParamInternalBuilder {}
+        class Builder extends GetAllModelsParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -73,17 +73,17 @@ public interface ModelsGroupApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetDefaultResponseParam {
+    public interface GetDefaultResponseParam {
 
         @javax.ws.rs.QueryParam("client_id")
-        public abstract String clientId();
+        String clientId();
 
         @javax.ws.rs.QueryParam("client_version_id")
-        public abstract String clientVersionId();
+        String clientVersionId();
 
-        public static class Builder extends GetDefaultResponseParamInternalBuilder {}
+        class Builder extends GetDefaultResponseParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }

@@ -39,17 +39,17 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class DeletePetParam {
+    public interface DeletePetParam {
 
         @javax.ws.rs.HeaderParam("api_key")
-        public abstract String apiKey();
+        String apiKey();
 
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        Long petId();
 
-        public static class Builder extends DeletePetParamInternalBuilder {}
+        class Builder extends DeletePetParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -76,14 +76,14 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class FindPetsByStatusParam {
+    public interface FindPetsByStatusParam {
 
         @javax.ws.rs.QueryParam("status")
-        public abstract java.util.List<String> status();
+        java.util.List<String> status();
 
-        public static class Builder extends FindPetsByStatusParamInternalBuilder {}
+        class Builder extends FindPetsByStatusParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -110,14 +110,14 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class FindPetsByTagsParam {
+    public interface FindPetsByTagsParam {
 
         @javax.ws.rs.QueryParam("tags")
-        public abstract java.util.List<String> tags();
+        java.util.List<String> tags();
 
-        public static class Builder extends FindPetsByTagsParamInternalBuilder {}
+        class Builder extends FindPetsByTagsParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -143,13 +143,13 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetPetByIdParam {
+    public interface GetPetByIdParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        Long petId();
 
-        public static class Builder extends GetPetByIdParamInternalBuilder {}
+        class Builder extends GetPetByIdParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -190,9 +190,9 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class UpdatePetWithFormParam {
+    public interface UpdatePetWithFormParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        Long petId();
 
         @javax.ws.rs.FormParam(value = "name")
         public abstract String name();
@@ -200,9 +200,9 @@ public interface PetApi {
         @javax.ws.rs.FormParam(value = "status")
         public abstract String status();
 
-        public static class Builder extends UpdatePetWithFormParamInternalBuilder {}
+        class Builder extends UpdatePetWithFormParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -231,9 +231,9 @@ public interface PetApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class UploadFileParam {
+    public interface UploadFileParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        Long petId();
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         public abstract String additionalMetadata();
@@ -241,9 +241,9 @@ public interface PetApi {
         @javax.ws.rs.FormParam(value = "file")
         public abstract byte[] file();
 
-        public static class Builder extends UploadFileParamInternalBuilder {}
+        class Builder extends UploadFileParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }

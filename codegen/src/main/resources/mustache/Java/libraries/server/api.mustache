@@ -39,17 +39,17 @@ public interface {{classname}} { {{#operation}}
             overshadowImplementation = true,
             jdkOnly = true
         )
-        public static abstract class {{operationIdCamelCase}}Param {
+        public interface {{operationIdCamelCase}}Param {
         {{#allParams}}
             {{>libraries/server/pathParams}}
             {{>libraries/server/queryParams}}
             {{>libraries/server/headerParams}}
             {{>libraries/server/formParams}}
         {{/allParams}}
-            public static class Builder extends {{operationIdCamelCase}}ParamInternalBuilder {
+            class Builder extends {{operationIdCamelCase}}ParamInternalBuilder {
             }
 
-            public static Builder builder() {
+            static Builder builder() {
                 return new Builder();
             }
         }

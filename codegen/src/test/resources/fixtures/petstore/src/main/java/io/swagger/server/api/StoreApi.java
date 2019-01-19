@@ -26,14 +26,14 @@ public interface StoreApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class DeleteOrderParam {
+    public interface DeleteOrderParam {
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
-        public abstract Long orderId();
+        Long orderId();
 
-        public static class Builder extends DeleteOrderParamInternalBuilder {}
+        class Builder extends DeleteOrderParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
@@ -71,15 +71,15 @@ public interface StoreApi {
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
         jdkOnly = true)
-    public abstract static class GetOrderByIdParam {
+    public interface GetOrderByIdParam {
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
         @javax.validation.constraints.Max(10)
-        public abstract Long orderId();
+        Long orderId();
 
-        public static class Builder extends GetOrderByIdParamInternalBuilder {}
+        class Builder extends GetOrderByIdParamInternalBuilder {}
 
-        public static Builder builder() {
+        static Builder builder() {
             return new Builder();
         }
     }
