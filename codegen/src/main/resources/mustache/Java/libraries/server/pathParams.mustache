@@ -1,5 +1,5 @@
 {{#isPathParam}}
         @javax.ws.rs.PathParam("{{baseName}}")
         {{>libraries/server/beanValidationPathParams}}
-        {{{dataType}}} {{paramName}}();
+        private {{{dataType}}} {{paramName}};
 {{/isPathParam}}

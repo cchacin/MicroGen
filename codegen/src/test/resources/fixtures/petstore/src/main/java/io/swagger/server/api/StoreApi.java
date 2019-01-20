@@ -17,25 +17,10 @@ public interface StoreApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
         @javax.ws.rs.BeanParam DeleteOrderParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public interface DeleteOrderParam {
+    public class DeleteOrderParam {
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
-        Long orderId();
-
-        class Builder extends DeleteOrderParamInternalBuilder {}
-
-        static Builder builder() {
-            return new Builder();
-        }
+        private Long orderId;
     }
 
     /**
@@ -62,26 +47,11 @@ public interface StoreApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getOrderById(
         @javax.ws.rs.BeanParam GetOrderByIdParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public interface GetOrderByIdParam {
+    public class GetOrderByIdParam {
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
         @javax.validation.constraints.Max(10)
-        Long orderId();
-
-        class Builder extends GetOrderByIdParamInternalBuilder {}
-
-        static Builder builder() {
-            return new Builder();
-        }
+        private Long orderId;
     }
 
     /**

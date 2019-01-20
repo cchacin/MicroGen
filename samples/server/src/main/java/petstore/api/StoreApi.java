@@ -14,7 +14,20 @@ public interface StoreApi {
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("store/order/{orderId}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
-        @javax.ws.rs.PathParam("orderId") @javax.validation.constraints.Min(1) Long orderId) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam DeleteOrderParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class DeleteOrderParam {
+                    @javax.ws.rs.PathParam("orderId")
+         @javax.validation.constraints.Min(1)
+        private Long orderId;
+
+            
+            
+            
+        }
+
 
     /**
      * Returns pet inventories by status
@@ -25,7 +38,11 @@ public interface StoreApi {
     @javax.ws.rs.Path("store/inventory")
     @javax.ws.rs.Produces({ "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getInventory(
-        ) throws javax.ws.rs.WebApplicationException; 
+        
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Find purchase order by ID
@@ -37,7 +54,20 @@ public interface StoreApi {
     @javax.ws.rs.Path("store/order/{orderId}")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getOrderById(
-        @javax.ws.rs.PathParam("orderId") @javax.validation.constraints.Min(1) @javax.validation.constraints.Max(10) Long orderId) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam GetOrderByIdParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class GetOrderByIdParam {
+                    @javax.ws.rs.PathParam("orderId")
+         @javax.validation.constraints.Min(1) @javax.validation.constraints.Max(10)
+        private Long orderId;
+
+            
+            
+            
+        }
+
 
     /**
      * Place an order for a pet
@@ -50,5 +80,8 @@ public interface StoreApi {
     @javax.ws.rs.Consumes({ "application/json" })
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
-         @javax.validation.constraints.NotNull @javax.validation.Valid Order body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid Order body
+    ) throws javax.ws.rs.WebApplicationException;
+
 } 

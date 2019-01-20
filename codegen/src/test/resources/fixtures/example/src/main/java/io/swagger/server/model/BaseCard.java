@@ -1,28 +1,26 @@
 package io.swagger.server.model;
 
-/** This is a base card object which uses a &#39;cardType&#39; discriminator. */
-@JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
+/**
+ * This is a base card object which uses a &#39;cardType&#39; discriminator.
+ */
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "cardType",
-        visible = true
-)
-@JsonSubTypes({
-                      @JsonSubTypes.Type(value = PlaceCard.class,
-                                         name = "PlaceCard"),
-                      @JsonSubTypes.Type(value = PersonCard.class,
-                                         name = "PersonCard"),
-              })
+        visible = true)
+@JsonSubTypes({@JsonSubTypes.Type(value = PlaceCard.class,
+        name = "PlaceCard"),
+        @JsonSubTypes.Type(value = PersonCard.class,
+                name = "PersonCard"),})
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        defaultAsDefault = true,
+@org.immutables.value.Value.Style(defaultAsDefault = true,
         typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
-        jdkOnly = true
-)
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        jacksonIntegration = false,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbProperty.class},
+        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class BaseCard {
 

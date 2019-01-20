@@ -1,22 +1,24 @@
 package io.swagger.server.model;
 
-/** This is a model object that contains a property with readOnly&#x3D;true. */
+/**
+ * This is a model object that contains a property with readOnly&#x3D;true.
+ */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        defaultAsDefault = true,
+@org.immutables.value.Value.Style(defaultAsDefault = true,
         typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
-        jdkOnly = true
-)
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        jacksonIntegration = false,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbProperty.class},
+        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class ModelWithReadOnlyPropertyTest {
 
     /**
-     * This is a property without a readOnly attribute, meaning that it takes on the default value of
-     * readOnly=false. It should be included in both response and request.
+     * This is a property without a readOnly attribute, meaning that it takes on the default value
+     * of readOnly=false. It should be included in both response and request.
      *
      * @return stringPropWithImplicitReadOnlyFalse
      */
@@ -32,8 +34,8 @@ public abstract class ModelWithReadOnlyPropertyTest {
     public abstract java.util.Optional<String> getStringPropWithExplicitReadOnlyFalse();
 
     /**
-     * This is a property with readOnly=true, meaning that it should be included in the response, but
-     * not the request.
+     * This is a property with readOnly=true, meaning that it should be included in the response,
+     * but not the request.
      *
      * @return stringPropWithReadOnlyTrue
      */

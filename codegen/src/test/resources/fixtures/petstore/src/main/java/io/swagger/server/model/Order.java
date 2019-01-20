@@ -3,14 +3,14 @@ package io.swagger.server.model;
 /** Order */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true
-)
+    defaultAsDefault = true,
+    typeBuilder = "*InternalBuilder",
+    implementationNestedInBuilder = true,
+    overshadowImplementation = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+    jacksonIntegration = false,
+    passAnnotations = {javax.json.bind.annotation.JsonbProperty.class},
+    jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class Order {
 
@@ -19,7 +19,6 @@ public abstract class Order {
      *
      * @return id
      */
-    
     @javax.json.bind.annotation.JsonbProperty("id")
     public abstract java.util.Optional<Long> getId();
 
@@ -74,9 +73,9 @@ public abstract class Order {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                .findFirst()
+                .orElse(null);
         }
     }
 
@@ -96,8 +95,7 @@ public abstract class Order {
     @javax.json.bind.annotation.JsonbProperty("complete")
     public abstract java.util.Optional<Boolean> isComplete();
 
-    public static class Builder extends OrderInternalBuilder {
-    }
+    public static class Builder extends OrderInternalBuilder {}
 
     public static Builder builder() {
         return new Builder();

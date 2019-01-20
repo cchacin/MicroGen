@@ -5,15 +5,15 @@ package io.swagger.server.model;
  * type&#x3D;&lt;model&gt;.
  */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        defaultAsDefault = true,
+@org.immutables.value.Value.Style(defaultAsDefault = true,
         typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
-        jdkOnly = true
-)
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        jacksonIntegration = false,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbProperty.class},
+        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class ModelWithMapProperties {
 
@@ -49,8 +49,7 @@ public abstract class ModelWithMapProperties {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
-    public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
-    getErrorInfoArrayMap();
+    public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>> getErrorInfoArrayMap();
 
     public static class Builder extends ModelWithMapPropertiesInternalBuilder {
     }

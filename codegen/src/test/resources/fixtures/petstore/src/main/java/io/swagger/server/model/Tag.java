@@ -3,14 +3,14 @@ package io.swagger.server.model;
 /** Tag */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true
-)
+    defaultAsDefault = true,
+    typeBuilder = "*InternalBuilder",
+    implementationNestedInBuilder = true,
+    overshadowImplementation = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+    jacksonIntegration = false,
+    passAnnotations = {javax.json.bind.annotation.JsonbProperty.class},
+    jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class Tag {
 
