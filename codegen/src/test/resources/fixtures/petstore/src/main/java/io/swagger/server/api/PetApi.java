@@ -30,28 +30,13 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
         @javax.ws.rs.BeanParam DeletePetParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class DeletePetParam {
+    public class DeletePetParam {
 
         @javax.ws.rs.HeaderParam("api_key")
-        public abstract String apiKey();
+        private String apiKey;
 
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
-
-        public static class Builder extends DeletePetParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private Long petId;
     }
 
     /**
@@ -67,25 +52,10 @@ public interface PetApi {
         @javax.ws.rs.BeanParam FindPetsByStatusParam params)
         throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class FindPetsByStatusParam {
+    public class FindPetsByStatusParam {
 
         @javax.ws.rs.QueryParam("status")
-        public abstract java.util.List<String> status();
-
-        public static class Builder extends FindPetsByStatusParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private java.util.List<String> status;
     }
 
     /**
@@ -101,25 +71,10 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByTags(
         @javax.ws.rs.BeanParam FindPetsByTagsParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class FindPetsByTagsParam {
+    public class FindPetsByTagsParam {
 
         @javax.ws.rs.QueryParam("tags")
-        public abstract java.util.List<String> tags();
-
-        public static class Builder extends FindPetsByTagsParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private java.util.List<String> tags;
     }
 
     /**
@@ -134,24 +89,9 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getPetById(
         @javax.ws.rs.BeanParam GetPetByIdParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class GetPetByIdParam {
+    public class GetPetByIdParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
-
-        public static class Builder extends GetPetByIdParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private Long petId;
     }
 
     /**
@@ -181,30 +121,15 @@ public interface PetApi {
         @javax.ws.rs.BeanParam UpdatePetWithFormParam params)
         throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class UpdatePetWithFormParam {
+    public class UpdatePetWithFormParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        private Long petId;
 
         @javax.ws.rs.FormParam(value = "name")
-        public abstract String name();
+        private String name;
 
         @javax.ws.rs.FormParam(value = "status")
-        public abstract String status();
-
-        public static class Builder extends UpdatePetWithFormParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private String status;
     }
 
     /**
@@ -222,29 +147,14 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> uploadImage(
         @javax.ws.rs.BeanParam UploadFileParam params) throws javax.ws.rs.WebApplicationException;
 
-    @org.immutables.value.Value.Immutable
-    @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true)
-    public abstract static class UploadFileParam {
+    public class UploadFileParam {
         @javax.ws.rs.PathParam("petId")
-        public abstract Long petId();
+        private Long petId;
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
-        public abstract String additionalMetadata();
+        private String additionalMetadata;
 
         @javax.ws.rs.FormParam(value = "file")
-        public abstract byte[] file();
-
-        public static class Builder extends UploadFileParamInternalBuilder {}
-
-        public static Builder builder() {
-            return new Builder();
-        }
+        private byte[] file;
     }
 }

@@ -14,7 +14,11 @@ public interface PetApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
-         @javax.validation.constraints.NotNull @javax.validation.Valid Pet body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Deletes a pet
@@ -26,7 +30,28 @@ public interface PetApi {
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("pet/{petId}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
-        @javax.ws.rs.HeaderParam("api_key")  String apiKey,@javax.ws.rs.PathParam("petId") Long petId) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam DeletePetParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class DeletePetParam {
+            
+            
+                    @javax.ws.rs.HeaderParam("api_key")
+         
+        
+        private String apiKey;
+
+            
+                    @javax.ws.rs.PathParam("petId")
+        
+        private Long petId;
+
+            
+            
+            
+        }
+
 
     /**
      * Finds Pets by status
@@ -38,7 +63,21 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/findByStatus")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByStatus(
-        @javax.ws.rs.QueryParam("status") java.util.List<String> status) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam FindPetsByStatusParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class FindPetsByStatusParam {
+            
+                    @javax.ws.rs.QueryParam("status")
+        
+        
+        private java.util.List<String> status;
+
+            
+            
+        }
+
 
     /**
      * Finds Pets by tags
@@ -50,7 +89,21 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/findByTags")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByTags(
-        @javax.ws.rs.QueryParam("tags") java.util.List<String> tags) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam FindPetsByTagsParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class FindPetsByTagsParam {
+            
+                    @javax.ws.rs.QueryParam("tags")
+        
+        
+        private java.util.List<String> tags;
+
+            
+            
+        }
+
 
     /**
      * Find pet by ID
@@ -62,7 +115,20 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getPetById(
-        @javax.ws.rs.PathParam("petId") Long petId) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam GetPetByIdParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class GetPetByIdParam {
+                    @javax.ws.rs.PathParam("petId")
+        
+        private Long petId;
+
+            
+            
+            
+        }
+
 
     /**
      * Update an existing pet
@@ -73,7 +139,11 @@ public interface PetApi {
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
-         @javax.validation.constraints.NotNull @javax.validation.Valid Pet body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Updates a pet in the store with form data
@@ -87,5 +157,29 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Consumes({ "application/x-www-form-urlencoded" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePetWithForm(
-        @javax.ws.rs.PathParam("petId") Long petId,@javax.ws.rs.FormParam(value = "name")  String name,@javax.ws.rs.FormParam(value = "status")  String status) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam UpdatePetWithFormParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class UpdatePetWithFormParam {
+                    @javax.ws.rs.PathParam("petId")
+        
+        private Long petId;
+
+            
+            
+            
+            
+            
+            
+                    @javax.ws.rs.FormParam(value = "name") private String name;
+
+
+            
+            
+            
+                    @javax.ws.rs.FormParam(value = "status") private String status;
+
+
+        }
 } 

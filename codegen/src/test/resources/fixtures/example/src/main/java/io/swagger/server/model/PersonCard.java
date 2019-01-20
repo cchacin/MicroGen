@@ -1,16 +1,18 @@
 package io.swagger.server.model;
 
-/** This is an card object for a Person derived from BaseCard. */
+/**
+ * This is an card object for a Person derived from BaseCard.
+ */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        defaultAsDefault = true,
+@org.immutables.value.Value.Style(defaultAsDefault = true,
         typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
         implementationNestedInBuilder = true,
         overshadowImplementation = true,
-        jdkOnly = true
-)
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        jacksonIntegration = false,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbProperty.class},
+        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class PersonCard extends BaseCard {
 

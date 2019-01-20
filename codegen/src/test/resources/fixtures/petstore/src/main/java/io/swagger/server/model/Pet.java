@@ -3,14 +3,14 @@ package io.swagger.server.model;
 /** Pet */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-        builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        jdkOnly = true
-)
+    defaultAsDefault = true,
+    typeBuilder = "*InternalBuilder",
+    implementationNestedInBuilder = true,
+    overshadowImplementation = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+    jacksonIntegration = false,
+    passAnnotations = {javax.json.bind.annotation.JsonbProperty.class},
+    jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class Pet {
 
@@ -84,9 +84,9 @@ public abstract class Pet {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                .findFirst()
+                .orElse(null);
         }
     }
 

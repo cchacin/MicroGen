@@ -15,7 +15,11 @@ public interface UserApi {
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({ "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
-         @javax.validation.constraints.NotNull @javax.validation.Valid User body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid User body
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Creates list of users with given input array
@@ -26,7 +30,11 @@ public interface UserApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithArray")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
-         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Creates list of users with given input array
@@ -37,7 +45,11 @@ public interface UserApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithList")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
-         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body) throws javax.ws.rs.WebApplicationException; 
+        
+         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Delete user
@@ -48,7 +60,20 @@ public interface UserApi {
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("user/{username}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteUser(
-        @javax.ws.rs.PathParam("username") String username) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam DeleteUserParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class DeleteUserParam {
+                    @javax.ws.rs.PathParam("username")
+        
+        private String username;
+
+            
+            
+            
+        }
+
 
     /**
      * Get user by user name
@@ -60,7 +85,20 @@ public interface UserApi {
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getUserByName(
-        @javax.ws.rs.PathParam("username") String username) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam GetUserByNameParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class GetUserByNameParam {
+                    @javax.ws.rs.PathParam("username")
+        
+        private String username;
+
+            
+            
+            
+        }
+
 
     /**
      * Logs user into the system
@@ -73,7 +111,29 @@ public interface UserApi {
     @javax.ws.rs.Path("user/login")
     @javax.ws.rs.Produces({ "application/xml", "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> loginUser(
-        @javax.ws.rs.QueryParam("username") String username,@javax.ws.rs.QueryParam("password") String password) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam LoginUserParam params
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class LoginUserParam {
+            
+                    @javax.ws.rs.QueryParam("username")
+        
+        
+        private String username;
+
+            
+            
+            
+                    @javax.ws.rs.QueryParam("password")
+        
+        
+        private String password;
+
+            
+            
+        }
+
 
     /**
      * Logs out current logged in user session
@@ -83,7 +143,11 @@ public interface UserApi {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/logout")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser(
-        ) throws javax.ws.rs.WebApplicationException; 
+        
+        
+    ) throws javax.ws.rs.WebApplicationException;
+
+
 
     /**
      * Updated user
@@ -96,5 +160,17 @@ public interface UserApi {
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Consumes({ "application/json" })
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateUser(
-        @javax.ws.rs.PathParam("username") String username, @javax.validation.constraints.NotNull @javax.validation.Valid User body) throws javax.ws.rs.WebApplicationException; 
+        @javax.ws.rs.BeanParam UpdateUserParam params,
+         @javax.validation.constraints.NotNull @javax.validation.Valid User body
+    ) throws javax.ws.rs.WebApplicationException;
+
+        public class UpdateUserParam {
+                    @javax.ws.rs.PathParam("username")
+        
+        private String username;
+
+            
+            
+            
+        }
 } 

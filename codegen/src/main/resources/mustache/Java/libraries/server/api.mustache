@@ -29,29 +29,13 @@ public interface {{classname}} { {{#operation}}
     ) throws javax.ws.rs.WebApplicationException;
 
         {{#hasParams}}
-        @org.immutables.value.Value.Immutable
-        @org.immutables.value.Value.Style(
-            defaultAsDefault = true,
-            typeBuilder = "*InternalBuilder",
-            visibility = org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE,
-            builderVisibility = org.immutables.value.Value.Style.BuilderVisibility.PACKAGE,
-            implementationNestedInBuilder = true,
-            overshadowImplementation = true,
-            jdkOnly = true
-        )
-        public static abstract class {{operationIdCamelCase}}Param {
+        public class {{operationIdCamelCase}}Param {
         {{#allParams}}
             {{>libraries/server/pathParams}}
             {{>libraries/server/queryParams}}
             {{>libraries/server/headerParams}}
             {{>libraries/server/formParams}}
         {{/allParams}}
-            public static class Builder extends {{operationIdCamelCase}}ParamInternalBuilder {
-            }
-
-            public static Builder builder() {
-                return new Builder();
-            }
         }
         {{/hasParams}}
 {{/operation}}
