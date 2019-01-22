@@ -11,10 +11,10 @@ public interface ModelsGroupApi {
      * Return all of the defined models. This operation returns an AllModels object, which contains
      * all of the defined models.
      *
-     * @param clientId        Unique string which defines the platform and version. Defined in
+     * @param clientId        Unique string which defines the platform and version. Defined in schema-level
+     *                        parameters section. (required)
+     * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *                        schema-level parameters section. (required)
-     * @param clientVersionId Human readable major.minor string which defines the version. Defined
-     *                        in schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -26,21 +26,22 @@ public interface ModelsGroupApi {
     public class GetAllModelsParam {
 
         @javax.ws.rs.QueryParam("client_id")
+        @javax.validation.constraints.NotNull
         private String clientId;
 
         @javax.ws.rs.QueryParam("client_version_id")
+        @javax.validation.constraints.NotNull
         private String clientVersionId;
     }
 
     /**
      * This operation has a default response. This operation has a default response, and we test if
-     * the default response is returned if an HTTP status code that is not specified is
-     * encountered.
+     * the default response is returned if an HTTP status code that is not specified is encountered.
      *
-     * @param clientId        Unique string which defines the platform and version. Defined in
+     * @param clientId        Unique string which defines the platform and version. Defined in schema-level
+     *                        parameters section. (required)
+     * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *                        schema-level parameters section. (required)
-     * @param clientVersionId Human readable major.minor string which defines the version. Defined
-     *                        in schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -53,16 +54,18 @@ public interface ModelsGroupApi {
     public class GetDefaultResponseParam {
 
         @javax.ws.rs.QueryParam("client_id")
+        @javax.validation.constraints.NotNull
         private String clientId;
 
         @javax.ws.rs.QueryParam("client_version_id")
+        @javax.validation.constraints.NotNull
         private String clientVersionId;
     }
 
     /**
-     * Summary: This is an endpoint which tests readOnly properties. Description: This is an
-     * endpoint which tests posting and receiving a model object which has readOnly properties. The
-     * readOnly properties should be included in the response but not the request.
+     * Summary: This is an endpoint which tests readOnly properties. Description: This is an endpoint
+     * which tests posting and receiving a model object which has readOnly properties. The readOnly
+     * properties should be included in the response but not the request.
      *
      * @param body This is json-serialized property in the body. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -73,5 +76,6 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> putModelsReadOnly(
             @javax.validation.constraints.NotNull @javax.validation.Valid
-                    ModelWithReadOnlyPropertyTest body) throws javax.ws.rs.WebApplicationException;
+                    ModelWithReadOnlyPropertyTest body)
+            throws javax.ws.rs.WebApplicationException;
 }
