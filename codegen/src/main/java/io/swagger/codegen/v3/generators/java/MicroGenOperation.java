@@ -1,18 +1,16 @@
 package io.swagger.codegen.v3.generators.java;
 
+import io.swagger.codegen.v3.CodegenOperation;
+import io.swagger.codegen.v3.CodegenParameter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import io.swagger.codegen.v3.CodegenOperation;
-import io.swagger.codegen.v3.CodegenParameter;
 
 import static java.util.stream.Collectors.toList;
 
 class MicroGenOperation extends CodegenOperation {
     
-    private final boolean hasParams;
-
     MicroGenOperation(final CodegenOperation codegenOperation) {
         super();
         this.path = codegenOperation.path;
@@ -57,7 +55,6 @@ class MicroGenOperation extends CodegenOperation {
         this.allParams.addAll(codegenOperation.pathParams);
         this.allParams.addAll(codegenOperation.formParams);
         this.allParams = addHasMore(this.allParams);
-        this.hasParams = this.allParams.size() > 0;
     }
 
     private static List<CodegenParameter> filterOutMatching(final List<CodegenParameter> parameters,
@@ -81,6 +78,6 @@ class MicroGenOperation extends CodegenOperation {
     }
 
     public boolean isHasParams() {
-        return this.hasParams;
+        return this.allParams.size() > 0;
     }
 }

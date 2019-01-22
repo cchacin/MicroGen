@@ -32,6 +32,7 @@ class MicroGenProperty extends CodegenProperty {
         this.maximum = codegenProperty.maximum;
         this.exclusiveMinimum = codegenProperty.exclusiveMinimum;
         this.exclusiveMaximum = codegenProperty.exclusiveMaximum;
+        this.pattern = codegenProperty.pattern;
         this.required = codegenProperty.required;
         this.secondaryParam = codegenProperty.secondaryParam;
         this._enum = codegenProperty._enum;

@@ -25,16 +25,16 @@ public interface {{classname}} { {{#operation}}
     @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/vendorExtensions.x-has-produces}}
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
         {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Param params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
-        {{#bodyParams}}{{>libraries/server/bodyParams}}{{/bodyParams}}
+        {{#bodyParams}}{{>bodyParams}}{{/bodyParams}}
     ) throws javax.ws.rs.WebApplicationException;
 
         {{#hasParams}}
         public class {{operationIdCamelCase}}Param {
         {{#allParams}}
-            {{>libraries/server/pathParams}}
-            {{>libraries/server/queryParams}}
-            {{>libraries/server/headerParams}}
-            {{>libraries/server/formParams}}
+            {{>pathParams}}
+            {{>queryParams}}
+            {{>headerParams}}
+            {{>formParams}}
         {{/allParams}}
         }
         {{/hasParams}}
