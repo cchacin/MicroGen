@@ -5,16 +5,14 @@
 :sectnums!:
 :sectanchors:
 :nofooter:
-
+:toc-placement!:
+:toc: left
 :idprefix:
 :idseparator: -
-
-:toc-placement!:
 
 ifndef::env-github[]
 :toclevels: 5
 :icons: font
-:toc: left
 endif::[]
 
 ifdef::env-github[]
