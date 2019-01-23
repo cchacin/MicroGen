@@ -6,7 +6,7 @@
 :sectnums!:
 :sectanchors:
 :nofooter:
-:toc: left
+ifndef::env-github[:toc: left]
 
 :idprefix:
 :idseparator: -
@@ -40,6 +40,9 @@ http://www.apache.org/licenses/LICENSE-2.0[image:https://img.shields.io/:license
 https://coveralls.io/github/cchacin/MicroGen[image:https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]]
 https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen[image:https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven
 Central]]
+
+:toc:
+
 endif::[]
 
 = μGen
