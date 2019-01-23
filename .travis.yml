@@ -1,14 +1,31 @@
-sudo: false
 language: java
+sudo: false
+git:
+  quiet: true
+  depth: 10
 jdk:
   - openjdk8
 before_script:
-  - echo "before_script"
+  - sudo apt-get update
+  - sudo apt-get install -y pandoc
+  - gem install asciidoctor
 cache:
   directories:
-  - $HOME/.m2
+    - $HOME/.m2
 install: true
 script:
   - ./mvnw install
 after_success:
-  - mvn install coveralls:report
+  - ./mvnw coveralls:report
+  - ./mvnw compile -Pdocs
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master
+env:
+  global:
+    secure: AIFP4h8i0lUIGZNwz4x7jBoGSXY21uChF5fWmfAykd3MF6NvgTOyeRR7ZhMqhhKQiV2pNVvW9q4ON1R3Nixb0ZlAMg4geg9QQMjJ2NSRxAJ04DYzHYiJWT/7Fg8I/BopeabykintuOFP1FuiyCqxfx0UFCZYUMgmcDgAEGtBQrowAvaz0NZxmrdtwUT5kcMfRS8I2NHQKf6fVxy+02SVWUreWp6X/f/AIkKVj9mreG32O7j6bp94uNDFgoVUxK89cmbTaQS1gm4LV7UkxJzDyt8RVLlaBTBYt1/6hrs9BqmVBbHqMy1CFBbXMKp9K2j3/RmPPLRr4t/4vdL/FioZGh2rNbdV+w6kLN0VhnyhGtEEMl1fq6E6VHdI92MEmMtAJTucXx8s9j2ud8qerFMMf0UqrB1Y3bdo1z6G+Mc+T3NXwV1XvekIS6Q+FIvGoLEBu6XpsPdbBfySvyeHm1ytyaiSH+l0cU6R7TWyy6E7fDTvw56TxicI7F8f4tTSYkXCXbGQz0TQ+OzCoYfYI0k5E3OUdYT/67Cr6+G+D8xVZT3GwXFWJrqK65tCm4lWjmkKhZj8AA3biB0weUfVWbEXmFndEZ4FLqva6D9DAwZ2jlvE9fkkgJKEI7+eHIQW83kb9PcQ8ne/CsvaMERJJ5X1y5SCo8KgigrlJpLNQCCuKw8=
