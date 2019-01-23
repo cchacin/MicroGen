@@ -34,7 +34,7 @@ endif::[]
 :uri-rel-file-base: {uri-repo}/blob/master
 :uri-rel-tree-base: {uri-repo}/tree/master
 
-ifndef::env-github[]
+ifdef::env-github[]
 image::https://travis-ci.org/cchacin/MicroGen.svg?branch=master[Build Status]
 image::https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]
 image::https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven Central]
