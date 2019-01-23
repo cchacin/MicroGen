@@ -1,16 +1,22 @@
 :source-highlighter: coderay
-:toclevels: 5
 :encoding: utf-8
 :lang: en
 :sectlinks:
 :sectnums!:
 :sectanchors:
 :nofooter:
-ifndef::env-github[:toc: left]
 
 :idprefix:
 :idseparator: -
-ifndef::env-github[:icons: font]
+
+:toc-placement!:
+
+ifndef::env-github[]
+:toclevels: 5
+:icons: font
+:toc: left
+endif::[]
+
 ifdef::env-github[]
 :status:
 :caution-caption: :fire:
@@ -40,9 +46,6 @@ http://www.apache.org/licenses/LICENSE-2.0[image:https://img.shields.io/:license
 https://coveralls.io/github/cchacin/MicroGen[image:https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]]
 https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen[image:https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven
 Central]]
-
-:toc:
-
 endif::[]
 
 = μGen
@@ -50,6 +53,8 @@ endif::[]
 > MicroGen => /ˈmaɪ.kɹoʊdʒən/
 
 An OpenAPI Spec Generator for Eclipse MicroProfile
+
+toc::[]
 
 == Overview
 
