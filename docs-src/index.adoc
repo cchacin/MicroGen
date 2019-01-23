@@ -34,7 +34,7 @@ endif::[]
 :uri-rel-file-base: {uri-repo}/blob/master
 :uri-rel-tree-base: {uri-repo}/tree/master
 
-ifndef::env-github[]
+ifdef::env-github[]
 https://travis-ci.org/cchacin/MicroGen[image:https://travis-ci.org/cchacin/MicroGen.svg?branch=master[Build Status]]
 http://www.apache.org/licenses/LICENSE-2.0[image:https://img.shields.io/:license-Apache2-blue.svg[License]]
 https://coveralls.io/github/cchacin/MicroGen[image:https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]]
