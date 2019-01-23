@@ -34,28 +34,6 @@ public interface Util {
         return returnSet;
     }
 
-    static String getMicroGenExtension(final Map<String, Object> vendorExtensions,
-                                          final String name,
-                                          final String defaultValue) {
-        return getCustomStringProperty(vendorExtensions,
-                                       "x-microgen",
-                                       name,
-                                       defaultValue);
-    }
-
-    static String getCustomStringProperty(final Map<String, Object> vendorExtensions,
-                                          final String extension,
-                                          final String name,
-                                          final String defaultValue) {
-        return Optional.ofNullable(vendorExtensions)
-                       .map(v -> v.get(extension))
-                       .filter(Map.class::isInstance)
-                       .map(v -> (Map<String, Object>) v)
-                       .map(v -> v.get(name))
-                       .map(Object::toString)
-                       .orElse(defaultValue);
-    }
-
     static boolean isMultipartType(final List<Map<String, String>> consumes) {
 
         return Optional.ofNullable(consumes.get(0))

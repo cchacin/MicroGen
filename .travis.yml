@@ -9,4 +9,6 @@ cache:
   - $HOME/.m2
 install: true
 script:
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - ./mvnw install
+after_success:
+  - mvn install coveralls:report

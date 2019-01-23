@@ -1,4 +1,46 @@
-# μGen 
+:source-highlighter: coderay
+:toclevels: 5
+:encoding: utf-8
+:lang: en
+:sectlinks:
+:sectnums!:
+:sectanchors:
+:nofooter:
+:toc: left
+
+:idprefix:
+:idseparator: -
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+:github-domain: github.com
+:org: cchacin
+:repo: MicroGen
+
+:uri-grpn-github: https://{github-domain}
+:uri-grpn-github-pages: https://pages.{github-domain}/{org}/{repo}
+:uri-org: {uri-grpn-github}/{org}
+:uri-repo: {uri-org}/{repo}
+:uri-docs: {uri-grpn-github-pages}/index.html
+:uri-issues: {uri-repo}/issues
+
+:uri-rel-file-base: {uri-repo}/blob/master
+:uri-rel-tree-base: {uri-repo}/tree/master
+
+ifdef::env-github[]
+image::https://travis-ci.org/cchacin/MicroGen.svg?branch=master[Build Status]
+image::https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]
+image::https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven Central]
+endif::[]
+
+# μGen
 
 > MicroGen => /ˈmaɪ.kɹoʊdʒən/
 

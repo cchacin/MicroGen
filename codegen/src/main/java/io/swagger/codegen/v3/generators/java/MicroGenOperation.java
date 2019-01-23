@@ -3,11 +3,7 @@ package io.swagger.codegen.v3.generators.java;
 import io.swagger.codegen.v3.CodegenOperation;
 import io.swagger.codegen.v3.CodegenParameter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import static java.util.stream.Collectors.toList;
 
 class MicroGenOperation extends CodegenOperation {
     
@@ -55,15 +51,6 @@ class MicroGenOperation extends CodegenOperation {
         this.allParams.addAll(codegenOperation.pathParams);
         this.allParams.addAll(codegenOperation.formParams);
         this.allParams = addHasMore(this.allParams);
-    }
-
-    private static List<CodegenParameter> filterOutMatching(final List<CodegenParameter> parameters,
-        final Set<String> exclusions) {
-        if (!(exclusions == null || exclusions.isEmpty())) {
-            return parameters.stream().filter(cp -> !exclusions.contains(cp.baseName))
-                .collect(toList());
-        }
-        return new ArrayList<>(parameters);
     }
 
     private List<CodegenParameter> addHasMore(final List<CodegenParameter> parameters) {
