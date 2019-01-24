@@ -1,0 +1,4 @@
+exclude:
+  - development
+  - qa
+  - feature-*

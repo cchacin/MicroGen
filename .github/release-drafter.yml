@@ -10,6 +10,10 @@ categories:
     label: fix
   - title: 🧰 Maintenance
     label: chore
+  - title: 📖 Documentation
+    label: docs
+  - title: 📦 Dependency updates
+    label: dependencies
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## Changelog
