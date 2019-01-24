@@ -44,7 +44,7 @@ http://www.apache.org/licenses/LICENSE-2.0[image:https://img.shields.io/:license
 https://coveralls.io/github/cchacin/MicroGen[image:https://coveralls.io/repos/github/cchacin/MicroGen/badge.svg?branch=master[Coverage Status]]
 https://codebeat.co/projects/github-com-cchacin-microgen-master[image:https://codebeat.co/badges/cdf9706d-73ac-45f3-8641-a68814ab2af0[codebeat
 badge]]
-https://depshield.github.io[image:https://depshield.sonatype.org/badges/owner/repository/depshield.svg[DepShield
+https://depshield.github.io[image:https://depshield.sonatype.org/badges/cchacin/MicroGen/depshield.svg[DepShield
 Badge]]
 https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen[image:https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven
 Central]]
