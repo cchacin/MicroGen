@@ -46,7 +46,7 @@ https://codebeat.co/projects/github-com-cchacin-microgen-master[image:https://co
 badge]]
 https://depshield.github.io[image:https://depshield.sonatype.org/badges/cchacin/MicroGen/depshield.svg[DepShield
 Badge]]
-https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen[image:https://maven-badges.herokuapp.com/maven-central/com.github.cchacin/MicroGen/badge.svg[Maven
+https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen[image:https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen/badge.svg[Maven
 Central]]
 endif::[]
 
