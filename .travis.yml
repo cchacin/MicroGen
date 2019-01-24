@@ -14,10 +14,10 @@ cache:
     - $HOME/.m2
 install: true
 script:
-  - ./mvnw install
+  - ./mvnw install -s settings.xml
 after_success:
-  - ./mvnw coveralls:report
-  - ./mvnw compile -Pdocs
+  - ./mvnw coveralls:report -s settings.xml
+  - ./mvnw compile -Pdocs -s settings.xml
 deploy:
   provider: pages
   skip-cleanup: true
