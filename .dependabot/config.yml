@@ -2,7 +2,7 @@ version: 1
 update_configs:
   - package_manager: "java:maven"
     directory: "/"
-    update_schedule: "live"
+    update_schedule: "daily"
     default_reviewers:
       - "cchacin"
     default_labels:
@@ -15,4 +15,4 @@ update_configs:
           update_type: "all"
       - match:
           dependency_type: "production"
-          update_type: "security:patch"
+          update_type: "all"
