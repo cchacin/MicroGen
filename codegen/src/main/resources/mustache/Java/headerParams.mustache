@@ -2,5 +2,5 @@
         @javax.ws.rs.HeaderParam("{{baseName}}")
         {{>beanValidationHeaderParams}}
         {{#defaultValue}} @javax.ws.rs.DefaultValue("{{{defaultValue}}}"){{/defaultValue}}
-        private {{{dataType}}} {{paramName}};
+        public {{{dataType}}} {{paramName}};
 {{/isHeaderParam}}

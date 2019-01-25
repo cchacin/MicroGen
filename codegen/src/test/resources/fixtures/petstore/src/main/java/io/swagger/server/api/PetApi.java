@@ -33,10 +33,10 @@ public interface PetApi {
     public class DeletePetParam {
 
         @javax.ws.rs.HeaderParam("api_key")
-        private String apiKey;
+        public String apiKey;
 
         @javax.ws.rs.PathParam("petId")
-        private Long petId;
+        public Long petId;
     }
 
     /**
@@ -56,7 +56,7 @@ public interface PetApi {
 
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
-        private java.util.List<String> status;
+        public java.util.List<String> status;
     }
 
     /**
@@ -76,7 +76,7 @@ public interface PetApi {
 
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
-        private java.util.List<String> tags;
+        public java.util.List<String> tags;
     }
 
     /**
@@ -93,7 +93,7 @@ public interface PetApi {
 
     public class GetPetByIdParam {
         @javax.ws.rs.PathParam("petId")
-        private Long petId;
+        public Long petId;
     }
 
     /**
@@ -125,7 +125,7 @@ public interface PetApi {
 
     public class UpdatePetWithFormParam {
         @javax.ws.rs.PathParam("petId")
-        private Long petId;
+        public Long petId;
 
         @javax.ws.rs.FormParam(value = "name")
         private String name;
@@ -151,7 +151,7 @@ public interface PetApi {
 
     public class UploadFileParam {
         @javax.ws.rs.PathParam("petId")
-        private Long petId;
+        public Long petId;
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         private String additionalMetadata;

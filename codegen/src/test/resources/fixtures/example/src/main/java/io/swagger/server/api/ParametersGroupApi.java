@@ -46,46 +46,46 @@ public interface ParametersGroupApi {
     public class GetParametersArraysParam {
 
         @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
-        private java.util.List<String> queryParamStringArrayOptional;
+        public java.util.List<String> queryParamStringArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<String> queryParamStringArrayRequired;
+        public java.util.List<String> queryParamStringArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
-        private java.util.List<Integer> queryParamIntArrayOptional;
+        public java.util.List<Integer> queryParamIntArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<Integer> queryParamIntArrayRequired;
+        public java.util.List<Integer> queryParamIntArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
-        private java.util.List<Long> queryParamInt64ArrayOptional;
+        public java.util.List<Long> queryParamInt64ArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<Long> queryParamInt64ArrayRequired;
+        public java.util.List<Long> queryParamInt64ArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
-        private java.util.List<Float> queryParamFloatArrayOptional;
+        public java.util.List<Float> queryParamFloatArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<Float> queryParamFloatArrayRequired;
+        public java.util.List<Float> queryParamFloatArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
-        private java.util.List<Double> queryParamDoubleArrayOptional;
+        public java.util.List<Double> queryParamDoubleArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<Double> queryParamDoubleArrayRequired;
+        public java.util.List<Double> queryParamDoubleArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
-        private java.util.List<Boolean> queryParamBooleanArrayOptional;
+        public java.util.List<Boolean> queryParamBooleanArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
         @javax.validation.constraints.NotNull
-        private java.util.List<Boolean> queryParamBooleanArrayRequired;
+        public java.util.List<Boolean> queryParamBooleanArrayRequired;
     }
 
     /**
@@ -118,22 +118,22 @@ public interface ParametersGroupApi {
     public class GetParametersArraysCollectionFormatParam {
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
-        private java.util.List<String> stringArrayCSV;
+        public java.util.List<String> stringArrayCSV;
 
         @javax.ws.rs.QueryParam("stringArraySSV")
-        private java.util.List<String> stringArraySSV;
+        public java.util.List<String> stringArraySSV;
 
         @javax.ws.rs.QueryParam("stringArrayTSV")
-        private java.util.List<String> stringArrayTSV;
+        public java.util.List<String> stringArrayTSV;
 
         @javax.ws.rs.QueryParam("stringArrayPipes")
-        private java.util.List<String> stringArrayPipes;
+        public java.util.List<String> stringArrayPipes;
 
         @javax.ws.rs.QueryParam("stringArrayMulti")
-        private java.util.List<String> stringArrayMulti;
+        public java.util.List<String> stringArrayMulti;
 
         @javax.ws.rs.QueryParam("stringArrayPipesOfStringArrayCSV")
-        private java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV;
+        public java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV;
     }
 
     /**
@@ -180,60 +180,60 @@ public interface ParametersGroupApi {
 
     public class GetParametersScalarsParam {
         @javax.ws.rs.PathParam("pathParam")
-        private String pathParam;
+        public String pathParam;
 
         @javax.ws.rs.PathParam("enumPathParam")
-        private String enumPathParam;
+        public String enumPathParam;
 
         @javax.ws.rs.QueryParam("queryParamStringOptional")
-        private String queryParamStringOptional;
+        public String queryParamStringOptional;
 
         @javax.ws.rs.QueryParam("queryParamStringRequired")
         @javax.validation.constraints.NotNull
-        private String queryParamStringRequired;
+        public String queryParamStringRequired;
 
         @javax.ws.rs.QueryParam("queryParamNumberRequired")
         @javax.validation.constraints.NotNull
-        private java.math.BigDecimal queryParamNumberRequired;
+        public java.math.BigDecimal queryParamNumberRequired;
 
         @javax.ws.rs.QueryParam("queryParamUUIDRequired")
         @javax.validation.constraints.NotNull
-        private java.util.UUID queryParamUUIDRequired;
+        public java.util.UUID queryParamUUIDRequired;
 
         @javax.ws.rs.QueryParam("queryParamFloatOptional")
-        private Float queryParamFloatOptional;
+        public Float queryParamFloatOptional;
 
         @javax.ws.rs.QueryParam("queryParamFloatRequired")
         @javax.validation.constraints.NotNull
-        private Float queryParamFloatRequired;
+        public Float queryParamFloatRequired;
 
         @javax.ws.rs.QueryParam("queryParamDoubleOptional")
-        private Double queryParamDoubleOptional;
+        public Double queryParamDoubleOptional;
 
         @javax.ws.rs.QueryParam("queryParamDoubleRequired")
         @javax.validation.constraints.NotNull
-        private Double queryParamDoubleRequired;
+        public Double queryParamDoubleRequired;
 
         @javax.ws.rs.QueryParam("queryParamIntOptional")
-        private Integer queryParamIntOptional;
+        public Integer queryParamIntOptional;
 
         @javax.ws.rs.QueryParam("queryParamIntRequired")
         @javax.validation.constraints.NotNull
-        private Integer queryParamIntRequired;
+        public Integer queryParamIntRequired;
 
         @javax.ws.rs.QueryParam("queryParamInt64Optional")
-        private Long queryParamInt64Optional;
+        public Long queryParamInt64Optional;
 
         @javax.ws.rs.QueryParam("queryParamInt64Required")
         @javax.validation.constraints.NotNull
-        private Long queryParamInt64Required;
+        public Long queryParamInt64Required;
 
         @javax.ws.rs.QueryParam("queryParamBooleanOptional")
-        private Boolean queryParamBooleanOptional;
+        public Boolean queryParamBooleanOptional;
 
         @javax.ws.rs.QueryParam("queryParamBooleanRequired")
         @javax.validation.constraints.NotNull
-        private Boolean queryParamBooleanRequired;
+        public Boolean queryParamBooleanRequired;
     }
 
     /**
@@ -287,45 +287,45 @@ public interface ParametersGroupApi {
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMaximum")
         @javax.validation.constraints.Max(10)
-        private Integer integerParameterWithInclusiveMaximum;
+        public Integer integerParameterWithInclusiveMaximum;
 
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMaximum")
         @javax.validation.constraints.Max(10)
-        private Integer integerParameterWithExclusiveMaximum;
+        public Integer integerParameterWithExclusiveMaximum;
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMinimum")
         @javax.validation.constraints.Min(10)
-        private Integer integerParameterWithInclusiveMinimum;
+        public Integer integerParameterWithInclusiveMinimum;
 
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMinimum")
         @javax.validation.constraints.Min(10)
-        private Integer integerParameterWithExclusiveMinimum;
+        public Integer integerParameterWithExclusiveMinimum;
 
         @javax.ws.rs.QueryParam("stringParameterWithMaxLength")
         @javax.validation.constraints.Size(max = 10)
-        private String stringParameterWithMaxLength;
+        public String stringParameterWithMaxLength;
 
         @javax.ws.rs.QueryParam("stringParameterWithMinLength")
         @javax.validation.constraints.Size(min = 10)
-        private String stringParameterWithMinLength;
+        public String stringParameterWithMinLength;
 
         @javax.ws.rs.QueryParam("stringParameterWithPhoneNumberPattern")
         @javax.validation.constraints.Pattern(regexp = "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$")
-        private String stringParameterWithPhoneNumberPattern;
+        public String stringParameterWithPhoneNumberPattern;
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMaxItems")
         @javax.validation.constraints.Size(max = 3)
-        private java.util.List<String> stringArrayParameterWithMaxItems;
+        public java.util.List<String> stringArrayParameterWithMaxItems;
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMinItems")
         @javax.validation.constraints.Size(min = 3)
-        private java.util.List<String> stringArrayParameterWithMinItems;
+        public java.util.List<String> stringArrayParameterWithMinItems;
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithUniqueItems")
-        private java.util.List<String> stringArrayParameterWithUniqueItems;
+        public java.util.List<String> stringArrayParameterWithUniqueItems;
 
         @javax.ws.rs.QueryParam("integerParameterWithMultipleOf")
-        private Integer integerParameterWithMultipleOf;
+        public Integer integerParameterWithMultipleOf;
     }
 
     /**
