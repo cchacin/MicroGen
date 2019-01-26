@@ -8,23 +8,26 @@ package petstore.models;
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
         defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
-        passAnnotations = { javax.json.bind.annotation.JsonbProperty.class},
+        of = "new",
+        allParameters = true,
+        passAnnotations = {javax.json.bind.annotation.JsonbProperty.class, javax.json.bind.annotation.JsonbCreator.class},
         jdkOnly = true
 )
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class Pet {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public Pet() {
+    }
 
     /**
      * Get id
      *
      * @return id
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("id")
     public abstract java.util.Optional<Long> getId();
 
@@ -56,7 +59,7 @@ public abstract class Pet {
     @javax.validation.constraints.NotNull
 
     @javax.json.bind.annotation.JsonbProperty("photoUrls")
-    public abstract java.util.List<String> getPhotoUrls();
+    public abstract java.util.LinkedList<String> getPhotoUrls();
 
     /**
      * Get tags
@@ -66,17 +69,17 @@ public abstract class Pet {
     @javax.validation.Valid
 
     @javax.json.bind.annotation.JsonbProperty("tags")
-    public abstract java.util.Optional<java.util.List<Tag>> getTags();
+    public abstract java.util.Optional<java.util.LinkedList<Tag>> getTags();
 
     /**
      * pet status in the store
      */
     public enum StatusEnum {
-    AVAILABLE("available"),
-    
-    PENDING("pending"),
-    
-    SOLD("sold");
+        AVAILABLE("available"),
+
+        PENDING("pending"),
+
+        SOLD("sold");
 
         private final String value;
 
@@ -96,10 +99,10 @@ public abstract class Pet {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                          .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                          .findFirst()
-                          .orElse(null);
-            }
+                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                    .findFirst()
+                    .orElse(null);
+        }
     }
 
     /**
@@ -107,16 +110,9 @@ public abstract class Pet {
      *
      * @return status
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("status")
     public abstract java.util.Optional<StatusEnum> getStatus();
 
-
-    public static class Builder extends PetInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
 }
 

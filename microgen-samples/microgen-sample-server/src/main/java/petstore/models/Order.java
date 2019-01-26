@@ -8,23 +8,26 @@ package petstore.models;
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
         defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
-        passAnnotations = { javax.json.bind.annotation.JsonbProperty.class},
+        of = "new",
+        allParameters = true,
+        passAnnotations = {javax.json.bind.annotation.JsonbProperty.class, javax.json.bind.annotation.JsonbCreator.class},
         jdkOnly = true
 )
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class Order {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public Order() {
+    }
 
     /**
      * Get id
      *
      * @return id
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("id")
     public abstract java.util.Optional<Long> getId();
 
@@ -33,7 +36,7 @@ public abstract class Order {
      *
      * @return petId
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("petId")
     public abstract java.util.Optional<Long> getPetId();
 
@@ -42,7 +45,7 @@ public abstract class Order {
      *
      * @return quantity
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("quantity")
     public abstract java.util.Optional<Integer> getQuantity();
 
@@ -60,11 +63,11 @@ public abstract class Order {
      * Order Status
      */
     public enum StatusEnum {
-    PLACED("placed"),
-    
-    APPROVED("approved"),
-    
-    DELIVERED("delivered");
+        PLACED("placed"),
+
+        APPROVED("approved"),
+
+        DELIVERED("delivered");
 
         private final String value;
 
@@ -84,10 +87,10 @@ public abstract class Order {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                          .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                          .findFirst()
-                          .orElse(null);
-            }
+                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                    .findFirst()
+                    .orElse(null);
+        }
     }
 
     /**
@@ -95,7 +98,7 @@ public abstract class Order {
      *
      * @return status
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("status")
     public abstract java.util.Optional<StatusEnum> getStatus();
 
@@ -104,16 +107,9 @@ public abstract class Order {
      *
      * @return complete
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("complete")
     public abstract java.util.Optional<Boolean> isComplete();
 
-
-    public static class Builder extends OrderInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
 }
 

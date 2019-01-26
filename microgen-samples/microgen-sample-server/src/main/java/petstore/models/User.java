@@ -8,23 +8,26 @@ package petstore.models;
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
         defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
-        passAnnotations = { javax.json.bind.annotation.JsonbProperty.class},
+        of = "new",
+        allParameters = true,
+        passAnnotations = {javax.json.bind.annotation.JsonbProperty.class, javax.json.bind.annotation.JsonbCreator.class},
         jdkOnly = true
 )
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class User {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public User() {
+    }
 
     /**
      * Get id
      *
      * @return id
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("id")
     public abstract java.util.Optional<Long> getId();
 
@@ -33,7 +36,7 @@ public abstract class User {
      *
      * @return username
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("username")
     public abstract java.util.Optional<String> getUsername();
 
@@ -42,7 +45,7 @@ public abstract class User {
      *
      * @return firstName
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("firstName")
     public abstract java.util.Optional<String> getFirstName();
 
@@ -51,7 +54,7 @@ public abstract class User {
      *
      * @return lastName
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("lastName")
     public abstract java.util.Optional<String> getLastName();
 
@@ -60,7 +63,7 @@ public abstract class User {
      *
      * @return email
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("email")
     public abstract java.util.Optional<String> getEmail();
 
@@ -69,7 +72,7 @@ public abstract class User {
      *
      * @return password
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("password")
     public abstract java.util.Optional<String> getPassword();
 
@@ -78,7 +81,7 @@ public abstract class User {
      *
      * @return phone
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("phone")
     public abstract java.util.Optional<String> getPhone();
 
@@ -87,16 +90,9 @@ public abstract class User {
      *
      * @return userStatus
      */
-    
+
     @javax.json.bind.annotation.JsonbProperty("userStatus")
     public abstract java.util.Optional<Integer> getUserStatus();
 
-
-    public static class Builder extends UserInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
 }
 
