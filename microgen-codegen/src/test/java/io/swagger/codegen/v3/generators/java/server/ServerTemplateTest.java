@@ -1,10 +1,10 @@
 package io.swagger.codegen.v3.generators.java.server;
 
-import java.nio.file.Path;
-
 import io.swagger.codegen.v3.CodegenConfig;
 import io.swagger.codegen.v3.generators.java.MicroGen;
 import io.swagger.codegen.v3.generators.java.TemplateTest;
+
+import java.nio.file.Path;
 
 public interface ServerTemplateTest extends TemplateTest {
 

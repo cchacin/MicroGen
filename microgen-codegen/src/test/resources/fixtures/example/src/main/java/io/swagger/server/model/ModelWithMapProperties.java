@@ -5,17 +5,22 @@ package io.swagger.server.model;
  * type&#x3D;&lt;model&gt;.
  */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
         passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class},
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbCreator.class
+        },
         jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class ModelWithMapProperties {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public ModelWithMapProperties() {}
 
     /**
      * Get stringMap
@@ -49,12 +54,6 @@ public abstract class ModelWithMapProperties {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
-    public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>> getErrorInfoArrayMap();
-
-    public static class Builder extends ModelWithMapPropertiesInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
+    public abstract java.util.Optional<java.util.Map<String, java.util.LinkedList<ErrorInfo>>>
+    getErrorInfoArrayMap();
 }

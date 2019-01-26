@@ -1,8 +1,6 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.AllModels;
-import io.swagger.server.model.ErrorInfo;
-import io.swagger.server.model.ModelWithReadOnlyPropertyTest;
+import io.swagger.server.model.ImmutableModelWithReadOnlyPropertyTest;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface ModelsGroupApi {
@@ -76,6 +74,6 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> putModelsReadOnly(
             @javax.validation.constraints.NotNull @javax.validation.Valid
-                    ModelWithReadOnlyPropertyTest body)
+                    ImmutableModelWithReadOnlyPropertyTest body)
             throws javax.ws.rs.WebApplicationException;
 }

@@ -51,6 +51,6 @@ class MicroGenProperty extends CodegenProperty {
 
     private String processGetter(final CodegenProperty codegenProperty) {
         return codegenProperty.vendorExtensions.getOrDefault("x-name", codegenProperty.getter)
-                                               .toString();
+                .toString();
     }
 }

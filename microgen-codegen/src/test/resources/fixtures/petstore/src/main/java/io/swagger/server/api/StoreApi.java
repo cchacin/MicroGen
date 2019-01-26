@@ -1,6 +1,6 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.Order;
+import io.swagger.server.model.ImmutableOrder;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface StoreApi {
@@ -65,6 +65,6 @@ public interface StoreApi {
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Order body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutableOrder body)
             throws javax.ws.rs.WebApplicationException;
 }

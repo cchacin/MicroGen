@@ -1,10 +1,9 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.Pet;
+import io.swagger.server.model.ImmutablePet;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface DefaultApi {
-
 
     /**
      * Add a new default pet to the store
@@ -15,9 +14,8 @@ public interface DefaultApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("defaultpet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addDefPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
-
-    ) throws javax.ws.rs.WebApplicationException;
+            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutablePet body)
+            throws javax.ws.rs.WebApplicationException;
 
     /**
      * Update a new Default existing pet
@@ -28,7 +26,6 @@ public interface DefaultApi {
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("defaultpet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateDefPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
-
-    ) throws javax.ws.rs.WebApplicationException;
+            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutablePet body)
+            throws javax.ws.rs.WebApplicationException;
 }

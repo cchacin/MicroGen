@@ -25,9 +25,8 @@ public interface TemplateTest {
     default String fileContent(final String fileName) {
         try {
             return Resources.toString(Resources.getResource(fileName),
-                                      Charset.defaultCharset());
-        }
-        catch (final Exception exception) {
+                    Charset.defaultCharset());
+        } catch (final Exception exception) {
             throw new RuntimeException(exception);
         }
     }
@@ -35,9 +34,8 @@ public interface TemplateTest {
     default String fileContent(final Path path) {
         try {
             return Resources.toString(path.toUri().toURL(),
-                                      Charset.defaultCharset());
-        }
-        catch (final Exception exception) {
+                    Charset.defaultCharset());
+        } catch (final Exception exception) {
             throw new RuntimeException(exception);
         }
     }
@@ -53,8 +51,7 @@ public interface TemplateTest {
     default String formatted(final String text) {
         try {
             return this.formatter().formatSource(text);
-        }
-        catch (final FormatterException exception) {
+        } catch (final FormatterException exception) {
             throw new RuntimeException(exception);
         }
     }
@@ -66,11 +63,11 @@ public interface TemplateTest {
     default List<File> generate(final String swaggerFile, final Path tempDirectory) {
         return new DefaultGenerator()
                 .opts(new ClientOptInput()
-                              .opts(new ClientOpts())
-                              .config(this.codegen(tempDirectory))
-                              .openAPI(new OpenAPIV3Parser().readContents(this.fileContent(swaggerFile),
-                                                                          Collections.emptyList(),
-                                                                          new ParseOptions()).getOpenAPI()))
+                        .opts(new ClientOpts())
+                        .config(this.codegen(tempDirectory))
+                        .openAPI(new OpenAPIV3Parser().readContents(this.fileContent(swaggerFile),
+                                Collections.emptyList(),
+                                new ParseOptions()).getOpenAPI()))
                 .generate();
     }
 
@@ -87,13 +84,13 @@ public interface TemplateTest {
 
         // Then
         final String generated = generatedFile.apply(tmpFolder.resolve(this.templateToTest()
-                                                                           .getFolder() + expectedFile));
+                .getFolder() + expectedFile));
         final String fixture = fixtureFile.apply(String.format("fixtures/%s/%s/%s",
-                                                               expectedFileFixture,
-                                                               this.templateToTest().getFolder(),
-                                                               expectedFile));
+                expectedFileFixture,
+                this.templateToTest().getFolder(),
+                expectedFile));
         Assertions.assertThat(generated)
-                  .isEqualTo(fixture);
+                .isEqualTo(fixture);
     }
 
     CodegenConfig codegen(final Path tempDirectory);

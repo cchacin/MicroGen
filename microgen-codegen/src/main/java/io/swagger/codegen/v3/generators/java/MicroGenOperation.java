@@ -6,50 +6,65 @@ import io.swagger.codegen.v3.CodegenParameter;
 import java.util.List;
 
 class MicroGenOperation extends CodegenOperation {
-    
-    MicroGenOperation(final CodegenOperation codegenOperation) {
-        super();
-        this.path = codegenOperation.path;
-        if (codegenOperation.path.charAt(0) == '/') {
-            // Removes "/" to make paths relative to baseUrl
-            this.path = codegenOperation.path.substring(1);
-        }
-        this.responseHeaders.addAll(codegenOperation.responseHeaders);
-        this.returnTypeIsPrimitive = codegenOperation.returnTypeIsPrimitive;
-        this.returnSimpleType = codegenOperation.returnSimpleType;
-        this.subresourceOperation = codegenOperation.subresourceOperation;
-        this.operationId = codegenOperation.operationId;
-        this.returnType = codegenOperation.returnType;
-        this.httpMethod = codegenOperation.httpMethod;
-        this.returnBaseType = codegenOperation.returnBaseType;
-        this.returnContainer = codegenOperation.returnContainer;
-        this.summary = codegenOperation.summary;
-        this.unescapedNotes = codegenOperation.unescapedNotes;
-        this.notes = codegenOperation.notes;
-        this.baseName = codegenOperation.baseName;
-        this.defaultResponse = codegenOperation.defaultResponse;
-        this.discriminator = codegenOperation.discriminator;
-        this.consumes = codegenOperation.consumes;
-        this.produces = codegenOperation.produces;
-        this.bodyParam = codegenOperation.bodyParam;
-        this.authMethods = codegenOperation.authMethods;
-        this.tags = codegenOperation.tags;
-        this.responses = codegenOperation.responses;
-        this.imports = codegenOperation.imports;
-        this.examples = codegenOperation.examples;
-        this.externalDocs = codegenOperation.externalDocs;
-        this.vendorExtensions = codegenOperation.vendorExtensions;
-        this.nickname = codegenOperation.nickname;
-        this.operationIdLowerCase = codegenOperation.operationIdLowerCase;
 
-        this.bodyParams = addHasMore(codegenOperation.bodyParams);
-        this.pathParams = addHasMore(codegenOperation.pathParams);
-        this.formParams = addHasMore(codegenOperation.formParams);
-        this.queryParams = addHasMore(codegenOperation.queryParams);
-        this.allParams.addAll(codegenOperation.headerParams);
-        this.allParams.addAll(codegenOperation.queryParams);
-        this.allParams.addAll(codegenOperation.pathParams);
-        this.allParams.addAll(codegenOperation.formParams);
+    MicroGenOperation(final CodegenOperation operation) {
+        super();
+        this.path = operation.path;
+        if (operation.path.charAt(0) == '/') {
+            // Removes "/" to make paths relative to baseUrl
+            this.path = operation.path.substring(1);
+        }
+        this.responseHeaders.addAll(operation.responseHeaders);
+        this.returnTypeIsPrimitive = operation.returnTypeIsPrimitive;
+        this.returnSimpleType = operation.returnSimpleType;
+        this.subresourceOperation = operation.subresourceOperation;
+        this.operationId = operation.operationId;
+        this.returnType = operation.returnType;
+        this.httpMethod = operation.httpMethod;
+        this.returnBaseType = operation.returnBaseType;
+        this.returnContainer = operation.returnContainer;
+        this.summary = operation.summary;
+        this.unescapedNotes = operation.unescapedNotes;
+        this.notes = operation.notes;
+        this.baseName = operation.baseName;
+        this.defaultResponse = operation.defaultResponse;
+        this.discriminator = operation.discriminator;
+        this.consumes = operation.consumes;
+        this.produces = operation.produces;
+        this.bodyParam = operation.bodyParam;
+        this.bodyParams = operation.bodyParams;
+        this.authMethods = operation.authMethods;
+        this.tags = operation.tags;
+        this.responses = operation.responses;
+        this.imports.clear();
+        if (this.bodyParam != null &&
+                this.bodyParam.getIsBodyParam()
+        ) {
+            if (bodyParam.getIsContainer()) {
+                this.bodyParam.dataType = Builder.JAVA_UTIL_LIST + "<Immutable" + this.bodyParam.baseType + ">";
+
+                this.imports.add("Immutable" + this.bodyParam.baseType);
+            } else {
+                this.bodyParam.dataType = "Immutable" + this.bodyParam.baseType;
+                this.imports.add(this.bodyParam.dataType);
+            }
+            this.getBodyParams().clear();
+            this.getBodyParams().add(this.bodyParam);
+        }
+        this.examples = operation.examples;
+        this.externalDocs = operation.externalDocs;
+        this.vendorExtensions = operation.vendorExtensions;
+        this.nickname = operation.nickname;
+        this.operationIdLowerCase = operation.operationIdLowerCase;
+
+        this.bodyParams = addHasMore(this.bodyParams);
+        this.pathParams = addHasMore(operation.pathParams);
+        this.formParams = addHasMore(operation.formParams);
+        this.queryParams = addHasMore(operation.queryParams);
+        this.allParams.addAll(operation.headerParams);
+        this.allParams.addAll(operation.queryParams);
+        this.allParams.addAll(operation.pathParams);
+        this.allParams.addAll(operation.formParams);
         this.allParams = addHasMore(this.allParams);
     }
 

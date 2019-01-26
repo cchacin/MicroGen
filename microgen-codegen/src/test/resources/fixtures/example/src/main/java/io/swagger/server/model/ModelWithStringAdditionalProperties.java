@@ -1,26 +1,22 @@
 package io.swagger.server.model;
 
-/**
- * This is a model object that has additionalProperties with type&#x3D;string.
- */
+/** This is a model object that has additionalProperties with type&#x3D;string. */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
         passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class},
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbCreator.class
+        },
         jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class ModelWithStringAdditionalProperties
         extends java.util.HashMap<String, String> {
 
-    public static class Builder extends ModelWithStringAdditionalPropertiesInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
+    @javax.json.bind.annotation.JsonbCreator
+    public ModelWithStringAdditionalProperties() {}
 }

@@ -1,5 +1,6 @@
 package io.swagger.codegen.v3.generators.java.server;
 
+import io.swagger.codegen.v3.generators.java.TemplateType;
 import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.jupiter.migrationsupport.rules.EnableRuleMigrationSupport;
@@ -9,8 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.rules.TemporaryFolder;
 
 import java.util.stream.Stream;
-
-import io.swagger.codegen.v3.generators.java.TemplateType;
 
 @EnableRuleMigrationSupport
 class ApiTemplateTest extends Assertions implements ServerTemplateTest {
@@ -24,7 +23,8 @@ class ApiTemplateTest extends Assertions implements ServerTemplateTest {
                 Arguments.of("example", "ParametersGroupApi.java"),
                 Arguments.of("petstore", "PetApi.java"),
                 Arguments.of("petstore", "StoreApi.java"),
-                Arguments.of("petstore", "DefaultApi.java")
+                Arguments.of("petstore", "DefaultApi.java"),
+                Arguments.of("petstore", "UserApi.java")
         );
     }
 

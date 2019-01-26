@@ -1,20 +1,23 @@
 package io.swagger.server.model;
 
-/**
- * This is an card object for a Person derived from BaseCard.
- */
+/** This is an card object for a Person derived from BaseCard. */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
         passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class},
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbCreator.class
+        },
         jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class PersonCard extends BaseCard {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public PersonCard() {}
 
     /**
      * Get firstName
@@ -31,11 +34,4 @@ public abstract class PersonCard extends BaseCard {
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
     public abstract java.util.Optional<String> getLastName();
-
-    public static class Builder extends PersonCardInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
 }
