@@ -1,20 +1,23 @@
 package io.swagger.server.model;
 
-/**
- * This is an base class object from which other classes will derive.
- */
+/** This is an base class object from which other classes will derive. */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        overshadowImplementation = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.VALIDATION_API,
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
         passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class},
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbCreator.class
+        },
         jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public abstract class SampleBase {
+
+    @javax.json.bind.annotation.JsonbCreator
+    public SampleBase() {}
 
     /**
      * Get baseClassStringProp
@@ -31,11 +34,4 @@ public abstract class SampleBase {
      */
     @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
     public abstract java.util.Optional<Integer> getBaseClassIntegerProp();
-
-    public static class Builder extends SampleBaseInternalBuilder {
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
 }

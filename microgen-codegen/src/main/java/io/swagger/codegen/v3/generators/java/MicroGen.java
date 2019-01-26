@@ -19,25 +19,23 @@ import static java.util.stream.Collectors.toList;
 public class MicroGen extends JavaClientCodegen {
 
     private final String EXCLUDED_TAGS = "excludedTags";
-    private final String TAG_MAPPING   = "tagMapping";
+    private final String TAG_MAPPING = "tagMapping";
 
     private static final Pattern TAG_MAPPING_PATTERN = Pattern.compile("^(.+):(.*?)$");
-    private static final Pattern WHITESPACE_PATTERN  = Pattern.compile("[, \t\r\n]+");
-
-    protected String containerType = "java.util.concurrent.CompletableFuture";
-    protected String voidType;
+    private static final Pattern WHITESPACE_PATTERN = Pattern.compile("[, \t\r\n]+");
 
     protected List<Pair<Pattern, String>> tagMapping = new ArrayList<>();
 
     public MicroGen() {
         super();
+        this.fullJavaUtil = true;
         this.supportedLibraries.clear();
         this.supportedLibraries.put("server",
-                                    "JavaEE + Eclipse Micro Profile");
+                "JavaEE + Eclipse Micro Profile");
 
         this.cliOptions.clear();
         final CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY,
-                                                      "library template (sub-template) to use");
+                "library template (sub-template) to use");
         libraryOption.setEnum(this.supportedLibraries);
         libraryOption.setDefault("server");
         this.cliOptions.add(libraryOption);
@@ -59,11 +57,12 @@ public class MicroGen extends JavaClientCodegen {
     }
 
     @Override
-    public CodegenOperation fromOperation(final String path,
-                                          final String httpMethod,
-                                          final Operation operation,
-                                          final Map<String, Schema> schemas,
-                                          final OpenAPI openAPI) {
+    public CodegenOperation fromOperation(
+            final String path,
+            final String httpMethod,
+            final Operation operation,
+            final Map<String, Schema> schemas,
+            final OpenAPI openAPI) {
         final CodegenOperation codegenOperation = super.fromOperation(path, httpMethod, operation, schemas, openAPI);
         return new MicroGenOperation(codegenOperation);
     }
@@ -73,8 +72,8 @@ public class MicroGen extends JavaClientCodegen {
         final CodegenModel model = super.fromModel(name, schema, allSchemas);
         model.imports.clear();
         model.vars = model.vars.stream()
-                               .map(MicroGenProperty::new)
-                               .collect(toList());
+                .map(MicroGenProperty::new)
+                .collect(toList());
         return new MicroGenModel(model);
     }
 
@@ -123,8 +122,7 @@ public class MicroGen extends JavaClientCodegen {
 
                     if (Util.isMultipartType(operation.consumes)) {
                         operation.getVendorExtensions().put(CodegenConstants.IS_MULTIPART_EXT_NAME, Boolean.TRUE);
-                    }
-                    else {
+                    } else {
                         operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
                     }
                 }
@@ -167,9 +165,9 @@ public class MicroGen extends JavaClientCodegen {
             for (final Operation operation : swaggerPaths.get(resourcePath).readOperations()) {
                 final List<String> tags = operation.getTags();
                 operation.setTags(tags == null ? Collections.singletonList("default") : tags.stream()
-                                                                                            .filter(tag -> !excludedTags
-                                                                                                    .contains(tag))
-                                                                                            .collect(toList()));
+                        .filter(tag -> !excludedTags
+                                .contains(tag))
+                        .collect(toList()));
             }
         }
         if (!this.tagMapping.isEmpty()) {
@@ -179,19 +177,19 @@ public class MicroGen extends JavaClientCodegen {
 
     protected void mapTagsOnOperations(final OpenAPI swagger) {
         swagger.getPaths()
-               .values()
-               .stream()
-               .flatMap(path -> path.readOperations().stream())
-               .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
-               .forEach(op -> op.setTags(this.mapOperationTags(op)));
+                .values()
+                .stream()
+                .flatMap(path -> path.readOperations().stream())
+                .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
+                .forEach(op -> op.setTags(this.mapOperationTags(op)));
     }
 
     protected List<String> mapOperationTags(final Operation op) {
         return op.getTags()
-                 .stream()
-                 .map(this::mapOperationTag)
-                 .distinct()
-                 .collect(toList());
+                .stream()
+                .map(this::mapOperationTag)
+                .distinct()
+                .collect(toList());
     }
 
     protected String mapOperationTag(final String originalTag) {
@@ -207,17 +205,17 @@ public class MicroGen extends JavaClientCodegen {
 
     protected List<Pair<Pattern, String>> parseTagMappings(final String value) {
         return WHITESPACE_PATTERN.splitAsStream(value)
-                                 .map(StringUtils::trimToNull)
-                                 .filter(Objects::nonNull)
-                                 .map(this::compileTagMatchPattern)
-                                 .collect(toList());
+                .map(StringUtils::trimToNull)
+                .filter(Objects::nonNull)
+                .map(this::compileTagMatchPattern)
+                .collect(toList());
     }
 
     protected Pair<Pattern, String> compileTagMatchPattern(final String str) {
         final Matcher matcher = TAG_MAPPING_PATTERN.matcher(str);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Tag mapping pattern must be of the form pattern:replacement, but is "
-                                                       + str);
+                    + str);
         }
         return Pair.of(Pattern.compile("^" + matcher.group(1) + "$"), matcher.group(2));
     }
