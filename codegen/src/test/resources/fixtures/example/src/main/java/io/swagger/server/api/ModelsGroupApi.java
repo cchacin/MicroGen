@@ -11,10 +11,10 @@ public interface ModelsGroupApi {
      * Return all of the defined models. This operation returns an AllModels object, which contains
      * all of the defined models.
      *
-     * @param clientId        Unique string which defines the platform and version. Defined in schema-level
-     *                        parameters section. (required)
+     * @param clientId Unique string which defines the platform and version. Defined in schema-level
+     *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
-     *                        schema-level parameters section. (required)
+     *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -27,21 +27,21 @@ public interface ModelsGroupApi {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
-        private String clientId;
+        public String clientId;
 
         @javax.ws.rs.QueryParam("client_version_id")
         @javax.validation.constraints.NotNull
-        private String clientVersionId;
+        public String clientVersionId;
     }
 
     /**
      * This operation has a default response. This operation has a default response, and we test if
      * the default response is returned if an HTTP status code that is not specified is encountered.
      *
-     * @param clientId        Unique string which defines the platform and version. Defined in schema-level
-     *                        parameters section. (required)
+     * @param clientId Unique string which defines the platform and version. Defined in schema-level
+     *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
-     *                        schema-level parameters section. (required)
+     *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -55,11 +55,11 @@ public interface ModelsGroupApi {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
-        private String clientId;
+        public String clientId;
 
         @javax.ws.rs.QueryParam("client_version_id")
         @javax.validation.constraints.NotNull
-        private String clientVersionId;
+        public String clientVersionId;
     }
 
     /**
