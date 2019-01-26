@@ -3,7 +3,12 @@ package io.swagger.codegen.v3.generators.java;
 import com.google.common.io.Resources;
 import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
-
+import io.swagger.codegen.v3.ClientOptInput;
+import io.swagger.codegen.v3.ClientOpts;
+import io.swagger.codegen.v3.CodegenConfig;
+import io.swagger.codegen.v3.DefaultGenerator;
+import io.swagger.v3.parser.OpenAPIV3Parser;
+import io.swagger.v3.parser.core.models.ParseOptions;
 import org.assertj.core.api.Assertions;
 
 import java.io.File;
@@ -12,13 +17,6 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
-
-import io.swagger.codegen.v3.ClientOptInput;
-import io.swagger.codegen.v3.ClientOpts;
-import io.swagger.codegen.v3.CodegenConfig;
-import io.swagger.codegen.v3.DefaultGenerator;
-import io.swagger.v3.parser.OpenAPIV3Parser;
-import io.swagger.v3.parser.core.models.ParseOptions;
 
 public interface TemplateTest {
 
