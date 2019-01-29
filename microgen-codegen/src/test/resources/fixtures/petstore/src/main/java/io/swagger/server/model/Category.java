@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** Category */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class Category {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract java.util.Optional<Long> getId();
+    public abstract Long getId();
 
     /**
      * Get name
@@ -33,5 +32,5 @@ public abstract class Category {
      * @return name
      */
     @javax.json.bind.annotation.JsonbProperty("name")
-    public abstract java.util.Optional<String> getName();
+    public abstract String getName();
 }

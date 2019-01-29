@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** Order */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class Order {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract java.util.Optional<Long> getId();
+    public abstract Long getId();
 
     /**
      * Get petId
@@ -33,7 +32,7 @@ public abstract class Order {
      * @return petId
      */
     @javax.json.bind.annotation.JsonbProperty("petId")
-    public abstract java.util.Optional<Long> getPetId();
+    public abstract Long getPetId();
 
     /**
      * Get quantity
@@ -41,7 +40,7 @@ public abstract class Order {
      * @return quantity
      */
     @javax.json.bind.annotation.JsonbProperty("quantity")
-    public abstract java.util.Optional<Integer> getQuantity();
+    public abstract Integer getQuantity();
 
     /**
      * Get shipDate
@@ -50,10 +49,11 @@ public abstract class Order {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("shipDate")
-    public abstract java.util.Optional<java.time.OffsetDateTime> shipmentDate();
+    public abstract java.time.OffsetDateTime shipmentDate();
 
     /** Order Status */
-    public enum StatusEnum {
+    @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
+    public static enum StatusEnum {
         PLACED("placed"),
 
         APPROVED("approved"),
@@ -84,13 +84,27 @@ public abstract class Order {
         }
     }
 
+    public static class StatusEnumDeserializer
+            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+
+        public StatusEnumDeserializer() {}
+
+        @Override
+        public StatusEnum deserialize(
+                javax.json.stream.JsonParser jsonParser,
+                javax.json.bind.serializer.DeserializationContext deserializationContext,
+                java.lang.reflect.Type type) {
+            return StatusEnum.fromValue(jsonParser.getString());
+        }
+    }
+
     /**
      * Order Status
      *
      * @return status
      */
     @javax.json.bind.annotation.JsonbProperty("status")
-    public abstract java.util.Optional<StatusEnum> getStatus();
+    public abstract StatusEnum getStatus();
 
     /**
      * Get complete
@@ -98,5 +112,5 @@ public abstract class Order {
      * @return complete
      */
     @javax.json.bind.annotation.JsonbProperty("complete")
-    public abstract java.util.Optional<Boolean> isComplete();
+    public abstract Boolean isComplete();
 }

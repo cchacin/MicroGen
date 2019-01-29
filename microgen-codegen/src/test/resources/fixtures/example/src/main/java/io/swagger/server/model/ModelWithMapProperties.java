@@ -6,7 +6,6 @@ package io.swagger.server.model;
  */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -28,7 +27,7 @@ public abstract class ModelWithMapProperties {
      * @return stringMap
      */
     @javax.json.bind.annotation.JsonbProperty("stringMap")
-    public abstract java.util.Optional<java.util.Map<String, String>> getStringMap();
+    public abstract java.util.Map<String, String> getStringMap();
 
     /**
      * Get integerMap
@@ -36,7 +35,7 @@ public abstract class ModelWithMapProperties {
      * @return integerMap
      */
     @javax.json.bind.annotation.JsonbProperty("integerMap")
-    public abstract java.util.Optional<java.util.Map<String, Integer>> getIntegerMap();
+    public abstract java.util.Map<String, Integer> getIntegerMap();
 
     /**
      * Get errorInfoMap
@@ -45,7 +44,7 @@ public abstract class ModelWithMapProperties {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("errorInfoMap")
-    public abstract java.util.Optional<java.util.Map<String, ErrorInfo>> getErrorInfoMap();
+    public abstract java.util.Map<String, ErrorInfo> getErrorInfoMap();
 
     /**
      * Get errorInfoArrayMap
@@ -54,6 +53,5 @@ public abstract class ModelWithMapProperties {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
-    public abstract java.util.Optional<java.util.Map<String, java.util.LinkedList<ErrorInfo>>>
-    getErrorInfoArrayMap();
+    public abstract java.util.Map<String, java.util.LinkedList<ErrorInfo>> getErrorInfoArrayMap();
 }

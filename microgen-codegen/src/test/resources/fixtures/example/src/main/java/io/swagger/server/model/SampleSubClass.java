@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is an subclass defived from the SampleBase class. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class SampleSubClass extends SampleBase {
      * @return subClassStringProp
      */
     @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
-    public abstract java.util.Optional<String> getSubClassStringProp();
+    public abstract String getSubClassStringProp();
 
     /**
      * Get subClassIntegerProp
@@ -33,5 +32,5 @@ public abstract class SampleSubClass extends SampleBase {
      * @return subClassIntegerProp
      */
     @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
-    public abstract java.util.Optional<Integer> getSubClassIntegerProp();
+    public abstract Integer getSubClassIntegerProp();
 }
