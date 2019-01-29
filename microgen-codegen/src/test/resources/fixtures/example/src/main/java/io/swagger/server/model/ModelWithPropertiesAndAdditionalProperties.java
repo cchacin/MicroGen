@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is a model object that has properties and additionalProperties. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -26,7 +25,7 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      * @return integerProp
      */
     @javax.json.bind.annotation.JsonbProperty("integerProp")
-    public abstract java.util.Optional<Integer> getIntegerProp();
+    public abstract Integer getIntegerProp();
 
     /**
      * Get stringProp
@@ -34,5 +33,5 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      * @return stringProp
      */
     @javax.json.bind.annotation.JsonbProperty("stringProp")
-    public abstract java.util.Optional<String> getStringProp();
+    public abstract String getStringProp();
 }

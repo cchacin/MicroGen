@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is an card object for a Person derived from BaseCard. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class PersonCard extends BaseCard {
      * @return firstName
      */
     @javax.json.bind.annotation.JsonbProperty("firstName")
-    public abstract java.util.Optional<String> getFirstName();
+    public abstract String getFirstName();
 
     /**
      * Get lastName
@@ -33,5 +32,5 @@ public abstract class PersonCard extends BaseCard {
      * @return lastName
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
-    public abstract java.util.Optional<String> getLastName();
+    public abstract String getLastName();
 }

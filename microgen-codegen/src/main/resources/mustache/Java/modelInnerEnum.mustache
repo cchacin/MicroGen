@@ -1,13 +1,12 @@
     /**
      * {{^description}}Gets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
      */
-    public enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
-    {{#allowableValues}}
-        {{#enumVars}}
-    {{{name}}}({{{value}}}){{^-last}},
+    @javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}.{{datatypeWithEnum}}Deserializer.class)
+    public static enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
+    {{#allowableValues}}{{#enumVars}}
+        {{{name}}}({{{value}}}){{^-last}},
     {{/-last}}{{#-last}};{{/-last}}
-        {{/enumVars}}
-    {{/allowableValues}}
+    {{/enumVars}}{{/allowableValues}}
 
         private final {{{datatype}}} value;
 
@@ -31,4 +30,17 @@
                           .findFirst()
                           .orElse(null);
             }
+    }
+
+    public static class {{datatypeWithEnum}}Deserializer implements javax.json.bind.serializer.JsonbDeserializer<{{datatypeWithEnum}}> {
+    
+        public {{datatypeWithEnum}}Deserializer(){}
+
+        @Override
+        public {{datatypeWithEnum}} deserialize(
+            javax.json.stream.JsonParser jsonParser,
+            javax.json.bind.serializer.DeserializationContext deserializationContext,
+            java.lang.reflect.Type type) {
+            return {{datatypeWithEnum}}.fromValue(jsonParser.getString());
+        }
     }

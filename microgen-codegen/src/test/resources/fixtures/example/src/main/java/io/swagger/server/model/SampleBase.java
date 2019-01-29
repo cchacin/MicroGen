@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is an base class object from which other classes will derive. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class SampleBase {
      * @return baseClassStringProp
      */
     @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
-    public abstract java.util.Optional<String> getBaseClassStringProp();
+    public abstract String getBaseClassStringProp();
 
     /**
      * Get baseClassIntegerProp
@@ -33,5 +32,5 @@ public abstract class SampleBase {
      * @return baseClassIntegerProp
      */
     @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
-    public abstract java.util.Optional<Integer> getBaseClassIntegerProp();
+    public abstract Integer getBaseClassIntegerProp();
 }

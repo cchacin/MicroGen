@@ -12,7 +12,6 @@ package io.swagger.server.model;
 })
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",

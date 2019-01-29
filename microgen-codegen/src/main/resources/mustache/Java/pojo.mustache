@@ -2,7 +2,6 @@
 {{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -36,7 +35,7 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{{vendorExtensions.extraAnnotation}}}
     {{/vendorExtensions.extraAnnotation}}
     @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
-    public abstract {{#required}}{{{datatypeWithEnum}}} {{getter}}();{{/required}}{{^required}}java.util.Optional<{{{datatypeWithEnum}}}> {{getter}}();{{/required}}
+    public abstract {{{datatypeWithEnum}}} {{getter}}();
 
 {{/vars}}
 }

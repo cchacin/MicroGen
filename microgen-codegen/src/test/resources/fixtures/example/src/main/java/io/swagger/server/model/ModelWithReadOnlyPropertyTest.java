@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is a model object that contains a property with readOnly&#x3D;true. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -26,7 +25,7 @@ public abstract class ModelWithReadOnlyPropertyTest {
      * @return stringPropWithImplicitReadOnlyFalse
      */
     @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse")
-    public abstract java.util.Optional<String> getStringPropWithImplicitReadOnlyFalse();
+    public abstract String getStringPropWithImplicitReadOnlyFalse();
 
     /**
      * This is a property with readOnly=false. It should be included in both response and request.
@@ -34,7 +33,7 @@ public abstract class ModelWithReadOnlyPropertyTest {
      * @return stringPropWithExplicitReadOnlyFalse
      */
     @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse")
-    public abstract java.util.Optional<String> getStringPropWithExplicitReadOnlyFalse();
+    public abstract String getStringPropWithExplicitReadOnlyFalse();
 
     /**
      * This is a property with readOnly=true, meaning that it should be included in the response, but
@@ -43,5 +42,5 @@ public abstract class ModelWithReadOnlyPropertyTest {
      * @return stringPropWithReadOnlyTrue
      */
     @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue")
-    public abstract java.util.Optional<String> getStringPropWithReadOnlyTrue();
+    public abstract String getStringPropWithReadOnlyTrue();
 }

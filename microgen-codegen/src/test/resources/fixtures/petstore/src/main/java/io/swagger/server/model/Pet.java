@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** Pet */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class Pet {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract java.util.Optional<Long> getId();
+    public abstract Long getId();
 
     /**
      * Get category
@@ -34,7 +33,7 @@ public abstract class Pet {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("category")
-    public abstract java.util.Optional<Category> getCategory();
+    public abstract Category getCategory();
 
     /**
      * Get name
@@ -61,10 +60,11 @@ public abstract class Pet {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty("tags")
-    public abstract java.util.Optional<java.util.LinkedList<Tag>> getTags();
+    public abstract java.util.LinkedList<Tag> getTags();
 
     /** pet status in the store */
-    public enum StatusEnum {
+    @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
+    public static enum StatusEnum {
         AVAILABLE("available"),
 
         PENDING("pending"),
@@ -95,11 +95,25 @@ public abstract class Pet {
         }
     }
 
+    public static class StatusEnumDeserializer
+            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+
+        public StatusEnumDeserializer() {}
+
+        @Override
+        public StatusEnum deserialize(
+                javax.json.stream.JsonParser jsonParser,
+                javax.json.bind.serializer.DeserializationContext deserializationContext,
+                java.lang.reflect.Type type) {
+            return StatusEnum.fromValue(jsonParser.getString());
+        }
+    }
+
     /**
      * pet status in the store
      *
      * @return status
      */
     @javax.json.bind.annotation.JsonbProperty("status")
-    public abstract java.util.Optional<StatusEnum> getStatus();
+    public abstract StatusEnum getStatus();
 }

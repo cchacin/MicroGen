@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** This is a model object that has additionalProperties with type&#x3D;string. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",

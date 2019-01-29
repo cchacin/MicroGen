@@ -3,7 +3,6 @@ package io.swagger.server.model;
 /** User */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
         validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
         jacksonIntegration = false,
         of = "new",
@@ -25,7 +24,7 @@ public abstract class User {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract java.util.Optional<Long> getId();
+    public abstract Long getId();
 
     /**
      * Get username
@@ -33,7 +32,7 @@ public abstract class User {
      * @return username
      */
     @javax.json.bind.annotation.JsonbProperty("username")
-    public abstract java.util.Optional<String> getUsername();
+    public abstract String getUsername();
 
     /**
      * Get firstName
@@ -41,7 +40,7 @@ public abstract class User {
      * @return firstName
      */
     @javax.json.bind.annotation.JsonbProperty("firstName")
-    public abstract java.util.Optional<String> getFirstName();
+    public abstract String getFirstName();
 
     /**
      * Get lastName
@@ -49,7 +48,7 @@ public abstract class User {
      * @return lastName
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
-    public abstract java.util.Optional<String> getLastName();
+    public abstract String getLastName();
 
     /**
      * Get email
@@ -57,7 +56,7 @@ public abstract class User {
      * @return email
      */
     @javax.json.bind.annotation.JsonbProperty("email")
-    public abstract java.util.Optional<String> getEmail();
+    public abstract String getEmail();
 
     /**
      * Get password
@@ -65,7 +64,7 @@ public abstract class User {
      * @return password
      */
     @javax.json.bind.annotation.JsonbProperty("password")
-    public abstract java.util.Optional<String> getPassword();
+    public abstract String getPassword();
 
     /**
      * Get phone
@@ -73,7 +72,7 @@ public abstract class User {
      * @return phone
      */
     @javax.json.bind.annotation.JsonbProperty("phone")
-    public abstract java.util.Optional<String> getPhone();
+    public abstract String getPhone();
 
     /**
      * User Status
@@ -81,5 +80,5 @@ public abstract class User {
      * @return userStatus
      */
     @javax.json.bind.annotation.JsonbProperty("userStatus")
-    public abstract java.util.Optional<Integer> getUserStatus();
+    public abstract Integer getUserStatus();
 }
