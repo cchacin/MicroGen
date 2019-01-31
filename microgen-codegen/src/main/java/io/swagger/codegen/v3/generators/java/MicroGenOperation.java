@@ -36,21 +36,7 @@ class MicroGenOperation extends CodegenOperation {
         this.authMethods = operation.authMethods;
         this.tags = operation.tags;
         this.responses = operation.responses;
-        this.imports.clear();
-        if (this.bodyParam != null &&
-                this.bodyParam.getIsBodyParam()
-        ) {
-            if (bodyParam.getIsContainer()) {
-                this.bodyParam.dataType = Builder.JAVA_UTIL_LIST + "<Immutable" + this.bodyParam.baseType + ">";
-
-                this.imports.add("Immutable" + this.bodyParam.baseType);
-            } else {
-                this.bodyParam.dataType = "Immutable" + this.bodyParam.baseType;
-                this.imports.add(this.bodyParam.dataType);
-            }
-            this.getBodyParams().clear();
-            this.getBodyParams().add(this.bodyParam);
-        }
+        this.imports = operation.imports;
         this.examples = operation.examples;
         this.externalDocs = operation.externalDocs;
         this.vendorExtensions = operation.vendorExtensions;

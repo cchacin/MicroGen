@@ -1,21 +1,41 @@
 package io.swagger.server.model;
 
 /** This is a model object that has additionalProperties with type&#x3D;integer. */
-@org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbCreator.class
-        },
-        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public abstract class ModelWithIntegerAdditionalProperties
-        extends java.util.HashMap<String, Integer> {
+public final class ModelWithIntegerAdditionalProperties extends java.util.HashMap<String, Integer> {
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithIntegerAdditionalProperties() {}
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(super.hashCode());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ModelWithIntegerAdditionalProperties {\n");
+        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

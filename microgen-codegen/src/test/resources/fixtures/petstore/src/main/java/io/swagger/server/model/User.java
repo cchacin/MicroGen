@@ -1,22 +1,44 @@
 package io.swagger.server.model;
 
 /** User */
-@org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbCreator.class
-        },
-        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public abstract class User {
+public final class User {
+
+    private final Long id;
+
+    private final String username;
+
+    private final String firstName;
+
+    private final String lastName;
+
+    private final String email;
+
+    private final String password;
+
+    private final String phone;
+
+    private final Integer userStatus;
 
     @javax.json.bind.annotation.JsonbCreator
-    public User() {}
+    public User(
+            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("username") final String username,
+            @javax.json.bind.annotation.JsonbProperty("firstName") final String firstName,
+            @javax.json.bind.annotation.JsonbProperty("lastName") final String lastName,
+            @javax.json.bind.annotation.JsonbProperty("email") final String email,
+            @javax.json.bind.annotation.JsonbProperty("password") final String password,
+            @javax.json.bind.annotation.JsonbProperty("phone") final String phone,
+            @javax.json.bind.annotation.JsonbProperty("userStatus") final Integer userStatus) {
+        this.id = id;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.userStatus = userStatus;
+    }
 
     /**
      * Get id
@@ -24,7 +46,9 @@ public abstract class User {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract Long getId();
+    public Long getId() {
+        return id;
+    }
 
     /**
      * Get username
@@ -32,7 +56,9 @@ public abstract class User {
      * @return username
      */
     @javax.json.bind.annotation.JsonbProperty("username")
-    public abstract String getUsername();
+    public String getUsername() {
+        return username;
+    }
 
     /**
      * Get firstName
@@ -40,7 +66,9 @@ public abstract class User {
      * @return firstName
      */
     @javax.json.bind.annotation.JsonbProperty("firstName")
-    public abstract String getFirstName();
+    public String getFirstName() {
+        return firstName;
+    }
 
     /**
      * Get lastName
@@ -48,7 +76,9 @@ public abstract class User {
      * @return lastName
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
-    public abstract String getLastName();
+    public String getLastName() {
+        return lastName;
+    }
 
     /**
      * Get email
@@ -56,7 +86,9 @@ public abstract class User {
      * @return email
      */
     @javax.json.bind.annotation.JsonbProperty("email")
-    public abstract String getEmail();
+    public String getEmail() {
+        return email;
+    }
 
     /**
      * Get password
@@ -64,7 +96,9 @@ public abstract class User {
      * @return password
      */
     @javax.json.bind.annotation.JsonbProperty("password")
-    public abstract String getPassword();
+    public String getPassword() {
+        return password;
+    }
 
     /**
      * Get phone
@@ -72,7 +106,9 @@ public abstract class User {
      * @return phone
      */
     @javax.json.bind.annotation.JsonbProperty("phone")
-    public abstract String getPhone();
+    public String getPhone() {
+        return phone;
+    }
 
     /**
      * User Status
@@ -80,5 +116,56 @@ public abstract class User {
      * @return userStatus
      */
     @javax.json.bind.annotation.JsonbProperty("userStatus")
-    public abstract Integer getUserStatus();
+    public Integer getUserStatus() {
+        return userStatus;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return java.util.Objects.equals(this.id, user.id)
+                && java.util.Objects.equals(this.username, user.username)
+                && java.util.Objects.equals(this.firstName, user.firstName)
+                && java.util.Objects.equals(this.lastName, user.lastName)
+                && java.util.Objects.equals(this.email, user.email)
+                && java.util.Objects.equals(this.password, user.password)
+                && java.util.Objects.equals(this.phone, user.phone)
+                && java.util.Objects.equals(this.userStatus, user.userStatus);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(
+                id, username, firstName, lastName, email, password, phone, userStatus);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class User {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    username: ").append(toIndentedString(username)).append("\n");
+        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+        sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+        sb.append("    email: ").append(toIndentedString(email)).append("\n");
+        sb.append("    password: ").append(toIndentedString(password)).append("\n");
+        sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+        sb.append("    userStatus: ").append(toIndentedString(userStatus)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

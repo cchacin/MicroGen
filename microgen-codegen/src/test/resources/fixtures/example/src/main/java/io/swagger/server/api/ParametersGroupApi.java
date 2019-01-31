@@ -1,6 +1,7 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.ImmutableErrorInfo;
+import io.swagger.server.model.AllModels;
+import io.swagger.server.model.ErrorInfo;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface ParametersGroupApi {
@@ -45,46 +46,46 @@ public interface ParametersGroupApi {
     public class GetParametersArraysParam {
 
         @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
-        public java.util.LinkedList<String> queryParamStringArrayOptional;
+        public java.util.List<String> queryParamStringArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<String> queryParamStringArrayRequired;
+        public java.util.List<String> queryParamStringArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
-        public java.util.LinkedList<Integer> queryParamIntArrayOptional;
+        public java.util.List<Integer> queryParamIntArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<Integer> queryParamIntArrayRequired;
+        public java.util.List<Integer> queryParamIntArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
-        public java.util.LinkedList<Long> queryParamInt64ArrayOptional;
+        public java.util.List<Long> queryParamInt64ArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<Long> queryParamInt64ArrayRequired;
+        public java.util.List<Long> queryParamInt64ArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
-        public java.util.LinkedList<Float> queryParamFloatArrayOptional;
+        public java.util.List<Float> queryParamFloatArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<Float> queryParamFloatArrayRequired;
+        public java.util.List<Float> queryParamFloatArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
-        public java.util.LinkedList<Double> queryParamDoubleArrayOptional;
+        public java.util.List<Double> queryParamDoubleArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<Double> queryParamDoubleArrayRequired;
+        public java.util.List<Double> queryParamDoubleArrayRequired;
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
-        public java.util.LinkedList<Boolean> queryParamBooleanArrayOptional;
+        public java.util.List<Boolean> queryParamBooleanArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.LinkedList<Boolean> queryParamBooleanArrayRequired;
+        public java.util.List<Boolean> queryParamBooleanArrayRequired;
     }
 
     /**
@@ -117,22 +118,22 @@ public interface ParametersGroupApi {
     public class GetParametersArraysCollectionFormatParam {
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
-        public java.util.LinkedList<String> stringArrayCSV;
+        public java.util.List<String> stringArrayCSV;
 
         @javax.ws.rs.QueryParam("stringArraySSV")
-        public java.util.LinkedList<String> stringArraySSV;
+        public java.util.List<String> stringArraySSV;
 
         @javax.ws.rs.QueryParam("stringArrayTSV")
-        public java.util.LinkedList<String> stringArrayTSV;
+        public java.util.List<String> stringArrayTSV;
 
         @javax.ws.rs.QueryParam("stringArrayPipes")
-        public java.util.LinkedList<String> stringArrayPipes;
+        public java.util.List<String> stringArrayPipes;
 
         @javax.ws.rs.QueryParam("stringArrayMulti")
-        public java.util.LinkedList<String> stringArrayMulti;
+        public java.util.List<String> stringArrayMulti;
 
         @javax.ws.rs.QueryParam("stringArrayPipesOfStringArrayCSV")
-        public java.util.LinkedList<java.util.LinkedList<String>> stringArrayPipesOfStringArrayCSV;
+        public java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV;
     }
 
     /**
@@ -314,14 +315,14 @@ public interface ParametersGroupApi {
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMaxItems")
         @javax.validation.constraints.Size(max = 3)
-        public java.util.LinkedList<String> stringArrayParameterWithMaxItems;
+        public java.util.List<String> stringArrayParameterWithMaxItems;
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMinItems")
         @javax.validation.constraints.Size(min = 3)
-        public java.util.LinkedList<String> stringArrayParameterWithMinItems;
+        public java.util.List<String> stringArrayParameterWithMinItems;
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithUniqueItems")
-        public java.util.LinkedList<String> stringArrayParameterWithUniqueItems;
+        public java.util.List<String> stringArrayParameterWithUniqueItems;
 
         @javax.ws.rs.QueryParam("integerParameterWithMultipleOf")
         public Integer integerParameterWithMultipleOf;
@@ -338,7 +339,7 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutableErrorInfo body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo body)
             throws javax.ws.rs.WebApplicationException;
 
     /**
