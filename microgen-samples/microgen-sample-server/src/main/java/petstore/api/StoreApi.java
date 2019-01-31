@@ -1,6 +1,6 @@
 package petstore.api;
 
-import petstore.models.ImmutableOrder;
+import petstore.models.Order;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface StoreApi {
@@ -80,7 +80,7 @@ public interface StoreApi {
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutableOrder body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Order body
     ) throws javax.ws.rs.WebApplicationException;
 
 } 

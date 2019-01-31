@@ -5,21 +5,27 @@ package petstore.models;
  * ModelApiResponse
  */
 
-@org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {javax.json.bind.annotation.JsonbProperty.class, javax.json.bind.annotation.JsonbCreator.class},
-        jdkOnly = true
-)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public abstract class ModelApiResponse {
+public final class ModelApiResponse {
+
+    private final Integer code;
+
+
+    private final String type;
+
+
+    private final String message;
+
 
     @javax.json.bind.annotation.JsonbCreator
-    public ModelApiResponse() {
+    public ModelApiResponse(
+            @javax.json.bind.annotation.JsonbProperty("code") final Integer code,
+            @javax.json.bind.annotation.JsonbProperty("type") final String type,
+            @javax.json.bind.annotation.JsonbProperty("message") final String message
+    ) {
+        this.code = code;
+        this.type = type;
+        this.message = message;
     }
 
     /**
@@ -27,27 +33,69 @@ public abstract class ModelApiResponse {
      *
      * @return code
      */
-
     @javax.json.bind.annotation.JsonbProperty("code")
-    public abstract java.util.Optional<Integer> getCode();
+    public Integer getCode() {
+        return code;
+    }
+
 
     /**
      * Get type
      *
      * @return type
      */
-
     @javax.json.bind.annotation.JsonbProperty("type")
-    public abstract java.util.Optional<String> getType();
+    public String getType() {
+        return type;
+    }
+
 
     /**
      * Get message
      *
      * @return message
      */
-
     @javax.json.bind.annotation.JsonbProperty("message")
-    public abstract java.util.Optional<String> getMessage();
+    public String getMessage() {
+        return message;
+    }
 
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ModelApiResponse _apiResponse = (ModelApiResponse) o;
+        return java.util.Objects.equals(this.code, _apiResponse.code) &&
+                java.util.Objects.equals(this.type, _apiResponse.type) &&
+                java.util.Objects.equals(this.message, _apiResponse.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(code, type, message);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ModelApiResponse {\n");
+
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
-

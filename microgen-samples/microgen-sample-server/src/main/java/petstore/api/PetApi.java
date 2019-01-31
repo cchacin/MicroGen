@@ -1,6 +1,6 @@
 package petstore.api;
 
-import petstore.models.ImmutablePet;
+import petstore.models.Pet;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface PetApi {
@@ -15,7 +15,7 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutablePet body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
     ) throws javax.ws.rs.WebApplicationException;
 
 
@@ -70,7 +70,7 @@ public interface PetApi {
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
 
-        public java.util.LinkedList<String> status;
+        public java.util.List<String> status;
 
 
     }
@@ -96,7 +96,7 @@ public interface PetApi {
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
 
-        public java.util.LinkedList<String> tags;
+        public java.util.List<String> tags;
 
 
     }
@@ -136,7 +136,7 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutablePet body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
     ) throws javax.ws.rs.WebApplicationException;
 
 
