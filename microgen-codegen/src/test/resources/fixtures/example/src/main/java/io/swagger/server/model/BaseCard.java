@@ -10,29 +10,56 @@ package io.swagger.server.model;
         @JsonSubTypes.Type(value = PlaceCard.class, name = "PlaceCard"),
         @JsonSubTypes.Type(value = PersonCard.class, name = "PersonCard"),
 })
-@org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbCreator.class
-        },
-        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public abstract class BaseCard {
+public final class BaseCard {
+    @javax.validation.constraints.NotNull private final String cardType;
 
     @javax.json.bind.annotation.JsonbCreator
-    public BaseCard() {}
+    public BaseCard(@javax.json.bind.annotation.JsonbProperty("cardType") final String cardType) {
+        this.cardType = cardType;
+    }
 
     /**
      * Get cardType
      *
      * @return cardType
      */
-    @javax.validation.constraints.NotNull
     @javax.json.bind.annotation.JsonbProperty("cardType")
-    public abstract String getCardType();
+    public String getCardType() {
+        return cardType;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BaseCard baseCard = (BaseCard) o;
+        return java.util.Objects.equals(this.cardType, baseCard.cardType);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(cardType);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BaseCard {\n");
+
+        sb.append("    cardType: ").append(toIndentedString(cardType)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

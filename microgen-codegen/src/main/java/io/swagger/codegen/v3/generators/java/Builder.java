@@ -5,7 +5,7 @@ import java.util.Map;
 
 @SuppressWarnings("SpellCheckingInspection")
 interface Builder {
-    String JAVA_UTIL_LIST = "java.util.LinkedList";
+    String JAVA_UTIL_LIST = "java.util.List";
     String JAVA_UTIL_MAP = "java.util.Map";
     String JAVA_UTIL_HASHMAP = "java.util.HashMap";
 

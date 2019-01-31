@@ -1,22 +1,20 @@
 package io.swagger.server.model;
 
 /** Tag */
-@org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbCreator.class
-        },
-        jdkOnly = true)
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public abstract class Tag {
+public final class Tag {
+
+    private final Long id;
+
+    private final String name;
 
     @javax.json.bind.annotation.JsonbCreator
-    public Tag() {}
+    public Tag(
+            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("name") final String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     /**
      * Get id
@@ -24,7 +22,9 @@ public abstract class Tag {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public abstract Long getId();
+    public Long getId() {
+        return id;
+    }
 
     /**
      * Get name
@@ -32,5 +32,43 @@ public abstract class Tag {
      * @return name
      */
     @javax.json.bind.annotation.JsonbProperty("name")
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Tag tag = (Tag) o;
+        return java.util.Objects.equals(this.id, tag.id)
+                && java.util.Objects.equals(this.name, tag.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Tag {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

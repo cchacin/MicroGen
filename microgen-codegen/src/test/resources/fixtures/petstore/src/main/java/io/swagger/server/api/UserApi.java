@@ -1,6 +1,6 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.ImmutableUser;
+import io.swagger.server.model.User;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public interface UserApi {
@@ -15,7 +15,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutableUser body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid User body)
             throws javax.ws.rs.WebApplicationException;
 
     /**
@@ -27,8 +27,7 @@ public interface UserApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithArray")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid
-                    java.util.LinkedList<ImmutableUser> body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body)
             throws javax.ws.rs.WebApplicationException;
 
     /**
@@ -40,8 +39,7 @@ public interface UserApi {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithList")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid
-                    java.util.LinkedList<ImmutableUser> body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body)
             throws javax.ws.rs.WebApplicationException;
 
     /**
@@ -123,7 +121,7 @@ public interface UserApi {
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateUser(
             @javax.ws.rs.BeanParam UpdateUserParam params,
-            @javax.validation.constraints.NotNull @javax.validation.Valid ImmutableUser body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid User body)
             throws javax.ws.rs.WebApplicationException;
 
     public class UpdateUserParam {
