@@ -76,7 +76,7 @@
         <version.failsafe.plugin>2.22.1</version.failsafe.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.jar.plugin>3.1.1</version.jar.plugin>
-        <version.license.plugin>1.16</version.license.plugin>
+        <version.license.plugin>1.17</version.license.plugin>
         <version.processor.plugin>3.3.3</version.processor.plugin>
         <version.resources.plugin>3.1.0</version.resources.plugin>
         <version.site.plugin>3.7.1</version.site.plugin>
