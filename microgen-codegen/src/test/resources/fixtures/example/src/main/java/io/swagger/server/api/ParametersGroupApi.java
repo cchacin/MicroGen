@@ -144,17 +144,17 @@ public interface ParametersGroupApi {
      * @param enumPathParam This is a description of enumPathParams, an Enum path parameter.
      *     (required)
      * @param queryParamStringOptional This is an optional string parameter. It provides a default
-     *     value. (optional)
+     *     value. (optional, default to queryParamStringOptionalDefaultValue)
      * @param queryParamStringRequired This is a required string parameter. (required)
      * @param queryParamNumberRequired This is a description of queryParamDoubleRequired, a required
      *     double query parameter (required)
      * @param queryParamUUIDRequired This is a required UUID parameter. (required)
      * @param queryParamFloatOptional This is a description of queryParamFloatOptional, an optional
-     *     float query parameter (optional)
+     *     float query parameter (optional, default to 1)
      * @param queryParamFloatRequired This is a description of queryParamFloatRequired, a required
      *     float query parameter (required)
      * @param queryParamDoubleOptional This is a description of queryParamDoubleOptional, an optional
-     *     double query parameter (optional)
+     *     double query parameter (optional, default to 1)
      * @param queryParamDoubleRequired This is a description of queryParamDoubleRequired, a required
      *     double query parameter (required)
      * @param queryParamIntOptional This is a description of queryParamIntOptional, an optional
@@ -166,7 +166,7 @@ public interface ParametersGroupApi {
      * @param queryParamInt64Required This is a description of queryParamInt64Required, a required
      *     integer query parameter (required)
      * @param queryParamBooleanOptional This is a description of queryParamBooleanOptional, an
-     *     optional boolean query parameter (optional)
+     *     optional boolean query parameter (optional, default to true)
      * @param queryParamBooleanRequired This is a description of queryParamBooleanRequired, a required
      *     boolean query parameter (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -186,6 +186,7 @@ public interface ParametersGroupApi {
         public String enumPathParam;
 
         @javax.ws.rs.QueryParam("queryParamStringOptional")
+        @javax.ws.rs.DefaultValue("queryParamStringOptionalDefaultValue")
         public String queryParamStringOptional;
 
         @javax.ws.rs.QueryParam("queryParamStringRequired")
@@ -201,6 +202,7 @@ public interface ParametersGroupApi {
         public java.util.UUID queryParamUUIDRequired;
 
         @javax.ws.rs.QueryParam("queryParamFloatOptional")
+        @javax.ws.rs.DefaultValue("1")
         public Float queryParamFloatOptional;
 
         @javax.ws.rs.QueryParam("queryParamFloatRequired")
@@ -208,6 +210,7 @@ public interface ParametersGroupApi {
         public Float queryParamFloatRequired;
 
         @javax.ws.rs.QueryParam("queryParamDoubleOptional")
+        @javax.ws.rs.DefaultValue("1")
         public Double queryParamDoubleOptional;
 
         @javax.ws.rs.QueryParam("queryParamDoubleRequired")
@@ -229,6 +232,7 @@ public interface ParametersGroupApi {
         public Long queryParamInt64Required;
 
         @javax.ws.rs.QueryParam("queryParamBooleanOptional")
+        @javax.ws.rs.DefaultValue("true")
         public Boolean queryParamBooleanOptional;
 
         @javax.ws.rs.QueryParam("queryParamBooleanRequired")
