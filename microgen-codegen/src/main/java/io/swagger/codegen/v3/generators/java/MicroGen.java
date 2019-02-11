@@ -6,6 +6,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
+import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -156,6 +157,16 @@ public class MicroGen extends JavaClientCodegen {
             }
         }
         return objs;
+    }
+
+    @Override
+    public CodegenParameter fromParameter(final Parameter parameter, final Set<String> imports) {
+        final CodegenParameter param = super.fromParameter(parameter, imports);
+        final Schema<?> schema = parameter.getSchema();
+        if (schema != null && param.getDefaultValue() == null && schema.getDefault() != null) {
+            param.defaultValue = schema.getDefault().toString();
+        }
+        return param;
     }
 
     protected void filterOperations(final OpenAPI swagger,
