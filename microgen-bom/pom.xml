@@ -24,7 +24,7 @@
         <swagger.core.version>2.0.6</swagger.core.version>
         <swagger.parser.version>2.0.8</swagger.parser.version>
         <swagger.codegen.version>3.0.4</swagger.codegen.version>
-        <swagger.codegen.generators>1.0.4</swagger.codegen.generators>
+        <swagger.codegen.generators>1.0.5</swagger.codegen.generators>
         
         <immutables.version>2.7.5</immutables.version>
 
