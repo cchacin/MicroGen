@@ -22,7 +22,7 @@
         <microgen.version>${project.version}</microgen.version>
 
         <swagger.core.version>2.0.7</swagger.core.version>
-        <swagger.parser.version>2.0.9</swagger.parser.version>
+        <swagger.parser.version>2.0.10</swagger.parser.version>
         <swagger.codegen.version>3.0.4</swagger.codegen.version>
         <swagger.codegen.generators>1.0.5</swagger.codegen.generators>
         
