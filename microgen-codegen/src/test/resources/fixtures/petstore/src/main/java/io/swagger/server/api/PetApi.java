@@ -14,6 +14,7 @@ public interface PetApi {
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
             throws javax.ws.rs.WebApplicationException;
@@ -104,6 +105,7 @@ public interface PetApi {
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
             throws javax.ws.rs.WebApplicationException;

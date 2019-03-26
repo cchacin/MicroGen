@@ -13,6 +13,7 @@ public interface DefaultApi {
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("defaultpet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addDefPet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
             throws javax.ws.rs.WebApplicationException;
@@ -25,6 +26,7 @@ public interface DefaultApi {
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("defaultpet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateDefPet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
             throws javax.ws.rs.WebApplicationException;
