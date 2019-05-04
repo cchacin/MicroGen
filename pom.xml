@@ -70,7 +70,7 @@
 
         <!-- Plugins -->
         <version.clean.plugin>3.1.0</version.clean.plugin>
-        <version.compiler.plugin>3.8.0</version.compiler.plugin>
+        <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.dependency.plugin>3.1.1</version.dependency.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.failsafe.plugin>2.22.2</version.failsafe.plugin>
