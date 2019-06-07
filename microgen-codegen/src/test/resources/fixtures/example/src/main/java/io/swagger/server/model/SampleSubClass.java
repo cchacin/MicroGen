@@ -1,19 +1,19 @@
 package io.swagger.server.model;
 
-/** This is an subclass defived from the SampleBase class. */
+/**
+ * This is an subclass defived from the SampleBase class.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class SampleSubClass extends SampleBase {
 
     private final String subClassStringProp;
 
-    private final Integer subClassIntegerProp;
+    private final java.util.OptionalInt subClassIntegerProp;
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleSubClass(
-            @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
-            final String subClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
-            final Integer subClassIntegerProp) {
+            @javax.json.bind.annotation.JsonbProperty("subClassStringProp") final String subClassStringProp,
+            @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp") final java.util.OptionalInt subClassIntegerProp) {
         this.subClassStringProp = subClassStringProp;
         this.subClassIntegerProp = subClassIntegerProp;
     }
@@ -34,7 +34,7 @@ public final class SampleSubClass extends SampleBase {
      * @return subClassIntegerProp
      */
     @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
-    public Integer getSubClassIntegerProp() {
+    public java.util.OptionalInt getSubClassIntegerProp() {
         return subClassIntegerProp;
     }
 

@@ -1,6 +1,8 @@
 package io.swagger.server.model;
 
-/** This is a model object that contains a property with readOnly&#x3D;true. */
+/**
+ * This is a model object that contains a property with readOnly&#x3D;true.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class ModelWithReadOnlyPropertyTest {
 
@@ -12,20 +14,17 @@ public final class ModelWithReadOnlyPropertyTest {
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithReadOnlyPropertyTest(
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse")
-            final String stringPropWithImplicitReadOnlyFalse,
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse")
-            final String stringPropWithExplicitReadOnlyFalse,
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue")
-            final String stringPropWithReadOnlyTrue) {
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse") final String stringPropWithImplicitReadOnlyFalse,
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse") final String stringPropWithExplicitReadOnlyFalse,
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue") final String stringPropWithReadOnlyTrue) {
         this.stringPropWithImplicitReadOnlyFalse = stringPropWithImplicitReadOnlyFalse;
         this.stringPropWithExplicitReadOnlyFalse = stringPropWithExplicitReadOnlyFalse;
         this.stringPropWithReadOnlyTrue = stringPropWithReadOnlyTrue;
     }
 
     /**
-     * This is a property without a readOnly attribute, meaning that it takes on the default value of
-     * readOnly=false. It should be included in both response and request.
+     * This is a property without a readOnly attribute, meaning that it takes on the default value of readOnly=false. It
+     * should be included in both response and request.
      *
      * @return stringPropWithImplicitReadOnlyFalse
      */
@@ -45,8 +44,7 @@ public final class ModelWithReadOnlyPropertyTest {
     }
 
     /**
-     * This is a property with readOnly=true, meaning that it should be included in the response, but
-     * not the request.
+     * This is a property with readOnly=true, meaning that it should be included in the response, but not the request.
      *
      * @return stringPropWithReadOnlyTrue
      */

@@ -4,7 +4,7 @@ package io.swagger.server.model;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class User {
 
-    private final Long id;
+    private final java.util.OptionalLong id;
 
     private final String username;
 
@@ -18,18 +18,19 @@ public final class User {
 
     private final String phone;
 
-    private final Integer userStatus;
+    private final java.util.OptionalInt userStatus;
 
     @javax.json.bind.annotation.JsonbCreator
     public User(
-            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
             @javax.json.bind.annotation.JsonbProperty("username") final String username,
             @javax.json.bind.annotation.JsonbProperty("firstName") final String firstName,
             @javax.json.bind.annotation.JsonbProperty("lastName") final String lastName,
             @javax.json.bind.annotation.JsonbProperty("email") final String email,
             @javax.json.bind.annotation.JsonbProperty("password") final String password,
             @javax.json.bind.annotation.JsonbProperty("phone") final String phone,
-            @javax.json.bind.annotation.JsonbProperty("userStatus") final Integer userStatus) {
+            @javax.json.bind.annotation.JsonbProperty("userStatus")
+            final java.util.OptionalInt userStatus) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -46,7 +47,7 @@ public final class User {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public Long getId() {
+    public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -116,7 +117,7 @@ public final class User {
      * @return userStatus
      */
     @javax.json.bind.annotation.JsonbProperty("userStatus")
-    public Integer getUserStatus() {
+    public java.util.OptionalInt getUserStatus() {
         return userStatus;
     }
 

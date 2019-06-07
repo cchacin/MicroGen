@@ -1,11 +1,14 @@
 package io.swagger.server.model;
 
-/** This is a model object that has additionalProperties with type&#x3D;integer. */
+/**
+ * This is a model object that has additionalProperties with type&#x3D;integer.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class ModelWithIntegerAdditionalProperties extends java.util.HashMap<String, Integer> {
 
     @javax.json.bind.annotation.JsonbCreator
-    public ModelWithIntegerAdditionalProperties() {}
+    public ModelWithIntegerAdditionalProperties() {
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {

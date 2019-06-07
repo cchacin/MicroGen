@@ -1,17 +1,19 @@
 package io.swagger.server.model;
 
-/** This is a model object that has properties and additionalProperties. */
+/**
+ * This is a model object that has properties and additionalProperties.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class ModelWithPropertiesAndAdditionalProperties
         extends java.util.HashMap<String, String> {
 
-    private final Integer integerProp;
+    private final java.util.OptionalInt integerProp;
 
     private final String stringProp;
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithPropertiesAndAdditionalProperties(
-            @javax.json.bind.annotation.JsonbProperty("integerProp") final Integer integerProp,
+            @javax.json.bind.annotation.JsonbProperty("integerProp") final java.util.OptionalInt integerProp,
             @javax.json.bind.annotation.JsonbProperty("stringProp") final String stringProp) {
         this.integerProp = integerProp;
         this.stringProp = stringProp;
@@ -23,7 +25,7 @@ public final class ModelWithPropertiesAndAdditionalProperties
      * @return integerProp
      */
     @javax.json.bind.annotation.JsonbProperty("integerProp")
-    public Integer getIntegerProp() {
+    public java.util.OptionalInt getIntegerProp() {
         return integerProp;
     }
 

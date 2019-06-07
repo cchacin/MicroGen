@@ -1,8 +1,7 @@
 package io.swagger.server.model;
 
 /**
- * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and
- * type&#x3D;&lt;model&gt;.
+ * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and type&#x3D;&lt;model&gt;.
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class ModelWithMapProperties {
@@ -11,21 +10,18 @@ public final class ModelWithMapProperties {
 
     private final java.util.Map<String, Integer> integerMap;
 
-    @javax.validation.Valid private final java.util.Map<String, ErrorInfo> errorInfoMap;
+    @javax.validation.Valid
+    private final java.util.Map<String, ErrorInfo> errorInfoMap;
 
     @javax.validation.Valid
     private final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap;
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithMapProperties(
-            @javax.json.bind.annotation.JsonbProperty("stringMap")
-            final java.util.Map<String, String> stringMap,
-            @javax.json.bind.annotation.JsonbProperty("integerMap")
-            final java.util.Map<String, Integer> integerMap,
-            @javax.json.bind.annotation.JsonbProperty("errorInfoMap")
-            final java.util.Map<String, ErrorInfo> errorInfoMap,
-            @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
-            final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap) {
+            @javax.json.bind.annotation.JsonbProperty("stringMap") final java.util.Map<String, String> stringMap,
+            @javax.json.bind.annotation.JsonbProperty("integerMap") final java.util.Map<String, Integer> integerMap,
+            @javax.json.bind.annotation.JsonbProperty("errorInfoMap") final java.util.Map<String, ErrorInfo> errorInfoMap,
+            @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap") final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap) {
         this.stringMap = stringMap;
         this.integerMap = integerMap;
         this.errorInfoMap = errorInfoMap;

@@ -4,7 +4,7 @@ package io.swagger.server.model;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class Pet {
 
-    private final Long id;
+    private final java.util.OptionalLong id;
 
     @javax.validation.Valid private final Category category;
 
@@ -41,9 +41,9 @@ public final class Pet {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                    .findFirst()
-                    .orElse(null);
+                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                                   .findFirst()
+                                   .orElse(null);
         }
     }
 
@@ -65,7 +65,7 @@ public final class Pet {
 
     @javax.json.bind.annotation.JsonbCreator
     public Pet(
-            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
             @javax.json.bind.annotation.JsonbProperty("category") final Category category,
             @javax.json.bind.annotation.JsonbProperty("name") final String name,
             @javax.json.bind.annotation.JsonbProperty("photoUrls") final java.util.List<String> photoUrls,
@@ -85,7 +85,7 @@ public final class Pet {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public Long getId() {
+    public java.util.OptionalLong getId() {
         return id;
     }
 

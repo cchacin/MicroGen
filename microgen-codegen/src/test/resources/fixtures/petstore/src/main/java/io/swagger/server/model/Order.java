@@ -4,11 +4,11 @@ package io.swagger.server.model;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class Order {
 
-    private final Long id;
+    private final java.util.OptionalLong id;
 
-    private final Long petId;
+    private final java.util.OptionalLong petId;
 
-    private final Integer quantity;
+    private final java.util.OptionalInt quantity;
 
     @javax.validation.Valid private final java.time.OffsetDateTime shipDate;
 
@@ -39,9 +39,9 @@ public final class Order {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                    .findFirst()
-                    .orElse(null);
+                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                                   .findFirst()
+                                   .orElse(null);
         }
     }
 
@@ -65,9 +65,9 @@ public final class Order {
 
     @javax.json.bind.annotation.JsonbCreator
     public Order(
-            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
-            @javax.json.bind.annotation.JsonbProperty("petId") final Long petId,
-            @javax.json.bind.annotation.JsonbProperty("quantity") final Integer quantity,
+            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+            @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
+            @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
             @javax.json.bind.annotation.JsonbProperty("shipDate") final java.time.OffsetDateTime shipDate,
             @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
             @javax.json.bind.annotation.JsonbProperty("complete") final Boolean complete) {
@@ -85,7 +85,7 @@ public final class Order {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public Long getId() {
+    public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -95,7 +95,7 @@ public final class Order {
      * @return petId
      */
     @javax.json.bind.annotation.JsonbProperty("petId")
-    public Long getPetId() {
+    public java.util.OptionalLong getPetId() {
         return petId;
     }
 
@@ -105,7 +105,7 @@ public final class Order {
      * @return quantity
      */
     @javax.json.bind.annotation.JsonbProperty("quantity")
-    public Integer getQuantity() {
+    public java.util.OptionalInt getQuantity() {
         return quantity;
     }
 
