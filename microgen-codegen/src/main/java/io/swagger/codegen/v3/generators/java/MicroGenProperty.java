@@ -47,6 +47,15 @@ class MicroGenProperty extends CodegenProperty {
         this.xmlPrefix = codegenProperty.xmlPrefix;
         this.xmlName = codegenProperty.xmlName;
         this.xmlNamespace = codegenProperty.xmlNamespace;
+        if (!required) {
+            if ("Integer".equals(datatype)) {
+                datatypeWithEnum = "java.util.OptionalInt";
+            } else if ("Double".equals(datatype)) {
+                datatypeWithEnum = "java.util.OptionalDouble";
+            } else if ("Long".equals(datatype)) {
+                datatypeWithEnum = "java.util.OptionalLong";
+            }
+        }
     }
 
     private String processGetter(final CodegenProperty codegenProperty) {

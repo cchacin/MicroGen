@@ -1,12 +1,15 @@
 package io.swagger.server.model;
 
-/** This is a model object that has additionalProperties with type&#x3D;object. */
+/**
+ * This is a model object that has additionalProperties with type&#x3D;object.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class ModelWithComplexAdditionalProperties
         extends java.util.HashMap<String, ErrorInfo> {
 
     @javax.json.bind.annotation.JsonbCreator
-    public ModelWithComplexAdditionalProperties() {}
+    public ModelWithComplexAdditionalProperties() {
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {

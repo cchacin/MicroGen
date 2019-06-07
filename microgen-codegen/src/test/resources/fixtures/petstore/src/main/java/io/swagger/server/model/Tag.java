@@ -4,13 +4,13 @@ package io.swagger.server.model;
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class Tag {
 
-    private final Long id;
+    private final java.util.OptionalLong id;
 
     private final String name;
 
     @javax.json.bind.annotation.JsonbCreator
     public Tag(
-            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
             @javax.json.bind.annotation.JsonbProperty("name") final String name) {
         this.id = id;
         this.name = name;
@@ -22,7 +22,7 @@ public final class Tag {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public Long getId() {
+    public java.util.OptionalLong getId() {
         return id;
     }
 

@@ -1,6 +1,8 @@
 package io.swagger.server.model;
 
-/** This is an card object for a Person derived from BaseCard. */
+/**
+ * This is an card object for a Person derived from BaseCard.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class PersonCard extends BaseCard {
 

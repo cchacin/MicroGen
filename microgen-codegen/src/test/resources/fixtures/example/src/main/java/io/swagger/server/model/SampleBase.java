@@ -1,19 +1,19 @@
 package io.swagger.server.model;
 
-/** This is an base class object from which other classes will derive. */
+/**
+ * This is an base class object from which other classes will derive.
+ */
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
 public final class SampleBase {
 
     private final String baseClassStringProp;
 
-    private final Integer baseClassIntegerProp;
+    private final java.util.OptionalInt baseClassIntegerProp;
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleBase(
-            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
-            final String baseClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
-            final Integer baseClassIntegerProp) {
+            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp") final String baseClassStringProp,
+            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp") final java.util.OptionalInt baseClassIntegerProp) {
         this.baseClassStringProp = baseClassStringProp;
         this.baseClassIntegerProp = baseClassIntegerProp;
     }
@@ -34,7 +34,7 @@ public final class SampleBase {
      * @return baseClassIntegerProp
      */
     @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
-    public Integer getBaseClassIntegerProp() {
+    public java.util.OptionalInt getBaseClassIntegerProp() {
         return baseClassIntegerProp;
     }
 

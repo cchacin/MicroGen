@@ -31,7 +31,6 @@ class Java8ModelTest extends Assertions {
 
         schema.properties(pro);
 
-
         final MicroGen codegen = new MicroGen();
         codegen.processOpts();
         codegen.setLibrary("server");
