@@ -26,7 +26,7 @@
         <swagger.codegen.version>3.0.4</swagger.codegen.version>
         <swagger.codegen.generators>1.0.7</swagger.codegen.generators>
         
-        <immutables.version>2.7.5</immutables.version>
+        <immutables.version>2.8.0-CriteriaPreview0</immutables.version>
 
         <junit.version>5.5.1</junit.version>
         <junit.platform.version>1.3.2</junit.platform.version>
