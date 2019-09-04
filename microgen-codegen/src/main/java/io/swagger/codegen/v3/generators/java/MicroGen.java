@@ -1,18 +1,31 @@
 package io.swagger.codegen.v3.generators.java;
 
-import io.swagger.codegen.v3.*;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import io.swagger.codegen.v3.CliOption;
+import io.swagger.codegen.v3.CodegenConstants;
+import io.swagger.codegen.v3.CodegenModel;
+import io.swagger.codegen.v3.CodegenOperation;
+import io.swagger.codegen.v3.CodegenParameter;
+import io.swagger.codegen.v3.SupportingFile;
 import io.swagger.codegen.v3.templates.MustacheTemplateEngine;
+import io.swagger.codegen.v3.templates.TemplateEngine;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static io.swagger.codegen.v3.generators.handlebars.ExtensionHelper.getBooleanValue;
 import static java.util.stream.Collectors.toList;
@@ -156,6 +169,11 @@ public class MicroGen extends JavaClientCodegen {
             }
         }
         return objs;
+    }
+
+    @Override
+    public TemplateEngine getTemplateEngine() {
+        return new ReformattingTemplateEngine(super.getTemplateEngine());
     }
 
     @Override
