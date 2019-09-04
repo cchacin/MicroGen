@@ -57,13 +57,13 @@
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
         </dependency>
-
-        <!-- test dependencies -->
         <dependency>
             <groupId>com.google.googlejavaformat</groupId>
             <artifactId>google-java-format</artifactId>
-            <scope>test</scope>
+            <version>1.7</version>
         </dependency>
+
+        <!-- test dependencies -->
         <dependency>
             <groupId>io.swagger.parser.v3</groupId>
             <artifactId>swagger-parser</artifactId>
@@ -122,5 +122,14 @@
             <artifactId>value</artifactId>
             <scope>test</scope>
         </dependency>
+      <dependency>
+        <groupId>com.google.googlejavaformat</groupId>
+        <artifactId>google-java-format</artifactId>
+        <version>1.7</version>
+      </dependency>
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+      </dependency>
     </dependencies>
 </project>
