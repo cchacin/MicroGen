@@ -14,7 +14,7 @@ package io.swagger.server.model;
         @JsonSubTypes.Type(value = PersonCard.class,
                 name = "PersonCard"),
 })
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class BaseCard {
     @javax.validation.constraints.NotNull
     private final String cardType;

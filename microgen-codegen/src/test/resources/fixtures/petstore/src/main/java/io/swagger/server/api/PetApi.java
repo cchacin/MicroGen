@@ -1,28 +1,29 @@
 package io.swagger.server.api;
 
+import io.swagger.server.model.ModelApiResponse;
 import io.swagger.server.model.Pet;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface PetApi {
 
     /**
      * Add a new pet to the store
      *
-     * @param body Pet object that needs to be added to the store (required)
+     * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
     /**
      * Deletes a pet
      *
-     * @param apiKey (optional)
      * @param petId Pet id to delete (required)
+     * @param apiKey (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.DELETE
@@ -31,12 +32,11 @@ public interface PetApi {
             @javax.ws.rs.BeanParam DeletePetParam params) throws javax.ws.rs.WebApplicationException;
 
     public class DeletePetParam {
+        @javax.ws.rs.PathParam("petId")
+        public Long petId;
 
         @javax.ws.rs.HeaderParam("api_key")
         public String apiKey;
-
-        @javax.ws.rs.PathParam("petId")
-        public Long petId;
     }
 
     /**
@@ -99,22 +99,22 @@ public interface PetApi {
     /**
      * Update an existing pet
      *
-     * @param body Pet object that needs to be added to the store (required)
+     * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
     /**
      * Updates a pet in the store with form data
      *
      * @param petId ID of pet that needs to be updated (required)
-     * @param name (optional)
-     * @param status (optional)
+     * @param name Updated name of the pet (optional)
+     * @param status Updated status of the pet (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -127,20 +127,14 @@ public interface PetApi {
     public class UpdatePetWithFormParam {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
-
-        @javax.ws.rs.FormParam(value = "name")
-        private String name;
-
-        @javax.ws.rs.FormParam(value = "status")
-        private String status;
     }
 
     /**
      * uploads an image
      *
      * @param petId ID of pet to update (required)
-     * @param additionalMetadata (optional)
-     * @param file (optional)
+     * @param additionalMetadata Additional data to pass to server (optional)
+     * @param file file to upload (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -158,6 +152,6 @@ public interface PetApi {
         private String additionalMetadata;
 
         @javax.ws.rs.FormParam(value = "file")
-        private byte[] file;
+        public java.io.InputStream fileInputStream;
     }
 }

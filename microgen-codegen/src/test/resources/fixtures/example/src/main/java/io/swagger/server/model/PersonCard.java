@@ -3,7 +3,7 @@ package io.swagger.server.model;
 /**
  * This is an card object for a Person derived from BaseCard.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class PersonCard extends BaseCard {
 
     private final String firstName;

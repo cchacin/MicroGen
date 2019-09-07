@@ -1,6 +1,6 @@
 {{#isQueryParam}}
         @javax.ws.rs.QueryParam("{{baseName}}")
         {{>beanValidationQueryParams}}
-        {{#defaultValue}} @javax.ws.rs.DefaultValue("{{{defaultValue}}}"){{/defaultValue}}
+        {{^isContainer}}{{#defaultValue}} @javax.ws.rs.DefaultValue("{{{defaultValue}}}"){{/defaultValue}}{{/isContainer}}
         public {{{dataType}}} {{paramName}};
 {{/isQueryParam}}

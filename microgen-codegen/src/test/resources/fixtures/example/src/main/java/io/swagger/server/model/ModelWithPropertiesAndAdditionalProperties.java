@@ -3,7 +3,7 @@ package io.swagger.server.model;
 /**
  * This is a model object that has properties and additionalProperties.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithPropertiesAndAdditionalProperties
         extends java.util.HashMap<String, String> {
 

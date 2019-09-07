@@ -2,11 +2,11 @@ package petstore.models;
 
 
 /**
- * Body
+ * InlineObject
  */
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public final class Body {
+public final class InlineObject {
 
     private final String name;
 
@@ -15,7 +15,7 @@ public final class Body {
 
 
     @javax.json.bind.annotation.JsonbCreator
-    public Body(
+    public InlineObject(
             @javax.json.bind.annotation.JsonbProperty("name") final String name,
             @javax.json.bind.annotation.JsonbProperty("status") final String status
     ) {
@@ -53,9 +53,9 @@ public final class Body {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Body body = (Body) o;
-        return java.util.Objects.equals(this.name, body.name) &&
-                java.util.Objects.equals(this.status, body.status);
+        InlineObject inlineObject = (InlineObject) o;
+        return java.util.Objects.equals(this.name, inlineObject.name) &&
+                java.util.Objects.equals(this.status, inlineObject.status);
     }
 
     @Override
@@ -66,7 +66,7 @@ public final class Body {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Body {\n");
+        sb.append("class InlineObject {\n");
 
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");

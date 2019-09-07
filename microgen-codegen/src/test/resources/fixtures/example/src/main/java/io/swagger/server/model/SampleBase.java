@@ -3,7 +3,7 @@ package io.swagger.server.model;
 /**
  * This is an base class object from which other classes will derive.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class SampleBase {
 
     private final String baseClassStringProp;

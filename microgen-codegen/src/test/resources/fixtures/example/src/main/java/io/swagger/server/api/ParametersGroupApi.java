@@ -1,38 +1,44 @@
 package io.swagger.server.api;
 
+import io.swagger.server.model.AllModels;
 import io.swagger.server.model.ErrorInfo;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface ParametersGroupApi {
 
     /**
      * Summary: This is an endpoint which tests array input parameters. Description: This is an
      * endpoint which tests array input parameters.
      *
-     * @param queryParamStringArrayOptional This is a description of queryParamStringArrayOptional, an
-     *     optional string array query parameter (optional)
      * @param queryParamStringArrayRequired This is a description of queryParamStringArrayRequired, a
      *     required string array query parameter (required)
-     * @param queryParamIntArrayOptional This is a description of queryParamIntArrayOptional, an
-     *     optional Int array query parameter (optional)
      * @param queryParamIntArrayRequired This is a description of queryParamIntArrayRequired, a
      *     required Int array query parameter (required)
-     * @param queryParamInt64ArrayOptional This is a description of queryParamInt64ArrayOptional, an
-     *     optional Int64 array query parameter (optional)
      * @param queryParamInt64ArrayRequired This is a description of queryParamInt64ArrayRequired, a
      *     required Int64 array query parameter (required)
-     * @param queryParamFloatArrayOptional This is a description of queryParamFloatArrayOptional, an
-     *     optional float array query parameter (optional)
      * @param queryParamFloatArrayRequired This is a description of queryParamFloatArrayRequired, a
      *     required float array query parameter (required)
-     * @param queryParamDoubleArrayOptional This is a description of queryParamDoubleArrayOptional, an
-     *     optional double array query parameter (optional)
      * @param queryParamDoubleArrayRequired This is a description of queryParamDoubleArrayRequired, a
      *     required double array query parameter (required)
-     * @param queryParamBooleanArrayOptional This is a description of queryParamBooleanArrayOptional,
-     *     an optional boolean array query parameter (optional)
      * @param queryParamBooleanArrayRequired This is a description of queryParamBooleanArrayRequired,
      *     a required boolean array query parameter (required)
+     * @param queryParamStringArrayOptional This is a description of queryParamStringArrayOptional, an
+     *     optional string array query parameter (optional, default to new
+     *     java.util.ArrayList<String>())
+     * @param queryParamIntArrayOptional This is a description of queryParamIntArrayOptional, an
+     *     optional Int array query parameter (optional, default to new
+     *     java.util.ArrayList<Integer>())
+     * @param queryParamInt64ArrayOptional This is a description of queryParamInt64ArrayOptional, an
+     *     optional Int64 array query parameter (optional, default to new java.util.ArrayList<Long>())
+     * @param queryParamFloatArrayOptional This is a description of queryParamFloatArrayOptional, an
+     *     optional float array query parameter (optional, default to new
+     *     java.util.ArrayList<Float>())
+     * @param queryParamDoubleArrayOptional This is a description of queryParamDoubleArrayOptional, an
+     *     optional double array query parameter (optional, default to new
+     *     java.util.ArrayList<Double>())
+     * @param queryParamBooleanArrayOptional This is a description of queryParamBooleanArrayOptional,
+     *     an optional boolean array query parameter (optional, default to new
+     *     java.util.ArrayList<Boolean>())
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -44,47 +50,47 @@ public interface ParametersGroupApi {
 
     public class GetParametersArraysParam {
 
-        @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
-        public java.util.List<String> queryParamStringArrayOptional;
-
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<String> queryParamStringArrayRequired;
-
-        @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
-        public java.util.List<Integer> queryParamIntArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Integer> queryParamIntArrayRequired;
 
-        @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
-        public java.util.List<Long> queryParamInt64ArrayOptional;
-
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Long> queryParamInt64ArrayRequired;
-
-        @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
-        public java.util.List<Float> queryParamFloatArrayOptional;
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Float> queryParamFloatArrayRequired;
 
-        @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
-        public java.util.List<Double> queryParamDoubleArrayOptional;
-
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Double> queryParamDoubleArrayRequired;
 
-        @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
-        public java.util.List<Boolean> queryParamBooleanArrayOptional;
-
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Boolean> queryParamBooleanArrayRequired;
+
+        @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
+        public java.util.List<String> queryParamStringArrayOptional;
+
+        @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
+        public java.util.List<Integer> queryParamIntArrayOptional;
+
+        @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
+        public java.util.List<Long> queryParamInt64ArrayOptional;
+
+        @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
+        public java.util.List<Float> queryParamFloatArrayOptional;
+
+        @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
+        public java.util.List<Double> queryParamDoubleArrayOptional;
+
+        @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
+        public java.util.List<Boolean> queryParamBooleanArrayOptional;
     }
 
     /**
@@ -92,19 +98,24 @@ public interface ParametersGroupApi {
      * which tests all of the values of collectionFormat on input array parameters.
      *
      * @param stringArrayCSV This is a description of stringArrayCSV, an optional array of strings
-     *     query parameter which uses a comma delimiter. (optional)
+     *     query parameter which uses a comma delimiter. (optional, default to new
+     *     java.util.ArrayList<String>())
      * @param stringArraySSV This is a description of stringArraySSV, an optional array of strings
-     *     query parameter which uses a space delimiter. (optional)
+     *     query parameter which uses a space delimiter. (optional, default to new
+     *     java.util.ArrayList<String>())
      * @param stringArrayTSV This is a description of stringArrayTSV, an optional array of strings
-     *     query parameter which uses a tab delimiter. (optional)
+     *     query parameter which uses a tab delimiter. (optional, default to new
+     *     java.util.ArrayList<String>())
      * @param stringArrayPipes This is a description of stringArrayPipes, an optional array of strings
-     *     query parameter which uses a | delimiter. (optional)
+     *     query parameter which uses a | delimiter. (optional, default to new
+     *     java.util.ArrayList<String>())
      * @param stringArrayMulti This is a description of stringArrayMulti, an optional array of strings
      *     query parameter which uses a separate query parameter for each element of the array.
-     *     (optional)
+     *     (optional, default to new java.util.ArrayList<String>())
      * @param stringArrayPipesOfStringArrayCSV This is an optional parameter which is a string array
      *     of string arrays. The outer delimiter is the pipe (&#39;|&#39;) and the inner delimiter is
-     *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional)
+     *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional, default
+     *     to new java.util.ArrayList<java.util.List<String>>())
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -142,32 +153,32 @@ public interface ParametersGroupApi {
      * @param pathParam This is a description of pathParam, a path parameter. (required)
      * @param enumPathParam This is a description of enumPathParams, an Enum path parameter.
      *     (required)
-     * @param queryParamStringOptional This is an optional string parameter. It provides a default
-     *     value. (optional, default to queryParamStringOptionalDefaultValue)
      * @param queryParamStringRequired This is a required string parameter. (required)
      * @param queryParamNumberRequired This is a description of queryParamDoubleRequired, a required
      *     double query parameter (required)
      * @param queryParamUUIDRequired This is a required UUID parameter. (required)
-     * @param queryParamFloatOptional This is a description of queryParamFloatOptional, an optional
-     *     float query parameter (optional, default to 1)
      * @param queryParamFloatRequired This is a description of queryParamFloatRequired, a required
      *     float query parameter (required)
-     * @param queryParamDoubleOptional This is a description of queryParamDoubleOptional, an optional
-     *     double query parameter (optional, default to 1)
      * @param queryParamDoubleRequired This is a description of queryParamDoubleRequired, a required
      *     double query parameter (required)
-     * @param queryParamIntOptional This is a description of queryParamIntOptional, an optional
-     *     integer query parameter (optional)
      * @param queryParamIntRequired This is a description of queryParamIntRequired, a required integer
      *     query parameter (required)
-     * @param queryParamInt64Optional This is a description of queryParamInt64Optional, an optional
-     *     integer query parameter (optional)
      * @param queryParamInt64Required This is a description of queryParamInt64Required, a required
      *     integer query parameter (required)
-     * @param queryParamBooleanOptional This is a description of queryParamBooleanOptional, an
-     *     optional boolean query parameter (optional, default to true)
      * @param queryParamBooleanRequired This is a description of queryParamBooleanRequired, a required
      *     boolean query parameter (required)
+     * @param queryParamStringOptional This is an optional string parameter. It provides a default
+     *     value. (optional, default to queryParamStringOptionalDefaultValue)
+     * @param queryParamFloatOptional This is a description of queryParamFloatOptional, an optional
+     *     float query parameter (optional, default to 1f)
+     * @param queryParamDoubleOptional This is a description of queryParamDoubleOptional, an optional
+     *     double query parameter (optional, default to 1d)
+     * @param queryParamIntOptional This is a description of queryParamIntOptional, an optional
+     *     integer query parameter (optional)
+     * @param queryParamInt64Optional This is a description of queryParamInt64Optional, an optional
+     *     integer query parameter (optional)
+     * @param queryParamBooleanOptional This is a description of queryParamBooleanOptional, an
+     *     optional boolean query parameter (optional, default to true)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.GET
@@ -184,10 +195,6 @@ public interface ParametersGroupApi {
         @javax.ws.rs.PathParam("enumPathParam")
         public String enumPathParam;
 
-        @javax.ws.rs.QueryParam("queryParamStringOptional")
-        @javax.ws.rs.DefaultValue("queryParamStringOptionalDefaultValue")
-        public String queryParamStringOptional;
-
         @javax.ws.rs.QueryParam("queryParamStringRequired")
         @javax.validation.constraints.NotNull
         public String queryParamStringRequired;
@@ -200,43 +207,47 @@ public interface ParametersGroupApi {
         @javax.validation.constraints.NotNull
         public java.util.UUID queryParamUUIDRequired;
 
-        @javax.ws.rs.QueryParam("queryParamFloatOptional")
-        @javax.ws.rs.DefaultValue("1")
-        public Float queryParamFloatOptional;
-
         @javax.ws.rs.QueryParam("queryParamFloatRequired")
         @javax.validation.constraints.NotNull
         public Float queryParamFloatRequired;
-
-        @javax.ws.rs.QueryParam("queryParamDoubleOptional")
-        @javax.ws.rs.DefaultValue("1")
-        public Double queryParamDoubleOptional;
 
         @javax.ws.rs.QueryParam("queryParamDoubleRequired")
         @javax.validation.constraints.NotNull
         public Double queryParamDoubleRequired;
 
-        @javax.ws.rs.QueryParam("queryParamIntOptional")
-        public Integer queryParamIntOptional;
-
         @javax.ws.rs.QueryParam("queryParamIntRequired")
         @javax.validation.constraints.NotNull
         public Integer queryParamIntRequired;
-
-        @javax.ws.rs.QueryParam("queryParamInt64Optional")
-        public Long queryParamInt64Optional;
 
         @javax.ws.rs.QueryParam("queryParamInt64Required")
         @javax.validation.constraints.NotNull
         public Long queryParamInt64Required;
 
-        @javax.ws.rs.QueryParam("queryParamBooleanOptional")
-        @javax.ws.rs.DefaultValue("true")
-        public Boolean queryParamBooleanOptional;
-
         @javax.ws.rs.QueryParam("queryParamBooleanRequired")
         @javax.validation.constraints.NotNull
         public Boolean queryParamBooleanRequired;
+
+        @javax.ws.rs.QueryParam("queryParamStringOptional")
+        @javax.ws.rs.DefaultValue("queryParamStringOptionalDefaultValue")
+        public String queryParamStringOptional;
+
+        @javax.ws.rs.QueryParam("queryParamFloatOptional")
+        @javax.ws.rs.DefaultValue("1f")
+        public Float queryParamFloatOptional;
+
+        @javax.ws.rs.QueryParam("queryParamDoubleOptional")
+        @javax.ws.rs.DefaultValue("1d")
+        public Double queryParamDoubleOptional;
+
+        @javax.ws.rs.QueryParam("queryParamIntOptional")
+        public Integer queryParamIntOptional;
+
+        @javax.ws.rs.QueryParam("queryParamInt64Optional")
+        public Long queryParamInt64Optional;
+
+        @javax.ws.rs.QueryParam("queryParamBooleanOptional")
+        @javax.ws.rs.DefaultValue("true")
+        public Boolean queryParamBooleanOptional;
     }
 
     /**
@@ -268,14 +279,15 @@ public interface ParametersGroupApi {
      * @param stringArrayParameterWithMaxItems This is a string array parameter with a maxItems of 3
      *     and collectionFormat&#x3D;csv, so the number of elements in the comma-delimited string must
      *     be &lt;&#x3D; 3. So therefore &#39;a,b&#39; and &#39;a,b,c&#39; would pass validation but
-     *     &#39;a,b,c,d&#39; would not. (optional)
+     *     &#39;a,b,c,d&#39; would not. (optional, default to new java.util.ArrayList<String>())
      * @param stringArrayParameterWithMinItems This is a string array parameter with a minItems of 3
      *     and collectionFormat&#x3D;csv, so the number of elements in the comma-delimited string must
      *     be &gt;&#x3D; 3. So therefore &#39;a,b,c&#39; and &#39;a,b,c,d&#39; would pass validation
-     *     but &#39;a,b&#39; would not. (optional)
+     *     but &#39;a,b&#39; would not. (optional, default to new java.util.ArrayList<String>())
      * @param stringArrayParameterWithUniqueItems This is a string array parameter with a
      *     uniqueItems&#x3D;true and collectionFormat&#x3D;csv. So therefore &#39;a,b,c&#39; and
-     *     &#39;a,b,c,d&#39; would pass validation but &#39;a,b,a&#39; would not. (optional)
+     *     &#39;a,b,c,d&#39; would pass validation but &#39;a,b,a&#39; would not. (optional, default
+     *     to new java.util.ArrayList<String>())
      * @param integerParameterWithMultipleOf This is an integer parameter with multipleOf&#x3D;10. So
      *     therefore values of 10, 100, and 10000 would pass validation but 25 would not. (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -335,21 +347,21 @@ public interface ParametersGroupApi {
      * Summary: This operation is for testing body input parameters. Description: This operation is
      * for testing an input parameter serialized in the body of the request.
      *
-     * @param body This parameter will be serialized in the request body. (required)
+     * @param errorInfo This parameter will be serialized in the request body. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
-            @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
             throws javax.ws.rs.WebApplicationException;
 
     /**
      * Summary: This endpoint is for testing multipart/form-data input parameters. Desciption: This
      * operation is for testing multipart/form-data input parameters.
      *
-     * @param fileParam (optional)
+     * @param fileParam This is an in&#x3D;formData type&#x3D;file input parameter (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -362,18 +374,21 @@ public interface ParametersGroupApi {
 
     public class PostFormDataParameterMultipartFormDataParam {
 
+        @javax.ws.rs.FormParam(value = "additionalMetadata")
+        private String additionalMetadata;
+
         @javax.ws.rs.FormParam(value = "fileParam")
-        private byte[] fileParam;
+        public java.io.InputStream fileParamInputStream;
     }
 
     /**
      * Summary: This endpoint is for testing url-enoded input parameters. Desciption: This operation
      * is for testing url-encoded input parameters.
      *
-     * @param stringParam (optional)
-     * @param numberParam (optional)
-     * @param integerParam (optional)
-     * @param booleanParam (optional)
+     * @param stringParam This is an in&#x3D;body type&#x3D;string input parameter (optional)
+     * @param numberParam This is an in&#x3D;body type&#x3D;number input parameter (optional)
+     * @param integerParam This is an in&#x3D;body type&#x3D;integer input parameter (optional)
+     * @param booleanParam This is an in&#x3D;body type&#x3D;boolean input parameter (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -383,18 +398,5 @@ public interface ParametersGroupApi {
             @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParam params)
             throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParametersUrlEncodedParam {
-
-        @javax.ws.rs.FormParam(value = "stringParam")
-        private String stringParam;
-
-        @javax.ws.rs.FormParam(value = "numberParam")
-        private java.math.BigDecimal numberParam;
-
-        @javax.ws.rs.FormParam(value = "integerParam")
-        private Integer integerParam;
-
-        @javax.ws.rs.FormParam(value = "booleanParam")
-        private Boolean booleanParam;
-    }
+    public class PostFormDataParametersUrlEncodedParam {}
 }

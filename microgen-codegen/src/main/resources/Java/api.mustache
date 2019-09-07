@@ -14,15 +14,12 @@ public interface {{classname}} { {{#operation}}
      {{#allParams}}
      * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
      {{/allParams}}
-     {{#bodyParams}}
-     * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
-     {{/bodyParams}}
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.{{httpMethod}}
-    @javax.ws.rs.Path("{{{path}}}"){{#vendorExtensions.x-has-consumes}}
-    @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/vendorExtensions.x-has-consumes}}{{#vendorExtensions.x-has-produces}}
-    @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/vendorExtensions.x-has-produces}}
+    @javax.ws.rs.Path("{{{path}}}"){{#hasConsumes}}
+    @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}{{#hasProduces}}
+    @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
         {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Param params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
         {{#bodyParams}}{{>bodyParams}}{{/bodyParams}}

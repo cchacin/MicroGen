@@ -2,12 +2,12 @@ package petstore.api;
 
 import petstore.models.Order;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface StoreApi {
 
     /**
-     * Delete purchase order by ID
-     * For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
+     * Delete purchase order by ID For valid response try integer IDs with positive integer value. Negative or
+     * non-integer values will generate API errors
      *
      * @param orderId ID of the order that needs to be deleted (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -29,8 +29,7 @@ public interface StoreApi {
 
 
     /**
-     * Returns pet inventories by status
-     * Returns a map of status codes to quantities
+     * Returns pet inventories by status Returns a map of status codes to quantities
      *
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
@@ -44,8 +43,8 @@ public interface StoreApi {
 
 
     /**
-     * Find purchase order by ID
-     * For valid response try integer IDs with value &gt;&#x3D; 1 and &lt;&#x3D; 10. Other values will generated exceptions
+     * Find purchase order by ID For valid response try integer IDs with value &gt;&#x3D; 1 and &lt;&#x3D; 10. Other
+     * values will generated exceptions
      *
      * @param orderId ID of pet that needs to be fetched (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -71,7 +70,7 @@ public interface StoreApi {
     /**
      * Place an order for a pet
      *
-     * @param body order placed for purchasing the pet (required)
+     * @param order order placed for purchasing the pet (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -80,7 +79,7 @@ public interface StoreApi {
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid Order body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Order order
     ) throws javax.ws.rs.WebApplicationException;
 
 } 

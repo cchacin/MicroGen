@@ -2,46 +2,46 @@ package io.swagger.server.api;
 
 import io.swagger.server.model.User;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface UserApi {
 
     /**
      * Create user This can only be done by the logged in user.
      *
-     * @param body Created user object (required)
+     * @param user Created user object (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
-            @javax.validation.constraints.NotNull @javax.validation.Valid User body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
 
     /**
      * Creates list of users with given input array
      *
-     * @param body List of user object (required)
+     * @param user List of user object (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
     /**
      * Creates list of users with given input array
      *
-     * @param body List of user object (required)
+     * @param user List of user object (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
     /**
@@ -115,7 +115,7 @@ public interface UserApi {
      * Updated user This can only be done by the logged in user.
      *
      * @param username name that need to be updated (required)
-     * @param body Updated user object (required)
+     * @param user Updated user object (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.PUT
@@ -123,7 +123,7 @@ public interface UserApi {
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateUser(
             @javax.ws.rs.BeanParam UpdateUserParam params,
-            @javax.validation.constraints.NotNull @javax.validation.Valid User body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
 
     public class UpdateUserParam {

@@ -1,12 +1,10 @@
-package io.swagger.codegen.v3.generators.java;
+package org.openapitools.codegen.languages;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
-import static io.swagger.codegen.v3.generators.java.JavaClientCodegen.MEDIA_TYPE;
 
 public interface Util {
 
@@ -32,7 +30,7 @@ public interface Util {
     static boolean isMultipartType(final List<Map<String, String>> consumes) {
 
         return Optional.ofNullable(consumes.get(0))
-                .flatMap(value -> Optional.of("multipart/form-data".equals(value.get(MEDIA_TYPE))))
+                .flatMap(value -> Optional.of("multipart/form-data".equals(value.get(JavaClientCodegen.MEDIA_TYPE))))
                 .orElse(false);
     }
 

@@ -1,6 +1,5 @@
 package io.swagger.codegen.v3.generators.java.server;
 
-import io.swagger.codegen.v3.generators.java.TemplateType;
 import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.jupiter.migrationsupport.rules.EnableRuleMigrationSupport;
@@ -10,6 +9,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.rules.TemporaryFolder;
 
 import java.util.stream.Stream;
+
+import io.swagger.codegen.v3.generators.java.TemplateType;
 
 @EnableRuleMigrationSupport
 class ModelTemplateTest extends Assertions implements ServerTemplateTest {
@@ -29,9 +30,6 @@ class ModelTemplateTest extends Assertions implements ServerTemplateTest {
                 Arguments.of("example", "PersonCard.java"),
                 Arguments.of("example", "BaseCard.java"),
                 Arguments.of("example", "ModelWithPropertiesAndAdditionalProperties.java"),
-                Arguments.of("example", "ModelWithStringAdditionalProperties.java"),
-                Arguments.of("example", "ModelWithIntegerAdditionalProperties.java"),
-                Arguments.of("example", "ModelWithComplexAdditionalProperties.java"),
                 Arguments.of("example", "ModelWithMapProperties.java"),
                 Arguments.of("example", "ModelWithReadOnlyPropertyTest.java")
         );

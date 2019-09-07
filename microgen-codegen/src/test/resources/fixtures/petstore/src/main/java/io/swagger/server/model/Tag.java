@@ -1,7 +1,7 @@
 package io.swagger.server.model;
 
 /** Tag */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Tag {
 
     private final java.util.OptionalLong id;

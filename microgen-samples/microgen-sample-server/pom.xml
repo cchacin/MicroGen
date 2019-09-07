@@ -25,8 +25,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>io.swagger.codegen.v3</groupId>
-                        <artifactId>swagger-codegen-maven-plugin</artifactId>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <goals>
@@ -35,7 +35,7 @@
                                 <configuration>
                                     <inputSpec>${project.parent.basedir}/openapi3.yml</inputSpec>
                                     <!-- language file, like e.g. JavaJaxRSCodegen shipped with swagger -->
-                                    <language>io.swagger.codegen.v3.generators.java.MicroGen</language>
+                                    <language>org.openapitools.codegen.languages.MicroGen</language>
                                     <library>server</library>
 
                                     <output>${project.basedir}</output>

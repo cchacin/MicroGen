@@ -1,10 +1,12 @@
 package io.swagger.server.model;
 
-/**
- * This is an subclass defived from the SampleBase class.
- */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
-public final class SampleSubClass extends SampleBase {
+/** This is an subclass defived from the SampleBase class. */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
+public final class SampleSubClass {
+
+    private final String baseClassStringProp;
+
+    private final java.util.OptionalInt baseClassIntegerProp;
 
     private final String subClassStringProp;
 
@@ -12,10 +14,38 @@ public final class SampleSubClass extends SampleBase {
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleSubClass(
-            @javax.json.bind.annotation.JsonbProperty("subClassStringProp") final String subClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp") final java.util.OptionalInt subClassIntegerProp) {
+            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+            final String baseClassStringProp,
+            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+            final java.util.OptionalInt baseClassIntegerProp,
+            @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
+            final String subClassStringProp,
+            @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
+            final java.util.OptionalInt subClassIntegerProp) {
+        this.baseClassStringProp = baseClassStringProp;
+        this.baseClassIntegerProp = baseClassIntegerProp;
         this.subClassStringProp = subClassStringProp;
         this.subClassIntegerProp = subClassIntegerProp;
+    }
+
+    /**
+     * Get baseClassStringProp
+     *
+     * @return baseClassStringProp
+     */
+    @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+    public String getBaseClassStringProp() {
+        return baseClassStringProp;
+    }
+
+    /**
+     * Get baseClassIntegerProp
+     *
+     * @return baseClassIntegerProp
+     */
+    @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+    public java.util.OptionalInt getBaseClassIntegerProp() {
+        return baseClassIntegerProp;
     }
 
     /**
@@ -47,25 +77,33 @@ public final class SampleSubClass extends SampleBase {
             return false;
         }
         SampleSubClass sampleSubClass = (SampleSubClass) o;
-        return java.util.Objects.equals(this.subClassStringProp, sampleSubClass.subClassStringProp)
-                && java.util.Objects.equals(this.subClassIntegerProp, sampleSubClass.subClassIntegerProp)
-                && super.equals(o);
+        return java.util.Objects.equals(this.baseClassStringProp, sampleSubClass.baseClassStringProp)
+                && java.util.Objects.equals(this.baseClassIntegerProp, sampleSubClass.baseClassIntegerProp)
+                && java.util.Objects.equals(this.subClassStringProp, sampleSubClass.subClassStringProp)
+                && java.util.Objects.equals(this.subClassIntegerProp, sampleSubClass.subClassIntegerProp);
     }
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(subClassStringProp, subClassIntegerProp, super.hashCode());
+        return java.util.Objects.hash(
+                baseClassStringProp, baseClassIntegerProp, subClassStringProp, subClassIntegerProp);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SampleSubClass {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+
+        sb.append("    baseClassStringProp: ")
+          .append(toIndentedString(baseClassStringProp))
+          .append("\n");
+        sb.append("    baseClassIntegerProp: ")
+          .append(toIndentedString(baseClassIntegerProp))
+          .append("\n");
         sb.append("    subClassStringProp: ").append(toIndentedString(subClassStringProp)).append("\n");
         sb.append("    subClassIntegerProp: ")
-                .append(toIndentedString(subClassIntegerProp))
-                .append("\n");
+          .append(toIndentedString(subClassIntegerProp))
+          .append("\n");
         sb.append("}");
         return sb.toString();
     }

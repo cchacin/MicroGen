@@ -1,8 +1,10 @@
 package io.swagger.server.api;
 
+import io.swagger.server.model.AllModels;
+import io.swagger.server.model.ErrorInfo;
 import io.swagger.server.model.ModelWithReadOnlyPropertyTest;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface ModelsGroupApi {
 
     /**
@@ -65,7 +67,7 @@ public interface ModelsGroupApi {
      * which tests posting and receiving a model object which has readOnly properties. The readOnly
      * properties should be included in the response but not the request.
      *
-     * @param body This is json-serialized property in the body. (required)
+     * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.PUT
@@ -74,6 +76,6 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> putModelsReadOnly(
             @javax.validation.constraints.NotNull @javax.validation.Valid
-                    ModelWithReadOnlyPropertyTest body)
+                    ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
             throws javax.ws.rs.WebApplicationException;
 }

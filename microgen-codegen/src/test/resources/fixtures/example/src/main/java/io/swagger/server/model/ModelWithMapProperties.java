@@ -3,7 +3,7 @@ package io.swagger.server.model;
 /**
  * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and type&#x3D;&lt;model&gt;.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithMapProperties {
 
     private final java.util.Map<String, String> stringMap;
