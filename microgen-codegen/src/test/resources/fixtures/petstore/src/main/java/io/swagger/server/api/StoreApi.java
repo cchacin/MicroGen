@@ -2,7 +2,7 @@ package io.swagger.server.api;
 
 import io.swagger.server.model.Order;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface StoreApi {
 
     /**
@@ -57,7 +57,7 @@ public interface StoreApi {
     /**
      * Place an order for a pet
      *
-     * @param body order placed for purchasing the pet (required)
+     * @param order order placed for purchasing the pet (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -65,6 +65,6 @@ public interface StoreApi {
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> placeOrder(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Order body)
+            @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
             throws javax.ws.rs.WebApplicationException;
 }

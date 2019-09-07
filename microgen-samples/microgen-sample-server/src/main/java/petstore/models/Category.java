@@ -5,10 +5,10 @@ package petstore.models;
  * Category
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Category {
 
-    private final Long id;
+    private final java.util.OptionalLong id;
 
 
     private final String name;
@@ -16,7 +16,7 @@ public final class Category {
 
     @javax.json.bind.annotation.JsonbCreator
     public Category(
-            @javax.json.bind.annotation.JsonbProperty("id") final Long id,
+            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
             @javax.json.bind.annotation.JsonbProperty("name") final String name
     ) {
         this.id = id;
@@ -29,7 +29,7 @@ public final class Category {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty("id")
-    public Long getId() {
+    public java.util.OptionalLong getId() {
         return id;
     }
 

@@ -1,7 +1,7 @@
 package io.swagger.server.model;
 
 /** Pet */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Pet {
 
     private final java.util.OptionalLong id;

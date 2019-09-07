@@ -5,10 +5,10 @@ package petstore.models;
  * ModelApiResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelApiResponse {
 
-    private final Integer code;
+    private final java.util.OptionalInt code;
 
 
     private final String type;
@@ -19,7 +19,7 @@ public final class ModelApiResponse {
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelApiResponse(
-            @javax.json.bind.annotation.JsonbProperty("code") final Integer code,
+            @javax.json.bind.annotation.JsonbProperty("code") final java.util.OptionalInt code,
             @javax.json.bind.annotation.JsonbProperty("type") final String type,
             @javax.json.bind.annotation.JsonbProperty("message") final String message
     ) {
@@ -34,7 +34,7 @@ public final class ModelApiResponse {
      * @return code
      */
     @javax.json.bind.annotation.JsonbProperty("code")
-    public Integer getCode() {
+    public java.util.OptionalInt getCode() {
         return code;
     }
 

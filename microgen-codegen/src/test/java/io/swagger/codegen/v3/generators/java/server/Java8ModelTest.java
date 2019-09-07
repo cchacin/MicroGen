@@ -1,18 +1,19 @@
 package io.swagger.codegen.v3.generators.java.server;
 
-import io.swagger.codegen.v3.CodegenModel;
-import io.swagger.codegen.v3.CodegenProperty;
-import io.swagger.codegen.v3.generators.java.MicroGen;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.openapitools.codegen.CodegenModel;
+import org.openapitools.codegen.CodegenProperty;
+import org.openapitools.codegen.languages.MicroGen;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import io.swagger.v3.oas.models.media.DateSchema;
 import io.swagger.v3.oas.models.media.DateTimeSchema;
 import io.swagger.v3.oas.models.media.IntegerSchema;
 import io.swagger.v3.oas.models.media.Schema;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 class Java8ModelTest extends Assertions {
 

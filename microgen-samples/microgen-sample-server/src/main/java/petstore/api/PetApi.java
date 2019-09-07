@@ -2,28 +2,29 @@ package petstore.api;
 
 import petstore.models.Pet;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface PetApi {
 
     /**
      * Add a new pet to the store
      *
-     * @param body Pet object that needs to be added to the store (required)
+     * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet
     ) throws javax.ws.rs.WebApplicationException;
 
 
     /**
      * Deletes a pet
      *
-     * @param apiKey (optional)
      * @param petId  Pet id to delete (required)
+     * @param apiKey (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.DELETE
@@ -34,6 +35,9 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
     public class DeletePetParam {
+        @javax.ws.rs.PathParam("petId")
+
+        public Long petId;
 
 
         @javax.ws.rs.HeaderParam("api_key")
@@ -42,17 +46,11 @@ public interface PetApi {
         public String apiKey;
 
 
-        @javax.ws.rs.PathParam("petId")
-
-        public Long petId;
-
-
     }
 
 
     /**
-     * Finds Pets by status
-     * Multiple status values can be provided with comma separated strings
+     * Finds Pets by status Multiple status values can be provided with comma separated strings
      *
      * @param status Status values that need to be considered for filter (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -77,8 +75,7 @@ public interface PetApi {
 
 
     /**
-     * Finds Pets by tags
-     * Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
+     * Finds Pets by tags Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
      *
      * @param tags Tags to filter by (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -103,8 +100,7 @@ public interface PetApi {
 
 
     /**
-     * Find pet by ID
-     * Returns a single pet
+     * Find pet by ID Returns a single pet
      *
      * @param petId ID of pet to return (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
@@ -129,14 +125,15 @@ public interface PetApi {
     /**
      * Update an existing pet
      *
-     * @param body Pet object that needs to be added to the store (required)
+     * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
+    @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
 
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet body
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet
     ) throws javax.ws.rs.WebApplicationException;
 
 
@@ -144,8 +141,8 @@ public interface PetApi {
      * Updates a pet in the store with form data
      *
      * @param petId  ID of pet that needs to be updated (required)
-     * @param name   (optional)
-     * @param status (optional)
+     * @param name   Updated name of the pet (optional)
+     * @param status Updated status of the pet (optional)
      * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
      */
     @javax.ws.rs.POST
@@ -160,14 +157,6 @@ public interface PetApi {
         @javax.ws.rs.PathParam("petId")
 
         public Long petId;
-
-
-        @javax.ws.rs.FormParam(value = "name")
-        private String name;
-
-
-        @javax.ws.rs.FormParam(value = "status")
-        private String status;
 
 
     }

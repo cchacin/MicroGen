@@ -1,7 +1,14 @@
-package io.swagger.codegen.v3.generators.java;
+package org.openapitools.codegen.languages;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.openapitools.codegen.CliOption;
+import org.openapitools.codegen.CodegenConstants;
+import org.openapitools.codegen.CodegenModel;
+import org.openapitools.codegen.CodegenOperation;
+import org.openapitools.codegen.CodegenParameter;
+import org.openapitools.codegen.SupportingFile;
+import org.openapitools.codegen.utils.ModelUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,30 +20,30 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import io.swagger.codegen.v3.CliOption;
-import io.swagger.codegen.v3.CodegenConstants;
-import io.swagger.codegen.v3.CodegenModel;
-import io.swagger.codegen.v3.CodegenOperation;
-import io.swagger.codegen.v3.CodegenParameter;
-import io.swagger.codegen.v3.SupportingFile;
-import io.swagger.codegen.v3.templates.MustacheTemplateEngine;
-import io.swagger.codegen.v3.templates.TemplateEngine;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
-import io.swagger.v3.oas.models.parameters.Parameter;
+import io.swagger.v3.oas.models.servers.Server;
 
-import static io.swagger.codegen.v3.generators.handlebars.ExtensionHelper.getBooleanValue;
 import static java.util.stream.Collectors.toList;
 
 public class MicroGen extends JavaClientCodegen {
 
+    private static final String PREFIX_IS               = "x-is-";
+    private static final String PREFIX_HAS              = "x-has-";
+    private static final String HAS_MORE_EXT_NAME       = PREFIX_HAS + "more";
+    private static final String HAS_CONSUMES_EXT_NAME   = PREFIX_HAS + "consumes";
+    private static final String HAS_PRODUCES_EXT_NAME   = PREFIX_HAS + "produces";
+    private static final String IS_QUERY_PARAM_EXT_NAME = PREFIX_IS + "query-param";
+    private static final String IS_PATH_PARAM_EXT_NAME  = PREFIX_IS + "path-param";
+    private static final String IS_MULTIPART_EXT_NAME   = PREFIX_IS + "multipart";
+
     private final String EXCLUDED_TAGS = "excludedTags";
-    private final String TAG_MAPPING = "tagMapping";
+    private final String TAG_MAPPING   = "tagMapping";
 
     private static final Pattern TAG_MAPPING_PATTERN = Pattern.compile("^(.+):(.*?)$");
-    private static final Pattern WHITESPACE_PATTERN = Pattern.compile("[, \t\r\n]+");
+    private static final Pattern WHITESPACE_PATTERN  = Pattern.compile("[, \t\r\n]+");
 
     protected List<Pair<Pattern, String>> tagMapping = new ArrayList<>();
 
@@ -45,11 +52,11 @@ public class MicroGen extends JavaClientCodegen {
         this.fullJavaUtil = true;
         this.supportedLibraries.clear();
         this.supportedLibraries.put("server",
-                "JavaEE + Eclipse Micro Profile");
+                                    "JavaEE + Eclipse Micro Profile");
 
         this.cliOptions.clear();
         final CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY,
-                "library template (sub-template) to use");
+                                                      "library template (sub-template) to use");
         libraryOption.setEnum(this.supportedLibraries);
         libraryOption.setDefault("server");
         this.cliOptions.add(libraryOption);
@@ -65,9 +72,6 @@ public class MicroGen extends JavaClientCodegen {
 
         this.instantiationTypes.put("array", "java.util.List");
         this.instantiationTypes.put("map", "java.util.HashMap");
-        this.additionalProperties.put(CodegenConstants.TEMPLATE_ENGINE, new MustacheTemplateEngine(this));
-        this.setTemplateEngine();
-
     }
 
     @Override
@@ -75,20 +79,19 @@ public class MicroGen extends JavaClientCodegen {
             final String path,
             final String httpMethod,
             final Operation operation,
-            final Map<String, Schema> schemas,
-            final OpenAPI openAPI) {
-        final CodegenOperation codegenOperation = super.fromOperation(path, httpMethod, operation, schemas, openAPI);
-        return new MicroGenOperation(codegenOperation);
+            final List<Server> servers) {
+        final CodegenOperation delegate = super.fromOperation(path, httpMethod, operation, servers);
+        return new MicroGenOperation(delegate);
     }
 
     @Override
-    public CodegenModel fromModel(final String name, final Schema schema, final Map<String, Schema> allSchemas) {
-        final CodegenModel model = super.fromModel(name, schema, allSchemas);
-        model.imports.clear();
-        model.vars = model.vars.stream()
-                .map(MicroGenProperty::new)
-                .collect(toList());
-        return new MicroGenModel(model);
+    public CodegenModel fromModel(final String name, final Schema model2) {
+        final CodegenModel delegate = super.fromModel(name, model2);
+        delegate.imports.clear();
+        delegate.vars = delegate.vars.stream()
+                                     .map(MicroGenProperty::new)
+                                     .collect(toList());
+        return new MicroGenModel(delegate);
     }
 
     @Override
@@ -124,17 +127,15 @@ public class MicroGen extends JavaClientCodegen {
     }
 
     @Override
-    public Map<String, Object> postProcessOperations(final Map<String, Object> objs) {
-        super.postProcessOperations(objs);
+    public Map<String, Object> postProcessOperationsWithModels(final Map<String, Object> objs, List<Object> allModels) {
+        super.postProcessOperationsWithModels(objs, allModels);
         final Map<String, Object> operations = (Map<String, Object>) objs.get("operations");
         if (operations != null) {
             final List<CodegenOperation> ops = (List<CodegenOperation>) operations.get("operation");
             for (final CodegenOperation operation : ops) {
-                final boolean hasConsumes = getBooleanValue(operation, CodegenConstants.HAS_CONSUMES_EXT_NAME);
-                if (hasConsumes) {
-
+                if (operation.hasConsumes) {
                     if (Util.isMultipartType(operation.consumes)) {
-                        operation.getVendorExtensions().put(CodegenConstants.IS_MULTIPART_EXT_NAME, Boolean.TRUE);
+                        operation.vendorExtensions.put(IS_MULTIPART_EXT_NAME, Boolean.TRUE);
                     } else {
                         operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
                     }
@@ -149,12 +150,10 @@ public class MicroGen extends JavaClientCodegen {
                 // sorting operation parameters to make sure path params are parsed before query params
                 if (operation.allParams != null) {
                     operation.allParams.sort((one, another) -> {
-                        if (getBooleanValue(one, CodegenConstants.IS_PATH_PARAM_EXT_NAME)
-                                && getBooleanValue(another, CodegenConstants.IS_QUERY_PARAM_EXT_NAME)) {
+                        if (one.isPathParam && another.isQueryParam) {
                             return -1;
                         }
-                        if (getBooleanValue(one, CodegenConstants.IS_QUERY_PARAM_EXT_NAME)
-                                && getBooleanValue(another, CodegenConstants.IS_PATH_PARAM_EXT_NAME)) {
+                        if (another.isPathParam && one.isQueryParam) {
                             return 1;
                         }
 
@@ -163,7 +162,7 @@ public class MicroGen extends JavaClientCodegen {
                     final Iterator<CodegenParameter> iterator = operation.allParams.iterator();
                     while (iterator.hasNext()) {
                         final CodegenParameter param = iterator.next();
-                        param.getVendorExtensions().put(CodegenConstants.HAS_MORE_EXT_NAME, iterator.hasNext());
+                        param.vendorExtensions.put(HAS_MORE_EXT_NAME, iterator.hasNext());
                     }
                 }
             }
@@ -171,31 +170,16 @@ public class MicroGen extends JavaClientCodegen {
         return objs;
     }
 
-    @Override
-    public TemplateEngine getTemplateEngine() {
-        return new ReformattingTemplateEngine(super.getTemplateEngine());
-    }
-
-    @Override
-    public CodegenParameter fromParameter(final Parameter parameter, final Set<String> imports) {
-        final CodegenParameter param = super.fromParameter(parameter, imports);
-        final Schema<?> schema = parameter.getSchema();
-        if (schema != null && param.getDefaultValue() == null && schema.getDefault() != null) {
-            param.defaultValue = schema.getDefault().toString();
-        }
-        return param;
-    }
-
-    protected void filterOperations(final OpenAPI swagger,
-                                    final Set<String> excludedTags) {
+    private void filterOperations(final OpenAPI swagger,
+                                  final Set<String> excludedTags) {
         final Paths swaggerPaths = swagger.getPaths();
         for (final String resourcePath : swaggerPaths.keySet()) {
             for (final Operation operation : swaggerPaths.get(resourcePath).readOperations()) {
                 final List<String> tags = operation.getTags();
                 operation.setTags(tags == null ? Collections.singletonList("default") : tags.stream()
-                        .filter(tag -> !excludedTags
-                                .contains(tag))
-                        .collect(toList()));
+                                                                                            .filter(tag -> !excludedTags
+                                                                                                    .contains(tag))
+                                                                                            .collect(toList()));
             }
         }
         if (!this.tagMapping.isEmpty()) {
@@ -203,24 +187,33 @@ public class MicroGen extends JavaClientCodegen {
         }
     }
 
-    protected void mapTagsOnOperations(final OpenAPI swagger) {
+    @Override
+    public String toDefaultValue(final Schema p) {
+        final Schema schema = ModelUtils.getReferencedSchema(this.openAPI, p);
+        if (schema.getDefault() != null && ModelUtils.isStringSchema(schema)) {
+            return schema.getDefault().toString();
+        }
+        return super.toDefaultValue(p);
+    }
+
+    private void mapTagsOnOperations(final OpenAPI swagger) {
         swagger.getPaths()
-                .values()
-                .stream()
-                .flatMap(path -> path.readOperations().stream())
-                .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
-                .forEach(op -> op.setTags(this.mapOperationTags(op)));
+               .values()
+               .stream()
+               .flatMap(path -> path.readOperations().stream())
+               .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
+               .forEach(op -> op.setTags(this.mapOperationTags(op)));
     }
 
-    protected List<String> mapOperationTags(final Operation op) {
+    private List<String> mapOperationTags(final Operation op) {
         return op.getTags()
-                .stream()
-                .map(this::mapOperationTag)
-                .distinct()
-                .collect(toList());
+                 .stream()
+                 .map(this::mapOperationTag)
+                 .distinct()
+                 .collect(toList());
     }
 
-    protected String mapOperationTag(final String originalTag) {
+    private String mapOperationTag(final String originalTag) {
         String tag = originalTag;
         for (final Pair<Pattern, String> p : this.tagMapping) {
             final Matcher m = p.getLeft().matcher(tag);
@@ -231,25 +224,24 @@ public class MicroGen extends JavaClientCodegen {
         return tag;
     }
 
-    protected List<Pair<Pattern, String>> parseTagMappings(final String value) {
+    private List<Pair<Pattern, String>> parseTagMappings(final String value) {
         return WHITESPACE_PATTERN.splitAsStream(value)
-                .map(StringUtils::trimToNull)
-                .filter(Objects::nonNull)
-                .map(this::compileTagMatchPattern)
-                .collect(toList());
+                                 .map(StringUtils::trimToNull)
+                                 .filter(Objects::nonNull)
+                                 .map(this::compileTagMatchPattern)
+                                 .collect(toList());
     }
 
-    protected Pair<Pattern, String> compileTagMatchPattern(final String str) {
+    private Pair<Pattern, String> compileTagMatchPattern(final String str) {
         final Matcher matcher = TAG_MAPPING_PATTERN.matcher(str);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Tag mapping pattern must be of the form pattern:replacement, but is "
-                    + str);
+                                                       + str);
         }
         return Pair.of(Pattern.compile("^" + matcher.group(1) + "$"), matcher.group(2));
     }
 
-    public Set<String> getExcludedTags() {
+    private Set<String> getExcludedTags() {
         return (Set<String>) this.additionalProperties.get(EXCLUDED_TAGS);
     }
-
 }

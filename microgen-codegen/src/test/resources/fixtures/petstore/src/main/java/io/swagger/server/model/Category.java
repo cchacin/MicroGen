@@ -1,7 +1,7 @@
 package io.swagger.server.model;
 
 /** Category */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Category {
 
     private final java.util.OptionalLong id;

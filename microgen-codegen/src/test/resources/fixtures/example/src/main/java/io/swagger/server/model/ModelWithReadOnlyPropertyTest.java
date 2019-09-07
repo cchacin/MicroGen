@@ -3,7 +3,7 @@ package io.swagger.server.model;
 /**
  * This is a model object that contains a property with readOnly&#x3D;true.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.MicroGen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithReadOnlyPropertyTest {
 
     private final String stringPropWithImplicitReadOnlyFalse;
