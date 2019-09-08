@@ -7,38 +7,38 @@ package petstore.models;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Tag {
-
+    
     private final java.util.OptionalLong id;
-
-
+    
+    
     private final String name;
-
+    
 
     @javax.json.bind.annotation.JsonbCreator
     public Tag(
-            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-            @javax.json.bind.annotation.JsonbProperty("name") final String name
+        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("name") final String name
     ) {
         this.id = id;
         this.name = name;
     }
-
+    
     /**
-     * Get id
-     *
-     * @return id
-     */
+ * Get id
+ *
+ * @return id
+ */
     @javax.json.bind.annotation.JsonbProperty("id")
     public java.util.OptionalLong getId() {
         return id;
     }
 
-
+    
     /**
-     * Get name
-     *
-     * @return name
-     */
+ * Get name
+ *
+ * @return name
+ */
     @javax.json.bind.annotation.JsonbProperty("name")
     public String getName() {
         return name;
@@ -55,7 +55,7 @@ public final class Tag {
         }
         Tag tag = (Tag) o;
         return java.util.Objects.equals(this.id, tag.id) &&
-                java.util.Objects.equals(this.name, tag.name);
+    java.util.Objects.equals(this.name, tag.name);
     }
 
     @Override
@@ -67,7 +67,7 @@ public final class Tag {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Tag {\n");
-
+        
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
@@ -76,7 +76,7 @@ public final class Tag {
 
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {
-            return "null";
+        return "null";
         }
         return o.toString().replace("\n", "\n    ");
     }
