@@ -49,6 +49,7 @@ public class MicroGen extends JavaClientCodegen {
 
     public MicroGen() {
         super();
+        this.setTemplatingEngine(new MicroGenTemplateEngine());
         this.fullJavaUtil = true;
         this.supportedLibraries.clear();
         this.supportedLibraries.put("server",

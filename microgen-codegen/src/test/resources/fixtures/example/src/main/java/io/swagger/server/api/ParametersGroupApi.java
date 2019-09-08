@@ -1,6 +1,5 @@
 package io.swagger.server.api;
 
-import io.swagger.server.model.AllModels;
 import io.swagger.server.model.ErrorInfo;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
