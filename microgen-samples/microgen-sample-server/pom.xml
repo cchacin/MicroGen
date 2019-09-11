@@ -34,7 +34,6 @@
                                 </goals>
                                 <configuration>
                                     <inputSpec>${project.parent.basedir}/openapi3.yml</inputSpec>
-                                    <!-- language file, like e.g. JavaJaxRSCodegen shipped with swagger -->
                                     <language>org.openapitools.codegen.languages.MicroGen</language>
                                     <library>server</library>
 
