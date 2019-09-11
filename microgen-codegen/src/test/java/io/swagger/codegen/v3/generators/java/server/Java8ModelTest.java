@@ -1,6 +1,6 @@
 package io.swagger.codegen.v3.generators.java.server;
 
-import org.assertj.core.api.Assertions;
+import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openapitools.codegen.CodegenModel;
@@ -15,7 +15,7 @@ import io.swagger.v3.oas.models.media.DateTimeSchema;
 import io.swagger.v3.oas.models.media.IntegerSchema;
 import io.swagger.v3.oas.models.media.Schema;
 
-class Java8ModelTest extends Assertions {
+class Java8ModelTest implements WithAssertions {
 
     @Test
     @DisplayName("convert a simple java model with java8 types")

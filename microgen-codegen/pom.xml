@@ -52,7 +52,6 @@
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>openapi-generator</artifactId>
-            <version>4.1.1</version>
         </dependency>
         
         <!-- test dependencies -->

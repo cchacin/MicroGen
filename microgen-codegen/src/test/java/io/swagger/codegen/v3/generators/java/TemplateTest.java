@@ -5,6 +5,7 @@ import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.WithAssertions;
 import org.openapitools.codegen.ClientOptInput;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.DefaultGenerator;
@@ -19,7 +20,7 @@ import java.util.function.Function;
 import io.swagger.v3.parser.OpenAPIV3Parser;
 import io.swagger.v3.parser.core.models.ParseOptions;
 
-public interface TemplateTest {
+public interface TemplateTest extends WithAssertions {
 
     TemplateType templateToTest();
 
