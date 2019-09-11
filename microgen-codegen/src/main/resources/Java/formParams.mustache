@@ -2,7 +2,7 @@
         {{#notFile}}@javax.ws.rs.FormParam(value = "{{baseName}}") private {{{dataType}}} {{paramName}};{{/notFile}}
         {{#isFile}}
             @javax.ws.rs.FormParam(value = "additionalMetadata")
-            private String additionalMetadata;
+            public String additionalMetadata;
             @javax.ws.rs.FormParam(value = "{{baseName}}")
             public java.io.InputStream {{paramName}}InputStream;
         {{/isFile}}
