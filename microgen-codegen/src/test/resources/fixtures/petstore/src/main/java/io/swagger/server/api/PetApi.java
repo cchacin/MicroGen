@@ -148,7 +148,7 @@ public interface PetApi {
         public Long petId;
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
-        private String additionalMetadata;
+        public String additionalMetadata;
 
         @javax.ws.rs.FormParam(value = "file")
         public java.io.InputStream fileInputStream;

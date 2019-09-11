@@ -374,7 +374,7 @@ public interface ParametersGroupApi {
     public class PostFormDataParameterMultipartFormDataParam {
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
-        private String additionalMetadata;
+        public String additionalMetadata;
 
         @javax.ws.rs.FormParam(value = "fileParam")
         public java.io.InputStream fileParamInputStream;
