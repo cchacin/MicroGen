@@ -36,12 +36,13 @@
     
     <dependencyManagement>
         <dependencies>
-            <!-- JavaEE -->
+            <!-- JakartaEE -->
             <dependency>
-                <groupId>javax</groupId>
-                <artifactId>javaee-api</artifactId>
-                <version>8.0.1</version>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>8.0.0</version>
             </dependency>
+
             <!-- Eclipse MicroProfile -->
             <dependency>
                 <groupId>org.eclipse.microprofile</groupId>
