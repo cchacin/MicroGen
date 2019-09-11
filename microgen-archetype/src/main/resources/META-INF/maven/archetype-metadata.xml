@@ -27,7 +27,12 @@
         <fileSet filtered="false" packaged="false" encoding="UTF-8">
             <directory />
             <includes>
+                <include>.mvn/**</include>
                 <include>.gitignore</include>
+                <include>.java-version</include>
+                <include>mvnw</include>
+                <include>mvnw.cmd</include>
+                <include>settings.xml</include>
             </includes>
         </fileSet>
 
