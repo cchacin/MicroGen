@@ -21,6 +21,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <microgen.version>${project.version}</microgen.version>
         
+        <openapitools.version>4.1.1</openapitools.version>
+        
         <immutables.version>2.7.5</immutables.version>
         <google-java-format.version>1.7</google-java-format.version>
 
@@ -31,8 +33,7 @@
 
         <asciidoctor.version>1.5.7.1</asciidoctor.version>
     </properties>
-
-
+    
     <dependencyManagement>
         <dependencies>
             <!-- JavaEE -->
@@ -99,6 +100,11 @@
                 <artifactId>value</artifactId>
                 <version>${immutables.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator</artifactId>
+                <version>${openapitools.version}</version>
+            </dependency>
             
             <!-- μGen Dependencies -->
             <dependency>
@@ -108,4 +114,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>${openapitools.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
