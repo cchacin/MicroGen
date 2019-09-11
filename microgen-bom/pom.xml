@@ -23,7 +23,7 @@
         
         <openapitools.version>4.1.1</openapitools.version>
         
-        <immutables.version>2.7.5</immutables.version>
+        <immutables.version>2.8.0-CriteriaPreview3</immutables.version>
         <google-java-format.version>1.7</google-java-format.version>
 
         <junit.version>5.5.2</junit.version>
