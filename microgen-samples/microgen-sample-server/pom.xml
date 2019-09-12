@@ -11,6 +11,18 @@
     <artifactId>microgen-sample-server</artifactId>
     <name>μGen Samples :: Server</name>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.microgen</groupId>
+                <artifactId>microgen-bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.immutables</groupId>
@@ -34,7 +46,7 @@
                                 </goals>
                                 <configuration>
                                     <inputSpec>${project.parent.basedir}/openapi3.yml</inputSpec>
-                                    <language>org.openapitools.codegen.languages.MicroGen</language>
+                                    <generatorName>org.openapitools.codegen.languages.MicroGen</generatorName>
                                     <library>server</library>
 
                                     <output>${project.basedir}</output>
