@@ -50,6 +50,7 @@
                 <version>3.0</version>
                 <type>pom</type>
             </dependency>
+            
             <!-- test dependencies -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -101,11 +102,6 @@
                 <artifactId>value</artifactId>
                 <version>${immutables.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator</artifactId>
-                <version>${openapitools.version}</version>
-            </dependency>
             
             <!-- μGen Dependencies -->
             <dependency>
@@ -113,18 +109,11 @@
                 <artifactId>microgen-codegen</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator</artifactId>
+                <version>${openapitools.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-    
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.openapitools</groupId>
-                    <artifactId>openapi-generator-maven-plugin</artifactId>
-                    <version>${openapitools.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>
