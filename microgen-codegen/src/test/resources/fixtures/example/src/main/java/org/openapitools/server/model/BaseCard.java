@@ -1,23 +1,18 @@
 package org.openapitools.server.model;
 
-/**
- * This is a base card object which uses a &#39;cardType&#39; discriminator.
- */
+/** This is a base card object which uses a &#39;cardType&#39; discriminator. */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "cardType",
         visible = true)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = PlaceCard.class,
-                name = "PlaceCard"),
-        @JsonSubTypes.Type(value = PersonCard.class,
-                name = "PersonCard"),
-})
+                      @JsonSubTypes.Type(value = PlaceCard.class, name = "PlaceCard"),
+                      @JsonSubTypes.Type(value = PersonCard.class, name = "PersonCard"),
+              })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class BaseCard {
-    @javax.validation.constraints.NotNull
-    private final String cardType;
+    @javax.validation.constraints.NotNull private final String cardType;
 
     @javax.json.bind.annotation.JsonbCreator
     public BaseCard(@javax.json.bind.annotation.JsonbProperty("cardType") final String cardType) {
@@ -66,5 +61,24 @@ public final class BaseCard {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private String cardType;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setCardType(final String cardType) {
+            this.cardType = cardType;
+            return this;
+        }
+
+        public BaseCard build() {
+            return new BaseCard(this.cardType);
+        }
     }
 }

@@ -1,8 +1,6 @@
 package org.openapitools.server.model;
 
-/**
- * This is an base class object from which other classes will derive.
- */
+/** This is an base class object from which other classes will derive. */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class SampleBase {
 
@@ -12,8 +10,10 @@ public final class SampleBase {
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleBase(
-            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp") final String baseClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp") final java.util.OptionalInt baseClassIntegerProp) {
+            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+            final String baseClassStringProp,
+            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+            final java.util.OptionalInt baseClassIntegerProp) {
         this.baseClassStringProp = baseClassStringProp;
         this.baseClassIntegerProp = baseClassIntegerProp;
     }
@@ -62,11 +62,11 @@ public final class SampleBase {
         sb.append("class SampleBase {\n");
 
         sb.append("    baseClassStringProp: ")
-                .append(toIndentedString(baseClassStringProp))
-                .append("\n");
+          .append(toIndentedString(baseClassStringProp))
+          .append("\n");
         sb.append("    baseClassIntegerProp: ")
-                .append(toIndentedString(baseClassIntegerProp))
-                .append("\n");
+          .append(toIndentedString(baseClassIntegerProp))
+          .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -76,5 +76,30 @@ public final class SampleBase {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private String baseClassStringProp;
+        private java.util.OptionalInt baseClassIntegerProp;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setBaseClassStringProp(final String baseClassStringProp) {
+            this.baseClassStringProp = baseClassStringProp;
+            return this;
+        }
+
+        public Builder setBaseClassIntegerProp(final java.util.OptionalInt baseClassIntegerProp) {
+            this.baseClassIntegerProp = baseClassIntegerProp;
+            return this;
+        }
+
+        public SampleBase build() {
+            return new SampleBase(this.baseClassStringProp, this.baseClassIntegerProp);
+        }
     }
 }

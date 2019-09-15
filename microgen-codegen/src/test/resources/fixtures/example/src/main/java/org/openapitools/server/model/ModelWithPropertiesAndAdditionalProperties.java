@@ -1,8 +1,6 @@
 package org.openapitools.server.model;
 
-/**
- * This is a model object that has properties and additionalProperties.
- */
+/** This is a model object that has properties and additionalProperties. */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithPropertiesAndAdditionalProperties
         extends java.util.HashMap<String, String> {
@@ -13,7 +11,8 @@ public final class ModelWithPropertiesAndAdditionalProperties
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithPropertiesAndAdditionalProperties(
-            @javax.json.bind.annotation.JsonbProperty("integerProp") final java.util.OptionalInt integerProp,
+            @javax.json.bind.annotation.JsonbProperty("integerProp")
+            final java.util.OptionalInt integerProp,
             @javax.json.bind.annotation.JsonbProperty("stringProp") final String stringProp) {
         this.integerProp = integerProp;
         this.stringProp = stringProp;
@@ -77,5 +76,30 @@ public final class ModelWithPropertiesAndAdditionalProperties
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private java.util.OptionalInt integerProp;
+        private String stringProp;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setIntegerProp(final java.util.OptionalInt integerProp) {
+            this.integerProp = integerProp;
+            return this;
+        }
+
+        public Builder setStringProp(final String stringProp) {
+            this.stringProp = stringProp;
+            return this;
+        }
+
+        public ModelWithPropertiesAndAdditionalProperties build() {
+            return new ModelWithPropertiesAndAdditionalProperties(this.integerProp, this.stringProp);
+        }
     }
 }

@@ -114,4 +114,45 @@ public final class SampleSubClass {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public static final class Builder {
+        private String baseClassStringProp;
+        private java.util.OptionalInt baseClassIntegerProp;
+        private String subClassStringProp;
+        private java.util.OptionalInt subClassIntegerProp;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setBaseClassStringProp(final String baseClassStringProp) {
+            this.baseClassStringProp = baseClassStringProp;
+            return this;
+        }
+
+        public Builder setBaseClassIntegerProp(final java.util.OptionalInt baseClassIntegerProp) {
+            this.baseClassIntegerProp = baseClassIntegerProp;
+            return this;
+        }
+
+        public Builder setSubClassStringProp(final String subClassStringProp) {
+            this.subClassStringProp = subClassStringProp;
+            return this;
+        }
+
+        public Builder setSubClassIntegerProp(final java.util.OptionalInt subClassIntegerProp) {
+            this.subClassIntegerProp = subClassIntegerProp;
+            return this;
+        }
+
+        public SampleSubClass build() {
+            return new SampleSubClass(
+                    this.baseClassStringProp,
+                    this.baseClassIntegerProp,
+                    this.subClassStringProp,
+                    this.subClassIntegerProp);
+        }
+    }
 }

@@ -1,0 +1,10 @@
+{{#hasParams}}
+public class {{operationIdCamelCase}}Param {
+{{#allParams}}
+    {{>pathParams}}
+    {{>queryParams}}
+    {{>headerParams}}
+    {{>formParams}}
+{{/allParams}}
+}
+{{/hasParams}}
