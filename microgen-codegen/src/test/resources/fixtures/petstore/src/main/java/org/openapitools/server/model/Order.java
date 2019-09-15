@@ -182,4 +182,54 @@ public final class Order {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public static final class Builder {
+        private java.util.OptionalLong id;
+        private java.util.OptionalLong petId;
+        private java.util.OptionalInt quantity;
+        private java.time.OffsetDateTime shipDate;
+        private StatusEnum status;
+        private Boolean complete;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setId(final java.util.OptionalLong id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setPetId(final java.util.OptionalLong petId) {
+            this.petId = petId;
+            return this;
+        }
+
+        public Builder setQuantity(final java.util.OptionalInt quantity) {
+            this.quantity = quantity;
+            return this;
+        }
+
+        public Builder setShipDate(final java.time.OffsetDateTime shipDate) {
+            this.shipDate = shipDate;
+            return this;
+        }
+
+        public Builder setStatus(final StatusEnum status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder setComplete(final Boolean complete) {
+            this.complete = complete;
+            return this;
+        }
+
+        public Order build() {
+            return new Order(
+                    this.id, this.petId, this.quantity, this.shipDate, this.status, this.complete);
+        }
+    }
 }

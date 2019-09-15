@@ -182,4 +182,53 @@ public final class Pet {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public static final class Builder {
+        private java.util.OptionalLong id;
+        private Category category;
+        private String name;
+        private java.util.List<String> photoUrls;
+        private java.util.List<Tag> tags;
+        private StatusEnum status;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setId(final java.util.OptionalLong id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setCategory(final Category category) {
+            this.category = category;
+            return this;
+        }
+
+        public Builder setName(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setPhotoUrls(final java.util.List<String> photoUrls) {
+            this.photoUrls = photoUrls;
+            return this;
+        }
+
+        public Builder setTags(final java.util.List<Tag> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        public Builder setStatus(final StatusEnum status) {
+            this.status = status;
+            return this;
+        }
+
+        public Pet build() {
+            return new Pet(this.id, this.category, this.name, this.photoUrls, this.tags, this.status);
+        }
+    }
 }

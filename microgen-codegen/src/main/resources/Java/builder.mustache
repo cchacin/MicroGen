@@ -1,0 +1,26 @@
+public static final class Builder {
+{{#vars}}
+    private {{{datatypeWithEnum}}} {{name}};
+{{/vars}}
+
+    private Builder() {
+    }
+
+    public static Builder create() {
+        return new Builder();
+    }
+{{#vars}}
+    public Builder {{setter}}(final {{{datatypeWithEnum}}} {{name}}) {
+        this.{{name}} = {{name}};
+        return this;
+    }
+{{/vars}}
+    
+    public {{classname}} build() {
+        return new {{classname}}(
+            {{#vars}}
+            this.{{name}}{{#hasMore}},{{/hasMore}}    
+            {{/vars}}    
+        );        
+    }
+}

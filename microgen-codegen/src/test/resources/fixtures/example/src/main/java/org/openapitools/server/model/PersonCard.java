@@ -1,8 +1,6 @@
 package org.openapitools.server.model;
 
-/**
- * This is an card object for a Person derived from BaseCard.
- */
+/** This is an card object for a Person derived from BaseCard. */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class PersonCard extends BaseCard {
 
@@ -73,5 +71,30 @@ public final class PersonCard extends BaseCard {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private String firstName;
+        private String lastName;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setFirstName(final String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder setLastName(final String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public PersonCard build() {
+            return new PersonCard(this.firstName, this.lastName);
+        }
     }
 }

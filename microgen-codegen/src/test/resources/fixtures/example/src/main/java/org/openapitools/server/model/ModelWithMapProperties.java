@@ -1,7 +1,8 @@
 package org.openapitools.server.model;
 
 /**
- * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and type&#x3D;&lt;model&gt;.
+ * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and
+ * type&#x3D;&lt;model&gt;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithMapProperties {
@@ -10,18 +11,21 @@ public final class ModelWithMapProperties {
 
     private final java.util.Map<String, Integer> integerMap;
 
-    @javax.validation.Valid
-    private final java.util.Map<String, ErrorInfo> errorInfoMap;
+    @javax.validation.Valid private final java.util.Map<String, ErrorInfo> errorInfoMap;
 
     @javax.validation.Valid
     private final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap;
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithMapProperties(
-            @javax.json.bind.annotation.JsonbProperty("stringMap") final java.util.Map<String, String> stringMap,
-            @javax.json.bind.annotation.JsonbProperty("integerMap") final java.util.Map<String, Integer> integerMap,
-            @javax.json.bind.annotation.JsonbProperty("errorInfoMap") final java.util.Map<String, ErrorInfo> errorInfoMap,
-            @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap") final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap) {
+            @javax.json.bind.annotation.JsonbProperty("stringMap")
+            final java.util.Map<String, String> stringMap,
+            @javax.json.bind.annotation.JsonbProperty("integerMap")
+            final java.util.Map<String, Integer> integerMap,
+            @javax.json.bind.annotation.JsonbProperty("errorInfoMap")
+            final java.util.Map<String, ErrorInfo> errorInfoMap,
+            @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
+            final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap) {
         this.stringMap = stringMap;
         this.integerMap = integerMap;
         this.errorInfoMap = errorInfoMap;
@@ -107,5 +111,44 @@ public final class ModelWithMapProperties {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private java.util.Map<String, String> stringMap;
+        private java.util.Map<String, Integer> integerMap;
+        private java.util.Map<String, ErrorInfo> errorInfoMap;
+        private java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setStringMap(final java.util.Map<String, String> stringMap) {
+            this.stringMap = stringMap;
+            return this;
+        }
+
+        public Builder setIntegerMap(final java.util.Map<String, Integer> integerMap) {
+            this.integerMap = integerMap;
+            return this;
+        }
+
+        public Builder setErrorInfoMap(final java.util.Map<String, ErrorInfo> errorInfoMap) {
+            this.errorInfoMap = errorInfoMap;
+            return this;
+        }
+
+        public Builder setErrorInfoArrayMap(
+                final java.util.Map<String, java.util.List<ErrorInfo>> errorInfoArrayMap) {
+            this.errorInfoArrayMap = errorInfoArrayMap;
+            return this;
+        }
+
+        public ModelWithMapProperties build() {
+            return new ModelWithMapProperties(
+                    this.stringMap, this.integerMap, this.errorInfoMap, this.errorInfoArrayMap);
+        }
     }
 }

@@ -1,8 +1,6 @@
 package org.openapitools.server.model;
 
-/**
- * This is a model object that contains a property with readOnly&#x3D;true.
- */
+/** This is a model object that contains a property with readOnly&#x3D;true. */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithReadOnlyPropertyTest {
 
@@ -14,17 +12,20 @@ public final class ModelWithReadOnlyPropertyTest {
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithReadOnlyPropertyTest(
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse") final String stringPropWithImplicitReadOnlyFalse,
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse") final String stringPropWithExplicitReadOnlyFalse,
-            @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue") final String stringPropWithReadOnlyTrue) {
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse")
+            final String stringPropWithImplicitReadOnlyFalse,
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse")
+            final String stringPropWithExplicitReadOnlyFalse,
+            @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue")
+            final String stringPropWithReadOnlyTrue) {
         this.stringPropWithImplicitReadOnlyFalse = stringPropWithImplicitReadOnlyFalse;
         this.stringPropWithExplicitReadOnlyFalse = stringPropWithExplicitReadOnlyFalse;
         this.stringPropWithReadOnlyTrue = stringPropWithReadOnlyTrue;
     }
 
     /**
-     * This is a property without a readOnly attribute, meaning that it takes on the default value of readOnly=false. It
-     * should be included in both response and request.
+     * This is a property without a readOnly attribute, meaning that it takes on the default value of
+     * readOnly=false. It should be included in both response and request.
      *
      * @return stringPropWithImplicitReadOnlyFalse
      */
@@ -44,7 +45,8 @@ public final class ModelWithReadOnlyPropertyTest {
     }
 
     /**
-     * This is a property with readOnly=true, meaning that it should be included in the response, but not the request.
+     * This is a property with readOnly=true, meaning that it should be included in the response, but
+     * not the request.
      *
      * @return stringPropWithReadOnlyTrue
      */
@@ -87,14 +89,14 @@ public final class ModelWithReadOnlyPropertyTest {
         sb.append("class ModelWithReadOnlyPropertyTest {\n");
 
         sb.append("    stringPropWithImplicitReadOnlyFalse: ")
-                .append(toIndentedString(stringPropWithImplicitReadOnlyFalse))
-                .append("\n");
+          .append(toIndentedString(stringPropWithImplicitReadOnlyFalse))
+          .append("\n");
         sb.append("    stringPropWithExplicitReadOnlyFalse: ")
-                .append(toIndentedString(stringPropWithExplicitReadOnlyFalse))
-                .append("\n");
+          .append(toIndentedString(stringPropWithExplicitReadOnlyFalse))
+          .append("\n");
         sb.append("    stringPropWithReadOnlyTrue: ")
-                .append(toIndentedString(stringPropWithReadOnlyTrue))
-                .append("\n");
+          .append(toIndentedString(stringPropWithReadOnlyTrue))
+          .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -104,5 +106,41 @@ public final class ModelWithReadOnlyPropertyTest {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static final class Builder {
+        private String stringPropWithImplicitReadOnlyFalse;
+        private String stringPropWithExplicitReadOnlyFalse;
+        private String stringPropWithReadOnlyTrue;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setStringPropWithImplicitReadOnlyFalse(
+                final String stringPropWithImplicitReadOnlyFalse) {
+            this.stringPropWithImplicitReadOnlyFalse = stringPropWithImplicitReadOnlyFalse;
+            return this;
+        }
+
+        public Builder setStringPropWithExplicitReadOnlyFalse(
+                final String stringPropWithExplicitReadOnlyFalse) {
+            this.stringPropWithExplicitReadOnlyFalse = stringPropWithExplicitReadOnlyFalse;
+            return this;
+        }
+
+        public Builder setStringPropWithReadOnlyTrue(final String stringPropWithReadOnlyTrue) {
+            this.stringPropWithReadOnlyTrue = stringPropWithReadOnlyTrue;
+            return this;
+        }
+
+        public ModelWithReadOnlyPropertyTest build() {
+            return new ModelWithReadOnlyPropertyTest(
+                    this.stringPropWithImplicitReadOnlyFalse,
+                    this.stringPropWithExplicitReadOnlyFalse,
+                    this.stringPropWithReadOnlyTrue);
+        }
     }
 }

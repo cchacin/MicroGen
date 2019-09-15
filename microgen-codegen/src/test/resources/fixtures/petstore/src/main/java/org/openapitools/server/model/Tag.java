@@ -71,4 +71,29 @@ public final class Tag {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public static final class Builder {
+        private java.util.OptionalLong id;
+        private String name;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setId(final java.util.OptionalLong id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setName(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Tag build() {
+            return new Tag(this.id, this.name);
+        }
+    }
 }

@@ -169,4 +169,73 @@ public final class User {
         }
         return o.toString().replace("\n", "\n    ");
     }
+
+    public static final class Builder {
+        private java.util.OptionalLong id;
+        private String username;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String password;
+        private String phone;
+        private java.util.OptionalInt userStatus;
+
+        private Builder() {}
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public Builder setId(final java.util.OptionalLong id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setUsername(final String username) {
+            this.username = username;
+            return this;
+        }
+
+        public Builder setFirstName(final String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder setLastName(final String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setEmail(final String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder setPassword(final String password) {
+            this.password = password;
+            return this;
+        }
+
+        public Builder setPhone(final String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        public Builder setUserStatus(final java.util.OptionalInt userStatus) {
+            this.userStatus = userStatus;
+            return this;
+        }
+
+        public User build() {
+            return new User(
+                    this.id,
+                    this.username,
+                    this.firstName,
+                    this.lastName,
+                    this.email,
+                    this.password,
+                    this.phone,
+                    this.userStatus);
+        }
+    }
 }
