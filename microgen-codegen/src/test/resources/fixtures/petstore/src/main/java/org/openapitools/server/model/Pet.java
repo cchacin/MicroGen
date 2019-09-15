@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /** Pet */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")

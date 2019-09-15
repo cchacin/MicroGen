@@ -3,8 +3,8 @@ package org.openapitools.codegen.languages;
 class DirectoryConstants {
     private static final String MAIN_FOLDER = "src/main/";
     private static final String JAVA_FOLDER = DirectoryConstants.MAIN_FOLDER + "java/";
-    static final String CLIENT_FOLDER = DirectoryConstants.JAVA_FOLDER + "io/swagger/client/";
-    private static final String SERVER_FOLDER = DirectoryConstants.JAVA_FOLDER + "io/swagger/server/";
+    static final String CLIENT_FOLDER = DirectoryConstants.JAVA_FOLDER + "org/openapitools/client/";
+    private static final String SERVER_FOLDER = DirectoryConstants.JAVA_FOLDER + "org/openapitools/server/";
     private static final String MODEL_FOLDER = "model/";
     private static final String API_FOLDER = "api/";
     private static final String AUTH_FOLDER = "auth/";

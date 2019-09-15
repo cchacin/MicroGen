@@ -1,6 +1,6 @@
-package io.swagger.server.api;
+package org.openapitools.server.api;
 
-import io.swagger.server.model.User;
+import org.openapitools.server.model.User;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface UserApi {

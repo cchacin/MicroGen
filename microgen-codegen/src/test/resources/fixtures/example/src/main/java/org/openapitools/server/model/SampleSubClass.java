@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /** This is an subclass defived from the SampleBase class. */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")

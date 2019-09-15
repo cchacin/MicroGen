@@ -1,6 +1,6 @@
-package io.swagger.server.api;
+package org.openapitools.server.api;
 
-import io.swagger.server.model.Order;
+import org.openapitools.server.model.Order;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface StoreApi {
