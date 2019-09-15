@@ -1,4 +1,4 @@
-package io.swagger.codegen.v3.generators.java;
+package org.openapitools.codegen.languages;
 
 import com.google.common.io.Resources;
 import com.google.googlejavaformat.java.Formatter;

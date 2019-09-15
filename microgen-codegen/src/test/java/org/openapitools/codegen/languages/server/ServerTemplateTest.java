@@ -1,11 +1,11 @@
-package io.swagger.codegen.v3.generators.java.server;
+package org.openapitools.codegen.languages.server;
 
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.languages.MicroGen;
 
 import java.nio.file.Path;
 
-import io.swagger.codegen.v3.generators.java.TemplateTest;
+import org.openapitools.codegen.languages.TemplateTest;
 
 public interface ServerTemplateTest extends TemplateTest {
 

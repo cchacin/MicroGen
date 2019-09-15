@@ -1,4 +1,4 @@
-package io.swagger.codegen.v3.generators.java.server;
+package org.openapitools.codegen.languages.server;
 
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
