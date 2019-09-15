@@ -1,4 +1,4 @@
-package io.swagger.codegen.v3.generators.java;
+package org.openapitools.codegen.languages;
 
 public enum TemplateType {
 

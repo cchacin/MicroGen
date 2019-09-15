@@ -1,4 +1,4 @@
-package io.swagger.codegen.v3.generators.java.server;
+package org.openapitools.codegen.languages.server;
 
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-import io.swagger.codegen.v3.generators.java.TemplateType;
+import org.openapitools.codegen.languages.TemplateType;
 
 class ModelTemplateTest implements ServerTemplateTest {
 

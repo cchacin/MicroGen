@@ -1,4 +1,4 @@
-package io.swagger.codegen.v3.generators.java;
+package org.openapitools.codegen.languages;
 
 class DirectoryConstants {
     private static final String MAIN_FOLDER = "src/main/";
