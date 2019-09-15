@@ -4,11 +4,10 @@ import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openapitools.codegen.languages.TemplateType;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;
-
-import org.openapitools.codegen.languages.TemplateType;
 
 class ApiTemplateTest implements ServerTemplateTest {
 
@@ -28,9 +27,9 @@ class ApiTemplateTest implements ServerTemplateTest {
 
     @ParameterizedTest(name = "Generated {1} should be equals to fixtures/server/api/{1}")
     @MethodSource("arguments")
-    void test(final String swaggerFile,
+    void test(final String openAPIFile,
               final String expectedFile) {
-        this.executeTest(swaggerFile, expectedFile, this.tmpFolder);
+        this.executeTest(openAPIFile, expectedFile, this.tmpFolder);
     }
 
     @Override

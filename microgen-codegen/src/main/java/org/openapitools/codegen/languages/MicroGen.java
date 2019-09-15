@@ -96,10 +96,10 @@ public class MicroGen extends JavaClientCodegen {
     }
 
     @Override
-    public void preprocessOpenAPI(final OpenAPI swagger) {
-        super.preprocessOpenAPI(swagger);
-        this.filterOperations(swagger, this.getExcludedTags());
-        this.additionalProperties.put("apiVersion", swagger.getInfo().getVersion());
+    public void preprocessOpenAPI(final OpenAPI openAPI) {
+        super.preprocessOpenAPI(openAPI);
+        this.filterOperations(openAPI, this.getExcludedTags());
+        this.additionalProperties.put("apiVersion", openAPI.getInfo().getVersion());
     }
 
     @Override
@@ -171,11 +171,11 @@ public class MicroGen extends JavaClientCodegen {
         return objs;
     }
 
-    private void filterOperations(final OpenAPI swagger,
+    private void filterOperations(final OpenAPI openAPI,
                                   final Set<String> excludedTags) {
-        final Paths swaggerPaths = swagger.getPaths();
-        for (final String resourcePath : swaggerPaths.keySet()) {
-            for (final Operation operation : swaggerPaths.get(resourcePath).readOperations()) {
+        final Paths paths = openAPI.getPaths();
+        for (final String resourcePath : paths.keySet()) {
+            for (final Operation operation : paths.get(resourcePath).readOperations()) {
                 final List<String> tags = operation.getTags();
                 operation.setTags(tags == null ? Collections.singletonList("default") : tags.stream()
                                                                                             .filter(tag -> !excludedTags
@@ -184,7 +184,7 @@ public class MicroGen extends JavaClientCodegen {
             }
         }
         if (!this.tagMapping.isEmpty()) {
-            this.mapTagsOnOperations(swagger);
+            this.mapTagsOnOperations(openAPI);
         }
     }
 
@@ -197,8 +197,8 @@ public class MicroGen extends JavaClientCodegen {
         return super.toDefaultValue(p);
     }
 
-    private void mapTagsOnOperations(final OpenAPI swagger) {
-        swagger.getPaths()
+    private void mapTagsOnOperations(final OpenAPI openAPI) {
+        openAPI.getPaths()
                .values()
                .stream()
                .flatMap(path -> path.readOperations().stream())

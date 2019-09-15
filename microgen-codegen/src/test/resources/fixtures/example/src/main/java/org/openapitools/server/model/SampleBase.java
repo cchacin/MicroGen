@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /**
  * This is an base class object from which other classes will derive.

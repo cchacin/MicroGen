@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /**
  * This is a model object that has properties and additionalProperties.

@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /**
  * This is a base card object which uses a &#39;cardType&#39; discriminator.

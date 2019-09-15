@@ -1,4 +1,4 @@
-package io.swagger.server.model;
+package org.openapitools.server.model;
 
 /**
  * This is an card object for a Person derived from BaseCard.

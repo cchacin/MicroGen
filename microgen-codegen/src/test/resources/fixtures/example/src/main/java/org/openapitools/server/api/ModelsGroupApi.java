@@ -1,6 +1,6 @@
-package io.swagger.server.api;
+package org.openapitools.server.api;
 
-import io.swagger.server.model.ModelWithReadOnlyPropertyTest;
+import org.openapitools.server.model.ModelWithReadOnlyPropertyTest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface ModelsGroupApi {
