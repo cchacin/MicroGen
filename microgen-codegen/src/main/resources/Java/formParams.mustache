@@ -1,9 +1,24 @@
 {{#isFormParam}}
-        {{#notFile}}@javax.ws.rs.FormParam(value = "{{baseName}}") private {{{dataType}}} {{paramName}};{{/notFile}}
+        {{#notFile}}
+            @javax.ws.rs.FormParam(value = "{{baseName}}")
+            public {{{dataType}}} {{paramName}};
+            
+            {{>builderMethod}}{{/notFile}}
         {{#isFile}}
             @javax.ws.rs.FormParam(value = "additionalMetadata")
             public String additionalMetadata;
+            
+            public {{operationIdCamelCase}}Params additionalMetadata(final String additionalMetadata) {
+                this.additionalMetadata = additionalMetadata;
+                return this;
+            }
+            
             @javax.ws.rs.FormParam(value = "{{baseName}}")
             public java.io.InputStream {{paramName}}InputStream;
+            
+            public {{operationIdCamelCase}}Params {{paramName}}InputStream(final java.io.InputStream {{paramName}}InputStream) {
+                this.{{paramName}}InputStream = {{paramName}}InputStream;
+                return this;
+            }
         {{/isFile}}
 {{/isFormParam}}

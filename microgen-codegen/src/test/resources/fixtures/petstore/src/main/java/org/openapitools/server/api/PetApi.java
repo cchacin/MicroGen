@@ -34,8 +34,18 @@ public interface PetApi {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
+        public DeletePetParams petId(final Long petId) {
+            this.petId = petId;
+            return this;
+        }
+
         @javax.ws.rs.HeaderParam("api_key")
         public String apiKey;
+
+        public DeletePetParams apiKey(final String apiKey) {
+            this.apiKey = apiKey;
+            return this;
+        }
     }
 
     /**
@@ -56,6 +66,11 @@ public interface PetApi {
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
         public java.util.List<String> status;
+
+        public FindPetsByStatusParams status(final java.util.List<String> status) {
+            this.status = status;
+            return this;
+        }
     }
 
     /**
@@ -77,6 +92,11 @@ public interface PetApi {
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
         public java.util.List<String> tags;
+
+        public FindPetsByTagsParams tags(final java.util.List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
     }
 
     /**
@@ -94,6 +114,11 @@ public interface PetApi {
     public class GetPetByIdParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
+
+        public GetPetByIdParams petId(final Long petId) {
+            this.petId = petId;
+            return this;
+        }
     }
 
     /**
@@ -127,6 +152,11 @@ public interface PetApi {
     public class UpdatePetWithFormParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
+
+        public UpdatePetWithFormParams petId(final Long petId) {
+            this.petId = petId;
+            return this;
+        }
     }
 
     /**
@@ -148,10 +178,25 @@ public interface PetApi {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
+        public UploadFileParams petId(final Long petId) {
+            this.petId = petId;
+            return this;
+        }
+
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         public String additionalMetadata;
 
+        public UploadFileParams additionalMetadata(final String additionalMetadata) {
+            this.additionalMetadata = additionalMetadata;
+            return this;
+        }
+
         @javax.ws.rs.FormParam(value = "file")
         public java.io.InputStream fileInputStream;
+
+        public UploadFileParams fileInputStream(final java.io.InputStream fileInputStream) {
+            this.fileInputStream = fileInputStream;
+            return this;
+        }
     }
 }

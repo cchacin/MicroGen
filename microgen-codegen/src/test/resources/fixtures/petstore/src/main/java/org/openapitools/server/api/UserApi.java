@@ -58,6 +58,11 @@ public interface UserApi {
     public class DeleteUserParams {
         @javax.ws.rs.PathParam("username")
         public String username;
+
+        public DeleteUserParams username(final String username) {
+            this.username = username;
+            return this;
+        }
     }
 
     /**
@@ -75,6 +80,11 @@ public interface UserApi {
     public class GetUserByNameParams {
         @javax.ws.rs.PathParam("username")
         public String username;
+
+        public GetUserByNameParams username(final String username) {
+            this.username = username;
+            return this;
+        }
     }
 
     /**
@@ -96,9 +106,19 @@ public interface UserApi {
         @javax.validation.constraints.NotNull
         public String username;
 
+        public LoginUserParams username(final String username) {
+            this.username = username;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("password")
         @javax.validation.constraints.NotNull
         public String password;
+
+        public LoginUserParams password(final String password) {
+            this.password = password;
+            return this;
+        }
     }
 
     /**
@@ -129,5 +149,10 @@ public interface UserApi {
     public class UpdateUserParams {
         @javax.ws.rs.PathParam("username")
         public String username;
+
+        public UpdateUserParams username(final String username) {
+            this.username = username;
+            return this;
+        }
     }
 }

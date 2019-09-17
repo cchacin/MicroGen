@@ -2,4 +2,6 @@
         @javax.ws.rs.PathParam("{{baseName}}")
         {{>beanValidationPathParams}}
         public {{{dataType}}} {{paramName}};
+
+        {{>builderMethod}}
 {{/isPathParam}}

@@ -53,43 +53,115 @@ public interface ParametersGroupApi {
         @javax.validation.constraints.NotNull
         public java.util.List<String> queryParamStringArrayRequired;
 
+        public GetParametersArraysParams queryParamStringArrayRequired(
+            final java.util.List<String> queryParamStringArrayRequired) {
+            this.queryParamStringArrayRequired = queryParamStringArrayRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Integer> queryParamIntArrayRequired;
+
+        public GetParametersArraysParams queryParamIntArrayRequired(
+            final java.util.List<Integer> queryParamIntArrayRequired) {
+            this.queryParamIntArrayRequired = queryParamIntArrayRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Long> queryParamInt64ArrayRequired;
 
+        public GetParametersArraysParams queryParamInt64ArrayRequired(
+            final java.util.List<Long> queryParamInt64ArrayRequired) {
+            this.queryParamInt64ArrayRequired = queryParamInt64ArrayRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Float> queryParamFloatArrayRequired;
+
+        public GetParametersArraysParams queryParamFloatArrayRequired(
+            final java.util.List<Float> queryParamFloatArrayRequired) {
+            this.queryParamFloatArrayRequired = queryParamFloatArrayRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Double> queryParamDoubleArrayRequired;
 
+        public GetParametersArraysParams queryParamDoubleArrayRequired(
+            final java.util.List<Double> queryParamDoubleArrayRequired) {
+            this.queryParamDoubleArrayRequired = queryParamDoubleArrayRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
         @javax.validation.constraints.NotNull
         public java.util.List<Boolean> queryParamBooleanArrayRequired;
 
+        public GetParametersArraysParams queryParamBooleanArrayRequired(
+            final java.util.List<Boolean> queryParamBooleanArrayRequired) {
+            this.queryParamBooleanArrayRequired = queryParamBooleanArrayRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
         public java.util.List<String> queryParamStringArrayOptional;
+
+        public GetParametersArraysParams queryParamStringArrayOptional(
+            final java.util.List<String> queryParamStringArrayOptional) {
+            this.queryParamStringArrayOptional = queryParamStringArrayOptional;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
         public java.util.List<Integer> queryParamIntArrayOptional;
 
+        public GetParametersArraysParams queryParamIntArrayOptional(
+            final java.util.List<Integer> queryParamIntArrayOptional) {
+            this.queryParamIntArrayOptional = queryParamIntArrayOptional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
         public java.util.List<Long> queryParamInt64ArrayOptional;
+
+        public GetParametersArraysParams queryParamInt64ArrayOptional(
+            final java.util.List<Long> queryParamInt64ArrayOptional) {
+            this.queryParamInt64ArrayOptional = queryParamInt64ArrayOptional;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
         public java.util.List<Float> queryParamFloatArrayOptional;
 
+        public GetParametersArraysParams queryParamFloatArrayOptional(
+            final java.util.List<Float> queryParamFloatArrayOptional) {
+            this.queryParamFloatArrayOptional = queryParamFloatArrayOptional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
         public java.util.List<Double> queryParamDoubleArrayOptional;
 
+        public GetParametersArraysParams queryParamDoubleArrayOptional(
+            final java.util.List<Double> queryParamDoubleArrayOptional) {
+            this.queryParamDoubleArrayOptional = queryParamDoubleArrayOptional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
         public java.util.List<Boolean> queryParamBooleanArrayOptional;
+
+        public GetParametersArraysParams queryParamBooleanArrayOptional(
+            final java.util.List<Boolean> queryParamBooleanArrayOptional) {
+            this.queryParamBooleanArrayOptional = queryParamBooleanArrayOptional;
+            return this;
+        }
     }
 
     /**
@@ -129,20 +201,56 @@ public interface ParametersGroupApi {
         @javax.ws.rs.QueryParam("stringArrayCSV")
         public java.util.List<String> stringArrayCSV;
 
+        public GetParametersArraysCollectionFormatParams stringArrayCSV(
+            final java.util.List<String> stringArrayCSV) {
+            this.stringArrayCSV = stringArrayCSV;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringArraySSV")
         public java.util.List<String> stringArraySSV;
+
+        public GetParametersArraysCollectionFormatParams stringArraySSV(
+            final java.util.List<String> stringArraySSV) {
+            this.stringArraySSV = stringArraySSV;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringArrayTSV")
         public java.util.List<String> stringArrayTSV;
 
+        public GetParametersArraysCollectionFormatParams stringArrayTSV(
+            final java.util.List<String> stringArrayTSV) {
+            this.stringArrayTSV = stringArrayTSV;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringArrayPipes")
         public java.util.List<String> stringArrayPipes;
+
+        public GetParametersArraysCollectionFormatParams stringArrayPipes(
+            final java.util.List<String> stringArrayPipes) {
+            this.stringArrayPipes = stringArrayPipes;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringArrayMulti")
         public java.util.List<String> stringArrayMulti;
 
+        public GetParametersArraysCollectionFormatParams stringArrayMulti(
+            final java.util.List<String> stringArrayMulti) {
+            this.stringArrayMulti = stringArrayMulti;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringArrayPipesOfStringArrayCSV")
         public java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV;
+
+        public GetParametersArraysCollectionFormatParams stringArrayPipesOfStringArrayCSV(
+            final java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV) {
+            this.stringArrayPipesOfStringArrayCSV = stringArrayPipesOfStringArrayCSV;
+            return this;
+        }
     }
 
     /**
@@ -191,62 +299,150 @@ public interface ParametersGroupApi {
         @javax.ws.rs.PathParam("pathParam")
         public String pathParam;
 
+        public GetParametersScalarsParams pathParam(final String pathParam) {
+            this.pathParam = pathParam;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("enumPathParam")
         public String enumPathParam;
+
+        public GetParametersScalarsParams enumPathParam(final String enumPathParam) {
+            this.enumPathParam = enumPathParam;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamStringRequired")
         @javax.validation.constraints.NotNull
         public String queryParamStringRequired;
 
+        public GetParametersScalarsParams queryParamStringRequired(
+            final String queryParamStringRequired) {
+            this.queryParamStringRequired = queryParamStringRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamNumberRequired")
         @javax.validation.constraints.NotNull
         public java.math.BigDecimal queryParamNumberRequired;
+
+        public GetParametersScalarsParams queryParamNumberRequired(
+            final java.math.BigDecimal queryParamNumberRequired) {
+            this.queryParamNumberRequired = queryParamNumberRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamUUIDRequired")
         @javax.validation.constraints.NotNull
         public java.util.UUID queryParamUUIDRequired;
 
+        public GetParametersScalarsParams queryParamUUIDRequired(
+            final java.util.UUID queryParamUUIDRequired) {
+            this.queryParamUUIDRequired = queryParamUUIDRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamFloatRequired")
         @javax.validation.constraints.NotNull
         public Float queryParamFloatRequired;
+
+        public GetParametersScalarsParams queryParamFloatRequired(final Float queryParamFloatRequired) {
+            this.queryParamFloatRequired = queryParamFloatRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamDoubleRequired")
         @javax.validation.constraints.NotNull
         public Double queryParamDoubleRequired;
 
+        public GetParametersScalarsParams queryParamDoubleRequired(
+            final Double queryParamDoubleRequired) {
+            this.queryParamDoubleRequired = queryParamDoubleRequired;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamIntRequired")
         @javax.validation.constraints.NotNull
         public Integer queryParamIntRequired;
+
+        public GetParametersScalarsParams queryParamIntRequired(final Integer queryParamIntRequired) {
+            this.queryParamIntRequired = queryParamIntRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamInt64Required")
         @javax.validation.constraints.NotNull
         public Long queryParamInt64Required;
 
+        public GetParametersScalarsParams queryParamInt64Required(final Long queryParamInt64Required) {
+            this.queryParamInt64Required = queryParamInt64Required;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamBooleanRequired")
         @javax.validation.constraints.NotNull
         public Boolean queryParamBooleanRequired;
+
+        public GetParametersScalarsParams queryParamBooleanRequired(
+            final Boolean queryParamBooleanRequired) {
+            this.queryParamBooleanRequired = queryParamBooleanRequired;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamStringOptional")
         @javax.ws.rs.DefaultValue("queryParamStringOptionalDefaultValue")
         public String queryParamStringOptional;
 
+        public GetParametersScalarsParams queryParamStringOptional(
+            final String queryParamStringOptional) {
+            this.queryParamStringOptional = queryParamStringOptional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamFloatOptional")
         @javax.ws.rs.DefaultValue("1f")
         public Float queryParamFloatOptional;
+
+        public GetParametersScalarsParams queryParamFloatOptional(final Float queryParamFloatOptional) {
+            this.queryParamFloatOptional = queryParamFloatOptional;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamDoubleOptional")
         @javax.ws.rs.DefaultValue("1d")
         public Double queryParamDoubleOptional;
 
+        public GetParametersScalarsParams queryParamDoubleOptional(
+            final Double queryParamDoubleOptional) {
+            this.queryParamDoubleOptional = queryParamDoubleOptional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamIntOptional")
         public Integer queryParamIntOptional;
+
+        public GetParametersScalarsParams queryParamIntOptional(final Integer queryParamIntOptional) {
+            this.queryParamIntOptional = queryParamIntOptional;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamInt64Optional")
         public Long queryParamInt64Optional;
 
+        public GetParametersScalarsParams queryParamInt64Optional(final Long queryParamInt64Optional) {
+            this.queryParamInt64Optional = queryParamInt64Optional;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("queryParamBooleanOptional")
         @javax.ws.rs.DefaultValue("true")
         public Boolean queryParamBooleanOptional;
+
+        public GetParametersScalarsParams queryParamBooleanOptional(
+            final Boolean queryParamBooleanOptional) {
+            this.queryParamBooleanOptional = queryParamBooleanOptional;
+            return this;
+        }
     }
 
     /**
@@ -303,43 +499,109 @@ public interface ParametersGroupApi {
         @javax.validation.constraints.Max(10)
         public Integer integerParameterWithInclusiveMaximum;
 
+        public GetParametersValidationParams integerParameterWithInclusiveMaximum(
+            final Integer integerParameterWithInclusiveMaximum) {
+            this.integerParameterWithInclusiveMaximum = integerParameterWithInclusiveMaximum;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMaximum")
         @javax.validation.constraints.Max(10)
         public Integer integerParameterWithExclusiveMaximum;
+
+        public GetParametersValidationParams integerParameterWithExclusiveMaximum(
+            final Integer integerParameterWithExclusiveMaximum) {
+            this.integerParameterWithExclusiveMaximum = integerParameterWithExclusiveMaximum;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMinimum")
         @javax.validation.constraints.Min(10)
         public Integer integerParameterWithInclusiveMinimum;
 
+        public GetParametersValidationParams integerParameterWithInclusiveMinimum(
+            final Integer integerParameterWithInclusiveMinimum) {
+            this.integerParameterWithInclusiveMinimum = integerParameterWithInclusiveMinimum;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("integerParameterWithExclusiveMinimum")
         @javax.validation.constraints.Min(10)
         public Integer integerParameterWithExclusiveMinimum;
+
+        public GetParametersValidationParams integerParameterWithExclusiveMinimum(
+            final Integer integerParameterWithExclusiveMinimum) {
+            this.integerParameterWithExclusiveMinimum = integerParameterWithExclusiveMinimum;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringParameterWithMaxLength")
         @javax.validation.constraints.Size(max = 10)
         public String stringParameterWithMaxLength;
 
+        public GetParametersValidationParams stringParameterWithMaxLength(
+            final String stringParameterWithMaxLength) {
+            this.stringParameterWithMaxLength = stringParameterWithMaxLength;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringParameterWithMinLength")
         @javax.validation.constraints.Size(min = 10)
         public String stringParameterWithMinLength;
+
+        public GetParametersValidationParams stringParameterWithMinLength(
+            final String stringParameterWithMinLength) {
+            this.stringParameterWithMinLength = stringParameterWithMinLength;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringParameterWithPhoneNumberPattern")
         @javax.validation.constraints.Pattern(regexp = "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$")
         public String stringParameterWithPhoneNumberPattern;
 
+        public GetParametersValidationParams stringParameterWithPhoneNumberPattern(
+            final String stringParameterWithPhoneNumberPattern) {
+            this.stringParameterWithPhoneNumberPattern = stringParameterWithPhoneNumberPattern;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringArrayParameterWithMaxItems")
         @javax.validation.constraints.Size(max = 3)
         public java.util.List<String> stringArrayParameterWithMaxItems;
+
+        public GetParametersValidationParams stringArrayParameterWithMaxItems(
+            final java.util.List<String> stringArrayParameterWithMaxItems) {
+            this.stringArrayParameterWithMaxItems = stringArrayParameterWithMaxItems;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMinItems")
         @javax.validation.constraints.Size(min = 3)
         public java.util.List<String> stringArrayParameterWithMinItems;
 
+        public GetParametersValidationParams stringArrayParameterWithMinItems(
+            final java.util.List<String> stringArrayParameterWithMinItems) {
+            this.stringArrayParameterWithMinItems = stringArrayParameterWithMinItems;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("stringArrayParameterWithUniqueItems")
         public java.util.List<String> stringArrayParameterWithUniqueItems;
 
+        public GetParametersValidationParams stringArrayParameterWithUniqueItems(
+            final java.util.List<String> stringArrayParameterWithUniqueItems) {
+            this.stringArrayParameterWithUniqueItems = stringArrayParameterWithUniqueItems;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("integerParameterWithMultipleOf")
         public Integer integerParameterWithMultipleOf;
+
+        public GetParametersValidationParams integerParameterWithMultipleOf(
+            final Integer integerParameterWithMultipleOf) {
+            this.integerParameterWithMultipleOf = integerParameterWithMultipleOf;
+            return this;
+        }
     }
 
     /**
@@ -376,8 +638,20 @@ public interface ParametersGroupApi {
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         public String additionalMetadata;
 
+        public PostFormDataParameterMultipartFormDataParams additionalMetadata(
+            final String additionalMetadata) {
+            this.additionalMetadata = additionalMetadata;
+            return this;
+        }
+
         @javax.ws.rs.FormParam(value = "fileParam")
         public java.io.InputStream fileParamInputStream;
+
+        public PostFormDataParameterMultipartFormDataParams fileParamInputStream(
+            final java.io.InputStream fileParamInputStream) {
+            this.fileParamInputStream = fileParamInputStream;
+            return this;
+        }
     }
 
     /**
