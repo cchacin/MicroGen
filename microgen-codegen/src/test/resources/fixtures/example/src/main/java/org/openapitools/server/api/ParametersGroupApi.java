@@ -48,6 +48,20 @@ public interface ParametersGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class GetParametersArraysParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetParametersArraysParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetParametersArraysParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
@@ -197,6 +211,21 @@ public interface ParametersGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class GetParametersArraysCollectionFormatParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetParametersArraysCollectionFormatParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetParametersArraysCollectionFormatParams coreUriInfo(
+            final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
         public java.util.List<String> stringArrayCSV;
@@ -296,6 +325,21 @@ public interface ParametersGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class GetParametersScalarsParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetParametersScalarsParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetParametersScalarsParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("pathParam")
         public String pathParam;
 
@@ -494,6 +538,20 @@ public interface ParametersGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class GetParametersValidationParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetParametersValidationParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetParametersValidationParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMaximum")
         @javax.validation.constraints.Max(10)
@@ -618,6 +676,23 @@ public interface ParametersGroupApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
         throws javax.ws.rs.WebApplicationException;
 
+    public class PostBodyParameterJSONParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public PostBodyParameterJSONParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public PostBodyParameterJSONParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
+
     /**
      * Summary: This endpoint is for testing multipart/form-data input parameters. Desciption: This
      * operation is for testing multipart/form-data input parameters.
@@ -634,6 +709,21 @@ public interface ParametersGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class PostFormDataParameterMultipartFormDataParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public PostFormDataParameterMultipartFormDataParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public PostFormDataParameterMultipartFormDataParams coreUriInfo(
+            final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         public String additionalMetadata;
@@ -671,5 +761,21 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParametersUrlEncodedParams {}
+    public class PostFormDataParametersUrlEncodedParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public PostFormDataParametersUrlEncodedParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public PostFormDataParametersUrlEncodedParams coreUriInfo(
+            final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 }

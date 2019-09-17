@@ -22,6 +22,19 @@ public interface ModelsGroupApi {
         @javax.ws.rs.BeanParam GetAllModelsParams params) throws javax.ws.rs.WebApplicationException;
 
     public class GetAllModelsParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetAllModelsParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetAllModelsParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -60,6 +73,20 @@ public interface ModelsGroupApi {
         throws javax.ws.rs.WebApplicationException;
 
     public class GetDefaultResponseParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetDefaultResponseParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetDefaultResponseParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -96,4 +123,21 @@ public interface ModelsGroupApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid
             ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
         throws javax.ws.rs.WebApplicationException;
+
+    public class PutModelsReadOnlyParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public PutModelsReadOnlyParams coreHttpHeaders(
+            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public PutModelsReadOnlyParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 }
