@@ -21,7 +21,7 @@ public interface {{classname}} { {{#operation}}
     @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}{{#hasProduces}}
     @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
-        {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Param params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
+        {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Params params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
         {{#bodyParams}}{{>bodyParams}}{{/bodyParams}}
     ) throws javax.ws.rs.WebApplicationException;
 

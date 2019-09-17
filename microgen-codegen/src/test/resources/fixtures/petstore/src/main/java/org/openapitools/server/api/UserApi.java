@@ -15,8 +15,8 @@ public interface UserApi {
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
-            @javax.validation.constraints.NotNull @javax.validation.Valid User user)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid User user)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Creates list of users with given input array
@@ -28,8 +28,8 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Creates list of users with given input array
@@ -41,8 +41,8 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Delete user This can only be done by the logged in user.
@@ -53,9 +53,9 @@ public interface UserApi {
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("user/{username}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteUser(
-            @javax.ws.rs.BeanParam DeleteUserParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam DeleteUserParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeleteUserParam {
+    public class DeleteUserParams {
         @javax.ws.rs.PathParam("username")
         public String username;
     }
@@ -70,9 +70,9 @@ public interface UserApi {
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getUserByName(
-            @javax.ws.rs.BeanParam GetUserByNameParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetUserByNameParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetUserByNameParam {
+    public class GetUserByNameParams {
         @javax.ws.rs.PathParam("username")
         public String username;
     }
@@ -88,9 +88,9 @@ public interface UserApi {
     @javax.ws.rs.Path("user/login")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> loginUser(
-            @javax.ws.rs.BeanParam LoginUserParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam LoginUserParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class LoginUserParam {
+    public class LoginUserParams {
 
         @javax.ws.rs.QueryParam("username")
         @javax.validation.constraints.NotNull
@@ -109,7 +109,7 @@ public interface UserApi {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/logout")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
-            throws javax.ws.rs.WebApplicationException;
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Updated user This can only be done by the logged in user.
@@ -122,11 +122,11 @@ public interface UserApi {
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateUser(
-            @javax.ws.rs.BeanParam UpdateUserParam params,
-            @javax.validation.constraints.NotNull @javax.validation.Valid User user)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam UpdateUserParams params,
+        @javax.validation.constraints.NotNull @javax.validation.Valid User user)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class UpdateUserParam {
+    public class UpdateUserParams {
         @javax.ws.rs.PathParam("username")
         public String username;
     }
