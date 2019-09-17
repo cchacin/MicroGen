@@ -19,9 +19,9 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Path("test/models/all")
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getAllModels(
-            @javax.ws.rs.BeanParam GetAllModelsParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetAllModelsParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetAllModelsParam {
+    public class GetAllModelsParams {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -46,10 +46,10 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Path("test/operations/defaultResponse")
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getDefaultResponse(
-            @javax.ws.rs.BeanParam GetDefaultResponseParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetDefaultResponseParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class GetDefaultResponseParam {
+    public class GetDefaultResponseParams {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -73,7 +73,7 @@ public interface ModelsGroupApi {
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> putModelsReadOnly(
-            @javax.validation.constraints.NotNull @javax.validation.Valid
-                    ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid
+            ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
+        throws javax.ws.rs.WebApplicationException;
 }

@@ -15,8 +15,8 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Deletes a pet
@@ -28,9 +28,9 @@ public interface PetApi {
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("pet/{petId}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
-            @javax.ws.rs.BeanParam DeletePetParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam DeletePetParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeletePetParam {
+    public class DeletePetParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
@@ -48,10 +48,10 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/findByStatus")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByStatus(
-            @javax.ws.rs.BeanParam FindPetsByStatusParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam FindPetsByStatusParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByStatusParam {
+    public class FindPetsByStatusParams {
 
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
@@ -69,9 +69,10 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/findByTags")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByTags(
-            @javax.ws.rs.BeanParam FindPetsByTagsParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam FindPetsByTagsParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByTagsParam {
+    public class FindPetsByTagsParams {
 
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
@@ -88,9 +89,9 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getPetById(
-            @javax.ws.rs.BeanParam GetPetByIdParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetPetByIdParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetPetByIdParam {
+    public class GetPetByIdParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
     }
@@ -105,8 +106,8 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Updates a pet in the store with form data
@@ -120,10 +121,10 @@ public interface PetApi {
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePetWithForm(
-            @javax.ws.rs.BeanParam UpdatePetWithFormParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam UpdatePetWithFormParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class UpdatePetWithFormParam {
+    public class UpdatePetWithFormParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
     }
@@ -141,9 +142,9 @@ public interface PetApi {
     @javax.ws.rs.Consumes({"multipart/form-data"})
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> uploadImage(
-            @javax.ws.rs.BeanParam UploadFileParam params) throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam UploadFileParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class UploadFileParam {
+    public class UploadFileParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 

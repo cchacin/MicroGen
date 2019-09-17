@@ -44,10 +44,10 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/arrays")
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersArrays(
-            @javax.ws.rs.BeanParam GetParametersArraysParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetParametersArraysParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersArraysParam {
+    public class GetParametersArraysParams {
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
@@ -121,10 +121,10 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/arrays/collectionFormat")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
     getParametersArraysCollectionFormat(
-            @javax.ws.rs.BeanParam GetParametersArraysCollectionFormatParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetParametersArraysCollectionFormatParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersArraysCollectionFormatParam {
+    public class GetParametersArraysCollectionFormatParams {
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
         public java.util.List<String> stringArrayCSV;
@@ -184,10 +184,10 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/{pathParam}/all/{enumPathParam}")
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersScalars(
-            @javax.ws.rs.BeanParam GetParametersScalarsParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetParametersScalarsParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersScalarsParam {
+    public class GetParametersScalarsParams {
         @javax.ws.rs.PathParam("pathParam")
         public String pathParam;
 
@@ -294,10 +294,10 @@ public interface ParametersGroupApi {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/validation")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersValidation(
-            @javax.ws.rs.BeanParam GetParametersValidationParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam GetParametersValidationParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersValidationParam {
+    public class GetParametersValidationParams {
 
         @javax.ws.rs.QueryParam("integerParameterWithInclusiveMaximum")
         @javax.validation.constraints.Max(10)
@@ -353,8 +353,8 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
-            @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
+        throws javax.ws.rs.WebApplicationException;
 
     /**
      * Summary: This endpoint is for testing multipart/form-data input parameters. Desciption: This
@@ -368,10 +368,10 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Consumes({"multipart/form-data"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
     postFormDataParameterMultipartFormData(
-            @javax.ws.rs.BeanParam PostFormDataParameterMultipartFormDataParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam PostFormDataParameterMultipartFormDataParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParameterMultipartFormDataParam {
+    public class PostFormDataParameterMultipartFormDataParams {
 
         @javax.ws.rs.FormParam(value = "additionalMetadata")
         public String additionalMetadata;
@@ -394,8 +394,8 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/urlEncoded")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postFormDataParametersUrlEncoded(
-            @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParam params)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParams params)
+        throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParametersUrlEncodedParam {}
+    public class PostFormDataParametersUrlEncodedParams {}
 }
