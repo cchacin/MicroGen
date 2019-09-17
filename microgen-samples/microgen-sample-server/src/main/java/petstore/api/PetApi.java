@@ -19,7 +19,28 @@ public interface PetApi {
          @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class AddPetParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public AddPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public AddPetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+    
+    
+    
+    
+}
 
 
     /**
@@ -37,6 +58,22 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class DeletePetParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public DeletePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public DeletePetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("petId")
         
         public Long petId;
@@ -65,7 +102,6 @@ public interface PetApi {
 }
 
 
-
     /**
      * Finds Pets by status
      * Multiple status values can be provided with comma separated strings
@@ -81,6 +117,22 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class FindPetsByStatusParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public FindPetsByStatusParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public FindPetsByStatusParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
     
             @javax.ws.rs.QueryParam("status")
          @javax.validation.constraints.NotNull 
@@ -95,7 +147,6 @@ public interface PetApi {
     
     
 }
-
 
 
     /**
@@ -113,6 +164,22 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class FindPetsByTagsParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public FindPetsByTagsParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public FindPetsByTagsParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
     
             @javax.ws.rs.QueryParam("tags")
          @javax.validation.constraints.NotNull 
@@ -127,7 +194,6 @@ public interface PetApi {
     
     
 }
-
 
 
     /**
@@ -145,6 +211,22 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class GetPetByIdParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public GetPetByIdParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public GetPetByIdParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("petId")
         
         public Long petId;
@@ -158,7 +240,6 @@ public interface PetApi {
     
     
 }
-
 
 
     /**
@@ -175,7 +256,28 @@ public interface PetApi {
          @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class UpdatePetParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public UpdatePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public UpdatePetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+    
+    
+    
+    
+}
 
 
     /**
@@ -195,6 +297,22 @@ public interface PetApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class UpdatePetWithFormParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public UpdatePetWithFormParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public UpdatePetWithFormParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("petId")
         
         public Long petId;
@@ -218,5 +336,4 @@ public interface PetApi {
     
 
 }
-
 } 

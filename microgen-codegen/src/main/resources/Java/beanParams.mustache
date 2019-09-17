@@ -1,5 +1,20 @@
-{{#hasParams}}
 public class {{operationIdCamelCase}}Params {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public {{operationIdCamelCase}}Params coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public {{operationIdCamelCase}}Params coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
 {{#allParams}}
     {{>pathParams}}
     {{>queryParams}}
@@ -7,4 +22,3 @@ public class {{operationIdCamelCase}}Params {
     {{>formParams}}
 {{/allParams}}
 }
-{{/hasParams}}

@@ -15,8 +15,24 @@ public interface DefaultApi {
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addDefPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+        throws javax.ws.rs.WebApplicationException;
+
+    public class AddDefPetParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public AddDefPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public AddDefPetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 
     /**
      * Update a new Default existing pet
@@ -28,6 +44,22 @@ public interface DefaultApi {
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateDefPet(
-            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-            throws javax.ws.rs.WebApplicationException;
+        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+        throws javax.ws.rs.WebApplicationException;
+
+    public class UpdateDefPetParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public UpdateDefPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public UpdateDefPetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 }

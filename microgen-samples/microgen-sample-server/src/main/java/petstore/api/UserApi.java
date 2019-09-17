@@ -19,7 +19,28 @@ public interface UserApi {
          @javax.validation.constraints.NotNull @javax.validation.Valid User user
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class CreateUserParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public CreateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public CreateUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+    
+    
+    
+    
+}
 
 
     /**
@@ -36,7 +57,28 @@ public interface UserApi {
          @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class CreateUsersWithArrayInputParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public CreateUsersWithArrayInputParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public CreateUsersWithArrayInputParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+    
+    
+    
+    
+}
 
 
     /**
@@ -53,7 +95,28 @@ public interface UserApi {
          @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class CreateUsersWithListInputParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public CreateUsersWithListInputParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public CreateUsersWithListInputParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+    
+    
+    
+    
+}
 
 
     /**
@@ -70,6 +133,22 @@ public interface UserApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class DeleteUserParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public DeleteUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public DeleteUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("username")
         
         public String username;
@@ -83,7 +162,6 @@ public interface UserApi {
     
     
 }
-
 
 
     /**
@@ -101,6 +179,22 @@ public interface UserApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class GetUserByNameParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public GetUserByNameParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public GetUserByNameParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("username")
         
         public String username;
@@ -114,7 +208,6 @@ public interface UserApi {
     
     
 }
-
 
 
     /**
@@ -133,6 +226,22 @@ public interface UserApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class LoginUserParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public LoginUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public LoginUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
     
             @javax.ws.rs.QueryParam("username")
          @javax.validation.constraints.NotNull 
@@ -162,7 +271,6 @@ public interface UserApi {
 }
 
 
-
     /**
      * Logs out current logged in user session
      * 
@@ -175,7 +283,24 @@ public interface UserApi {
         
     ) throws javax.ws.rs.WebApplicationException;
 
-        
+        public class LogoutUserParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public LogoutUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public LogoutUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
+}
 
 
     /**
@@ -194,6 +319,22 @@ public interface UserApi {
     ) throws javax.ws.rs.WebApplicationException;
 
         public class UpdateUserParams {
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+    public UpdateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+        this.coreHttpHeaders = coreHttpHeaders;
+        return this;
+    }
+
+    @javax.ws.rs.core.Context
+    public javax.ws.rs.core.UriInfo coreUriInfo;
+
+    public UpdateUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+        this.coreUriInfo = coreUriInfo;
+        return this;
+    }
+
             @javax.ws.rs.PathParam("username")
         
         public String username;
@@ -211,5 +352,4 @@ public interface UserApi {
     
     
 }
-
 } 
