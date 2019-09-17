@@ -27,9 +27,19 @@ public interface ModelsGroupApi {
         @javax.validation.constraints.NotNull
         public String clientId;
 
+        public GetAllModelsParams clientId(final String clientId) {
+            this.clientId = clientId;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("client_version_id")
         @javax.validation.constraints.NotNull
         public String clientVersionId;
+
+        public GetAllModelsParams clientVersionId(final String clientVersionId) {
+            this.clientVersionId = clientVersionId;
+            return this;
+        }
     }
 
     /**
@@ -55,9 +65,19 @@ public interface ModelsGroupApi {
         @javax.validation.constraints.NotNull
         public String clientId;
 
+        public GetDefaultResponseParams clientId(final String clientId) {
+            this.clientId = clientId;
+            return this;
+        }
+
         @javax.ws.rs.QueryParam("client_version_id")
         @javax.validation.constraints.NotNull
         public String clientVersionId;
+
+        public GetDefaultResponseParams clientVersionId(final String clientVersionId) {
+            this.clientVersionId = clientVersionId;
+            return this;
+        }
     }
 
     /**

@@ -7,41 +7,46 @@ package petstore.models;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class InlineObject {
-
+    
     private final String name;
-
-
+    
+    
     private final String status;
-
+    
 
     @javax.json.bind.annotation.JsonbCreator
-    public InlineObject(@javax.json.bind.annotation.JsonbProperty("name") final String name,
-        @javax.json.bind.annotation.JsonbProperty("status") final String status) {
+    public InlineObject(
+        @javax.json.bind.annotation.JsonbProperty("name") final String name,
+        @javax.json.bind.annotation.JsonbProperty("status") final String status
+    ) {
         this.name = name;
         this.status = status;
     }
-
+    
     /**
-     * Updated name of the pet
-     *
-     * @return name
-     */
-    @javax.json.bind.annotation.JsonbProperty("name") public String getName() {
+ * Updated name of the pet
+ *
+ * @return name
+ */
+    @javax.json.bind.annotation.JsonbProperty("name")
+    public String getName() {
         return name;
     }
 
-
+    
     /**
-     * Updated status of the pet
-     *
-     * @return status
-     */
-    @javax.json.bind.annotation.JsonbProperty("status") public String getStatus() {
+ * Updated status of the pet
+ *
+ * @return status
+ */
+    @javax.json.bind.annotation.JsonbProperty("status")
+    public String getStatus() {
         return status;
     }
 
 
-    @Override public boolean equals(java.lang.Object o) {
+    @Override
+    public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -49,18 +54,20 @@ public final class InlineObject {
             return false;
         }
         InlineObject inlineObject = (InlineObject) o;
-        return java.util.Objects.equals(this.name, inlineObject.name) && java.util.Objects
-            .equals(this.status, inlineObject.status);
+        return java.util.Objects.equals(this.name, inlineObject.name) &&
+    java.util.Objects.equals(this.status, inlineObject.status);
     }
 
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         return java.util.Objects.hash(name, status);
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InlineObject {\n");
-
+        
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
@@ -69,34 +76,35 @@ public final class InlineObject {
 
     private String toIndentedString(java.lang.Object o) {
         if (o == null) {
-            return "null";
+        return "null";
         }
         return o.toString().replace("\n", "\n    ");
     }
 
     public static final class Builder {
-        private String name;
-        private String status;
+    private String name;
+    private String status;
 
-        private Builder() {
-        }
-
-        public static Builder create() {
-            return new Builder();
-        }
-
-        public Builder setName(final String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder setStatus(final String status) {
-            this.status = status;
-            return this;
-        }
-
-        public InlineObject build() {
-            return new InlineObject(this.name, this.status);
-        }
+    private Builder() {
     }
+
+    public static Builder create() {
+        return new Builder();
+    }
+    public Builder setName(final String name) {
+        this.name = name;
+        return this;
+    }
+    public Builder setStatus(final String status) {
+        this.status = status;
+        return this;
+    }
+    
+    public InlineObject build() {
+        return new InlineObject(
+            this.name,    
+            this.status    
+        );        
+    }
+}
 }

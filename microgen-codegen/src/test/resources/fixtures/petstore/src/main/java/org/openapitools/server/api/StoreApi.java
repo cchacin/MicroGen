@@ -21,6 +21,11 @@ public interface StoreApi {
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
         public Long orderId;
+
+        public DeleteOrderParams orderId(final Long orderId) {
+            this.orderId = orderId;
+            return this;
+        }
     }
 
     /**
@@ -52,6 +57,11 @@ public interface StoreApi {
         @javax.validation.constraints.Min(1)
         @javax.validation.constraints.Max(10)
         public Long orderId;
+
+        public GetOrderByIdParams orderId(final Long orderId) {
+            this.orderId = orderId;
+            return this;
+        }
     }
 
     /**

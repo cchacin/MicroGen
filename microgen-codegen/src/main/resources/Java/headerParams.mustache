@@ -3,4 +3,6 @@
         {{>beanValidationHeaderParams}}
         {{^isContainer}}{{#defaultValue}} @javax.ws.rs.DefaultValue("{{{defaultValue}}}"){{/defaultValue}}{{/isContainer}}
         public {{{dataType}}} {{paramName}};
+
+        {{>builderMethod}}
 {{/isHeaderParam}}
