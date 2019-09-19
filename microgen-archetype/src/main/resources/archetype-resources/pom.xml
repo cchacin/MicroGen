@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>${groupId}</groupId>
-    <artifactId>${rootArtifactId}</artifactId>
-    <version>${version}</version>
+    <groupId>\${groupId}</groupId>
+    <artifactId>\${rootArtifactId}</artifactId>
+    <version>\${version}</version>
     <packaging>war</packaging>
     
     <dependencies>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>${jakartaee.version}</version>
+            <version>\${jakartaee.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-            <version>${microprofile.version}</version>
+            <version>\${microprofile.version}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
@@ -28,7 +28,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>${openapitools.version}</version>
+                <version>\${openapitools.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -59,7 +59,7 @@
                     <dependency>
                         <groupId>io.microgen</groupId>
                         <artifactId>microgen-codegen</artifactId>
-                        <version>${microgen.version}</version>
+                        <version>\${microgen.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -70,7 +70,7 @@
         <jakartaee.version>8.0.0</jakartaee.version>
         <microprofile.version>3.0</microprofile.version>
         <openapitools.version>4.1.1</openapitools.version>
-        <microgen.version>0.1.0-SNAPSHOT</microgen.version>
+        <microgen.version>${project.version}</microgen.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
