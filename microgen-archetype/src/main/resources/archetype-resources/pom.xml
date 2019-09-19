@@ -5,18 +5,6 @@
     <artifactId>${rootArtifactId}</artifactId>
     <version>${version}</version>
     <packaging>war</packaging>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.microgen</groupId>
-                <artifactId>microgen-bom</artifactId>
-                <version>${microgen.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
     
     <dependencies>
         <dependency>
@@ -33,6 +21,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>api</finalName>
         <plugins>
@@ -76,6 +65,7 @@
             </plugin>
         </plugins>
     </build>
+
     <properties>
         <jakartaee.version>8.0.0</jakartaee.version>
         <microprofile.version>3.0</microprofile.version>
