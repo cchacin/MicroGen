@@ -38,7 +38,7 @@
                 <include>settings.xml</include>
                 <include>README.md</include>
                 <include>Dockerfile</include>
-                <include>buildAndRun.sh</include>
+                <include>run-in-docker.sh</include>
             </includes>
         </fileSet>
 
