@@ -55,6 +55,10 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
+        <jakartaee.version>8.0.0</jakartaee.version>
+        <microprofile.version>3.0</microprofile.version>
+        <openapitools.version>4.1.1</openapitools.version>
+        
         <asciidoctor.version>1.6.0</asciidoctor.version>
 
         <preparationGoals>clean compile test-compile</preparationGoals>
