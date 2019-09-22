@@ -74,6 +74,10 @@ public final class SampleBase {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
         private java.util.Optional<String> baseClassStringProp;
         private java.util.OptionalInt baseClassIntegerProp;

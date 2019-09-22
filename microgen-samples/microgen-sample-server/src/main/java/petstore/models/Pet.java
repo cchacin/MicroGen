@@ -12,7 +12,7 @@ public final class Pet {
     
     @javax.validation.Valid
 
-    private final Category category;
+    private final java.util.Optional<Category> category;
     
     @javax.validation.constraints.NotNull
 
@@ -24,11 +24,12 @@ public final class Pet {
     
     @javax.validation.Valid
 
-    private final java.util.List<Tag> tags;
+    private final java.util.Optional<java.util.List<Tag>> tags;
     
                 /**
      * pet status in the store
      */
+    @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
     public static enum StatusEnum {
     
@@ -65,6 +66,19 @@ public final class Pet {
             }
     }
 
+    public static class StatusEnumSerializer implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+
+        public StatusEnumSerializer() { }
+
+        @Override
+        public void serialize(
+            StatusEnum aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
+                jsonGenerator.write(aEnum.value);
+        }
+    }
+
     public static class StatusEnumDeserializer implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
     
         public StatusEnumDeserializer(){}
@@ -84,12 +98,18 @@ public final class Pet {
 
     @javax.json.bind.annotation.JsonbCreator
     public Pet(
-        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-        @javax.json.bind.annotation.JsonbProperty("category") final Category category,
-        @javax.json.bind.annotation.JsonbProperty("name") final String name,
-        @javax.json.bind.annotation.JsonbProperty("photoUrls") final java.util.List<String> photoUrls,
-        @javax.json.bind.annotation.JsonbProperty("tags") final java.util.List<Tag> tags,
-        @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status
+        @javax.json.bind.annotation.JsonbProperty("id")
+        final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("category")
+        final java.util.Optional<Category> category,
+        @javax.json.bind.annotation.JsonbProperty("name")
+        final String name,
+        @javax.json.bind.annotation.JsonbProperty("photoUrls")
+        final java.util.List<String> photoUrls,
+        @javax.json.bind.annotation.JsonbProperty("tags")
+        final java.util.Optional<java.util.List<Tag>> tags,
+        @javax.json.bind.annotation.JsonbProperty("status")
+        final StatusEnum status
     ) {
         this.id = id;
         this.category = category;
@@ -116,7 +136,7 @@ public final class Pet {
  * @return category
  */
     @javax.json.bind.annotation.JsonbProperty("category")
-    public Category getCategory() {
+    public java.util.Optional<Category> getCategory() {
         return category;
     }
 
@@ -149,7 +169,7 @@ public final class Pet {
  * @return tags
  */
     @javax.json.bind.annotation.JsonbProperty("tags")
-    public java.util.List<Tag> getTags() {
+    public java.util.Optional<java.util.List<Tag>> getTags() {
         return tags;
     }
 
@@ -209,12 +229,16 @@ public final class Pet {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
     private java.util.OptionalLong id;
-    private Category category;
+    private java.util.Optional<Category> category;
     private String name;
     private java.util.List<String> photoUrls;
-    private java.util.List<Tag> tags;
+    private java.util.Optional<java.util.List<Tag>> tags;
     private StatusEnum status;
 
     private Builder() {
@@ -227,7 +251,7 @@ public final class Pet {
         this.id = id;
         return this;
     }
-    public Builder setCategory(final Category category) {
+    public Builder setCategory(final java.util.Optional<Category> category) {
         this.category = category;
         return this;
     }
@@ -239,7 +263,7 @@ public final class Pet {
         this.photoUrls = photoUrls;
         return this;
     }
-    public Builder setTags(final java.util.List<Tag> tags) {
+    public Builder setTags(final java.util.Optional<java.util.List<Tag>> tags) {
         this.tags = tags;
         return this;
     }

@@ -18,11 +18,12 @@ public final class Order {
     
     @javax.validation.Valid
 
-    private final java.time.OffsetDateTime shipDate;
+    private final java.util.Optional<java.time.OffsetDateTime> shipDate;
     
                 /**
      * Order Status
      */
+    @javax.json.bind.annotation.JsonbTypeSerializer(Order.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
     public static enum StatusEnum {
     
@@ -59,6 +60,19 @@ public final class Order {
             }
     }
 
+    public static class StatusEnumSerializer implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+
+        public StatusEnumSerializer() { }
+
+        @Override
+        public void serialize(
+            StatusEnum aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
+                jsonGenerator.write(aEnum.value);
+        }
+    }
+
     public static class StatusEnumDeserializer implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
     
         public StatusEnumDeserializer(){}
@@ -76,17 +90,23 @@ public final class Order {
     private final StatusEnum status;
     
     
-    private final Boolean complete;
+    private final java.util.Optional<Boolean> complete;
     
 
     @javax.json.bind.annotation.JsonbCreator
     public Order(
-        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-        @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
-        @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
-        @javax.json.bind.annotation.JsonbProperty("shipDate") final java.time.OffsetDateTime shipDate,
-        @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
-        @javax.json.bind.annotation.JsonbProperty("complete") final Boolean complete
+        @javax.json.bind.annotation.JsonbProperty("id")
+        final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("petId")
+        final java.util.OptionalLong petId,
+        @javax.json.bind.annotation.JsonbProperty("quantity")
+        final java.util.OptionalInt quantity,
+        @javax.json.bind.annotation.JsonbProperty("shipDate")
+        final java.util.Optional<java.time.OffsetDateTime> shipDate,
+        @javax.json.bind.annotation.JsonbProperty("status")
+        final StatusEnum status,
+        @javax.json.bind.annotation.JsonbProperty("complete")
+        final java.util.Optional<Boolean> complete
     ) {
         this.id = id;
         this.petId = petId;
@@ -135,7 +155,7 @@ public final class Order {
  * @return shipDate
  */
     @javax.json.bind.annotation.JsonbProperty("shipDate")
-    public java.time.OffsetDateTime getShipDate() {
+    public java.util.Optional<java.time.OffsetDateTime> getShipDate() {
         return shipDate;
     }
 
@@ -157,7 +177,7 @@ public final class Order {
  * @return complete
  */
     @javax.json.bind.annotation.JsonbProperty("complete")
-    public Boolean isgetComplete() {
+    public java.util.Optional<Boolean> isgetComplete() {
         return complete;
     }
 
@@ -206,13 +226,17 @@ public final class Order {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
     private java.util.OptionalLong id;
     private java.util.OptionalLong petId;
     private java.util.OptionalInt quantity;
-    private java.time.OffsetDateTime shipDate;
+    private java.util.Optional<java.time.OffsetDateTime> shipDate;
     private StatusEnum status;
-    private Boolean complete;
+    private java.util.Optional<Boolean> complete;
 
     private Builder() {
     }
@@ -232,7 +256,7 @@ public final class Order {
         this.quantity = quantity;
         return this;
     }
-    public Builder setShipDate(final java.time.OffsetDateTime shipDate) {
+    public Builder setShipDate(final java.util.Optional<java.time.OffsetDateTime> shipDate) {
         this.shipDate = shipDate;
         return this;
     }
@@ -240,7 +264,7 @@ public final class Order {
         this.status = status;
         return this;
     }
-    public Builder setComplete(final Boolean complete) {
+    public Builder setComplete(final java.util.Optional<Boolean> complete) {
         this.complete = complete;
         return this;
     }

@@ -11,13 +11,15 @@ public final class Tag {
     private final java.util.OptionalLong id;
     
     
-    private final String name;
+    private final java.util.Optional<String> name;
     
 
     @javax.json.bind.annotation.JsonbCreator
     public Tag(
-        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-        @javax.json.bind.annotation.JsonbProperty("name") final String name
+        @javax.json.bind.annotation.JsonbProperty("id")
+        final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("name")
+        final java.util.Optional<String> name
     ) {
         this.id = id;
         this.name = name;
@@ -40,7 +42,7 @@ public final class Tag {
  * @return name
  */
     @javax.json.bind.annotation.JsonbProperty("name")
-    public String getName() {
+    public java.util.Optional<String> getName() {
         return name;
     }
 
@@ -81,9 +83,13 @@ public final class Tag {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
     private java.util.OptionalLong id;
-    private String name;
+    private java.util.Optional<String> name;
 
     private Builder() {
     }
@@ -95,7 +101,7 @@ public final class Tag {
         this.id = id;
         return this;
     }
-    public Builder setName(final String name) {
+    public Builder setName(final java.util.Optional<String> name) {
         this.name = name;
         return this;
     }
