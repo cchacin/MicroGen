@@ -1,17 +1,18 @@
 package org.openapitools.server.model;
 
-/** Category */
+/**
+ * Category
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Category {
 
     private final java.util.OptionalLong id;
 
-    private final String name;
+    private final java.util.Optional<String> name;
 
     @javax.json.bind.annotation.JsonbCreator
-    public Category(
-            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-            @javax.json.bind.annotation.JsonbProperty("name") final String name) {
+    public Category(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("name") final java.util.Optional<String> name) {
         this.id = id;
         this.name = name;
     }
@@ -21,8 +22,7 @@ public final class Category {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
-    public java.util.OptionalLong getId() {
+    @javax.json.bind.annotation.JsonbProperty("id") public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -31,13 +31,11 @@ public final class Category {
      *
      * @return name
      */
-    @javax.json.bind.annotation.JsonbProperty("name")
-    public String getName() {
+    @javax.json.bind.annotation.JsonbProperty("name") public java.util.Optional<String> getName() {
         return name;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -45,17 +43,15 @@ public final class Category {
             return false;
         }
         Category category = (Category) o;
-        return java.util.Objects.equals(this.id, category.id)
-                && java.util.Objects.equals(this.name, category.name);
+        return java.util.Objects.equals(this.id, category.id) && java.util.Objects
+            .equals(this.name, category.name);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return java.util.Objects.hash(id, name);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Category {\n");
 
@@ -74,7 +70,7 @@ public final class Category {
 
     public static final class Builder {
         private java.util.OptionalLong id;
-        private String name;
+        private java.util.Optional<String> name;
 
         private Builder() {}
 
@@ -87,7 +83,7 @@ public final class Category {
             return this;
         }
 
-        public Builder setName(final String name) {
+        public Builder setName(final java.util.Optional<String> name) {
             this.name = name;
             return this;
         }
