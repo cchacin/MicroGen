@@ -8,16 +8,18 @@ package petstore.models;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class InlineObject {
     
-    private final String name;
+    private final java.util.Optional<String> name;
     
     
-    private final String status;
+    private final java.util.Optional<String> status;
     
 
     @javax.json.bind.annotation.JsonbCreator
     public InlineObject(
-        @javax.json.bind.annotation.JsonbProperty("name") final String name,
-        @javax.json.bind.annotation.JsonbProperty("status") final String status
+        @javax.json.bind.annotation.JsonbProperty("name")
+        final java.util.Optional<String> name,
+        @javax.json.bind.annotation.JsonbProperty("status")
+        final java.util.Optional<String> status
     ) {
         this.name = name;
         this.status = status;
@@ -29,7 +31,7 @@ public final class InlineObject {
  * @return name
  */
     @javax.json.bind.annotation.JsonbProperty("name")
-    public String getName() {
+    public java.util.Optional<String> getName() {
         return name;
     }
 
@@ -40,7 +42,7 @@ public final class InlineObject {
  * @return status
  */
     @javax.json.bind.annotation.JsonbProperty("status")
-    public String getStatus() {
+    public java.util.Optional<String> getStatus() {
         return status;
     }
 
@@ -81,9 +83,13 @@ public final class InlineObject {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
-    private String name;
-    private String status;
+    private java.util.Optional<String> name;
+    private java.util.Optional<String> status;
 
     private Builder() {
     }
@@ -91,11 +97,11 @@ public final class InlineObject {
     public static Builder create() {
         return new Builder();
     }
-    public Builder setName(final String name) {
+    public Builder setName(final java.util.Optional<String> name) {
         this.name = name;
         return this;
     }
-    public Builder setStatus(final String status) {
+    public Builder setStatus(final java.util.Optional<String> status) {
         this.status = status;
         return this;
     }

@@ -11,17 +11,20 @@ public final class ModelApiResponse {
     private final java.util.OptionalInt code;
     
     
-    private final String type;
+    private final java.util.Optional<String> type;
     
     
-    private final String message;
+    private final java.util.Optional<String> message;
     
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelApiResponse(
-        @javax.json.bind.annotation.JsonbProperty("code") final java.util.OptionalInt code,
-        @javax.json.bind.annotation.JsonbProperty("type") final String type,
-        @javax.json.bind.annotation.JsonbProperty("message") final String message
+        @javax.json.bind.annotation.JsonbProperty("code")
+        final java.util.OptionalInt code,
+        @javax.json.bind.annotation.JsonbProperty("type")
+        final java.util.Optional<String> type,
+        @javax.json.bind.annotation.JsonbProperty("message")
+        final java.util.Optional<String> message
     ) {
         this.code = code;
         this.type = type;
@@ -45,7 +48,7 @@ public final class ModelApiResponse {
  * @return type
  */
     @javax.json.bind.annotation.JsonbProperty("type")
-    public String getType() {
+    public java.util.Optional<String> getType() {
         return type;
     }
 
@@ -56,7 +59,7 @@ public final class ModelApiResponse {
  * @return message
  */
     @javax.json.bind.annotation.JsonbProperty("message")
-    public String getMessage() {
+    public java.util.Optional<String> getMessage() {
         return message;
     }
 
@@ -99,10 +102,14 @@ public final class ModelApiResponse {
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     public static final class Builder {
     private java.util.OptionalInt code;
-    private String type;
-    private String message;
+    private java.util.Optional<String> type;
+    private java.util.Optional<String> message;
 
     private Builder() {
     }
@@ -114,11 +121,11 @@ public final class ModelApiResponse {
         this.code = code;
         return this;
     }
-    public Builder setType(final String type) {
+    public Builder setType(final java.util.Optional<String> type) {
         this.type = type;
         return this;
     }
-    public Builder setMessage(final String message) {
+    public Builder setMessage(final java.util.Optional<String> message) {
         this.message = message;
         return this;
     }

@@ -82,5 +82,9 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         return o.toString().replace("\n", "\n    ");
     }
 
+    public static Builder builder() {
+        return Builder.create();
+    }
+
     {{>builder}}
 }

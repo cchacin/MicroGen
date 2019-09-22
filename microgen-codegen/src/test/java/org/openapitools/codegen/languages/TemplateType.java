@@ -8,6 +8,7 @@ public enum TemplateType {
     CLIENT_MODEL(DirectoryConstants.CLIENT_MODEL_FOLDER),
     CLIENT_RESOURCE(DirectoryConstants.CLIENT_RESOURCE_FOLDER),
     SERVER_API(DirectoryConstants.SERVER_API_FOLDER),
+    SERVER_MODEL_TEST(DirectoryConstants.MODEL_TEST_FOLDER),
     SERVER_MODEL(DirectoryConstants.SERVER_MODEL_FOLDER),
     SERVER_RESOURCE(DirectoryConstants.SERVER_RESOURCE_FOLDER);
 

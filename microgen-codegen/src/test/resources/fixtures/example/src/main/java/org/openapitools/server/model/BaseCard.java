@@ -1,15 +1,15 @@
 package org.openapitools.server.model;
 
-/** This is a base card object which uses a &#39;cardType&#39; discriminator. */
-@JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "cardType",
-        visible = true)
-@JsonSubTypes({
-                      @JsonSubTypes.Type(value = PlaceCard.class, name = "PlaceCard"),
-                      @JsonSubTypes.Type(value = PersonCard.class, name = "PersonCard"),
-              })
+/**
+ * This is a base card object which uses a &#39;cardType&#39; discriminator.
+ */
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
+              include = JsonTypeInfo.As.PROPERTY,
+              property = "cardType",
+              visible = true) @JsonSubTypes({@JsonSubTypes.Type(value = PlaceCard.class,
+                                                                name = "PlaceCard"),
+                                                @JsonSubTypes.Type(value = PersonCard.class,
+                                                                   name = "PersonCard"),})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class BaseCard {
     @javax.validation.constraints.NotNull private final String cardType;
@@ -24,13 +24,11 @@ public final class BaseCard {
      *
      * @return cardType
      */
-    @javax.json.bind.annotation.JsonbProperty("cardType")
-    public String getCardType() {
+    @javax.json.bind.annotation.JsonbProperty("cardType") public String getCardType() {
         return cardType;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -41,13 +39,11 @@ public final class BaseCard {
         return java.util.Objects.equals(this.cardType, baseCard.cardType);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return java.util.Objects.hash(cardType);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class BaseCard {\n");
 
@@ -61,6 +57,10 @@ public final class BaseCard {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public static Builder builder() {
+        return Builder.create();
     }
 
     public static final class Builder {
