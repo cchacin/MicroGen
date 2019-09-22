@@ -1,6 +1,8 @@
 package org.openapitools.server.model;
 
-/** Order */
+/**
+ * Order
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Order {
 
@@ -10,9 +12,12 @@ public final class Order {
 
     private final java.util.OptionalInt quantity;
 
-    @javax.validation.Valid private final java.time.OffsetDateTime shipDate;
+    @javax.validation.Valid private final java.util.Optional<java.time.OffsetDateTime> shipDate;
 
-    /** Order Status */
+
+    /**
+     * Order Status
+     */
     @javax.json.bind.annotation.JsonbTypeSerializer(Order.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
     public static enum StatusEnum {
@@ -32,19 +37,18 @@ public final class Order {
             return this.value;
         }
 
-        @Override
-        public String toString() {
+        @Override public String toString() {
             return String.valueOf(this.value);
         }
 
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                .findFirst()
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text)).findFirst()
                 .orElse(null);
         }
     }
+
 
     public static class StatusEnumSerializer
         implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
@@ -52,40 +56,39 @@ public final class Order {
         public StatusEnumSerializer() {}
 
         @Override
-        public void serialize(
-            StatusEnum aEnum,
-            javax.json.stream.JsonGenerator jsonGenerator,
+        public void serialize(StatusEnum aEnum, javax.json.stream.JsonGenerator jsonGenerator,
             javax.json.bind.serializer.SerializationContext serializationContext) {
             jsonGenerator.write(aEnum.value);
         }
     }
+
 
     public static class StatusEnumDeserializer
         implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
-        @Override
-        public StatusEnum deserialize(
-            javax.json.stream.JsonParser jsonParser,
+        @Override public StatusEnum deserialize(javax.json.stream.JsonParser jsonParser,
             javax.json.bind.serializer.DeserializationContext deserializationContext,
             java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
 
+
     private final StatusEnum status;
 
-    private final Boolean complete;
+    private final java.util.Optional<Boolean> complete;
 
     @javax.json.bind.annotation.JsonbCreator
-    public Order(
-        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+    public Order(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
         @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
         @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
-        @javax.json.bind.annotation.JsonbProperty("shipDate") final java.time.OffsetDateTime shipDate,
+        @javax.json.bind.annotation.JsonbProperty("shipDate")
+        final java.util.Optional<java.time.OffsetDateTime> shipDate,
         @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
-        @javax.json.bind.annotation.JsonbProperty("complete") final Boolean complete) {
+        @javax.json.bind.annotation.JsonbProperty("complete")
+        final java.util.Optional<Boolean> complete) {
         this.id = id;
         this.petId = petId;
         this.quantity = quantity;
@@ -99,8 +102,7 @@ public final class Order {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
-    public java.util.OptionalLong getId() {
+    @javax.json.bind.annotation.JsonbProperty("id") public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -109,8 +111,7 @@ public final class Order {
      *
      * @return petId
      */
-    @javax.json.bind.annotation.JsonbProperty("petId")
-    public java.util.OptionalLong getPetId() {
+    @javax.json.bind.annotation.JsonbProperty("petId") public java.util.OptionalLong getPetId() {
         return petId;
     }
 
@@ -130,7 +131,7 @@ public final class Order {
      * @return shipDate
      */
     @javax.json.bind.annotation.JsonbProperty("shipDate")
-    public java.time.OffsetDateTime shipmentDate() {
+    public java.util.Optional<java.time.OffsetDateTime> shipmentDate() {
         return shipDate;
     }
 
@@ -139,8 +140,7 @@ public final class Order {
      *
      * @return status
      */
-    @javax.json.bind.annotation.JsonbProperty("status")
-    public StatusEnum getStatus() {
+    @javax.json.bind.annotation.JsonbProperty("status") public StatusEnum getStatus() {
         return status;
     }
 
@@ -150,12 +150,11 @@ public final class Order {
      * @return complete
      */
     @javax.json.bind.annotation.JsonbProperty("complete")
-    public Boolean isgetComplete() {
+    public java.util.Optional<Boolean> isgetComplete() {
         return complete;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -163,21 +162,19 @@ public final class Order {
             return false;
         }
         Order order = (Order) o;
-        return java.util.Objects.equals(this.id, order.id)
-            && java.util.Objects.equals(this.petId, order.petId)
-            && java.util.Objects.equals(this.quantity, order.quantity)
-            && java.util.Objects.equals(this.shipDate, order.shipDate)
-            && java.util.Objects.equals(this.status, order.status)
-            && java.util.Objects.equals(this.complete, order.complete);
+        return java.util.Objects.equals(this.id, order.id) && java.util.Objects
+            .equals(this.petId, order.petId) && java.util.Objects
+            .equals(this.quantity, order.quantity) && java.util.Objects
+            .equals(this.shipDate, order.shipDate) && java.util.Objects
+            .equals(this.status, order.status) && java.util.Objects
+            .equals(this.complete, order.complete);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return java.util.Objects.hash(id, petId, quantity, shipDate, status, complete);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Order {\n");
 
@@ -202,9 +199,9 @@ public final class Order {
         private java.util.OptionalLong id;
         private java.util.OptionalLong petId;
         private java.util.OptionalInt quantity;
-        private java.time.OffsetDateTime shipDate;
+        private java.util.Optional<java.time.OffsetDateTime> shipDate;
         private StatusEnum status;
-        private Boolean complete;
+        private java.util.Optional<Boolean> complete;
 
         private Builder() {}
 
@@ -227,7 +224,7 @@ public final class Order {
             return this;
         }
 
-        public Builder setShipDate(final java.time.OffsetDateTime shipDate) {
+        public Builder setShipDate(final java.util.Optional<java.time.OffsetDateTime> shipDate) {
             this.shipDate = shipDate;
             return this;
         }
@@ -237,14 +234,14 @@ public final class Order {
             return this;
         }
 
-        public Builder setComplete(final Boolean complete) {
+        public Builder setComplete(final java.util.Optional<Boolean> complete) {
             this.complete = complete;
             return this;
         }
 
         public Order build() {
-            return new Order(
-                this.id, this.petId, this.quantity, this.shipDate, this.status, this.complete);
+            return new Order(this.id, this.petId, this.quantity, this.shipDate, this.status,
+                this.complete);
         }
     }
 }

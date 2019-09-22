@@ -1,17 +1,20 @@
 package org.openapitools.server.model;
 
-/** This is an card object for a Person derived from BaseCard. */
+/**
+ * This is an card object for a Person derived from BaseCard.
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class PersonCard extends BaseCard {
 
-    private final String firstName;
+    private final java.util.Optional<String> firstName;
 
-    private final String lastName;
+    private final java.util.Optional<String> lastName;
 
-    @javax.json.bind.annotation.JsonbCreator
-    public PersonCard(
-            @javax.json.bind.annotation.JsonbProperty("firstName") final String firstName,
-            @javax.json.bind.annotation.JsonbProperty("lastName") final String lastName) {
+    @javax.json.bind.annotation.JsonbCreator public PersonCard(
+        @javax.json.bind.annotation.JsonbProperty("firstName")
+        final java.util.Optional<String> firstName,
+        @javax.json.bind.annotation.JsonbProperty("lastName")
+        final java.util.Optional<String> lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -22,7 +25,7 @@ public final class PersonCard extends BaseCard {
      * @return firstName
      */
     @javax.json.bind.annotation.JsonbProperty("firstName")
-    public String getFirstName() {
+    public java.util.Optional<String> getFirstName() {
         return firstName;
     }
 
@@ -32,12 +35,11 @@ public final class PersonCard extends BaseCard {
      * @return lastName
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
-    public String getLastName() {
+    public java.util.Optional<String> getLastName() {
         return lastName;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -45,18 +47,15 @@ public final class PersonCard extends BaseCard {
             return false;
         }
         PersonCard personCard = (PersonCard) o;
-        return java.util.Objects.equals(this.firstName, personCard.firstName)
-                && java.util.Objects.equals(this.lastName, personCard.lastName)
-                && super.equals(o);
+        return java.util.Objects.equals(this.firstName, personCard.firstName) && java.util.Objects
+            .equals(this.lastName, personCard.lastName) && super.equals(o);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return java.util.Objects.hash(firstName, lastName, super.hashCode());
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PersonCard {\n");
         sb.append("    ").append(toIndentedString(super.toString())).append("\n");
@@ -74,8 +73,8 @@ public final class PersonCard extends BaseCard {
     }
 
     public static final class Builder {
-        private String firstName;
-        private String lastName;
+        private java.util.Optional<String> firstName;
+        private java.util.Optional<String> lastName;
 
         private Builder() {}
 
@@ -83,12 +82,12 @@ public final class PersonCard extends BaseCard {
             return new Builder();
         }
 
-        public Builder setFirstName(final String firstName) {
+        public Builder setFirstName(final java.util.Optional<String> firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setLastName(final String lastName) {
+        public Builder setLastName(final java.util.Optional<String> lastName) {
             this.lastName = lastName;
             return this;
         }

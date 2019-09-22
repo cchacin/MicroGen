@@ -24,7 +24,8 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     @javax.json.bind.annotation.JsonbCreator
     public {{classname}}(
     {{#vars}}
-        @javax.json.bind.annotation.JsonbProperty("{{baseName}}") final {{{datatypeWithEnum}}} {{name}}{{#hasMore}},{{/hasMore}}
+        @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
+        final {{{datatypeWithEnum}}} {{name}}{{#hasMore}},{{/hasMore}}
     {{/vars}}
     ) {
         {{#vars}}   

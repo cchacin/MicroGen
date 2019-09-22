@@ -1,20 +1,25 @@
 package org.openapitools.server.model;
 
-/** Pet */
+/**
+ * Pet
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Pet {
 
     private final java.util.OptionalLong id;
 
-    @javax.validation.Valid private final Category category;
+    @javax.validation.Valid private final java.util.Optional<Category> category;
 
     @javax.validation.constraints.NotNull private final String name;
 
     @javax.validation.constraints.NotNull private final java.util.List<String> photoUrls;
 
-    @javax.validation.Valid private final java.util.List<Tag> tags;
+    @javax.validation.Valid private final java.util.Optional<java.util.List<Tag>> tags;
 
-    /** pet status in the store */
+
+    /**
+     * pet status in the store
+     */
     @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
     public static enum StatusEnum {
@@ -34,19 +39,18 @@ public final class Pet {
             return this.value;
         }
 
-        @Override
-        public String toString() {
+        @Override public String toString() {
             return String.valueOf(this.value);
         }
 
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                .findFirst()
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text)).findFirst()
                 .orElse(null);
         }
     }
+
 
     public static class StatusEnumSerializer
         implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
@@ -54,37 +58,36 @@ public final class Pet {
         public StatusEnumSerializer() {}
 
         @Override
-        public void serialize(
-            StatusEnum aEnum,
-            javax.json.stream.JsonGenerator jsonGenerator,
+        public void serialize(StatusEnum aEnum, javax.json.stream.JsonGenerator jsonGenerator,
             javax.json.bind.serializer.SerializationContext serializationContext) {
             jsonGenerator.write(aEnum.value);
         }
     }
+
 
     public static class StatusEnumDeserializer
         implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
-        @Override
-        public StatusEnum deserialize(
-            javax.json.stream.JsonParser jsonParser,
+        @Override public StatusEnum deserialize(javax.json.stream.JsonParser jsonParser,
             javax.json.bind.serializer.DeserializationContext deserializationContext,
             java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
 
+
     private final StatusEnum status;
 
     @javax.json.bind.annotation.JsonbCreator
-    public Pet(
-        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-        @javax.json.bind.annotation.JsonbProperty("category") final Category category,
+    public Pet(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("category")
+        final java.util.Optional<Category> category,
         @javax.json.bind.annotation.JsonbProperty("name") final String name,
-        @javax.json.bind.annotation.JsonbProperty("photoUrls") final java.util.List<String> photoUrls,
-        @javax.json.bind.annotation.JsonbProperty("tags") final java.util.List<Tag> tags,
+        @javax.json.bind.annotation.JsonbProperty("photoUrls")
+        final java.util.List<String> photoUrls, @javax.json.bind.annotation.JsonbProperty("tags")
+    final java.util.Optional<java.util.List<Tag>> tags,
         @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status) {
         this.id = id;
         this.category = category;
@@ -99,8 +102,7 @@ public final class Pet {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
-    public java.util.OptionalLong getId() {
+    @javax.json.bind.annotation.JsonbProperty("id") public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -110,7 +112,7 @@ public final class Pet {
      * @return category
      */
     @javax.json.bind.annotation.JsonbProperty("category")
-    public Category getCategory() {
+    public java.util.Optional<Category> getCategory() {
         return category;
     }
 
@@ -119,8 +121,7 @@ public final class Pet {
      *
      * @return name
      */
-    @javax.json.bind.annotation.JsonbProperty("name")
-    public String getName() {
+    @javax.json.bind.annotation.JsonbProperty("name") public String getName() {
         return name;
     }
 
@@ -140,7 +141,7 @@ public final class Pet {
      * @return tags
      */
     @javax.json.bind.annotation.JsonbProperty("tags")
-    public java.util.List<Tag> getTags() {
+    public java.util.Optional<java.util.List<Tag>> getTags() {
         return tags;
     }
 
@@ -149,13 +150,11 @@ public final class Pet {
      *
      * @return status
      */
-    @javax.json.bind.annotation.JsonbProperty("status")
-    public StatusEnum getStatus() {
+    @javax.json.bind.annotation.JsonbProperty("status") public StatusEnum getStatus() {
         return status;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -163,21 +162,17 @@ public final class Pet {
             return false;
         }
         Pet pet = (Pet) o;
-        return java.util.Objects.equals(this.id, pet.id)
-            && java.util.Objects.equals(this.category, pet.category)
-            && java.util.Objects.equals(this.name, pet.name)
-            && java.util.Objects.equals(this.photoUrls, pet.photoUrls)
-            && java.util.Objects.equals(this.tags, pet.tags)
-            && java.util.Objects.equals(this.status, pet.status);
+        return java.util.Objects.equals(this.id, pet.id) && java.util.Objects
+            .equals(this.category, pet.category) && java.util.Objects.equals(this.name, pet.name)
+            && java.util.Objects.equals(this.photoUrls, pet.photoUrls) && java.util.Objects
+            .equals(this.tags, pet.tags) && java.util.Objects.equals(this.status, pet.status);
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return java.util.Objects.hash(id, category, name, photoUrls, tags, status);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class Pet {\n");
 
@@ -200,10 +195,10 @@ public final class Pet {
 
     public static final class Builder {
         private java.util.OptionalLong id;
-        private Category category;
+        private java.util.Optional<Category> category;
         private String name;
         private java.util.List<String> photoUrls;
-        private java.util.List<Tag> tags;
+        private java.util.Optional<java.util.List<Tag>> tags;
         private StatusEnum status;
 
         private Builder() {}
@@ -217,7 +212,7 @@ public final class Pet {
             return this;
         }
 
-        public Builder setCategory(final Category category) {
+        public Builder setCategory(final java.util.Optional<Category> category) {
             this.category = category;
             return this;
         }
@@ -232,7 +227,7 @@ public final class Pet {
             return this;
         }
 
-        public Builder setTags(final java.util.List<Tag> tags) {
+        public Builder setTags(final java.util.Optional<java.util.List<Tag>> tags) {
             this.tags = tags;
             return this;
         }
@@ -243,7 +238,8 @@ public final class Pet {
         }
 
         public Pet build() {
-            return new Pet(this.id, this.category, this.name, this.photoUrls, this.tags, this.status);
+            return new Pet(this.id, this.category, this.name, this.photoUrls, this.tags,
+                this.status);
         }
     }
 }

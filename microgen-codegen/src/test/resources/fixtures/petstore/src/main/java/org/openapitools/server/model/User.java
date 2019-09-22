@@ -1,36 +1,41 @@
 package org.openapitools.server.model;
 
-/** User */
+/**
+ * User
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class User {
 
     private final java.util.OptionalLong id;
 
-    private final String username;
+    private final java.util.Optional<String> username;
 
-    private final String firstName;
+    private final java.util.Optional<String> firstName;
 
-    private final String lastName;
+    private final java.util.Optional<String> lastName;
 
-    private final String email;
+    private final java.util.Optional<String> email;
 
-    private final String password;
+    private final java.util.Optional<String> password;
 
-    private final String phone;
+    private final java.util.Optional<String> phone;
 
     private final java.util.OptionalInt userStatus;
 
     @javax.json.bind.annotation.JsonbCreator
-    public User(
-            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-            @javax.json.bind.annotation.JsonbProperty("username") final String username,
-            @javax.json.bind.annotation.JsonbProperty("firstName") final String firstName,
-            @javax.json.bind.annotation.JsonbProperty("lastName") final String lastName,
-            @javax.json.bind.annotation.JsonbProperty("email") final String email,
-            @javax.json.bind.annotation.JsonbProperty("password") final String password,
-            @javax.json.bind.annotation.JsonbProperty("phone") final String phone,
-            @javax.json.bind.annotation.JsonbProperty("userStatus")
-            final java.util.OptionalInt userStatus) {
+    public User(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("username")
+        final java.util.Optional<String> username,
+        @javax.json.bind.annotation.JsonbProperty("firstName")
+        final java.util.Optional<String> firstName,
+        @javax.json.bind.annotation.JsonbProperty("lastName")
+        final java.util.Optional<String> lastName,
+        @javax.json.bind.annotation.JsonbProperty("email") final java.util.Optional<String> email,
+        @javax.json.bind.annotation.JsonbProperty("password")
+        final java.util.Optional<String> password,
+        @javax.json.bind.annotation.JsonbProperty("phone") final java.util.Optional<String> phone,
+        @javax.json.bind.annotation.JsonbProperty("userStatus")
+        final java.util.OptionalInt userStatus) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -46,8 +51,7 @@ public final class User {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
-    public java.util.OptionalLong getId() {
+    @javax.json.bind.annotation.JsonbProperty("id") public java.util.OptionalLong getId() {
         return id;
     }
 
@@ -57,7 +61,7 @@ public final class User {
      * @return username
      */
     @javax.json.bind.annotation.JsonbProperty("username")
-    public String getUsername() {
+    public java.util.Optional<String> getUsername() {
         return username;
     }
 
@@ -67,7 +71,7 @@ public final class User {
      * @return firstName
      */
     @javax.json.bind.annotation.JsonbProperty("firstName")
-    public String getFirstName() {
+    public java.util.Optional<String> getFirstName() {
         return firstName;
     }
 
@@ -77,7 +81,7 @@ public final class User {
      * @return lastName
      */
     @javax.json.bind.annotation.JsonbProperty("lastName")
-    public String getLastName() {
+    public java.util.Optional<String> getLastName() {
         return lastName;
     }
 
@@ -87,7 +91,7 @@ public final class User {
      * @return email
      */
     @javax.json.bind.annotation.JsonbProperty("email")
-    public String getEmail() {
+    public java.util.Optional<String> getEmail() {
         return email;
     }
 
@@ -97,7 +101,7 @@ public final class User {
      * @return password
      */
     @javax.json.bind.annotation.JsonbProperty("password")
-    public String getPassword() {
+    public java.util.Optional<String> getPassword() {
         return password;
     }
 
@@ -107,7 +111,7 @@ public final class User {
      * @return phone
      */
     @javax.json.bind.annotation.JsonbProperty("phone")
-    public String getPhone() {
+    public java.util.Optional<String> getPhone() {
         return phone;
     }
 
@@ -121,8 +125,7 @@ public final class User {
         return userStatus;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -130,24 +133,22 @@ public final class User {
             return false;
         }
         User user = (User) o;
-        return java.util.Objects.equals(this.id, user.id)
-                && java.util.Objects.equals(this.username, user.username)
-                && java.util.Objects.equals(this.firstName, user.firstName)
-                && java.util.Objects.equals(this.lastName, user.lastName)
-                && java.util.Objects.equals(this.email, user.email)
-                && java.util.Objects.equals(this.password, user.password)
-                && java.util.Objects.equals(this.phone, user.phone)
-                && java.util.Objects.equals(this.userStatus, user.userStatus);
+        return java.util.Objects.equals(this.id, user.id) && java.util.Objects
+            .equals(this.username, user.username) && java.util.Objects
+            .equals(this.firstName, user.firstName) && java.util.Objects
+            .equals(this.lastName, user.lastName) && java.util.Objects
+            .equals(this.email, user.email) && java.util.Objects
+            .equals(this.password, user.password) && java.util.Objects
+            .equals(this.phone, user.phone) && java.util.Objects
+            .equals(this.userStatus, user.userStatus);
     }
 
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(
-                id, username, firstName, lastName, email, password, phone, userStatus);
+    @Override public int hashCode() {
+        return java.util.Objects
+            .hash(id, username, firstName, lastName, email, password, phone, userStatus);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class User {\n");
 
@@ -172,12 +173,12 @@ public final class User {
 
     public static final class Builder {
         private java.util.OptionalLong id;
-        private String username;
-        private String firstName;
-        private String lastName;
-        private String email;
-        private String password;
-        private String phone;
+        private java.util.Optional<String> username;
+        private java.util.Optional<String> firstName;
+        private java.util.Optional<String> lastName;
+        private java.util.Optional<String> email;
+        private java.util.Optional<String> password;
+        private java.util.Optional<String> phone;
         private java.util.OptionalInt userStatus;
 
         private Builder() {}
@@ -191,32 +192,32 @@ public final class User {
             return this;
         }
 
-        public Builder setUsername(final String username) {
+        public Builder setUsername(final java.util.Optional<String> username) {
             this.username = username;
             return this;
         }
 
-        public Builder setFirstName(final String firstName) {
+        public Builder setFirstName(final java.util.Optional<String> firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setLastName(final String lastName) {
+        public Builder setLastName(final java.util.Optional<String> lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder setEmail(final String email) {
+        public Builder setEmail(final java.util.Optional<String> email) {
             this.email = email;
             return this;
         }
 
-        public Builder setPassword(final String password) {
+        public Builder setPassword(final java.util.Optional<String> password) {
             this.password = password;
             return this;
         }
 
-        public Builder setPhone(final String phone) {
+        public Builder setPhone(final java.util.Optional<String> phone) {
             this.phone = phone;
             return this;
         }
@@ -227,15 +228,8 @@ public final class User {
         }
 
         public User build() {
-            return new User(
-                    this.id,
-                    this.username,
-                    this.firstName,
-                    this.lastName,
-                    this.email,
-                    this.password,
-                    this.phone,
-                    this.userStatus);
+            return new User(this.id, this.username, this.firstName, this.lastName, this.email,
+                this.password, this.phone, this.userStatus);
         }
     }
 }

@@ -1,27 +1,28 @@
 package org.openapitools.server.model;
 
-/** This is an subclass defived from the SampleBase class. */
+/**
+ * This is an subclass defived from the SampleBase class.
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class SampleSubClass {
 
-    private final String baseClassStringProp;
+    private final java.util.Optional<String> baseClassStringProp;
 
     private final java.util.OptionalInt baseClassIntegerProp;
 
-    private final String subClassStringProp;
+    private final java.util.Optional<String> subClassStringProp;
 
     private final java.util.OptionalInt subClassIntegerProp;
 
-    @javax.json.bind.annotation.JsonbCreator
-    public SampleSubClass(
-            @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
-            final String baseClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
-            final java.util.OptionalInt baseClassIntegerProp,
-            @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
-            final String subClassStringProp,
-            @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
-            final java.util.OptionalInt subClassIntegerProp) {
+    @javax.json.bind.annotation.JsonbCreator public SampleSubClass(
+        @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+        final java.util.Optional<String> baseClassStringProp,
+        @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+        final java.util.OptionalInt baseClassIntegerProp,
+        @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
+        final java.util.Optional<String> subClassStringProp,
+        @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
+        final java.util.OptionalInt subClassIntegerProp) {
         this.baseClassStringProp = baseClassStringProp;
         this.baseClassIntegerProp = baseClassIntegerProp;
         this.subClassStringProp = subClassStringProp;
@@ -34,7 +35,7 @@ public final class SampleSubClass {
      * @return baseClassStringProp
      */
     @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
-    public String getBaseClassStringProp() {
+    public java.util.Optional<String> getBaseClassStringProp() {
         return baseClassStringProp;
     }
 
@@ -54,7 +55,7 @@ public final class SampleSubClass {
      * @return subClassStringProp
      */
     @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
-    public String getSubClassStringProp() {
+    public java.util.Optional<String> getSubClassStringProp() {
         return subClassStringProp;
     }
 
@@ -68,8 +69,7 @@ public final class SampleSubClass {
         return subClassIntegerProp;
     }
 
-    @Override
-    public boolean equals(java.lang.Object o) {
+    @Override public boolean equals(java.lang.Object o) {
         if (this == o) {
             return true;
         }
@@ -77,33 +77,33 @@ public final class SampleSubClass {
             return false;
         }
         SampleSubClass sampleSubClass = (SampleSubClass) o;
-        return java.util.Objects.equals(this.baseClassStringProp, sampleSubClass.baseClassStringProp)
-                && java.util.Objects.equals(this.baseClassIntegerProp, sampleSubClass.baseClassIntegerProp)
-                && java.util.Objects.equals(this.subClassStringProp, sampleSubClass.subClassStringProp)
-                && java.util.Objects.equals(this.subClassIntegerProp, sampleSubClass.subClassIntegerProp);
+        return
+            java.util.Objects.equals(this.baseClassStringProp, sampleSubClass.baseClassStringProp)
+                && java.util.Objects
+                .equals(this.baseClassIntegerProp, sampleSubClass.baseClassIntegerProp)
+                && java.util.Objects
+                .equals(this.subClassStringProp, sampleSubClass.subClassStringProp)
+                && java.util.Objects
+                .equals(this.subClassIntegerProp, sampleSubClass.subClassIntegerProp);
     }
 
-    @Override
-    public int hashCode() {
-        return java.util.Objects.hash(
-                baseClassStringProp, baseClassIntegerProp, subClassStringProp, subClassIntegerProp);
+    @Override public int hashCode() {
+        return java.util.Objects.hash(baseClassStringProp, baseClassIntegerProp, subClassStringProp,
+            subClassIntegerProp);
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SampleSubClass {\n");
 
-        sb.append("    baseClassStringProp: ")
-          .append(toIndentedString(baseClassStringProp))
-          .append("\n");
-        sb.append("    baseClassIntegerProp: ")
-          .append(toIndentedString(baseClassIntegerProp))
-          .append("\n");
-        sb.append("    subClassStringProp: ").append(toIndentedString(subClassStringProp)).append("\n");
-        sb.append("    subClassIntegerProp: ")
-          .append(toIndentedString(subClassIntegerProp))
-          .append("\n");
+        sb.append("    baseClassStringProp: ").append(toIndentedString(baseClassStringProp))
+            .append("\n");
+        sb.append("    baseClassIntegerProp: ").append(toIndentedString(baseClassIntegerProp))
+            .append("\n");
+        sb.append("    subClassStringProp: ").append(toIndentedString(subClassStringProp))
+            .append("\n");
+        sb.append("    subClassIntegerProp: ").append(toIndentedString(subClassIntegerProp))
+            .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -116,9 +116,9 @@ public final class SampleSubClass {
     }
 
     public static final class Builder {
-        private String baseClassStringProp;
+        private java.util.Optional<String> baseClassStringProp;
         private java.util.OptionalInt baseClassIntegerProp;
-        private String subClassStringProp;
+        private java.util.Optional<String> subClassStringProp;
         private java.util.OptionalInt subClassIntegerProp;
 
         private Builder() {}
@@ -127,7 +127,8 @@ public final class SampleSubClass {
             return new Builder();
         }
 
-        public Builder setBaseClassStringProp(final String baseClassStringProp) {
+        public Builder setBaseClassStringProp(
+            final java.util.Optional<String> baseClassStringProp) {
             this.baseClassStringProp = baseClassStringProp;
             return this;
         }
@@ -137,7 +138,7 @@ public final class SampleSubClass {
             return this;
         }
 
-        public Builder setSubClassStringProp(final String subClassStringProp) {
+        public Builder setSubClassStringProp(final java.util.Optional<String> subClassStringProp) {
             this.subClassStringProp = subClassStringProp;
             return this;
         }
@@ -148,11 +149,8 @@ public final class SampleSubClass {
         }
 
         public SampleSubClass build() {
-            return new SampleSubClass(
-                    this.baseClassStringProp,
-                    this.baseClassIntegerProp,
-                    this.subClassStringProp,
-                    this.subClassIntegerProp);
+            return new SampleSubClass(this.baseClassStringProp, this.baseClassIntegerProp,
+                this.subClassStringProp, this.subClassIntegerProp);
         }
     }
 }
