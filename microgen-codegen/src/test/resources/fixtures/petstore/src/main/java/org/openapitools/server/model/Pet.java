@@ -15,6 +15,7 @@ public final class Pet {
     @javax.validation.Valid private final java.util.List<Tag> tags;
 
     /** pet status in the store */
+    @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
     public static enum StatusEnum {
         AVAILABLE("available"),
@@ -41,22 +42,36 @@ public final class Pet {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                .findFirst()
+                .orElse(null);
+        }
+    }
+
+    public static class StatusEnumSerializer
+        implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+
+        public StatusEnumSerializer() {}
+
+        @Override
+        public void serialize(
+            StatusEnum aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
+            jsonGenerator.write(aEnum.value);
         }
     }
 
     public static class StatusEnumDeserializer
-            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+        implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
         @Override
         public StatusEnum deserialize(
-                javax.json.stream.JsonParser jsonParser,
-                javax.json.bind.serializer.DeserializationContext deserializationContext,
-                java.lang.reflect.Type type) {
+            javax.json.stream.JsonParser jsonParser,
+            javax.json.bind.serializer.DeserializationContext deserializationContext,
+            java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
@@ -65,12 +80,12 @@ public final class Pet {
 
     @javax.json.bind.annotation.JsonbCreator
     public Pet(
-            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-            @javax.json.bind.annotation.JsonbProperty("category") final Category category,
-            @javax.json.bind.annotation.JsonbProperty("name") final String name,
-            @javax.json.bind.annotation.JsonbProperty("photoUrls") final java.util.List<String> photoUrls,
-            @javax.json.bind.annotation.JsonbProperty("tags") final java.util.List<Tag> tags,
-            @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status) {
+        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("category") final Category category,
+        @javax.json.bind.annotation.JsonbProperty("name") final String name,
+        @javax.json.bind.annotation.JsonbProperty("photoUrls") final java.util.List<String> photoUrls,
+        @javax.json.bind.annotation.JsonbProperty("tags") final java.util.List<Tag> tags,
+        @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -149,11 +164,11 @@ public final class Pet {
         }
         Pet pet = (Pet) o;
         return java.util.Objects.equals(this.id, pet.id)
-                && java.util.Objects.equals(this.category, pet.category)
-                && java.util.Objects.equals(this.name, pet.name)
-                && java.util.Objects.equals(this.photoUrls, pet.photoUrls)
-                && java.util.Objects.equals(this.tags, pet.tags)
-                && java.util.Objects.equals(this.status, pet.status);
+            && java.util.Objects.equals(this.category, pet.category)
+            && java.util.Objects.equals(this.name, pet.name)
+            && java.util.Objects.equals(this.photoUrls, pet.photoUrls)
+            && java.util.Objects.equals(this.tags, pet.tags)
+            && java.util.Objects.equals(this.status, pet.status);
     }
 
     @Override

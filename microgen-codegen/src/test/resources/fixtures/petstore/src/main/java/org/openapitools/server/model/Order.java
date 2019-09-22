@@ -13,6 +13,7 @@ public final class Order {
     @javax.validation.Valid private final java.time.OffsetDateTime shipDate;
 
     /** Order Status */
+    @javax.json.bind.annotation.JsonbTypeSerializer(Order.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
     public static enum StatusEnum {
         PLACED("placed"),
@@ -39,22 +40,36 @@ public final class Order {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                .findFirst()
+                .orElse(null);
+        }
+    }
+
+    public static class StatusEnumSerializer
+        implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+
+        public StatusEnumSerializer() {}
+
+        @Override
+        public void serialize(
+            StatusEnum aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
+            jsonGenerator.write(aEnum.value);
         }
     }
 
     public static class StatusEnumDeserializer
-            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+        implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
         @Override
         public StatusEnum deserialize(
-                javax.json.stream.JsonParser jsonParser,
-                javax.json.bind.serializer.DeserializationContext deserializationContext,
-                java.lang.reflect.Type type) {
+            javax.json.stream.JsonParser jsonParser,
+            javax.json.bind.serializer.DeserializationContext deserializationContext,
+            java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
@@ -65,12 +80,12 @@ public final class Order {
 
     @javax.json.bind.annotation.JsonbCreator
     public Order(
-            @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-            @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
-            @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
-            @javax.json.bind.annotation.JsonbProperty("shipDate") final java.time.OffsetDateTime shipDate,
-            @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
-            @javax.json.bind.annotation.JsonbProperty("complete") final Boolean complete) {
+        @javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
+        @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
+        @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
+        @javax.json.bind.annotation.JsonbProperty("shipDate") final java.time.OffsetDateTime shipDate,
+        @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
+        @javax.json.bind.annotation.JsonbProperty("complete") final Boolean complete) {
         this.id = id;
         this.petId = petId;
         this.quantity = quantity;
@@ -149,11 +164,11 @@ public final class Order {
         }
         Order order = (Order) o;
         return java.util.Objects.equals(this.id, order.id)
-                && java.util.Objects.equals(this.petId, order.petId)
-                && java.util.Objects.equals(this.quantity, order.quantity)
-                && java.util.Objects.equals(this.shipDate, order.shipDate)
-                && java.util.Objects.equals(this.status, order.status)
-                && java.util.Objects.equals(this.complete, order.complete);
+            && java.util.Objects.equals(this.petId, order.petId)
+            && java.util.Objects.equals(this.quantity, order.quantity)
+            && java.util.Objects.equals(this.shipDate, order.shipDate)
+            && java.util.Objects.equals(this.status, order.status)
+            && java.util.Objects.equals(this.complete, order.complete);
     }
 
     @Override
@@ -229,7 +244,7 @@ public final class Order {
 
         public Order build() {
             return new Order(
-                    this.id, this.petId, this.quantity, this.shipDate, this.status, this.complete);
+                this.id, this.petId, this.quantity, this.shipDate, this.status, this.complete);
         }
     }
 }

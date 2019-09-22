@@ -1,6 +1,7 @@
     /**
      * {{^description}}Gets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
      */
+    @javax.json.bind.annotation.JsonbTypeSerializer({{classname}}.{{datatypeWithEnum}}Serializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}.{{datatypeWithEnum}}Deserializer.class)
     public static enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
     {{#allowableValues}}{{#enumVars}}
@@ -30,6 +31,19 @@
                           .findFirst()
                           .orElse(null);
             }
+    }
+
+    public static class {{datatypeWithEnum}}Serializer implements javax.json.bind.serializer.JsonbSerializer<{{datatypeWithEnum}}> {
+
+        public {{datatypeWithEnum}}Serializer() { }
+
+        @Override
+        public void serialize(
+            {{datatypeWithEnum}} aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
+                jsonGenerator.write(aEnum.value);
+        }
     }
 
     public static class {{datatypeWithEnum}}Deserializer implements javax.json.bind.serializer.JsonbDeserializer<{{datatypeWithEnum}}> {
