@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -49,7 +49,7 @@
     </modules>
 
     <properties>
-        <argLine></argLine>
+        <argLine/>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -57,13 +57,14 @@
         <jakartaee.version>8.0.0</jakartaee.version>
         <microprofile.version>3.0</microprofile.version>
         <openapitools.version>4.1.1</openapitools.version>
-        
+
         <asciidoctor.version>1.6.0</asciidoctor.version>
 
         <preparationGoals>clean compile test-compile</preparationGoals>
 
         <asciidoctor.input.directory>${project.basedir}/docs-src</asciidoctor.input.directory>
-        <asciidoctor.html.output.directory>${project.basedir}/docs</asciidoctor.html.output.directory>
+        <asciidoctor.html.output.directory>${project.basedir}/docs
+        </asciidoctor.html.output.directory>
 
         <!-- Plugins -->
         <version.clean.plugin>3.1.0</version.clean.plugin>
@@ -129,17 +130,21 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true
+                                </addDefaultSpecificationEntries>
+                                <addDefaultImplementationEntries>true
+                                </addDefaultImplementationEntries>
                             </manifest>
                             <manifestEntries>
                                 <Date>${maven.build.timestamp}</Date>
                                 <Specification-Title>${project.name}</Specification-Title>
                                 <Specification-Version>${project.version}</Specification-Version>
-                                <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                <Specification-Vendor>${project.organization.name}
+                                </Specification-Vendor>
                                 <Implementation-Title>${project.name}</Implementation-Title>
                                 <Implementation-Version>${project.version}</Implementation-Version>
-                                <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                                <Implementation-Vendor>${project.organization.name}
+                                </Implementation-Vendor>
                             </manifestEntries>
                         </archive>
                     </configuration>
@@ -173,17 +178,21 @@
                         <attachClasses>true</attachClasses>
                         <archive>
                             <manifest>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true
+                                </addDefaultSpecificationEntries>
+                                <addDefaultImplementationEntries>true
+                                </addDefaultImplementationEntries>
                             </manifest>
                             <manifestEntries>
                                 <Date>${maven.build.timestamp}</Date>
                                 <Specification-Title>${project.name}</Specification-Title>
                                 <Specification-Version>${project.version}</Specification-Version>
-                                <Specification-Vendor>${project.organization.name}</Specification-Vendor>
+                                <Specification-Vendor>${project.organization.name}
+                                </Specification-Vendor>
                                 <Implementation-Title>${project.name}</Implementation-Title>
                                 <Implementation-Version>${project.version}</Implementation-Version>
-                                <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                                <Implementation-Vendor>${project.organization.name}
+                                </Implementation-Vendor>
                             </manifestEntries>
                         </archive>
                         <warName>${project.artifactId}</warName>
@@ -321,7 +330,8 @@
                                 </goals>
                                 <configuration>
                                     <backend>html5</backend>
-                                    <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
+                                    <outputDirectory>${asciidoctor.html.output.directory}
+                                    </outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
