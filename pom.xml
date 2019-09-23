@@ -46,7 +46,6 @@
         <module>microgen-bom</module>
         <module>microgen-codegen</module>
         <module>microgen-archetype</module>
-        <module>microgen-samples</module>
     </modules>
 
     <properties>
