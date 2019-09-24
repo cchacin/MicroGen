@@ -358,9 +358,18 @@ $ ./mvnw clean install
 ```
 
 ```bash
-$ docker run -d -p 9080:9080 --name example com.example/example
+$ docker rm -f example || true && docker run -d -p 9080:9080 --name example com.example/example:1.0-SNAPSHOT
 ```
 
 ```bash
-$ curl -X GET http://localhost:9080/api/v1/pets
+$ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/1 | jq .
+{
+  "category": {
+    "id": 1,
+    "name": ""
+  },
+  "id": 1,
+  "name": "name",
+  "status": "available"
+}
 ```
