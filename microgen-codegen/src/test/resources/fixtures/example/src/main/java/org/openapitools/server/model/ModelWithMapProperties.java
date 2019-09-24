@@ -12,11 +12,9 @@ package org.openapitools.server.model;
 public final class ModelWithMapProperties {
 
     private final java.util.Optional<java.util.Map<String, String>> stringMap;
-
     public static final String JSON_PROPERTY_STRING_MAP = "stringMap";
 
     private final java.util.Optional<java.util.Map<String, Integer>> integerMap;
-
     public static final String JSON_PROPERTY_INTEGER_MAP = "integerMap";
 
     @javax.validation.Valid private final java.util.Optional<java.util.Map<String, ErrorInfo>>

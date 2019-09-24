@@ -12,15 +12,12 @@ package org.openapitools.server.model;
 public final class Order {
 
     private final java.util.OptionalLong id;
-
     public static final String JSON_PROPERTY_ID = "id";
 
     private final java.util.OptionalLong petId;
-
     public static final String JSON_PROPERTY_PET_ID = "petId";
 
     private final java.util.OptionalInt quantity;
-
     public static final String JSON_PROPERTY_QUANTITY = "quantity";
 
     @javax.validation.Valid private final java.util.Optional<java.time.OffsetDateTime> shipDate;
@@ -90,11 +87,9 @@ public final class Order {
 
 
     private final StatusEnum status;
-
     public static final String JSON_PROPERTY_STATUS = "status";
 
     private final java.util.Optional<Boolean> complete;
-
     public static final String JSON_PROPERTY_COMPLETE = "complete";
 
     @javax.json.bind.annotation.JsonbCreator

@@ -143,23 +143,37 @@ public class AddPetParams {
   /**
    * Pet
    */
+  @javax.json.bind.annotation.JsonbPropertyOrder({
+    Pet.JSON_PROPERTY_ID,
+    Pet.JSON_PROPERTY_CATEGORY,
+    Pet.JSON_PROPERTY_NAME,
+    Pet.JSON_PROPERTY_PHOTO_URLS,
+    Pet.JSON_PROPERTY_TAGS,
+    Pet.JSON_PROPERTY_STATUS
+  })
   @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
   public final class Pet {
       private final java.util.OptionalLong id;
+      public static final String JSON_PROPERTY_ID = "id";
 
       @javax.validation.Valid
       private final java.util.Optional<Category> category;
+      public static final String JSON_PROPERTY_CATEGORY = "category";
 
       @javax.validation.constraints.NotNull
       private final String name;
+      public static final String JSON_PROPERTY_NAME = "name";
 
       @javax.validation.constraints.NotNull
       private final java.util.List<String> photoUrls;
+      public static final String JSON_PROPERTY_PHOTO_URLS = "photoUrls";
 
       @javax.validation.Valid
       private final java.util.Optional<java.util.List<Tag>> tags;
+      public static final String JSON_PROPERTY_TAGS = "tags";
 
       private final StatusEnum status;
+      public static final String JSON_PROPERTY_STATUS = "status";
 
       @javax.json.bind.annotation.JsonbCreator
       public Pet(
