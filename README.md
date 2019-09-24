@@ -387,3 +387,12 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
   "status": "available"
 }
 ```
+
+### Libraries used
+
+| Library              | Version | License |
+|:---------------------|:--------|:--------|
+| Eclipse JakartaEE    | 8.0.0   |         |
+| Eclipse MicroProfile | 3.0     |         |
+| OpenAPI Tools        | 4.1.1   |         |
+| Immutables           | 2.7.5   |         |
