@@ -7,9 +7,12 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com)
 
-An OpenAPI Spec Generator for JakartaEE + MicroProfile
+## An OpenAPI Spec Generator for Eclipse JakartaEE + Eclipse MicroProfile
 
-## Features
+![Eclipse MicroProfile logo](images/microprofile-logo.png)
+![Eclipse JakartaEE logo](images/jakartaee-logo.png)
+
+### Features
 
 Given an OpenAPI Spec file, we are generating for you all of the following:
 
@@ -83,8 +86,9 @@ components:
             - sold
 ```
 
-### Server API Contract (JAX-RS)
+#### Server API Contract (JAX-RS)
 - JAX-RS interface with all the annotations necessary annotations
+
 ```java
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public interface PetApi {
@@ -105,6 +109,7 @@ public interface PetApi {
   .
 }
 ```
+
 - `@BeanParams` wrapper class to minimize the breaking changes in the Java API contract, this includes not only the parameters defined in the OpenAPI spec but also `@HttpHeaders` and `@UriInfo`:
 
 ```java
@@ -130,8 +135,10 @@ public class AddPetParams {
     }
 }
 ```
+
 - Request and Response objects:
   - Ctor including all fields and `Jsonb` annotations
+
   ```java
   /**
    * Pet
@@ -181,7 +188,9 @@ public class AddPetParams {
     // more details explained below
   }
   ```
+
   - Inner static factory builder to make easier the instantiation:
+
   ```java
   public static Builder builder() {
       return Builder.create();
@@ -209,7 +218,9 @@ public class AddPetParams {
       // more info omitted
     }
   ```
+
   - Enumerations:
+
   ```java
   @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
   @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
@@ -243,7 +254,9 @@ public class AddPetParams {
       }
   }
   ```
+
   - Enum's `Jsonb` Serializers/Deserializer
+
   ```java
   public static class StatusEnumSerializer implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
 
@@ -272,7 +285,7 @@ public class AddPetParams {
   }
   ```
 
-## Using MicroGen with the Maven Archetype
+### Using MicroGen with the Maven Archetype
 
 Execute this command
 
