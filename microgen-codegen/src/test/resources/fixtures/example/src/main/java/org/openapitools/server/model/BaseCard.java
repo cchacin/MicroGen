@@ -10,9 +10,12 @@ package org.openapitools.server.model;
                                                                 name = "PlaceCard"),
                                                 @JsonSubTypes.Type(value = PersonCard.class,
                                                                    name = "PersonCard"),})
+@javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSON_PROPERTY_CARD_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class BaseCard {
     @javax.validation.constraints.NotNull private final String cardType;
+
+    public static final String JSON_PROPERTY_CARD_TYPE = "cardType";
 
     @javax.json.bind.annotation.JsonbCreator
     public BaseCard(@javax.json.bind.annotation.JsonbProperty("cardType") final String cardType) {

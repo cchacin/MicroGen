@@ -1,6 +1,11 @@
 {{>classJavadoc}}
 {{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{#additionalAnnotations}}
     {{{additionalAnnotations}}}{{/additionalAnnotations}}
+@javax.json.bind.annotation.JsonbPropertyOrder({
+{{#vars}}
+    {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
+{{/vars}}
+})
 {{>generatedAnnotation}}
 public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 {{#vars}}
@@ -18,6 +23,8 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{/items.isEnum}}
     {{>beanValidation}}
     private final {{{datatypeWithEnum}}} {{name}};
+
+    public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
     
 {{/vars}}
 

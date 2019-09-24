@@ -3,13 +3,19 @@ package org.openapitools.server.model;
 /**
  * This is a model object that has properties and additionalProperties.
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({ModelWithPropertiesAndAdditionalProperties.JSON_PROPERTY_INTEGER_PROP,
+                                                   ModelWithPropertiesAndAdditionalProperties.JSON_PROPERTY_STRING_PROP})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithPropertiesAndAdditionalProperties
     extends java.util.HashMap<String, String> {
 
     private final java.util.OptionalInt integerProp;
 
+    public static final String JSON_PROPERTY_INTEGER_PROP = "integerProp";
+
     private final java.util.Optional<String> stringProp;
+
+    public static final String JSON_PROPERTY_STRING_PROP = "stringProp";
 
     @javax.json.bind.annotation.JsonbCreator public ModelWithPropertiesAndAdditionalProperties(
         @javax.json.bind.annotation.JsonbProperty("integerProp")

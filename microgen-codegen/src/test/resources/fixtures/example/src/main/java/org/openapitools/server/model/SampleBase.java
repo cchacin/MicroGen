@@ -3,12 +3,18 @@ package org.openapitools.server.model;
 /**
  * This is an base class object from which other classes will derive.
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({SampleBase.JSON_PROPERTY_BASE_CLASS_STRING_PROP,
+                                                   SampleBase.JSON_PROPERTY_BASE_CLASS_INTEGER_PROP})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class SampleBase {
 
     private final java.util.Optional<String> baseClassStringProp;
 
+    public static final String JSON_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
+
     private final java.util.OptionalInt baseClassIntegerProp;
+
+    public static final String JSON_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
 
     @javax.json.bind.annotation.JsonbCreator public SampleBase(
         @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")

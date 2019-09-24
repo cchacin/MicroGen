@@ -3,12 +3,18 @@ package org.openapitools.server.model;
 /**
  * Category
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({Category.JSON_PROPERTY_ID,
+                                                   Category.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Category {
 
     private final java.util.OptionalLong id;
 
+    public static final String JSON_PROPERTY_ID = "id";
+
     private final java.util.Optional<String> name;
+
+    public static final String JSON_PROPERTY_NAME = "name";
 
     @javax.json.bind.annotation.JsonbCreator
     public Category(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,

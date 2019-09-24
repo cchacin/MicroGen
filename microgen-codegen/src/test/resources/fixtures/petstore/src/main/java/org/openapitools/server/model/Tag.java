@@ -3,12 +3,17 @@ package org.openapitools.server.model;
 /**
  * Tag
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({Tag.JSON_PROPERTY_ID, Tag.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Tag {
 
     private final java.util.OptionalLong id;
 
+    public static final String JSON_PROPERTY_ID = "id";
+
     private final java.util.Optional<String> name;
+
+    public static final String JSON_PROPERTY_NAME = "name";
 
     @javax.json.bind.annotation.JsonbCreator
     public Tag(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,

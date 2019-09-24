@@ -3,12 +3,18 @@ package org.openapitools.server.model;
 /**
  * This is an card object for a Person derived from BaseCard.
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({PersonCard.JSON_PROPERTY_FIRST_NAME,
+                                                   PersonCard.JSON_PROPERTY_LAST_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class PersonCard extends BaseCard {
 
     private final java.util.Optional<String> firstName;
 
+    public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
+
     private final java.util.Optional<String> lastName;
+
+    public static final String JSON_PROPERTY_LAST_NAME = "lastName";
 
     @javax.json.bind.annotation.JsonbCreator public PersonCard(
         @javax.json.bind.annotation.JsonbProperty("firstName")
