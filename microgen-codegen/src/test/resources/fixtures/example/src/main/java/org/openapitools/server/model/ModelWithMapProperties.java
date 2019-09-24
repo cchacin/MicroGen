@@ -4,19 +4,31 @@ package org.openapitools.server.model;
  * This is a model object that has map properties of type&#x3D;integer, type&#x3D;string, and
  * type&#x3D;&lt;model&gt;.
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({ModelWithMapProperties.JSON_PROPERTY_STRING_MAP,
+                                                   ModelWithMapProperties.JSON_PROPERTY_INTEGER_MAP,
+                                                   ModelWithMapProperties.JSON_PROPERTY_ERROR_INFO_MAP,
+                                                   ModelWithMapProperties.JSON_PROPERTY_ERROR_INFO_ARRAY_MAP})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithMapProperties {
 
     private final java.util.Optional<java.util.Map<String, String>> stringMap;
 
+    public static final String JSON_PROPERTY_STRING_MAP = "stringMap";
+
     private final java.util.Optional<java.util.Map<String, Integer>> integerMap;
+
+    public static final String JSON_PROPERTY_INTEGER_MAP = "integerMap";
 
     @javax.validation.Valid private final java.util.Optional<java.util.Map<String, ErrorInfo>>
         errorInfoMap;
 
+    public static final String JSON_PROPERTY_ERROR_INFO_MAP = "errorInfoMap";
+
     @javax.validation.Valid
     private final java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
         errorInfoArrayMap;
+
+    public static final String JSON_PROPERTY_ERROR_INFO_ARRAY_MAP = "errorInfoArrayMap";
 
     @javax.json.bind.annotation.JsonbCreator public ModelWithMapProperties(
         @javax.json.bind.annotation.JsonbProperty("stringMap")

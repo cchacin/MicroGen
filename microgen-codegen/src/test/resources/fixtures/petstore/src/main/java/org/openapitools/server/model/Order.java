@@ -3,16 +3,29 @@ package org.openapitools.server.model;
 /**
  * Order
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({Order.JSON_PROPERTY_ID, Order.JSON_PROPERTY_PET_ID,
+                                                   Order.JSON_PROPERTY_QUANTITY,
+                                                   Order.JSON_PROPERTY_SHIP_DATE,
+                                                   Order.JSON_PROPERTY_STATUS,
+                                                   Order.JSON_PROPERTY_COMPLETE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class Order {
 
     private final java.util.OptionalLong id;
 
+    public static final String JSON_PROPERTY_ID = "id";
+
     private final java.util.OptionalLong petId;
+
+    public static final String JSON_PROPERTY_PET_ID = "petId";
 
     private final java.util.OptionalInt quantity;
 
+    public static final String JSON_PROPERTY_QUANTITY = "quantity";
+
     @javax.validation.Valid private final java.util.Optional<java.time.OffsetDateTime> shipDate;
+
+    public static final String JSON_PROPERTY_SHIP_DATE = "shipDate";
 
 
     /**
@@ -78,7 +91,11 @@ public final class Order {
 
     private final StatusEnum status;
 
+    public static final String JSON_PROPERTY_STATUS = "status";
+
     private final java.util.Optional<Boolean> complete;
+
+    public static final String JSON_PROPERTY_COMPLETE = "complete";
 
     @javax.json.bind.annotation.JsonbCreator
     public Order(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,

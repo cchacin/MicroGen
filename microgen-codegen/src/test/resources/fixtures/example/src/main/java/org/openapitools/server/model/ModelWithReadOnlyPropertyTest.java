@@ -3,14 +3,26 @@ package org.openapitools.server.model;
 /**
  * This is a model object that contains a property with readOnly&#x3D;true.
  */
+@javax.json.bind.annotation.JsonbPropertyOrder({ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE,
+                                                   ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE,
+                                                   ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public final class ModelWithReadOnlyPropertyTest {
 
     private final java.util.Optional<String> stringPropWithImplicitReadOnlyFalse;
 
+    public static final String JSON_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE =
+        "stringPropWithImplicitReadOnlyFalse";
+
     private final java.util.Optional<String> stringPropWithExplicitReadOnlyFalse;
 
+    public static final String JSON_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE =
+        "stringPropWithExplicitReadOnlyFalse";
+
     private final java.util.Optional<String> stringPropWithReadOnlyTrue;
+
+    public static final String JSON_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE =
+        "stringPropWithReadOnlyTrue";
 
     @javax.json.bind.annotation.JsonbCreator public ModelWithReadOnlyPropertyTest(
         @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse")
