@@ -8,11 +8,9 @@ package org.openapitools.server.model;
 public final class Tag {
 
     private final java.util.OptionalLong id;
-
     public static final String JSON_PROPERTY_ID = "id";
 
     private final java.util.Optional<String> name;
-
     public static final String JSON_PROPERTY_NAME = "name";
 
     @javax.json.bind.annotation.JsonbCreator

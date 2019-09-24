@@ -12,7 +12,6 @@ package org.openapitools.server.model;
 public final class Pet {
 
     private final java.util.OptionalLong id;
-
     public static final String JSON_PROPERTY_ID = "id";
 
     @javax.validation.Valid private final java.util.Optional<Category> category;
@@ -94,7 +93,6 @@ public final class Pet {
 
 
     private final StatusEnum status;
-
     public static final String JSON_PROPERTY_STATUS = "status";
 
     @javax.json.bind.annotation.JsonbCreator

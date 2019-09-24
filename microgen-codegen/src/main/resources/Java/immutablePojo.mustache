@@ -23,7 +23,6 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{/items.isEnum}}
     {{>beanValidation}}
     private final {{{datatypeWithEnum}}} {{name}};
-
     public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
     
 {{/vars}}

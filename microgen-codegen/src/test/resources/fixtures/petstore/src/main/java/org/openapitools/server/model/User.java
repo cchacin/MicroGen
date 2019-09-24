@@ -14,35 +14,27 @@ package org.openapitools.server.model;
 public final class User {
 
     private final java.util.OptionalLong id;
-
     public static final String JSON_PROPERTY_ID = "id";
 
     private final java.util.Optional<String> username;
-
     public static final String JSON_PROPERTY_USERNAME = "username";
 
     private final java.util.Optional<String> firstName;
-
     public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
 
     private final java.util.Optional<String> lastName;
-
     public static final String JSON_PROPERTY_LAST_NAME = "lastName";
 
     private final java.util.Optional<String> email;
-
     public static final String JSON_PROPERTY_EMAIL = "email";
 
     private final java.util.Optional<String> password;
-
     public static final String JSON_PROPERTY_PASSWORD = "password";
 
     private final java.util.Optional<String> phone;
-
     public static final String JSON_PROPERTY_PHONE = "phone";
 
     private final java.util.OptionalInt userStatus;
-
     public static final String JSON_PROPERTY_USER_STATUS = "userStatus";
 
     @javax.json.bind.annotation.JsonbCreator

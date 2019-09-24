@@ -10,11 +10,9 @@ public final class ModelWithPropertiesAndAdditionalProperties
     extends java.util.HashMap<String, String> {
 
     private final java.util.OptionalInt integerProp;
-
     public static final String JSON_PROPERTY_INTEGER_PROP = "integerProp";
 
     private final java.util.Optional<String> stringProp;
-
     public static final String JSON_PROPERTY_STRING_PROP = "stringProp";
 
     @javax.json.bind.annotation.JsonbCreator public ModelWithPropertiesAndAdditionalProperties(

@@ -11,19 +11,15 @@ package org.openapitools.server.model;
 public final class SampleSubClass {
 
     private final java.util.Optional<String> baseClassStringProp;
-
     public static final String JSON_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
 
     private final java.util.OptionalInt baseClassIntegerProp;
-
     public static final String JSON_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
 
     private final java.util.Optional<String> subClassStringProp;
-
     public static final String JSON_PROPERTY_SUB_CLASS_STRING_PROP = "subClassStringProp";
 
     private final java.util.OptionalInt subClassIntegerProp;
-
     public static final String JSON_PROPERTY_SUB_CLASS_INTEGER_PROP = "subClassIntegerProp";
 
     @javax.json.bind.annotation.JsonbCreator public SampleSubClass(
