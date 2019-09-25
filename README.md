@@ -1,20 +1,23 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-
-[![forthebadge](https://forthebadge.com/images/badges/approved-by-george-costanza.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://forthebadge.com)
-# MicroGen => μGen => /ˈmaɪ.kɹoʊdʒən/
-![Java CI](https://github.com/cchacin/MicroGen/workflows/Java%20CI/badge.svg)
-![Greetings](https://github.com/cchacin/MicroGen/workflows/Greetings/badge.svg)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com)
-
-## An OpenAPI Spec Generator for Eclipse JakartaEE + Eclipse MicroProfile
-
 ![Eclipse MicroProfile logo](images/microprofile-logo.png)
 ![Eclipse JakartaEE logo](images/jakartaee-logo.png)
 
-### Features
+# MicroGen
 
-Given an OpenAPI Spec file, we are generating for you all of the following:
+ MicroGen is a tool to generate java code based on an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) Spec file. 
+
+## Features
+
+- Server API Contract (JAX-RS)
+- Request and Response java objects
+  - Inner static `Builder` class and utility methods
+- Enum value classes 
+- `@BeanParams` for request parameters
+- Maven Archetype to quick start a JakartaEE + MicroProfile application
+- Dockerfile(s) with a JakartaEE + MicroProfile application server
+
+## User Guide
+
+Given an OpenAPI Spec file:
 
 ```yaml
 openapi: 3.0.0
@@ -86,8 +89,11 @@ components:
             - sold
 ```
 
+MicroGen will generate the following:
+
 #### Server API Contract (JAX-RS)
-- JAX-RS interface with all the annotations necessary annotations
+
+JAX-RS interface with all the annotations necessary annotations
 
 ```java
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
@@ -110,7 +116,19 @@ public interface PetApi {
 }
 ```
 
-- `@BeanParams` wrapper class to minimize the breaking changes in the Java API contract, this includes not only the parameters defined in the OpenAPI spec but also `@HttpHeaders` and `@UriInfo`:
+### `@BeanParams` for request parameters
+
+`@BeanParams` wrapper class to minimize the breaking changes in the Java API contract, this includes:
+  - `@PathParam`'s
+  - `@QueryParam`'s
+  - `@FormParam`'s
+  - `@HeaderParam`'s
+  - `@CookieParam`'s
+
+But also the additional:
+
+  - `@Context UriInfo`
+  - `@Context HttpHeaders`
 
 ```java
 public class AddPetParams {
@@ -136,8 +154,18 @@ public class AddPetParams {
 }
 ```
 
-- Request and Response objects:
-  - Ctor including all fields and `Jsonb` annotations
+### Request and Response objects:
+
+Generate the Request and Response java objects with the `Json-b` annotations:
+  - `@JsonbProperty`
+  - `@JsonbCreator`
+  - `@JsonbPropertyOrder`
+  - `toString()`
+  - `equals`
+  - `hashCode`
+  - Inner static `Builder` class and utility methods
+  
+  COMING SOON: Using immutables.org library
 
   ```java
   /**
@@ -203,7 +231,7 @@ public class AddPetParams {
   }
   ```
 
-  - Inner static factory builder to make easier the instantiation:
+#### Inner static factory builder to make easier the instantiation:
 
   ```java
   public static Builder builder() {
@@ -233,7 +261,9 @@ public class AddPetParams {
     }
   ```
 
-  - Enumerations:
+### Enum values
+
+Generating all the enum values with the `@JsonbSerializer`'s and `@JsonbDeserializer`'s
 
   ```java
   @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
@@ -269,7 +299,7 @@ public class AddPetParams {
   }
   ```
 
-  - Enum's `Jsonb` Serializers/Deserializer
+#### Enum's `Jsonb` Serializers/Deserializer
 
   ```java
   public static class StatusEnumSerializer implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
@@ -388,7 +418,9 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
 }
 ```
 
-### Libraries used
+### Advance Features
+
+### Dependencies
 
 | Library              | Version | License |
 |:---------------------|:--------|:--------|
@@ -396,3 +428,12 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
 | Eclipse MicroProfile | 3.0     |         |
 | OpenAPI Tools        | 4.1.1   |         |
 | Immutables           | 2.7.5   |         |
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/approved-by-george-costanza.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://forthebadge.com)
+
+![Java CI](https://github.com/cchacin/MicroGen/workflows/Java%20CI/badge.svg)
+![Greetings](https://github.com/cchacin/MicroGen/workflows/Greetings/badge.svg)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com)
