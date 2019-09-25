@@ -111,6 +111,7 @@ public class MicroGen extends JavaClientCodegen {
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
         this.apiTestTemplateFiles.clear();
+        this.apiTestTemplateFiles.put("api_test.mustache", ".java");
 
         this.instantiationTypes.put("array", Builder.JAVA_UTIL_LIST);
         this.instantiationTypes.put("map", Builder.JAVA_UTIL_HASHMAP);
@@ -169,6 +170,11 @@ public class MicroGen extends JavaClientCodegen {
             }
         }
         return objs;
+    }
+
+    @Override
+    public String toApiTestFilename(String name) {
+        return toApiName(name) + "Client";
     }
 
     private void filterOperations(final OpenAPI openAPI,

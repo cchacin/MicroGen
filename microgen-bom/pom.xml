@@ -41,6 +41,7 @@
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-api</artifactId>
                 <version>8.0.0</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- Eclipse MicroProfile -->
@@ -49,6 +50,7 @@
                 <artifactId>microprofile</artifactId>
                 <version>3.0</version>
                 <type>pom</type>
+                <scope>provided</scope>
             </dependency>
             
             <!-- test dependencies -->
