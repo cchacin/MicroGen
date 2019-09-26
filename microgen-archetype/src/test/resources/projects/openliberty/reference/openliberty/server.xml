@@ -8,21 +8,10 @@
 
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9080" httpsPort="9443"/>
 
-    <keyStore id="defaultKeyStore" password="mpKeystore" location="key.jks" type="jks"/>
-
-    <basicRegistry id="basic" realm="MicroProfileMetrics">
-        <user name="admin" password="adminadmin"/>
-        <user name="nonadmin" password="guest"/>
-    </basicRegistry>
-
-    <administrator-role>
-        <user>admin</user>
-    </administrator-role>
-    
     <applicationManager autoExpand="true"/>
 
-    <logging traceSpecification="com.example.*=finest" messageFormat="json" messageSource="message,trace,accessLog,ffdc,audit" logDirectory="/tmp/logs" />
-    
+    <logging traceSpecification="*=info" messageFormat="json" messageSource="message,trace,accessLog,ffdc,audit" logDirectory="/tmp/logs" />
+
     <opentracingZipkin host="zipkin:9411"/>
 
     <mpMetrics authentication="false" />
