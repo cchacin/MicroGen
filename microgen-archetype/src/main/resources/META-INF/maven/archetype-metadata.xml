@@ -46,6 +46,16 @@
                 <include>Dockerfile</include>
             </includes>
         </fileSet>
+        
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory />
+            <includes>
+                <include>docker-compose.yml</include>
+                <include>filebeat/*.yml</include>
+                <include>prometheus/*.yml</include>
+                <include>openliberty/server.xml</include>
+            </includes>
+        </fileSet>
 
     </fileSets>
 </archetype-descriptor>
