@@ -1,0 +1,31 @@
+filebeat.prospectors:
+  - type: log
+    json.keys_under_root: true
+    json.message_key: message
+    enabled: true
+    paths:
+      - /tmp/logs/messages.log
+    
+logging.to_files: true
+logging.to_syslog: false
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: true
+  reload.period: 120s
+
+setup.template.settings:
+  index.number_of_shards: 3
+  #index.codec: best_compression
+  #_source.enabled: false
+
+tags: ["example", "api"]
+
+fields:
+  env: staging
+
+setup.kibana:
+  host: "kibana:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
