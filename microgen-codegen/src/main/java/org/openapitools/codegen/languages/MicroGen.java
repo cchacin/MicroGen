@@ -112,6 +112,7 @@ public class MicroGen extends JavaClientCodegen {
         this.apiDocTemplateFiles.clear();
         this.apiTestTemplateFiles.clear();
         this.apiTestTemplateFiles.put("api_test.mustache", ".java");
+        this.additionalProperties.clear();
 
         this.instantiationTypes.put("array", Builder.JAVA_UTIL_LIST);
         this.instantiationTypes.put("map", Builder.JAVA_UTIL_HASHMAP);

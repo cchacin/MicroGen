@@ -21,7 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <microgen.version>${project.version}</microgen.version>
         
-        <openapitools.version>4.1.1</openapitools.version>
+        <openapitools.version>4.1.2</openapitools.version>
         
         <immutables.version>2.7.5</immutables.version>
         <google-java-format.version>1.7</google-java-format.version>
