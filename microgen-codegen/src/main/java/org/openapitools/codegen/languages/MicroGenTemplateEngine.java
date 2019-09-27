@@ -32,7 +32,8 @@ public class MicroGenTemplateEngine extends MustacheEngineAdapter {
                 return formatter.formatSourceAndFixImports(rendered);
             }
         } catch (FormatterException e) {
-            throw new IOException("Final result was not a proper Java file", e);
+            return rendered;
+//            throw new IOException("Final result was not a proper Java file", e);
         }
         return rendered;
     }
