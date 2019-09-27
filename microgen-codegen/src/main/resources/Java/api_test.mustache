@@ -6,21 +6,23 @@ import {{import}};
 
 {{#operations}}
 {{>generatedAnnotation}}
-public interface {{classname}}Api { {{#operation}}
-
+@org.eclipse.microprofile.rest.client.inject.RegisterRestClient
+@org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
+public interface {{classname}}RestClient extends java.lang.AutoCloseable { {{#operation}}
+    
     /**
      * {{summary}}
      * {{notes}}
      {{#allParams}}
      * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
      {{/allParams}}
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;{{returnType}}&gt;}
      */
     @javax.ws.rs.{{httpMethod}}
     @javax.ws.rs.Path("{{{path}}}"){{#hasConsumes}}
     @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}{{#hasProduces}}
     @javax.ws.rs.Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
+    java.util.concurrent.CompletionStage<{{{returnType}}}> {{#vendorExtensions.x-name}}{{vendorExtensions.x-name}}{{/vendorExtensions.x-name}}{{^vendorExtensions.x-name}}{{nickname}}{{/vendorExtensions.x-name}}(
         {{#hasParams}}@javax.ws.rs.BeanParam {{operationIdCamelCase}}Params params{{#bodyParams}},{{/bodyParams}}{{/hasParams}}
         {{#bodyParams}}{{>bodyParams}}{{/bodyParams}}
     ) throws javax.ws.rs.WebApplicationException;

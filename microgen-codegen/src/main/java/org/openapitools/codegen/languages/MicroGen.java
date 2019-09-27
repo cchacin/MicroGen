@@ -27,6 +27,7 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.servers.Server;
 
 import static java.util.stream.Collectors.toList;
+import static org.openapitools.codegen.utils.StringUtils.camelize;
 
 public class MicroGen extends JavaClientCodegen {
 
@@ -51,6 +52,7 @@ public class MicroGen extends JavaClientCodegen {
         super();
         this.setTemplatingEngine(new MicroGenTemplateEngine());
         this.fullJavaUtil = true;
+        this.supportingFiles.clear();
         this.supportedLibraries.clear();
         this.supportedLibraries.put("server",
                                     "JavaEE + Eclipse Micro Profile");
@@ -111,6 +113,7 @@ public class MicroGen extends JavaClientCodegen {
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
         this.apiTestTemplateFiles.clear();
+        this.apiTestTemplateFiles.put("api_test.mustache", ".java");
         this.additionalProperties.clear();
 
         this.instantiationTypes.put("array", Builder.JAVA_UTIL_LIST);
@@ -130,6 +133,7 @@ public class MicroGen extends JavaClientCodegen {
 
     @Override
     public Map<String, Object> postProcessOperationsWithModels(final Map<String, Object> objs, List<Object> allModels) {
+        this.supportingFiles.clear();
         super.postProcessOperationsWithModels(objs, allModels);
         final Map<String, Object> operations = (Map<String, Object>) objs.get("operations");
         if (operations != null) {
@@ -170,6 +174,24 @@ public class MicroGen extends JavaClientCodegen {
             }
         }
         return objs;
+    }
+
+    @Override 
+    public String toApiName(String name) {
+        if (name.length() == 0) {
+            return "Default";
+        }
+        return camelize(name) + "";
+    }
+
+    @Override 
+    public String toApiFilename(String name) {
+        return toApiName(name) + "Api";
+    }
+
+    @Override
+    public String toApiTestFilename(String name) {
+        return toApiName(name) + "RestClient";
     }
 
     private void filterOperations(final OpenAPI openAPI,

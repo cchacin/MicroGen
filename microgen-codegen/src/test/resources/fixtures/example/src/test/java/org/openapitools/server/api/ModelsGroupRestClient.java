@@ -1,9 +1,12 @@
 package org.openapitools.server.api;
 
+import org.openapitools.server.model.AllModels;
 import org.openapitools.server.model.ModelWithReadOnlyPropertyTest;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public interface ModelsGroupApi {
+@org.eclipse.microprofile.rest.client.inject.RegisterRestClient
+@org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
+public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
 
     /**
      * Return all of the defined models. This operation returns an AllModels object, which contains
@@ -13,12 +16,12 @@ public interface ModelsGroupApi {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/models/all")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getAllModels(
+    java.util.concurrent.CompletionStage<AllModels> getAllModels(
         @javax.ws.rs.BeanParam GetAllModelsParams params) throws javax.ws.rs.WebApplicationException;
 
     public class GetAllModelsParams {
@@ -63,12 +66,12 @@ public interface ModelsGroupApi {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/operations/defaultResponse")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getDefaultResponse(
+    java.util.concurrent.CompletionStage<AllModels> getDefaultResponse(
         @javax.ws.rs.BeanParam GetDefaultResponseParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -113,13 +116,13 @@ public interface ModelsGroupApi {
      * properties should be included in the response but not the request.
      *
      * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;ModelWithReadOnlyPropertyTest&gt;}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("test/models/readonly")
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> putModelsReadOnly(
+    java.util.concurrent.CompletionStage<ModelWithReadOnlyPropertyTest> putModelsReadOnly(
         @javax.validation.constraints.NotNull @javax.validation.Valid
             ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
         throws javax.ws.rs.WebApplicationException;

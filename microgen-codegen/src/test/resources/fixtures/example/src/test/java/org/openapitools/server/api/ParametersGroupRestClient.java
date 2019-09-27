@@ -1,9 +1,12 @@
 package org.openapitools.server.api;
 
+import org.openapitools.server.model.AllModels;
 import org.openapitools.server.model.ErrorInfo;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public interface ParametersGroupApi {
+@org.eclipse.microprofile.rest.client.inject.RegisterRestClient
+@org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
+public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
 
     /**
      * Summary: This is an endpoint which tests array input parameters. Description: This is an
@@ -38,12 +41,12 @@ public interface ParametersGroupApi {
      * @param queryParamBooleanArrayOptional This is a description of queryParamBooleanArrayOptional,
      *     an optional boolean array query parameter (optional, default to new
      *     java.util.ArrayList<Boolean>())
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersArrays(
+    java.util.concurrent.CompletionStage<AllModels> getParametersArrays(
         @javax.ws.rs.BeanParam GetParametersArraysParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -201,12 +204,11 @@ public interface ParametersGroupApi {
      *     of string arrays. The outer delimiter is the pipe (&#39;|&#39;) and the inner delimiter is
      *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional, default
      *     to new java.util.ArrayList<java.util.List<String>>())
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays/collectionFormat")
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
-    getParametersArraysCollectionFormat(
+    java.util.concurrent.CompletionStage<Void> getParametersArraysCollectionFormat(
         @javax.ws.rs.BeanParam GetParametersArraysCollectionFormatParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -315,12 +317,12 @@ public interface ParametersGroupApi {
      *     integer query parameter (optional)
      * @param queryParamBooleanOptional This is a description of queryParamBooleanOptional, an
      *     optional boolean query parameter (optional, default to true)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/{pathParam}/all/{enumPathParam}")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersScalars(
+    java.util.concurrent.CompletionStage<AllModels> getParametersScalars(
         @javax.ws.rs.BeanParam GetParametersScalarsParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -529,11 +531,11 @@ public interface ParametersGroupApi {
      *     to new java.util.ArrayList<String>())
      * @param integerParameterWithMultipleOf This is an integer parameter with multipleOf&#x3D;10. So
      *     therefore values of 10, 100, and 10000 would pass validation but 25 would not. (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/validation")
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersValidation(
+    java.util.concurrent.CompletionStage<Void> getParametersValidation(
         @javax.ws.rs.BeanParam GetParametersValidationParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -667,12 +669,12 @@ public interface ParametersGroupApi {
      * for testing an input parameter serialized in the body of the request.
      *
      * @param errorInfo This parameter will be serialized in the request body. (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
+    java.util.concurrent.CompletionStage<Void> postBodyParameterJSON(
         @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
         throws javax.ws.rs.WebApplicationException;
 
@@ -698,13 +700,12 @@ public interface ParametersGroupApi {
      * operation is for testing multipart/form-data input parameters.
      *
      * @param fileParam This is an in&#x3D;formData type&#x3D;file input parameter (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/multiPartFormData")
     @javax.ws.rs.Consumes({"multipart/form-data"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
-    postFormDataParameterMultipartFormData(
+    java.util.concurrent.CompletionStage<Void> postFormDataParameterMultipartFormData(
         @javax.ws.rs.BeanParam PostFormDataParameterMultipartFormDataParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -752,12 +753,12 @@ public interface ParametersGroupApi {
      * @param numberParam This is an in&#x3D;body type&#x3D;number input parameter (optional)
      * @param integerParam This is an in&#x3D;body type&#x3D;integer input parameter (optional)
      * @param booleanParam This is an in&#x3D;body type&#x3D;boolean input parameter (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/urlEncoded")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postFormDataParametersUrlEncoded(
+    java.util.concurrent.CompletionStage<Void> postFormDataParametersUrlEncoded(
         @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParams params)
         throws javax.ws.rs.WebApplicationException;
 

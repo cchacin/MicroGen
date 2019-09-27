@@ -41,7 +41,6 @@
         <url>https://github.com/cchacin/MicroGen</url>
     </scm>
 
-
     <modules>
         <module>microgen-bom</module>
         <module>microgen-codegen</module>
@@ -269,5 +268,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

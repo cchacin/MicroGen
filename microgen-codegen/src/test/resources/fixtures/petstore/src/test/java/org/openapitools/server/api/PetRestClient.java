@@ -1,20 +1,23 @@
 package org.openapitools.server.api;
 
+import org.openapitools.server.model.ModelApiResponse;
 import org.openapitools.server.model.Pet;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public interface PetApi {
+@org.eclipse.microprofile.rest.client.inject.RegisterRestClient
+@org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
+public interface PetRestClient extends java.lang.AutoCloseable {
 
     /**
      * Add a new pet to the store
      *
      * @param pet Pet object that needs to be added to the store (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
+    java.util.concurrent.CompletionStage<Void> addPet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
@@ -39,11 +42,11 @@ public interface PetApi {
      *
      * @param petId Pet id to delete (required)
      * @param apiKey (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("pet/{petId}")
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
+    java.util.concurrent.CompletionStage<Void> deletePet(
         @javax.ws.rs.BeanParam DeletePetParams params) throws javax.ws.rs.WebApplicationException;
 
     public class DeletePetParams {
@@ -82,12 +85,12 @@ public interface PetApi {
      * Finds Pets by status Multiple status values can be provided with comma separated strings
      *
      * @param status Status values that need to be considered for filter (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByStatus")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByStatus(
+    java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByStatus(
         @javax.ws.rs.BeanParam FindPetsByStatusParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -122,12 +125,12 @@ public interface PetApi {
      * tag3 for testing.
      *
      * @param tags Tags to filter by (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByTags")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> findPetsByTags(
+    java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByTags(
         @javax.ws.rs.BeanParam FindPetsByTagsParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -161,12 +164,12 @@ public interface PetApi {
      * Find pet by ID Returns a single pet
      *
      * @param petId ID of pet to return (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Pet&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getPetById(
+    java.util.concurrent.CompletionStage<Pet> getPetById(
         @javax.ws.rs.BeanParam GetPetByIdParams params) throws javax.ws.rs.WebApplicationException;
 
     public class GetPetByIdParams {
@@ -197,12 +200,12 @@ public interface PetApi {
      * Update an existing pet
      *
      * @param pet Pet object that needs to be added to the store (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
+    java.util.concurrent.CompletionStage<Void> updatePet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
@@ -228,12 +231,12 @@ public interface PetApi {
      * @param petId ID of pet that needs to be updated (required)
      * @param name Updated name of the pet (optional)
      * @param status Updated status of the pet (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePetWithForm(
+    java.util.concurrent.CompletionStage<Void> updatePetWithForm(
         @javax.ws.rs.BeanParam UpdatePetWithFormParams params)
         throws javax.ws.rs.WebApplicationException;
 
@@ -268,13 +271,13 @@ public interface PetApi {
      * @param petId ID of pet to update (required)
      * @param additionalMetadata Additional data to pass to server (optional)
      * @param file file to upload (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;ModelApiResponse&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet/{petId}/uploadImage")
     @javax.ws.rs.Consumes({"multipart/form-data"})
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> uploadImage(
+    java.util.concurrent.CompletionStage<ModelApiResponse> uploadImage(
         @javax.ws.rs.BeanParam UploadFileParams params) throws javax.ws.rs.WebApplicationException;
 
     public class UploadFileParams {
