@@ -983,15 +983,14 @@ components:
           scopes:
             loggedIn: This is the security scope indicating the user must be logged in.
   schemas:
-    EnumString:
+    EnumString2:
       type: string
-      description: This is an string enumeration.
-      x-unit-tests:
-        - B29
       enum:
-        - EnumStringValue1
-        - EnumStringValue2
-        - EnumStringValue3
+        - black
+        - white
+        - red
+        - green
+        - blue
     EnumInteger:
       type: integer
       description: This is an integer enumeration.
@@ -1153,10 +1152,10 @@ components:
           format: date-time
           description: This is a required property with type=string and format=date-time.
         myFileOptional:
-          type: file
+          type: string
           description: This is an optional property with type=file and no format specifier.
         myFileRequired:
-          type: file
+          type: string
           description: This is a required property with type=file and no format specifier.
         myUUIDOptional:
           type: string
@@ -1167,71 +1166,21 @@ components:
           format: uuid
           description: This is a required property with type=string and format=uuid.
         myEnumStringOptional:
-          $ref: '#/components/schemas/EnumString'
-          description: >-
-            This is an optional enum property with type=string and three
-            enumerated string values. This property references the EnumString
-            definition.
-          x-unit-tests:
-            - B31
+          $ref: '#/components/schemas/EnumString2'
         myEnumStringRequired:
-          $ref: '#/components/schemas/EnumString'
-          description: >-
-            This is a required enum property with type=string and three
-            enumerated string values. This property references the EnumString
-            definition.
-          x-unit-tests:
-            - B31
+          $ref: '#/components/schemas/EnumString2'
         myEnumIntegerOptional:
           $ref: '#/components/schemas/EnumInteger'
-          description: >-
-            This is an optional enum property with type=integer. This property
-            references the EnumInteger definition.
-          x-unit-tests:
-            - B31
         myEnumIntegerRequired:
           $ref: '#/components/schemas/EnumInteger'
-          description: >-
-            This is a required enum property with type=integer. This property
-            references the EnumInteger definition.
-          x-unit-tests:
-            - B31
         myEnumNumberOptional:
           $ref: '#/components/schemas/EnumNumber'
-          description: >-
-            This is an optional enum property with type=number. This property
-            references the EnumNumber definition.
-          x-unit-tests:
-            - B31
         myEnumNumberRequired:
           $ref: '#/components/schemas/EnumNumber'
-          description: >-
-            This is a required enum property with type=number. This property
-            references the EnumNumber definition.
-          x-unit-tests:
-            - B31
         myInlineEnumStringOptional:
           type: string
-          description: >-
-            This is an optional enum property with type=string and three
-            enumerated string values. This enum is defined inline.
-          enum:
-            - EnumStringValue1
-            - EnumStringValue2
-            - EnumStringValue3
-          x-unit-tests:
-            - B31
         myInlineEnumStringRequired:
           type: string
-          description: >-
-            This is a required enum property with type=string and three
-            enumerated string values. This enum is defined inline.
-          enum:
-            - EnumStringValue1
-            - EnumStringValue2
-            - EnumStringValue3
-          x-unit-tests:
-            - B31
         myInlineEnumIntegerOptional:
           type: integer
           format: int32
@@ -1476,14 +1425,14 @@ components:
             This is an optional property which is an array of enum's with
             type=string and three enumerated string values.
           items:
-            $ref: '#/components/schemas/EnumString'
+            $ref: '#/components/schemas/EnumString2'
         myEnumStringArrayRequired:
           type: array
           description: >-
             This is a required property which is an array of enum's with
             type=string and three enumerated string values.
           items:
-            $ref: '#/components/schemas/EnumString'
+            $ref: '#/components/schemas/EnumString2'
         myModelStringArrayOptional:
           $ref: '#/components/schemas/ModelStringArray'
           description: >-
@@ -1812,7 +1761,7 @@ components:
       type: array
       description: This model is an array of EnumString models.
       items:
-        $ref: '#/components/schemas/EnumString'
+        $ref: '#/components/schemas/EnumString2'
     AllModels:
       type: object
       description: Model object which contains all other models
