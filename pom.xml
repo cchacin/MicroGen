@@ -58,13 +58,7 @@
         <microprofile.version>3.0</microprofile.version>
         <openapitools.version>4.1.1</openapitools.version>
 
-        <asciidoctor.version>1.6.0</asciidoctor.version>
-
         <preparationGoals>clean compile test-compile</preparationGoals>
-
-        <asciidoctor.input.directory>${project.basedir}/docs-src</asciidoctor.input.directory>
-        <asciidoctor.html.output.directory>${project.basedir}/docs
-        </asciidoctor.html.output.directory>
 
         <!-- Plugins -->
         <version.clean.plugin>3.1.0</version.clean.plugin>
@@ -276,68 +270,4 @@
         </plugins>
     </build>
 
-    <profiles>
-        <!-- Travis CI -->
-        <profile>
-            <id>travis</id>
-
-            <activation>
-                <property>
-                    <name>env.TRAVIS</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eluder.coveralls</groupId>
-                        <artifactId>coveralls-maven-plugin</artifactId>
-                        <version>4.3.0</version>
-                        <configuration>
-                            <repoToken>FrT5fITSKDssrVekWOfrxhmcIoXFa2kan</repoToken>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>docs</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctor-maven-plugin</artifactId>
-                        <version>${asciidoctor.version}</version>
-                        <configuration>
-                            <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
-                            <sourceDocumentName>index.adoc</sourceDocumentName>
-                            <attributes>
-                                <doctype>book</doctype>
-                                <toc>left</toc>
-                                <toclevels>3</toclevels>
-                                <numbered/>
-                                <hardbreaks/>
-                                <sectlinks/>
-                                <sectanchors/>
-                            </attributes>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>output-html</id>
-                                <phase>generate-resources</phase>
-                                <goals>
-                                    <goal>process-asciidoc</goal>
-                                </goals>
-                                <configuration>
-                                    <backend>html5</backend>
-                                    <outputDirectory>${asciidoctor.html.output.directory}
-                                    </outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

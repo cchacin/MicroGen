@@ -111,6 +111,7 @@ public class MicroGen extends JavaClientCodegen {
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
         this.apiTestTemplateFiles.clear();
+        this.additionalProperties.clear();
 
         this.instantiationTypes.put("array", Builder.JAVA_UTIL_LIST);
         this.instantiationTypes.put("map", Builder.JAVA_UTIL_HASHMAP);
