@@ -6,7 +6,7 @@ import {{import}};
 
 {{#operations}}
 {{>generatedAnnotation}}
-public interface {{classname}} { {{#operation}}
+public interface {{classname}}Api { {{#operation}}
 
     /**
      * {{summary}}
@@ -14,7 +14,7 @@ public interface {{classname}} { {{#operation}}
      {{#allParams}}
      * @param {{paramName}} {{description}}{{#required}} (required){{/required}}{{^required}} (optional{{#defaultValue}}, default to {{{.}}}{{/defaultValue}}){{/required}}
      {{/allParams}}
-     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @javax.ws.rs.{{httpMethod}}
     @javax.ws.rs.Path("{{{path}}}"){{#hasConsumes}}

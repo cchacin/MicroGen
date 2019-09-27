@@ -16,8 +16,12 @@ class ApiTestTemplateTest implements ServerTemplateTest {
 
     static Stream<Arguments> arguments() {
         return Stream.of(
-                Arguments.of("example", "ModelsGroupApiClient.java"),
-                Arguments.of("example", "ParametersGroupApiClient.java")
+                Arguments.of("example", "ModelsGroupRestClient.java"),
+                Arguments.of("example", "ParametersGroupRestClient.java"),
+                Arguments.of("petstore", "PetRestClient.java"),
+                Arguments.of("petstore", "StoreRestClient.java"),
+                Arguments.of("petstore", "DefaultRestClient.java"),
+                Arguments.of("petstore", "UserRestClient.java")
         );
     }
 

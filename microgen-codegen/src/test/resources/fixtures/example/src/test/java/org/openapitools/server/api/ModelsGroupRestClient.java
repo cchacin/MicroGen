@@ -6,7 +6,7 @@ import org.openapitools.server.model.ModelWithReadOnlyPropertyTest;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 @org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
-public interface ModelsGroupApiClient extends java.lang.AutoCloseable {
+public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
 
     /**
      * Return all of the defined models. This operation returns an AllModels object, which contains
@@ -16,7 +16,7 @@ public interface ModelsGroupApiClient extends java.lang.AutoCloseable {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage<AllModels>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/models/all")
@@ -66,7 +66,7 @@ public interface ModelsGroupApiClient extends java.lang.AutoCloseable {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage<AllModels>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/operations/defaultResponse")
@@ -116,7 +116,7 @@ public interface ModelsGroupApiClient extends java.lang.AutoCloseable {
      * properties should be included in the response but not the request.
      *
      * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
-     * @return {@code java.util.concurrent.CompletionStage<ModelWithReadOnlyPropertyTest>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;ModelWithReadOnlyPropertyTest&gt;}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("test/models/readonly")

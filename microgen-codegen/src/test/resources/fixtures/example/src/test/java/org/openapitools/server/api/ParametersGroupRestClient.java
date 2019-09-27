@@ -6,7 +6,7 @@ import org.openapitools.server.model.ErrorInfo;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 @org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
-public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
+public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
 
     /**
      * Summary: This is an endpoint which tests array input parameters. Description: This is an
@@ -41,7 +41,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      * @param queryParamBooleanArrayOptional This is a description of queryParamBooleanArrayOptional,
      *     an optional boolean array query parameter (optional, default to new
      *     java.util.ArrayList<Boolean>())
-     * @return {@code java.util.concurrent.CompletionStage<AllModels>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays")
@@ -204,7 +204,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      *     of string arrays. The outer delimiter is the pipe (&#39;|&#39;) and the inner delimiter is
      *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional, default
      *     to new java.util.ArrayList<java.util.List<String>>())
-     * @return {@code java.util.concurrent.CompletionStage<Void>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays/collectionFormat")
@@ -317,7 +317,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      *     integer query parameter (optional)
      * @param queryParamBooleanOptional This is a description of queryParamBooleanOptional, an
      *     optional boolean query parameter (optional, default to true)
-     * @return {@code java.util.concurrent.CompletionStage<AllModels>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/{pathParam}/all/{enumPathParam}")
@@ -531,7 +531,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      *     to new java.util.ArrayList<String>())
      * @param integerParameterWithMultipleOf This is an integer parameter with multipleOf&#x3D;10. So
      *     therefore values of 10, 100, and 10000 would pass validation but 25 would not. (optional)
-     * @return {@code java.util.concurrent.CompletionStage<Void>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/validation")
@@ -669,7 +669,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      * for testing an input parameter serialized in the body of the request.
      *
      * @param errorInfo This parameter will be serialized in the request body. (required)
-     * @return {@code java.util.concurrent.CompletionStage<Void>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/body")
@@ -700,7 +700,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      * operation is for testing multipart/form-data input parameters.
      *
      * @param fileParam This is an in&#x3D;formData type&#x3D;file input parameter (required)
-     * @return {@code java.util.concurrent.CompletionStage<Void>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/multiPartFormData")
@@ -753,7 +753,7 @@ public interface ParametersGroupApiClient extends java.lang.AutoCloseable {
      * @param numberParam This is an in&#x3D;body type&#x3D;number input parameter (optional)
      * @param integerParam This is an in&#x3D;body type&#x3D;integer input parameter (optional)
      * @param booleanParam This is an in&#x3D;body type&#x3D;boolean input parameter (optional)
-     * @return {@code java.util.concurrent.CompletionStage<Void>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/urlEncoded")

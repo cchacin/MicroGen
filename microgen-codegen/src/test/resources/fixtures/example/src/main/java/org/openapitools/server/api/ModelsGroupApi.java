@@ -13,7 +13,7 @@ public interface ModelsGroupApi {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/models/all")
@@ -63,7 +63,7 @@ public interface ModelsGroupApi {
      *     parameters section. (required)
      * @param clientVersionId Human readable major.minor string which defines the version. Defined in
      *     schema-level parameters section. (required)
-     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/operations/defaultResponse")
@@ -113,7 +113,7 @@ public interface ModelsGroupApi {
      * properties should be included in the response but not the request.
      *
      * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
-     * @return {@code java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("test/models/readonly")
