@@ -4,6 +4,7 @@ import org.openapitools.server.model.AllModels;
 import org.openapitools.server.model.ErrorInfo;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
+@javax.enterprise.context.Dependent
 @org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
 public interface ParametersGroupRestClient extends java.lang.AutoCloseable {

@@ -12,7 +12,7 @@
 
     <logging traceSpecification="*=info" messageFormat="json" messageSource="message,trace,accessLog,ffdc,audit" logDirectory="/tmp/logs" />
 
-    <opentracingZipkin host="zipkin:9411"/>
+    <opentracingZipkin />
 
     <mpMetrics authentication="false" />
 

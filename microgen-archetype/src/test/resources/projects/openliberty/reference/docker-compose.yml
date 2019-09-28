@@ -48,9 +48,7 @@ services:
     image: openzipkin/zipkin:2.17.0
     container_name: zipkin
     environment:
-      - STORAGE_TYPE=elasticsearch
-      - ES_HOSTS=elasticsearch
-      - ES_HTTP_LOGGING=BODY
+      - STORAGE_TYPE=mem
     ports:
       - 9411:9411
     depends_on:
