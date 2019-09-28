@@ -6,6 +6,7 @@ import {{import}};
 
 {{#operations}}
 {{>generatedAnnotation}}
+@javax.enterprise.context.Dependent
 @org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
 public interface {{classname}}RestClient extends java.lang.AutoCloseable { {{#operation}}
