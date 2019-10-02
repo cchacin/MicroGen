@@ -97,7 +97,7 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
 
   ${rootArtifactId}:
-    image: io.microgen/${rootArtifactId}:${version}
+    image: ${groupId}/${rootArtifactId}:${version}
     container_name: ${rootArtifactId}
     hostname: ${rootArtifactId}
     depends_on:

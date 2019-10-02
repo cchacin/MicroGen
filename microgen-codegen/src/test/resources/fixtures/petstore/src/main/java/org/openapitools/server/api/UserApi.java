@@ -11,6 +11,22 @@ public interface UserApi {
      * @param user Created user object (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "POST_user",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "createUser",
+        reusable = false,
+        tags = {"action=UserApi.createUser"},
+        description = "Create user")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "POST_user",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "createUser",
+        reusable = false,
+        tags = {"action=UserApi.createUser"},
+        description = "Create user")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
@@ -40,6 +56,22 @@ public interface UserApi {
      * @param user List of user object (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "POST_user/createWithArray",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "createUsersWithArrayInput",
+        reusable = false,
+        tags = {"action=UserApi.createUsersWithArrayInput"},
+        description = "Creates list of users with given input array")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "POST_user/createWithArray",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "createUsersWithArrayInput",
+        reusable = false,
+        tags = {"action=UserApi.createUsersWithArrayInput"},
+        description = "Creates list of users with given input array")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
@@ -70,6 +102,22 @@ public interface UserApi {
      * @param user List of user object (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "POST_user/createWithList",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "createUsersWithListInput",
+        reusable = false,
+        tags = {"action=UserApi.createUsersWithListInput"},
+        description = "Creates list of users with given input array")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "POST_user/createWithList",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "createUsersWithListInput",
+        reusable = false,
+        tags = {"action=UserApi.createUsersWithListInput"},
+        description = "Creates list of users with given input array")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
@@ -100,6 +148,22 @@ public interface UserApi {
      * @param username The name that needs to be deleted (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "DELETE_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "deleteUser",
+        reusable = false,
+        tags = {"action=UserApi.deleteUser"},
+        description = "Delete user")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "DELETE_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "deleteUser",
+        reusable = false,
+        tags = {"action=UserApi.deleteUser"},
+        description = "Delete user")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("user/{username}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteUser(
@@ -135,6 +199,22 @@ public interface UserApi {
      * @param username The name that needs to be fetched. Use user1 for testing. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "GET_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "getUserByName",
+        reusable = false,
+        tags = {"action=UserApi.getUserByName"},
+        description = "Get user by user name")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "GET_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "getUserByName",
+        reusable = false,
+        tags = {"action=UserApi.getUserByName"},
+        description = "Get user by user name")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
@@ -172,6 +252,22 @@ public interface UserApi {
      * @param password The password for login in clear text (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "GET_user/login",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "loginUser",
+        reusable = false,
+        tags = {"action=UserApi.loginUser"},
+        description = "Logs user into the system")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "GET_user/login",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "loginUser",
+        reusable = false,
+        tags = {"action=UserApi.loginUser"},
+        description = "Logs user into the system")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/login")
     @javax.ws.rs.Produces({"application/xml", "application/json"})
@@ -217,6 +313,22 @@ public interface UserApi {
      *
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "GET_user/logout",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "logoutUser",
+        reusable = false,
+        tags = {"action=UserApi.logoutUser"},
+        description = "Logs out current logged in user session")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "GET_user/logout",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "logoutUser",
+        reusable = false,
+        tags = {"action=UserApi.logoutUser"},
+        description = "Logs out current logged in user session")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/logout")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
@@ -245,6 +357,22 @@ public interface UserApi {
      * @param user Updated user object (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "PUT_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "updateUser",
+        reusable = false,
+        tags = {"action=UserApi.updateUser"},
+        description = "Updated user")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "PUT_user/{username}",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "updateUser",
+        reusable = false,
+        tags = {"action=UserApi.updateUser"},
+        description = "Updated user")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Consumes({"application/json"})
