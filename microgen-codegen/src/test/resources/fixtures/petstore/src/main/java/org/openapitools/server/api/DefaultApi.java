@@ -11,6 +11,22 @@ public interface DefaultApi {
      * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "POST_defaultpet",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "addDefPet",
+        reusable = false,
+        tags = {"action=DefaultApi.addDefPet"},
+        description = "Add a new default pet to the store")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "POST_defaultpet",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "addDefPet",
+        reusable = false,
+        tags = {"action=DefaultApi.addDefPet"},
+        description = "Add a new default pet to the store")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})
@@ -40,6 +56,22 @@ public interface DefaultApi {
      * @param pet Pet object that needs to be added to the store (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "PUT_defaultpet",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "updateDefPet",
+        reusable = false,
+        tags = {"action=DefaultApi.updateDefPet"},
+        description = "Update a new Default existing pet")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "PUT_defaultpet",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "updateDefPet",
+        reusable = false,
+        tags = {"action=DefaultApi.updateDefPet"},
+        description = "Update a new Default existing pet")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json", "application/xml"})

@@ -15,6 +15,22 @@ public interface ModelsGroupApi {
      *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "GET_test/models/all",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "getAllModels",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.getAllModels"},
+        description = "Return all of the defined models.")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "GET_test/models/all",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "getAllModels",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.getAllModels"},
+        description = "Return all of the defined models.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/models/all")
     @javax.ws.rs.Produces({"application/json"})
@@ -65,6 +81,22 @@ public interface ModelsGroupApi {
      *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "GET_test/operations/defaultResponse",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "getDefaultResponse",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.getDefaultResponse"},
+        description = "This operation has a default response.")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "GET_test/operations/defaultResponse",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "getDefaultResponse",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.getDefaultResponse"},
+        description = "This operation has a default response.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/operations/defaultResponse")
     @javax.ws.rs.Produces({"application/json"})
@@ -115,6 +147,22 @@ public interface ModelsGroupApi {
      * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
+    @org.eclipse.microprofile.metrics.annotation.Timed(
+        name = "PUT_test/models/readonly",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+        displayName = "putModelsReadOnly",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.putModelsReadOnly"},
+        description = "Summary: This is an endpoint which tests readOnly properties.")
+    @org.eclipse.microprofile.metrics.annotation.Counted(
+        name = "PUT_test/models/readonly",
+        absolute = true,
+        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+        displayName = "putModelsReadOnly",
+        reusable = false,
+        tags = {"action=ModelsGroupApi.putModelsReadOnly"},
+        description = "Summary: This is an endpoint which tests readOnly properties.")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("test/models/readonly")
     @javax.ws.rs.Consumes({"application/json"})
