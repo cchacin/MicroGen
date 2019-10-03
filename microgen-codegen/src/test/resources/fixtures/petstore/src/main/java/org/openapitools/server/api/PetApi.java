@@ -34,7 +34,7 @@ public interface PetApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class AddPetParams {
+    class AddPetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public AddPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -78,7 +78,7 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
         @javax.ws.rs.BeanParam DeletePetParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeletePetParams {
+    class DeletePetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public DeletePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -139,7 +139,7 @@ public interface PetApi {
         @javax.ws.rs.BeanParam FindPetsByStatusParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByStatusParams {
+    class FindPetsByStatusParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public FindPetsByStatusParams coreHttpHeaders(
@@ -195,7 +195,7 @@ public interface PetApi {
         @javax.ws.rs.BeanParam FindPetsByTagsParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByTagsParams {
+    class FindPetsByTagsParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public FindPetsByTagsParams coreHttpHeaders(
@@ -249,7 +249,7 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getPetById(
         @javax.ws.rs.BeanParam GetPetByIdParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetPetByIdParams {
+    class GetPetByIdParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetPetByIdParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -302,7 +302,7 @@ public interface PetApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdatePetParams {
+    class UpdatePetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public UpdatePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -349,7 +349,7 @@ public interface PetApi {
         @javax.ws.rs.BeanParam UpdatePetWithFormParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdatePetWithFormParams {
+    class UpdatePetWithFormParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public UpdatePetWithFormParams coreHttpHeaders(
@@ -405,7 +405,7 @@ public interface PetApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> uploadImage(
         @javax.ws.rs.BeanParam UploadFileParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class UploadFileParams {
+    class UploadFileParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public UploadFileParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {

@@ -33,7 +33,7 @@ public interface StoreApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
         @javax.ws.rs.BeanParam DeleteOrderParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeleteOrderParams {
+    class DeleteOrderParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public DeleteOrderParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -85,7 +85,7 @@ public interface StoreApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getInventory()
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetInventoryParams {
+    class GetInventoryParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetInventoryParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -130,7 +130,7 @@ public interface StoreApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getOrderById(
         @javax.ws.rs.BeanParam GetOrderByIdParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetOrderByIdParams {
+    class GetOrderByIdParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetOrderByIdParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -186,7 +186,7 @@ public interface StoreApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PlaceOrderParams {
+    class PlaceOrderParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public PlaceOrderParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {

@@ -34,7 +34,7 @@ public interface UserApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid User user)
         throws javax.ws.rs.WebApplicationException;
 
-    public class CreateUserParams {
+    class CreateUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public CreateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -79,7 +79,7 @@ public interface UserApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
         throws javax.ws.rs.WebApplicationException;
 
-    public class CreateUsersWithArrayInputParams {
+    class CreateUsersWithArrayInputParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public CreateUsersWithArrayInputParams coreHttpHeaders(
@@ -125,7 +125,7 @@ public interface UserApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
         throws javax.ws.rs.WebApplicationException;
 
-    public class CreateUsersWithListInputParams {
+    class CreateUsersWithListInputParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public CreateUsersWithListInputParams coreHttpHeaders(
@@ -169,7 +169,7 @@ public interface UserApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteUser(
         @javax.ws.rs.BeanParam DeleteUserParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeleteUserParams {
+    class DeleteUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public DeleteUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -221,7 +221,7 @@ public interface UserApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getUserByName(
         @javax.ws.rs.BeanParam GetUserByNameParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetUserByNameParams {
+    class GetUserByNameParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetUserByNameParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -274,7 +274,7 @@ public interface UserApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> loginUser(
         @javax.ws.rs.BeanParam LoginUserParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class LoginUserParams {
+    class LoginUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public LoginUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -334,7 +334,7 @@ public interface UserApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
         throws javax.ws.rs.WebApplicationException;
 
-    public class LogoutUserParams {
+    class LogoutUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public LogoutUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -381,7 +381,7 @@ public interface UserApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid User user)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdateUserParams {
+    class UpdateUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public UpdateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {

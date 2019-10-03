@@ -30,6 +30,6 @@ public interface {{classname}}RestClient extends java.lang.AutoCloseable { {{#op
         {{#bodyParams}}{{>bodyParams}}{{/bodyParams}}
     ) throws javax.ws.rs.WebApplicationException;
 
-        {{>beanParams}}
+        {{#hasParams}}{{>beanParamsClient}}{{/hasParams}}
 {{/operation}}
 } {{/operations}}

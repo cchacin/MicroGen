@@ -34,7 +34,7 @@ public interface DefaultApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class AddDefPetParams {
+    class AddDefPetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public AddDefPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -79,7 +79,7 @@ public interface DefaultApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdateDefPetParams {
+    class UpdateDefPetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public UpdateDefPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {

@@ -41,20 +41,7 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<AllModels> getAllModels(
         @javax.ws.rs.BeanParam GetAllModelsParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetAllModelsParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public GetAllModelsParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public GetAllModelsParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
+    class GetAllModelsParams {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -108,21 +95,7 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
         @javax.ws.rs.BeanParam GetDefaultResponseParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetDefaultResponseParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public GetDefaultResponseParams coreHttpHeaders(
-            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public GetDefaultResponseParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
+    class GetDefaultResponseParams {
 
         @javax.ws.rs.QueryParam("client_id")
         @javax.validation.constraints.NotNull
@@ -175,21 +148,4 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
         @javax.validation.constraints.NotNull @javax.validation.Valid
             ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
         throws javax.ws.rs.WebApplicationException;
-
-    public class PutModelsReadOnlyParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public PutModelsReadOnlyParams coreHttpHeaders(
-            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public PutModelsReadOnlyParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-    }
 }

@@ -38,22 +38,6 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class AddPetParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public AddPetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public AddPetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-    }
-
     /**
      * Deletes a pet
      *
@@ -82,21 +66,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<Void> deletePet(
         @javax.ws.rs.BeanParam DeletePetParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class DeletePetParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public DeletePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public DeletePetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-
+    class DeletePetParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
@@ -143,21 +113,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         @javax.ws.rs.BeanParam FindPetsByStatusParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByStatusParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public FindPetsByStatusParams coreHttpHeaders(
-            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public FindPetsByStatusParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
+    class FindPetsByStatusParams {
 
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
@@ -199,21 +155,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         @javax.ws.rs.BeanParam FindPetsByTagsParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class FindPetsByTagsParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public FindPetsByTagsParams coreHttpHeaders(
-            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public FindPetsByTagsParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
+    class FindPetsByTagsParams {
 
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
@@ -253,21 +195,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<Pet> getPetById(
         @javax.ws.rs.BeanParam GetPetByIdParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetPetByIdParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public GetPetByIdParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public GetPetByIdParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-
+    class GetPetByIdParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
@@ -306,22 +234,6 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdatePetParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public UpdatePetParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public UpdatePetParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-    }
-
     /**
      * Updates a pet in the store with form data
      *
@@ -353,22 +265,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         @javax.ws.rs.BeanParam UpdatePetWithFormParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class UpdatePetWithFormParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public UpdatePetWithFormParams coreHttpHeaders(
-            final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public UpdatePetWithFormParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-
+    class UpdatePetWithFormParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
@@ -409,21 +306,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<ModelApiResponse> uploadImage(
         @javax.ws.rs.BeanParam UploadFileParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class UploadFileParams {
-        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
-
-        public UploadFileParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
-            this.coreHttpHeaders = coreHttpHeaders;
-            return this;
-        }
-
-        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
-
-        public UploadFileParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
-            this.coreUriInfo = coreUriInfo;
-            return this;
-        }
-
+    class UploadFileParams {
         @javax.ws.rs.PathParam("petId")
         public Long petId;
 
