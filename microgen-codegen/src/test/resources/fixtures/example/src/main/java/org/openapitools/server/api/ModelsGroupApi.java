@@ -37,7 +37,7 @@ public interface ModelsGroupApi {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getAllModels(
         @javax.ws.rs.BeanParam GetAllModelsParams params) throws javax.ws.rs.WebApplicationException;
 
-    public class GetAllModelsParams {
+    class GetAllModelsParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetAllModelsParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
@@ -104,7 +104,7 @@ public interface ModelsGroupApi {
         @javax.ws.rs.BeanParam GetDefaultResponseParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetDefaultResponseParams {
+    class GetDefaultResponseParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetDefaultResponseParams coreHttpHeaders(
@@ -172,7 +172,7 @@ public interface ModelsGroupApi {
             ModelWithReadOnlyPropertyTest modelWithReadOnlyPropertyTest)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PutModelsReadOnlyParams {
+    class PutModelsReadOnlyParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public PutModelsReadOnlyParams coreHttpHeaders(

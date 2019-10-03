@@ -63,7 +63,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam GetParametersArraysParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersArraysParams {
+    class GetParametersArraysParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetParametersArraysParams coreHttpHeaders(
@@ -242,7 +242,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam GetParametersArraysCollectionFormatParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersArraysCollectionFormatParams {
+    class GetParametersArraysCollectionFormatParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetParametersArraysCollectionFormatParams coreHttpHeaders(
@@ -372,7 +372,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam GetParametersScalarsParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersScalarsParams {
+    class GetParametersScalarsParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetParametersScalarsParams coreHttpHeaders(
@@ -601,7 +601,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam GetParametersValidationParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class GetParametersValidationParams {
+    class GetParametersValidationParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public GetParametersValidationParams coreHttpHeaders(
@@ -756,7 +756,7 @@ public interface ParametersGroupApi {
         @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PostBodyParameterJSONParams {
+    class PostBodyParameterJSONParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public PostBodyParameterJSONParams coreHttpHeaders(
@@ -804,7 +804,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam PostFormDataParameterMultipartFormDataParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParameterMultipartFormDataParams {
+    class PostFormDataParameterMultipartFormDataParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public PostFormDataParameterMultipartFormDataParams coreHttpHeaders(
@@ -873,7 +873,7 @@ public interface ParametersGroupApi {
         @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParams params)
         throws javax.ws.rs.WebApplicationException;
 
-    public class PostFormDataParametersUrlEncodedParams {
+    class PostFormDataParametersUrlEncodedParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
 
         public PostFormDataParametersUrlEncodedParams coreHttpHeaders(
