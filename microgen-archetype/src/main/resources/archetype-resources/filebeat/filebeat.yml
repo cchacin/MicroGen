@@ -1,11 +1,13 @@
-filebeat.prospectors:
-  - type: log
-    json.keys_under_root: true
-    json.message_key: message
-    enabled: true
-    paths:
-      - /tmp/logs/messages.log
-    
+filebeat:
+  inputs:
+    - type: log
+      json.keys_under_root: true
+      json.message_key: message
+      json.add_error_key: true
+      enabled: true
+      paths:
+        - /tmp/logs/messages.log
+
 logging.to_files: true
 logging.to_syslog: false
 
