@@ -2,16 +2,41 @@
 {{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = { javax.json.bind.annotation.JsonbProperty.class, javax.json.bind.annotation.JsonbCreator.class},
-        jdkOnly = true
+    defaultAsDefault = true,
+    typeBuilder = "*InternalBuilder",
+    implementationNestedInBuilder = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
+    jacksonIntegration = false,
+    of = "new",
+    allParameters = true,
+    passAnnotations = {
+        javax.json.bind.annotation.JsonbAnnotation.class,
+        javax.json.bind.annotation.JsonbCreator.class,
+        javax.json.bind.annotation.JsonbDateFormat.class,
+        javax.json.bind.annotation.JsonbNillable.class,
+        javax.json.bind.annotation.JsonbNumberFormat.class,
+        javax.json.bind.annotation.JsonbProperty.class,
+        javax.json.bind.annotation.JsonbPropertyOrder.class,
+        javax.json.bind.annotation.JsonbTransient.class,
+        javax.json.bind.annotation.JsonbTypeAdapter.class,
+        javax.json.bind.annotation.JsonbTypeSerializer.class,
+        javax.json.bind.annotation.JsonbTypeDeserializer.class,
+        javax.json.bind.annotation.JsonbVisibility.class
+    },
+    jdkOnly = true
 ){{#additionalAnnotations}}
 {{{additionalAnnotations}}}{{/additionalAnnotations}}
+@javax.json.bind.annotation.JsonbPropertyOrder({
+{{#vars}}
+    {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
+{{/vars}}
+})
 {{>generatedAnnotation}}
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
+
+    {{#vars}}
+    public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
+    {{/vars}}
 
     @javax.json.bind.annotation.JsonbCreator
     public {{classname}}(){}
