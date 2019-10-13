@@ -1,33 +1,85 @@
 package org.openapitools.server.model;
 
-/**
- * Order
- */
-@javax.json.bind.annotation.JsonbPropertyOrder({Order.JSON_PROPERTY_ID, Order.JSON_PROPERTY_PET_ID,
-                                                   Order.JSON_PROPERTY_QUANTITY,
-                                                   Order.JSON_PROPERTY_SHIP_DATE,
-                                                   Order.JSON_PROPERTY_STATUS,
-                                                   Order.JSON_PROPERTY_COMPLETE})
+/** Order */
+@org.immutables.value.Value.Immutable
+@org.immutables.value.Value.Style(
+        defaultAsDefault = true,
+        typeBuilder = "*InternalBuilder",
+        implementationNestedInBuilder = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
+        jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbAnnotation.class,
+                javax.json.bind.annotation.JsonbCreator.class,
+                javax.json.bind.annotation.JsonbDateFormat.class,
+                javax.json.bind.annotation.JsonbNillable.class,
+                javax.json.bind.annotation.JsonbNumberFormat.class,
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbPropertyOrder.class,
+                javax.json.bind.annotation.JsonbTransient.class,
+                javax.json.bind.annotation.JsonbTypeAdapter.class,
+                javax.json.bind.annotation.JsonbTypeSerializer.class,
+                javax.json.bind.annotation.JsonbTypeDeserializer.class,
+                javax.json.bind.annotation.JsonbVisibility.class
+        },
+        jdkOnly = true)
+@javax.json.bind.annotation.JsonbPropertyOrder({
+                                                       Order.JSON_PROPERTY_ID,
+                                                       Order.JSON_PROPERTY_PET_ID,
+                                                       Order.JSON_PROPERTY_QUANTITY,
+                                                       Order.JSON_PROPERTY_SHIP_DATE,
+                                                       Order.JSON_PROPERTY_STATUS,
+                                                       Order.JSON_PROPERTY_COMPLETE
+                                               })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public final class Order {
+public abstract class Order {
 
-    private final java.util.OptionalLong id;
     public static final String JSON_PROPERTY_ID = "id";
-
-    private final java.util.OptionalLong petId;
     public static final String JSON_PROPERTY_PET_ID = "petId";
-
-    private final java.util.OptionalInt quantity;
     public static final String JSON_PROPERTY_QUANTITY = "quantity";
-
-    @javax.validation.Valid private final java.util.Optional<java.time.OffsetDateTime> shipDate;
-
     public static final String JSON_PROPERTY_SHIP_DATE = "shipDate";
+    public static final String JSON_PROPERTY_STATUS = "status";
+    public static final String JSON_PROPERTY_COMPLETE = "complete";
 
+    @javax.json.bind.annotation.JsonbCreator
+    public Order() {}
 
     /**
-     * Order Status
+     * Get id
+     *
+     * @return id
      */
+    @javax.json.bind.annotation.JsonbProperty("id")
+    public abstract java.util.OptionalLong getId();
+
+    /**
+     * Get petId
+     *
+     * @return petId
+     */
+    @javax.json.bind.annotation.JsonbProperty("petId")
+    public abstract java.util.OptionalLong getPetId();
+
+    /**
+     * Get quantity
+     *
+     * @return quantity
+     */
+    @javax.json.bind.annotation.JsonbProperty("quantity")
+    public abstract java.util.OptionalInt getQuantity();
+
+    /**
+     * Get shipDate
+     *
+     * @return shipDate
+     */
+    @javax.validation.Valid
+    @javax.json.bind.annotation.JsonbProperty("shipDate")
+    public abstract java.util.Optional<java.time.OffsetDateTime> shipmentDate();
+
+    /** Order Status */
     @javax.json.bind.annotation.JsonbTypeSerializer(Order.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
     public static enum StatusEnum {
@@ -47,104 +99,46 @@ public final class Order {
             return this.value;
         }
 
-        @Override public String toString() {
+        @Override
+        public String toString() {
             return String.valueOf(this.value);
         }
 
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text)).findFirst()
-                .orElse(null);
+                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                                   .findFirst()
+                                   .orElse(null);
         }
     }
 
-
     public static class StatusEnumSerializer
-        implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+            implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
 
         public StatusEnumSerializer() {}
 
         @Override
-        public void serialize(StatusEnum aEnum, javax.json.stream.JsonGenerator jsonGenerator,
-            javax.json.bind.serializer.SerializationContext serializationContext) {
+        public void serialize(
+                StatusEnum aEnum,
+                javax.json.stream.JsonGenerator jsonGenerator,
+                javax.json.bind.serializer.SerializationContext serializationContext) {
             jsonGenerator.write(aEnum.value);
         }
     }
 
-
     public static class StatusEnumDeserializer
-        implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
-        @Override public StatusEnum deserialize(javax.json.stream.JsonParser jsonParser,
-            javax.json.bind.serializer.DeserializationContext deserializationContext,
-            java.lang.reflect.Type type) {
+        @Override
+        public StatusEnum deserialize(
+                javax.json.stream.JsonParser jsonParser,
+                javax.json.bind.serializer.DeserializationContext deserializationContext,
+                java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
-    }
-
-
-    private final StatusEnum status;
-    public static final String JSON_PROPERTY_STATUS = "status";
-
-    private final java.util.Optional<Boolean> complete;
-    public static final String JSON_PROPERTY_COMPLETE = "complete";
-
-    @javax.json.bind.annotation.JsonbCreator
-    public Order(@javax.json.bind.annotation.JsonbProperty("id") final java.util.OptionalLong id,
-        @javax.json.bind.annotation.JsonbProperty("petId") final java.util.OptionalLong petId,
-        @javax.json.bind.annotation.JsonbProperty("quantity") final java.util.OptionalInt quantity,
-        @javax.json.bind.annotation.JsonbProperty("shipDate")
-        final java.util.Optional<java.time.OffsetDateTime> shipDate,
-        @javax.json.bind.annotation.JsonbProperty("status") final StatusEnum status,
-        @javax.json.bind.annotation.JsonbProperty("complete")
-        final java.util.Optional<Boolean> complete) {
-        this.id = id;
-        this.petId = petId;
-        this.quantity = quantity;
-        this.shipDate = shipDate;
-        this.status = status;
-        this.complete = complete;
-    }
-
-    /**
-     * Get id
-     *
-     * @return id
-     */
-    @javax.json.bind.annotation.JsonbProperty("id") public java.util.OptionalLong getId() {
-        return id;
-    }
-
-    /**
-     * Get petId
-     *
-     * @return petId
-     */
-    @javax.json.bind.annotation.JsonbProperty("petId") public java.util.OptionalLong getPetId() {
-        return petId;
-    }
-
-    /**
-     * Get quantity
-     *
-     * @return quantity
-     */
-    @javax.json.bind.annotation.JsonbProperty("quantity")
-    public java.util.OptionalInt getQuantity() {
-        return quantity;
-    }
-
-    /**
-     * Get shipDate
-     *
-     * @return shipDate
-     */
-    @javax.json.bind.annotation.JsonbProperty("shipDate")
-    public java.util.Optional<java.time.OffsetDateTime> shipmentDate() {
-        return shipDate;
     }
 
     /**
@@ -152,9 +146,8 @@ public final class Order {
      *
      * @return status
      */
-    @javax.json.bind.annotation.JsonbProperty("status") public StatusEnum getStatus() {
-        return status;
-    }
+    @javax.json.bind.annotation.JsonbProperty("status")
+    public abstract StatusEnum getStatus();
 
     /**
      * Get complete
@@ -162,102 +155,5 @@ public final class Order {
      * @return complete
      */
     @javax.json.bind.annotation.JsonbProperty("complete")
-    public java.util.Optional<Boolean> isgetComplete() {
-        return complete;
-    }
-
-    @Override public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Order order = (Order) o;
-        return java.util.Objects.equals(this.id, order.id) && java.util.Objects
-            .equals(this.petId, order.petId) && java.util.Objects
-            .equals(this.quantity, order.quantity) && java.util.Objects
-            .equals(this.shipDate, order.shipDate) && java.util.Objects
-            .equals(this.status, order.status) && java.util.Objects
-            .equals(this.complete, order.complete);
-    }
-
-    @Override public int hashCode() {
-        return java.util.Objects.hash(id, petId, quantity, shipDate, status, complete);
-    }
-
-    @Override public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Order {\n");
-
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    petId: ").append(toIndentedString(petId)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    shipDate: ").append(toIndentedString(shipDate)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    private String toIndentedString(java.lang.Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-    public static Builder builder() {
-        return Builder.create();
-    }
-
-    public static final class Builder {
-        private java.util.OptionalLong id;
-        private java.util.OptionalLong petId;
-        private java.util.OptionalInt quantity;
-        private java.util.Optional<java.time.OffsetDateTime> shipDate;
-        private StatusEnum status;
-        private java.util.Optional<Boolean> complete;
-
-        private Builder() {}
-
-        public static Builder create() {
-            return new Builder();
-        }
-
-        public Builder setId(final java.util.OptionalLong id) {
-            this.id = id;
-            return this;
-        }
-
-        public Builder setPetId(final java.util.OptionalLong petId) {
-            this.petId = petId;
-            return this;
-        }
-
-        public Builder setQuantity(final java.util.OptionalInt quantity) {
-            this.quantity = quantity;
-            return this;
-        }
-
-        public Builder setShipDate(final java.util.Optional<java.time.OffsetDateTime> shipDate) {
-            this.shipDate = shipDate;
-            return this;
-        }
-
-        public Builder setStatus(final StatusEnum status) {
-            this.status = status;
-            return this;
-        }
-
-        public Builder setComplete(final java.util.Optional<Boolean> complete) {
-            this.complete = complete;
-            return this;
-        }
-
-        public Order build() {
-            return new Order(this.id, this.petId, this.quantity, this.shipDate, this.status,
-                this.complete);
-        }
-    }
+    public abstract java.util.Optional<Boolean> getComplete();
 }
