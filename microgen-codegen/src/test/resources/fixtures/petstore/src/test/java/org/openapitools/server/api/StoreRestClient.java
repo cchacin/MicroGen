@@ -3,7 +3,6 @@ package org.openapitools.server.api;
 import org.openapitools.server.model.Order;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-@javax.enterprise.context.Dependent
 @org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 @org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders
 public interface StoreRestClient extends java.lang.AutoCloseable {
