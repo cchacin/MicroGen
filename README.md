@@ -436,4 +436,4 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
 ![Java CI](https://github.com/cchacin/MicroGen/workflows/Java%20CI/badge.svg)
 ![Greetings](https://github.com/cchacin/MicroGen/workflows/Greetings/badge.svg)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=cchacin/MicroGen)](https://dependabot.com)
