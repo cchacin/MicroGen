@@ -3,7 +3,9 @@ package org.openapitools.codegen.languages;
 import com.google.common.io.Resources;
 import com.google.googlejavaformat.java.Formatter;
 import com.google.googlejavaformat.java.FormatterException;
-
+import com.google.googlejavaformat.java.JavaFormatterOptions;
+import io.swagger.v3.parser.OpenAPIV3Parser;
+import io.swagger.v3.parser.core.models.ParseOptions;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.WithAssertions;
 import org.openapitools.codegen.ClientOptInput;
@@ -16,9 +18,6 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
-
-import io.swagger.v3.parser.OpenAPIV3Parser;
-import io.swagger.v3.parser.core.models.ParseOptions;
 
 public interface TemplateTest extends WithAssertions {
 
@@ -59,7 +58,8 @@ public interface TemplateTest extends WithAssertions {
     }
 
     default Formatter formatter() {
-        return new Formatter();
+        return new Formatter(
+                JavaFormatterOptions.builder().style(JavaFormatterOptions.Style.GOOGLE).build());
     }
 
     default List<File> generate(final String swaggerFile, final Path tempDirectory) {

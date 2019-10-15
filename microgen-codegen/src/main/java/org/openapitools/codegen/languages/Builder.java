@@ -3,7 +3,6 @@ package org.openapitools.codegen.languages;
 import java.util.HashMap;
 import java.util.Map;
 
-@SuppressWarnings("SpellCheckingInspection")
 interface Builder {
     String JAVA_UTIL_LIST = "java.util.List";
     String JAVA_UTIL_MAP = "java.util.Map";

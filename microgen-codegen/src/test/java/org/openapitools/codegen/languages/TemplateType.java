@@ -10,6 +10,7 @@ public enum TemplateType {
     SERVER_API(DirectoryConstants.SERVER_API_FOLDER),
     SERVER_API_TEST(DirectoryConstants.API_TEST_FOLDER),
     SERVER_MODEL_TEST(DirectoryConstants.MODEL_TEST_FOLDER),
+    SERVER_EXAMPLE_TEST(DirectoryConstants.EXAMPLE_TEST_FOLDER),
     SERVER_MODEL(DirectoryConstants.SERVER_MODEL_FOLDER),
     SERVER_RESOURCE(DirectoryConstants.SERVER_RESOURCE_FOLDER);
 

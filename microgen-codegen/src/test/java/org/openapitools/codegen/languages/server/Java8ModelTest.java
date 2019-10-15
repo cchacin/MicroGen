@@ -1,5 +1,9 @@
 package org.openapitools.codegen.languages.server;
 
+import io.swagger.v3.oas.models.media.DateSchema;
+import io.swagger.v3.oas.models.media.DateTimeSchema;
+import io.swagger.v3.oas.models.media.IntegerSchema;
+import io.swagger.v3.oas.models.media.Schema;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,11 +13,6 @@ import org.openapitools.codegen.languages.MicroGen;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import io.swagger.v3.oas.models.media.DateSchema;
-import io.swagger.v3.oas.models.media.DateTimeSchema;
-import io.swagger.v3.oas.models.media.IntegerSchema;
-import io.swagger.v3.oas.models.media.Schema;
 
 class Java8ModelTest implements WithAssertions {
 
@@ -37,7 +36,7 @@ class Java8ModelTest implements WithAssertions {
         codegen.setLibrary("server");
         final CodegenModel cm = codegen.fromModel("sample", schema);
 
-        assertThat(cm.vars)
+        this.assertThat(cm.vars)
                 .extracting(CodegenProperty::getDatatype)
                 .containsExactlyInAnyOrder(
                         "Integer",
