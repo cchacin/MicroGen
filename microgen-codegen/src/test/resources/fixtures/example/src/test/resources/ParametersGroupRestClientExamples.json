@@ -1,0 +1,214 @@
+{
+    "getParametersArrays200Example": {
+  "allPrimitiveArrays" : {
+    "myStringArrayOptional" : [ "myStringArrayOptional", "myStringArrayOptional" ],
+    "myFloatArrayOptional" : [ 7.4577446, 7.4577446 ],
+    "myModelEnumStringArrayOptional" : [ null, null ],
+    "myModelErrorInfoArrayOptional" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myInt64ArrayOptional" : [ 1, 1 ],
+    "myErrorInfoArrayOptional" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myFloatArrayRequired" : [ 1.1730742, 1.1730742 ],
+    "myDoubleArrayRequired" : [ 5.025004791520295, 5.025004791520295 ],
+    "myBytesArrayRequired" : [ "myBytesArrayRequired", "myBytesArrayRequired" ],
+    "myDoubleArrayOptional" : [ 4.965218492984954, 4.965218492984954 ],
+    "myBytesArrayOptional" : [ "myBytesArrayOptional", "myBytesArrayOptional" ],
+    "myBooleanArrayRequired" : [ true, true ],
+    "myBooleanArrayOptional" : [ true, true ],
+    "myModelEnumStringArrayRequired" : [ null, null ],
+    "myDateArrayRequired" : [ "2000-01-23", "2000-01-23" ],
+    "myErrorInfoArrayRequired" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myIntArrayRequired" : [ 1, 1 ],
+    "myDateArrayOptional" : [ "2000-01-23", "2000-01-23" ],
+    "myDateTimeArrayRequired" : [ "2000-01-23T04:56:07.000+00:00", "2000-01-23T04:56:07.000+00:00" ],
+    "myUUIDArrayOptional" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+    "myEnumStringArrayRequired" : [ null, null ],
+    "myUUIDArrayRequired" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+    "myInt64ArrayRequired" : [ 6, 6 ],
+    "myEnumStringArrayOptional" : [ null, null ],
+    "myModelErrorInfoArrayRequired" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myBinaryArrayRequired" : [ "", "" ],
+    "myStringArrayRequired" : [ "myStringArrayRequired", "myStringArrayRequired" ],
+    "myIntArrayOptional" : [ 1, 1 ],
+    "myBinaryArrayOptional" : [ "", "" ],
+    "myModelStringArrayOptional" : [ "myModelStringArrayOptional", "myModelStringArrayOptional" ],
+    "myModelStringArrayRequired" : [ "myModelStringArrayRequired", "myModelStringArrayRequired" ],
+    "myDateTimeArrayOptional" : [ "2000-01-23T04:56:07.000+00:00", "2000-01-23T04:56:07.000+00:00" ]
+  },
+  "error" : {
+    "code" : "code",
+    "details" : [ "details", "details" ],
+    "message" : "message"
+  },
+  "allPrimitives" : {
+    "myBooleanOptional" : true,
+    "myInlineEnumIntegerRequired" : 2,
+    "myInt64Required" : 5,
+    "myInlineEnumNumberOptional" : 4.145608,
+    "allowEmptyValueTrue" : "allowEmptyValueTrue",
+    "myIntOptional" : 0,
+    "myFileOptional" : "",
+    "myIntRequired" : 6,
+    "myInlineEnumStringRequired" : "EnumStringValue1",
+    "myInlineEnumIntegerOptional" : 3,
+    "myDateOptional" : "2000-01-23",
+    "myDateTimeOptional" : "2000-01-23T04:56:07.000+00:00",
+    "myInlineEnumNumberRequired" : 7.386282,
+    "myBytesRequired" : "myBytesRequired",
+    "myDateRequired" : "2000-01-23",
+    "myStringRequired" : "myStringRequired",
+    "myStringOptional" : "myStringOptionalDefaultValue",
+    "myBytesOptional" : "myBytesOptional",
+    "myFileRequired" : "",
+    "myDateTimeRequired" : "2000-01-23T04:56:07.000+00:00",
+    "myBinaryOptional" : "",
+    "myUUIDOptional" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "myInlineEnumStringOptional" : "EnumStringValue1",
+    "myDoubleRequired" : 9.301444243932576,
+    "myUUIDRequired" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "myFloatOptional" : 5.637377,
+    "myDoubleOptional" : 7.061401241503109,
+    "myInt64Optional" : 1,
+    "myBinaryRequired" : "",
+    "myFloatRequired" : 2.302136,
+    "myBooleanRequired" : true
+  }
+},
+    "getParametersScalars200Example": {
+  "allPrimitiveArrays" : {
+    "myStringArrayOptional" : [ "myStringArrayOptional", "myStringArrayOptional" ],
+    "myFloatArrayOptional" : [ 7.4577446, 7.4577446 ],
+    "myModelEnumStringArrayOptional" : [ null, null ],
+    "myModelErrorInfoArrayOptional" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myInt64ArrayOptional" : [ 1, 1 ],
+    "myErrorInfoArrayOptional" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myFloatArrayRequired" : [ 1.1730742, 1.1730742 ],
+    "myDoubleArrayRequired" : [ 5.025004791520295, 5.025004791520295 ],
+    "myBytesArrayRequired" : [ "myBytesArrayRequired", "myBytesArrayRequired" ],
+    "myDoubleArrayOptional" : [ 4.965218492984954, 4.965218492984954 ],
+    "myBytesArrayOptional" : [ "myBytesArrayOptional", "myBytesArrayOptional" ],
+    "myBooleanArrayRequired" : [ true, true ],
+    "myBooleanArrayOptional" : [ true, true ],
+    "myModelEnumStringArrayRequired" : [ null, null ],
+    "myDateArrayRequired" : [ "2000-01-23", "2000-01-23" ],
+    "myErrorInfoArrayRequired" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myIntArrayRequired" : [ 1, 1 ],
+    "myDateArrayOptional" : [ "2000-01-23", "2000-01-23" ],
+    "myDateTimeArrayRequired" : [ "2000-01-23T04:56:07.000+00:00", "2000-01-23T04:56:07.000+00:00" ],
+    "myUUIDArrayOptional" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+    "myEnumStringArrayRequired" : [ null, null ],
+    "myUUIDArrayRequired" : [ "046b6c7f-0b8a-43b9-b35d-6489e6daee91", "046b6c7f-0b8a-43b9-b35d-6489e6daee91" ],
+    "myInt64ArrayRequired" : [ 6, 6 ],
+    "myEnumStringArrayOptional" : [ null, null ],
+    "myModelErrorInfoArrayRequired" : [ {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    }, {
+      "code" : "code",
+      "details" : [ "details", "details" ],
+      "message" : "message"
+    } ],
+    "myBinaryArrayRequired" : [ "", "" ],
+    "myStringArrayRequired" : [ "myStringArrayRequired", "myStringArrayRequired" ],
+    "myIntArrayOptional" : [ 1, 1 ],
+    "myBinaryArrayOptional" : [ "", "" ],
+    "myModelStringArrayOptional" : [ "myModelStringArrayOptional", "myModelStringArrayOptional" ],
+    "myModelStringArrayRequired" : [ "myModelStringArrayRequired", "myModelStringArrayRequired" ],
+    "myDateTimeArrayOptional" : [ "2000-01-23T04:56:07.000+00:00", "2000-01-23T04:56:07.000+00:00" ]
+  },
+  "error" : {
+    "code" : "code",
+    "details" : [ "details", "details" ],
+    "message" : "message"
+  },
+  "allPrimitives" : {
+    "myBooleanOptional" : true,
+    "myInlineEnumIntegerRequired" : 2,
+    "myInt64Required" : 5,
+    "myInlineEnumNumberOptional" : 4.145608,
+    "allowEmptyValueTrue" : "allowEmptyValueTrue",
+    "myIntOptional" : 0,
+    "myFileOptional" : "",
+    "myIntRequired" : 6,
+    "myInlineEnumStringRequired" : "EnumStringValue1",
+    "myInlineEnumIntegerOptional" : 3,
+    "myDateOptional" : "2000-01-23",
+    "myDateTimeOptional" : "2000-01-23T04:56:07.000+00:00",
+    "myInlineEnumNumberRequired" : 7.386282,
+    "myBytesRequired" : "myBytesRequired",
+    "myDateRequired" : "2000-01-23",
+    "myStringRequired" : "myStringRequired",
+    "myStringOptional" : "myStringOptionalDefaultValue",
+    "myBytesOptional" : "myBytesOptional",
+    "myFileRequired" : "",
+    "myDateTimeRequired" : "2000-01-23T04:56:07.000+00:00",
+    "myBinaryOptional" : "",
+    "myUUIDOptional" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "myInlineEnumStringOptional" : "EnumStringValue1",
+    "myDoubleRequired" : 9.301444243932576,
+    "myUUIDRequired" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "myFloatOptional" : 5.637377,
+    "myDoubleOptional" : 7.061401241503109,
+    "myInt64Optional" : 1,
+    "myBinaryRequired" : "",
+    "myFloatRequired" : 2.302136,
+    "myBooleanRequired" : true
+  }
+},
+}

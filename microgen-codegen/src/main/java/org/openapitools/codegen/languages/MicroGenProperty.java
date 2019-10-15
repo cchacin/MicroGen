@@ -87,13 +87,13 @@ class MicroGenProperty extends CodegenProperty {
 
     @Override
     public String getDatatypeWithEnum() {
-        if (!required) {
-            if (!isEnum) {
-                if ("Integer".equals(dataType)) {
+        if (!this.required) {
+            if (!this.isEnum) {
+                if ("Integer".equals(this.dataType)) {
                     return "java.util.OptionalInt";
-                } else if ("Double".equals(dataType)) {
+                } else if ("Double".equals(this.dataType)) {
                     return "java.util.OptionalDouble";
-                } else if ("Long".equals(dataType)) {
+                } else if ("Long".equals(this.dataType)) {
                     return "java.util.OptionalLong";
                 } else {
                     return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());

@@ -1,0 +1,12 @@
+{
+    "addExtraAnnotations200Example": {
+  "stringPropWithImplicitReadOnlyFalse" : "stringPropWithImplicitReadOnlyFalse",
+  "stringPropWithExplicitReadOnlyFalse" : "stringPropWithExplicitReadOnlyFalse",
+  "stringPropWithReadOnlyTrue" : "stringPropWithReadOnlyTrue"
+},
+    "overrideReturnViaExtension200Example": {
+  "stringPropWithImplicitReadOnlyFalse" : "stringPropWithImplicitReadOnlyFalse",
+  "stringPropWithExplicitReadOnlyFalse" : "stringPropWithExplicitReadOnlyFalse",
+  "stringPropWithReadOnlyTrue" : "stringPropWithReadOnlyTrue"
+},
+}

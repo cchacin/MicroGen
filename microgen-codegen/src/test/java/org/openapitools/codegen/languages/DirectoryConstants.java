@@ -9,6 +9,7 @@ class DirectoryConstants {
     private static final String SERVER_FOLDER = JAVA_FOLDER + "org/openapitools/server/";
     private static final String MODEL_FOLDER = "model/";
     public static final String MODEL_TEST_FOLDER = TEST_FOLDER + "org/openapitools/server/model/";
+    public static final String EXAMPLE_TEST_FOLDER = SOURCE_TEST_FOLDER + "resources/";
     public static final String API_TEST_FOLDER = TEST_FOLDER + "org/openapitools/server/api/";
     private static final String API_FOLDER = "api/";
     private static final String AUTH_FOLDER = "auth/";
