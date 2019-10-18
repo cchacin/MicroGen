@@ -32,6 +32,8 @@ categories:
     label: dependencies
   - title: 📦 Dependency updates
     label: deps
+  - title: 📦 Dependency updates
+    label: dependabot
   - title: 👻 Maintenance
     label: chore
   # TODO: consider merging category or changing emojis
