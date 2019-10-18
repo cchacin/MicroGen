@@ -3,14 +3,14 @@
 
 # MicroGen
 
- MicroGen is a tool to generate java code based on an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) Spec file. 
+ MicroGen is a tool to generate java code based on an [OpenAPI](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) Spec file.
 
 ## Features
 
 - Server API Contract (JAX-RS)
 - Request and Response java objects
   - Inner static `Builder` class and utility methods
-- Enum value classes 
+- Enum value classes
 - `@BeanParams` for request parameters
 - Maven Archetype to quick start a JakartaEE + MicroProfile application
 - Dockerfile(s) with a JakartaEE + MicroProfile application server
@@ -164,7 +164,7 @@ Generate the Request and Response java objects with the `Json-b` annotations:
   - `equals`
   - `hashCode`
   - Inner static `Builder` class and utility methods
-  
+
   COMING SOON: Using immutables.org library
 
   ```java
@@ -435,5 +435,6 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
 
 ![Java CI](https://github.com/cchacin/MicroGen/workflows/Java%20CI/badge.svg)
 ![Greetings](https://github.com/cchacin/MicroGen/workflows/Greetings/badge.svg)
+![Release Drafter](https://github.com/cchacin/MicroGen/workflows/Release%20Management/badge.svg)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.microgen/microgen-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.microgen/MicroGen)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=square)](http://makeapullrequest.com) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=cchacin/MicroGen)](https://dependabot.com)
