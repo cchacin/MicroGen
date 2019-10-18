@@ -1,7 +1,6 @@
 # Configuration for Release Drafter: https://github.com/toolmantim/release-drafter
 name-template: v$NEXT_PATCH_VERSION 🌈
 tag-template: v$NEXT_PATCH_VERSION
-tag-template: $NEXT_PATCH_VERSION
 version-template: $MAJOR.$MINOR.$PATCH
 no-changes-template: No Changes
 branches:
