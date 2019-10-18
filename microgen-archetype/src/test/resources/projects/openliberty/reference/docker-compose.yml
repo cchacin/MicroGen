@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   portainer:
-    image: portainer/portainer:1.22.0
+    image: portainer/portainer:1.22.1
     container_name: portainer
     hostname: portainer
     volumes:
@@ -47,7 +47,7 @@ services:
       - 5601:5601
 
   zipkin:
-    image: openzipkin/zipkin:2.17.1
+    image: openzipkin/zipkin:2.18.0
     container_name: zipkin
     environment:
       - STORAGE_TYPE=mem
@@ -57,7 +57,7 @@ services:
       - elasticsearch
 
   prometheus:
-    image: prom/prometheus:v2.13.0
+    image: prom/prometheus:v2.13.1
     container_name: prometheus
     hostname: prometheus
     volumes:
@@ -73,7 +73,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:6.4.1
+    image: grafana/grafana:6.4.3
     container_name: grafana
     hostname: grafana
     user: "104"
