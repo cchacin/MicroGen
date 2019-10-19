@@ -9,19 +9,19 @@ import org.openapitools.codegen.languages.TemplateType;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-class ApiTestTemplateTest implements ServerTemplateTest {
+class ApiTemplateIT implements ServerTemplateTest {
 
     @TempDir
     Path tmpFolder;
 
     static Stream<Arguments> arguments() {
         return Stream.of(
-                Arguments.of("example", "ModelsGroupRestClient.java"),
-                Arguments.of("example", "ParametersGroupRestClient.java"),
-                Arguments.of("petstore", "PetRestClient.java"),
-                Arguments.of("petstore", "StoreRestClient.java"),
-                Arguments.of("petstore", "DefaultRestClient.java"),
-                Arguments.of("petstore", "UserRestClient.java")
+                Arguments.of("example", "ModelsGroupApi.java"),
+                Arguments.of("example", "ParametersGroupApi.java"),
+                Arguments.of("petstore", "PetApi.java"),
+                Arguments.of("petstore", "StoreApi.java"),
+                Arguments.of("petstore", "DefaultApi.java"),
+                Arguments.of("petstore", "UserApi.java")
         );
     }
 
@@ -34,6 +34,6 @@ class ApiTestTemplateTest implements ServerTemplateTest {
 
     @Override
     public TemplateType templateToTest() {
-        return TemplateType.SERVER_API_TEST;
+        return TemplateType.SERVER_API;
     }
 }
