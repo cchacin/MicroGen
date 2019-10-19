@@ -164,7 +164,7 @@
         </pluginManagement>
 
         <plugins>
-            <!-- Surefire plugin -->
+            <!-- Surefire -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -191,7 +191,7 @@
                 </executions>
             </plugin>
 
-            <!-- Failsafe plugin -->
+            <!-- Failsafe -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -216,6 +216,8 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <!-- JaCoCo -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -278,6 +280,47 @@
                                 </rule>
                             </rules>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- License -->
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <configuration>
+<!--                    <basedir>${project.basedir}</basedir>-->
+                    <header>${project.basedir}/header.txt</header>
+                    <properties>
+                        <owner>Carlos Chacin</owner>
+                        <email>cchacin@gmail.com</email>
+                    </properties>
+                    <quiet>true</quiet>
+                    <failIfMissing>true</failIfMissing>
+                    <aggregate>false</aggregate>
+                    <includes>
+                        <include>src/main/java/</include>
+                        <include>src/test/java/</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/README.md</exclude>
+                        <exclude>**/README.adoc</exclude>
+                        <exclude>src/test/resources/**</exclude>
+                        <exclude>src/main/resources/**</exclude>
+                    </excludes>
+                    <useDefaultExcludes>true</useDefaultExcludes>
+                    <mapping>
+                        <java>JAVADOC_STYLE</java>
+                    </mapping>
+                    <strictCheck>true</strictCheck>
+                    <useDefaultMapping>true</useDefaultMapping>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
