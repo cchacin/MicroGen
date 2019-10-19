@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-class ApiTestExampleTemplateTest implements ServerTemplateTest {
+class ApiTestExampleTemplateIT implements ServerTemplateTest {
 
     @TempDir
     Path tmpFolder;

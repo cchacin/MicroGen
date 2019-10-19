@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
@@ -70,7 +70,6 @@
         <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.dependency.plugin>3.1.1</version.dependency.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
-        <version.failsafe.plugin>2.22.2</version.failsafe.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.jar.plugin>3.1.2</version.jar.plugin>
         <version.license.plugin>2.0.0</version.license.plugin>
@@ -78,6 +77,8 @@
         <version.resources.plugin>3.1.0</version.resources.plugin>
         <version.site.plugin>3.8.2</version.site.plugin>
         <version.surefire.plugin>2.22.2</version.surefire.plugin>
+        <version.failsafe.plugin>2.22.2</version.failsafe.plugin>
+        <version.jacoco.plugin>0.8.5</version.jacoco.plugin>
         <version.war.plugin>3.2.3</version.war.plugin>
     </properties>
 
@@ -93,19 +94,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${version.compiler.plugin}</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                        <compilerArgument>-XDignore.symbol.file</compilerArgument>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${version.dependency.plugin}</version>
-                    <configuration>
-                        <!-- Perfs improvements - PAR-191 -->
-                        <useJvmChmod>true</useJvmChmod>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -126,27 +119,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.jar.plugin}</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addDefaultSpecificationEntries>true
-                                </addDefaultSpecificationEntries>
-                                <addDefaultImplementationEntries>true
-                                </addDefaultImplementationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Date>${maven.build.timestamp}</Date>
-                                <Specification-Title>${project.name}</Specification-Title>
-                                <Specification-Version>${project.version}</Specification-Version>
-                                <Specification-Vendor>${project.organization.name}
-                                </Specification-Vendor>
-                                <Implementation-Title>${project.name}</Implementation-Title>
-                                <Implementation-Version>${project.version}</Implementation-Version>
-                                <Implementation-Vendor>${project.organization.name}
-                                </Implementation-Vendor>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.bsc.maven</groupId>
@@ -170,46 +142,83 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${version.failsafe.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${version.war.plugin}</version>
-                    <configuration>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                        <attachClasses>true</attachClasses>
-                        <archive>
-                            <manifest>
-                                <addDefaultSpecificationEntries>true
-                                </addDefaultSpecificationEntries>
-                                <addDefaultImplementationEntries>true
-                                </addDefaultImplementationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Date>${maven.build.timestamp}</Date>
-                                <Specification-Title>${project.name}</Specification-Title>
-                                <Specification-Version>${project.version}</Specification-Version>
-                                <Specification-Vendor>${project.organization.name}
-                                </Specification-Vendor>
-                                <Implementation-Title>${project.name}</Implementation-Title>
-                                <Implementation-Version>${project.version}</Implementation-Version>
-                                <Implementation-Vendor>${project.organization.name}
-                                </Implementation-Vendor>
-                            </manifestEntries>
-                        </archive>
-                        <warName>${project.artifactId}</warName>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${version.license.plugin}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${version.jacoco.plugin}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
+            <!-- Surefire plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <forkCount>1C</forkCount>
+                    <reuseForks>false</reuseForks>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <failIfNoTests>false</failIfNoTests>
+                    <systemPropertyVariables>
+                        <buildDirectory>${project.build.directory}</buildDirectory>
+                    </systemPropertyVariables>
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>unit-tests</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Failsafe plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*IT.java</include>
+                    </includes>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>failsafe-integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>failsafe-verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.5</version>
                 <inherited>true</inherited>
                 <configuration>
                     <excludes>

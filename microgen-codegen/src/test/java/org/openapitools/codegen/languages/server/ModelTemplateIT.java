@@ -9,7 +9,7 @@ import org.openapitools.codegen.languages.TemplateType;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-class ModelTemplateTest implements ServerTemplateTest {
+class ModelTemplateIT implements ServerTemplateTest {
 
     @TempDir
     Path tmpFolder;
