@@ -71,7 +71,7 @@
         <version.dependency.plugin>3.1.1</version.dependency.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
-        <version.jar.plugin>3.1.2</version.jar.plugin>
+        <version.jar.plugin>3.2.0</version.jar.plugin>
         <version.license.plugin>2.0.0</version.license.plugin>
         <version.processor.plugin>3.3.3</version.processor.plugin>
         <version.resources.plugin>3.1.0</version.resources.plugin>
