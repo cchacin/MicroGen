@@ -18,20 +18,32 @@
  */
 package org.openapitools.codegen.languages;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+import org.openapitools.codegen.CliOption;
+import org.openapitools.codegen.CodegenConstants;
+import org.openapitools.codegen.CodegenModel;
+import org.openapitools.codegen.CodegenOperation;
+import org.openapitools.codegen.CodegenParameter;
+import org.openapitools.codegen.SupportingFile;
+import org.openapitools.codegen.utils.ModelUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.servers.Server;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-import org.openapitools.codegen.*;
-import org.openapitools.codegen.utils.ModelUtils;
-
-import java.io.File;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static java.util.stream.Collectors.toList;
 import static org.openapitools.codegen.utils.StringUtils.camelize;
@@ -68,7 +80,6 @@ public class MicroGen extends JavaClientCodegen {
         final CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY,
                 "library template (sub-template) to use");
         libraryOption.setEnum(this.supportedLibraries);
-        libraryOption.setDefault("server");
         this.cliOptions.add(libraryOption);
 
         this.cliOptions.add(new CliOption(CodegenConstants.MODEL_PACKAGE, CodegenConstants.MODEL_PACKAGE_DESC));
