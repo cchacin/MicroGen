@@ -26,22 +26,22 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Pet.JSON_PROPERTY_ID,
-                                                       Pet.JSON_PROPERTY_CATEGORY,
-                                                       Pet.JSON_PROPERTY_NAME,
-                                                       Pet.JSON_PROPERTY_PHOTO_URLS,
-                                                       Pet.JSON_PROPERTY_TAGS,
-                                                       Pet.JSON_PROPERTY_STATUS
+                                                       Pet.JSONB_PROPERTY_ID,
+                                                       Pet.JSONB_PROPERTY_CATEGORY,
+                                                       Pet.JSONB_PROPERTY_NAME,
+                                                       Pet.JSONB_PROPERTY_PHOTO_URLS,
+                                                       Pet.JSONB_PROPERTY_TAGS,
+                                                       Pet.JSONB_PROPERTY_STATUS
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Pet {
 
-    public static final String JSON_PROPERTY_ID = "id";
-    public static final String JSON_PROPERTY_CATEGORY = "category";
-    public static final String JSON_PROPERTY_NAME = "name";
-    public static final String JSON_PROPERTY_PHOTO_URLS = "photoUrls";
-    public static final String JSON_PROPERTY_TAGS = "tags";
-    public static final String JSON_PROPERTY_STATUS = "status";
+    public static final String JSONB_PROPERTY_ID = "id";
+    public static final String JSONB_PROPERTY_CATEGORY = "category";
+    public static final String JSONB_PROPERTY_NAME = "name";
+    public static final String JSONB_PROPERTY_PHOTO_URLS = "photoUrls";
+    public static final String JSONB_PROPERTY_TAGS = "tags";
+    public static final String JSONB_PROPERTY_STATUS = "status";
 
     @javax.json.bind.annotation.JsonbCreator
     public Pet() {}
@@ -51,7 +51,7 @@ public abstract class Pet {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
     public abstract java.util.OptionalLong getId();
 
     /**
@@ -60,7 +60,7 @@ public abstract class Pet {
      * @return category
      */
     @javax.validation.Valid
-    @javax.json.bind.annotation.JsonbProperty("category")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_CATEGORY)
     public abstract java.util.Optional<Category> getCategory();
 
     /**
@@ -69,7 +69,7 @@ public abstract class Pet {
      * @return name
      */
     @javax.validation.constraints.NotNull
-    @javax.json.bind.annotation.JsonbProperty("name")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_NAME)
     public abstract String getName();
 
     /**
@@ -78,7 +78,7 @@ public abstract class Pet {
      * @return photoUrls
      */
     @javax.validation.constraints.NotNull
-    @javax.json.bind.annotation.JsonbProperty("photoUrls")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PHOTO_URLS)
     public abstract java.util.List<String> getPhotoUrls();
 
     /**
@@ -87,7 +87,7 @@ public abstract class Pet {
      * @return tags
      */
     @javax.validation.Valid
-    @javax.json.bind.annotation.JsonbProperty("tags")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_TAGS)
     public abstract java.util.Optional<java.util.List<Tag>> getTags();
 
     /** pet status in the store */
@@ -157,6 +157,6 @@ public abstract class Pet {
      *
      * @return status
      */
-    @javax.json.bind.annotation.JsonbProperty("status")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STATUS)
     public abstract StatusEnum getStatus();
 }

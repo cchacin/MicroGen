@@ -26,14 +26,14 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       SampleBase.JSON_PROPERTY_BASE_CLASS_STRING_PROP,
-                                                       SampleBase.JSON_PROPERTY_BASE_CLASS_INTEGER_PROP
+                                                       SampleBase.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
+                                                       SampleBase.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class SampleBase {
 
-    public static final String JSON_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
-    public static final String JSON_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
+    public static final String JSONB_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
+    public static final String JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleBase() {}
@@ -43,7 +43,7 @@ public abstract class SampleBase {
      *
      * @return baseClassStringProp
      */
-    @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_STRING_PROP)
     public abstract java.util.Optional<String> getBaseClassStringProp();
 
     /**
@@ -51,6 +51,6 @@ public abstract class SampleBase {
      *
      * @return baseClassIntegerProp
      */
-    @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getBaseClassIntegerProp();
 }

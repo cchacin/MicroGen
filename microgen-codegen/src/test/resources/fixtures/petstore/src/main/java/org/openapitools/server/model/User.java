@@ -26,26 +26,26 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       User.JSON_PROPERTY_ID,
-                                                       User.JSON_PROPERTY_USERNAME,
-                                                       User.JSON_PROPERTY_FIRST_NAME,
-                                                       User.JSON_PROPERTY_LAST_NAME,
-                                                       User.JSON_PROPERTY_EMAIL,
-                                                       User.JSON_PROPERTY_PASSWORD,
-                                                       User.JSON_PROPERTY_PHONE,
-                                                       User.JSON_PROPERTY_USER_STATUS
+                                                       User.JSONB_PROPERTY_ID,
+                                                       User.JSONB_PROPERTY_USERNAME,
+                                                       User.JSONB_PROPERTY_FIRST_NAME,
+                                                       User.JSONB_PROPERTY_LAST_NAME,
+                                                       User.JSONB_PROPERTY_EMAIL,
+                                                       User.JSONB_PROPERTY_PASSWORD,
+                                                       User.JSONB_PROPERTY_PHONE,
+                                                       User.JSONB_PROPERTY_USER_STATUS
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class User {
 
-    public static final String JSON_PROPERTY_ID = "id";
-    public static final String JSON_PROPERTY_USERNAME = "username";
-    public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-    public static final String JSON_PROPERTY_LAST_NAME = "lastName";
-    public static final String JSON_PROPERTY_EMAIL = "email";
-    public static final String JSON_PROPERTY_PASSWORD = "password";
-    public static final String JSON_PROPERTY_PHONE = "phone";
-    public static final String JSON_PROPERTY_USER_STATUS = "userStatus";
+    public static final String JSONB_PROPERTY_ID = "id";
+    public static final String JSONB_PROPERTY_USERNAME = "username";
+    public static final String JSONB_PROPERTY_FIRST_NAME = "firstName";
+    public static final String JSONB_PROPERTY_LAST_NAME = "lastName";
+    public static final String JSONB_PROPERTY_EMAIL = "email";
+    public static final String JSONB_PROPERTY_PASSWORD = "password";
+    public static final String JSONB_PROPERTY_PHONE = "phone";
+    public static final String JSONB_PROPERTY_USER_STATUS = "userStatus";
 
     @javax.json.bind.annotation.JsonbCreator
     public User() {}
@@ -55,7 +55,7 @@ public abstract class User {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
     public abstract java.util.OptionalLong getId();
 
     /**
@@ -63,7 +63,7 @@ public abstract class User {
      *
      * @return username
      */
-    @javax.json.bind.annotation.JsonbProperty("username")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_USERNAME)
     public abstract java.util.Optional<String> getUsername();
 
     /**
@@ -71,7 +71,7 @@ public abstract class User {
      *
      * @return firstName
      */
-    @javax.json.bind.annotation.JsonbProperty("firstName")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_FIRST_NAME)
     public abstract java.util.Optional<String> getFirstName();
 
     /**
@@ -79,7 +79,7 @@ public abstract class User {
      *
      * @return lastName
      */
-    @javax.json.bind.annotation.JsonbProperty("lastName")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_LAST_NAME)
     public abstract java.util.Optional<String> getLastName();
 
     /**
@@ -87,7 +87,7 @@ public abstract class User {
      *
      * @return email
      */
-    @javax.json.bind.annotation.JsonbProperty("email")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_EMAIL)
     public abstract java.util.Optional<String> getEmail();
 
     /**
@@ -95,7 +95,7 @@ public abstract class User {
      *
      * @return password
      */
-    @javax.json.bind.annotation.JsonbProperty("password")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PASSWORD)
     public abstract java.util.Optional<String> getPassword();
 
     /**
@@ -103,7 +103,7 @@ public abstract class User {
      *
      * @return phone
      */
-    @javax.json.bind.annotation.JsonbProperty("phone")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PHONE)
     public abstract java.util.Optional<String> getPhone();
 
     /**
@@ -111,6 +111,6 @@ public abstract class User {
      *
      * @return userStatus
      */
-    @javax.json.bind.annotation.JsonbProperty("userStatus")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_USER_STATUS)
     public abstract java.util.OptionalInt getUserStatus();
 }

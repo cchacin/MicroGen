@@ -26,18 +26,18 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE,
-                                                       ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE,
-                                                       ModelWithReadOnlyPropertyTest.JSON_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE
+                                                       ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE,
+                                                       ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE,
+                                                       ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithReadOnlyPropertyTest {
 
-    public static final String JSON_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE =
+    public static final String JSONB_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE =
             "stringPropWithImplicitReadOnlyFalse";
-    public static final String JSON_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE =
+    public static final String JSONB_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE =
             "stringPropWithExplicitReadOnlyFalse";
-    public static final String JSON_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE =
+    public static final String JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE =
             "stringPropWithReadOnlyTrue";
 
     @javax.json.bind.annotation.JsonbCreator
@@ -49,7 +49,8 @@ public abstract class ModelWithReadOnlyPropertyTest {
      *
      * @return stringPropWithImplicitReadOnlyFalse
      */
-    @javax.json.bind.annotation.JsonbProperty("stringPropWithImplicitReadOnlyFalse")
+    @javax.json.bind.annotation.JsonbProperty(
+            JSONB_PROPERTY_STRING_PROP_WITH_IMPLICIT_READ_ONLY_FALSE)
     public abstract java.util.Optional<String> getStringPropWithImplicitReadOnlyFalse();
 
     /**
@@ -57,7 +58,8 @@ public abstract class ModelWithReadOnlyPropertyTest {
      *
      * @return stringPropWithExplicitReadOnlyFalse
      */
-    @javax.json.bind.annotation.JsonbProperty("stringPropWithExplicitReadOnlyFalse")
+    @javax.json.bind.annotation.JsonbProperty(
+            JSONB_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE)
     public abstract java.util.Optional<String> getStringPropWithExplicitReadOnlyFalse();
 
     /**
@@ -66,6 +68,6 @@ public abstract class ModelWithReadOnlyPropertyTest {
      *
      * @return stringPropWithReadOnlyTrue
      */
-    @javax.json.bind.annotation.JsonbProperty("stringPropWithReadOnlyTrue")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE)
     public abstract java.util.Optional<String> getStringPropWithReadOnlyTrue();
 }

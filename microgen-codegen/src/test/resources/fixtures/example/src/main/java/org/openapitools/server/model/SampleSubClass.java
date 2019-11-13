@@ -26,18 +26,18 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       SampleSubClass.JSON_PROPERTY_BASE_CLASS_STRING_PROP,
-                                                       SampleSubClass.JSON_PROPERTY_BASE_CLASS_INTEGER_PROP,
-                                                       SampleSubClass.JSON_PROPERTY_SUB_CLASS_STRING_PROP,
-                                                       SampleSubClass.JSON_PROPERTY_SUB_CLASS_INTEGER_PROP
+                                                       SampleSubClass.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
+                                                       SampleSubClass.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP,
+                                                       SampleSubClass.JSONB_PROPERTY_SUB_CLASS_STRING_PROP,
+                                                       SampleSubClass.JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class SampleSubClass {
 
-    public static final String JSON_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
-    public static final String JSON_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
-    public static final String JSON_PROPERTY_SUB_CLASS_STRING_PROP = "subClassStringProp";
-    public static final String JSON_PROPERTY_SUB_CLASS_INTEGER_PROP = "subClassIntegerProp";
+    public static final String JSONB_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
+    public static final String JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
+    public static final String JSONB_PROPERTY_SUB_CLASS_STRING_PROP = "subClassStringProp";
+    public static final String JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP = "subClassIntegerProp";
 
     @javax.json.bind.annotation.JsonbCreator
     public SampleSubClass() {}
@@ -47,7 +47,7 @@ public abstract class SampleSubClass {
      *
      * @return baseClassStringProp
      */
-    @javax.json.bind.annotation.JsonbProperty("baseClassStringProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_STRING_PROP)
     public abstract java.util.Optional<String> getBaseClassStringProp();
 
     /**
@@ -55,7 +55,7 @@ public abstract class SampleSubClass {
      *
      * @return baseClassIntegerProp
      */
-    @javax.json.bind.annotation.JsonbProperty("baseClassIntegerProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getBaseClassIntegerProp();
 
     /**
@@ -63,7 +63,7 @@ public abstract class SampleSubClass {
      *
      * @return subClassStringProp
      */
-    @javax.json.bind.annotation.JsonbProperty("subClassStringProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_SUB_CLASS_STRING_PROP)
     public abstract java.util.Optional<String> getSubClassStringProp();
 
     /**
@@ -71,6 +71,6 @@ public abstract class SampleSubClass {
      *
      * @return subClassIntegerProp
      */
-    @javax.json.bind.annotation.JsonbProperty("subClassIntegerProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getSubClassIntegerProp();
 }

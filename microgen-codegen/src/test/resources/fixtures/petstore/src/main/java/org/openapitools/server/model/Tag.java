@@ -25,12 +25,12 @@ package org.openapitools.server.model;
                 javax.json.bind.annotation.JsonbVisibility.class
         },
         jdkOnly = true)
-@javax.json.bind.annotation.JsonbPropertyOrder({Tag.JSON_PROPERTY_ID, Tag.JSON_PROPERTY_NAME})
+@javax.json.bind.annotation.JsonbPropertyOrder({Tag.JSONB_PROPERTY_ID, Tag.JSONB_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Tag {
 
-    public static final String JSON_PROPERTY_ID = "id";
-    public static final String JSON_PROPERTY_NAME = "name";
+    public static final String JSONB_PROPERTY_ID = "id";
+    public static final String JSONB_PROPERTY_NAME = "name";
 
     @javax.json.bind.annotation.JsonbCreator
     public Tag() {}
@@ -40,7 +40,7 @@ public abstract class Tag {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
     public abstract java.util.OptionalLong getId();
 
     /**
@@ -48,6 +48,6 @@ public abstract class Tag {
      *
      * @return name
      */
-    @javax.json.bind.annotation.JsonbProperty("name")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_NAME)
     public abstract java.util.Optional<String> getName();
 }
