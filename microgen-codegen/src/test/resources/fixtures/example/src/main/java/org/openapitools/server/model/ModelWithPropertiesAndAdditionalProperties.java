@@ -26,15 +26,15 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       ModelWithPropertiesAndAdditionalProperties.JSON_PROPERTY_INTEGER_PROP,
-                                                       ModelWithPropertiesAndAdditionalProperties.JSON_PROPERTY_STRING_PROP
+                                                       ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_INTEGER_PROP,
+                                                       ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_STRING_PROP
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithPropertiesAndAdditionalProperties
         extends java.util.HashMap<String, String> {
 
-    public static final String JSON_PROPERTY_INTEGER_PROP = "integerProp";
-    public static final String JSON_PROPERTY_STRING_PROP = "stringProp";
+    public static final String JSONB_PROPERTY_INTEGER_PROP = "integerProp";
+    public static final String JSONB_PROPERTY_STRING_PROP = "stringProp";
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithPropertiesAndAdditionalProperties() {}
@@ -44,7 +44,7 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      *
      * @return integerProp
      */
-    @javax.json.bind.annotation.JsonbProperty("integerProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_INTEGER_PROP)
     public abstract java.util.OptionalInt getIntegerProp();
 
     /**
@@ -52,6 +52,6 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      *
      * @return stringProp
      */
-    @javax.json.bind.annotation.JsonbProperty("stringProp")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP)
     public abstract java.util.Optional<String> getStringProp();
 }

@@ -25,11 +25,11 @@ package org.openapitools.server.model;
                 javax.json.bind.annotation.JsonbVisibility.class
         },
         jdkOnly = true)
-@javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSON_PROPERTY_CARD_TYPE})
+@javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSONB_PROPERTY_CARD_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class BaseCard {
 
-    public static final String JSON_PROPERTY_CARD_TYPE = "cardType";
+    public static final String JSONB_PROPERTY_CARD_TYPE = "cardType";
 
     @javax.json.bind.annotation.JsonbCreator
     public BaseCard() {}
@@ -40,6 +40,6 @@ public abstract class BaseCard {
      * @return cardType
      */
     @javax.validation.constraints.NotNull
-    @javax.json.bind.annotation.JsonbProperty("cardType")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_CARD_TYPE)
     public abstract String getCardType();
 }

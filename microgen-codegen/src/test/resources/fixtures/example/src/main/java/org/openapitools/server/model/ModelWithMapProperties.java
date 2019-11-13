@@ -29,18 +29,18 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       ModelWithMapProperties.JSON_PROPERTY_STRING_MAP,
-                                                       ModelWithMapProperties.JSON_PROPERTY_INTEGER_MAP,
-                                                       ModelWithMapProperties.JSON_PROPERTY_ERROR_INFO_MAP,
-                                                       ModelWithMapProperties.JSON_PROPERTY_ERROR_INFO_ARRAY_MAP
+                                                       ModelWithMapProperties.JSONB_PROPERTY_STRING_MAP,
+                                                       ModelWithMapProperties.JSONB_PROPERTY_INTEGER_MAP,
+                                                       ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_MAP,
+                                                       ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithMapProperties {
 
-    public static final String JSON_PROPERTY_STRING_MAP = "stringMap";
-    public static final String JSON_PROPERTY_INTEGER_MAP = "integerMap";
-    public static final String JSON_PROPERTY_ERROR_INFO_MAP = "errorInfoMap";
-    public static final String JSON_PROPERTY_ERROR_INFO_ARRAY_MAP = "errorInfoArrayMap";
+    public static final String JSONB_PROPERTY_STRING_MAP = "stringMap";
+    public static final String JSONB_PROPERTY_INTEGER_MAP = "integerMap";
+    public static final String JSONB_PROPERTY_ERROR_INFO_MAP = "errorInfoMap";
+    public static final String JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP = "errorInfoArrayMap";
 
     @javax.json.bind.annotation.JsonbCreator
     public ModelWithMapProperties() {}
@@ -50,7 +50,7 @@ public abstract class ModelWithMapProperties {
      *
      * @return stringMap
      */
-    @javax.json.bind.annotation.JsonbProperty("stringMap")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_MAP)
     public abstract java.util.Optional<java.util.Map<String, String>> getStringMap();
 
     /**
@@ -58,7 +58,7 @@ public abstract class ModelWithMapProperties {
      *
      * @return integerMap
      */
-    @javax.json.bind.annotation.JsonbProperty("integerMap")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_INTEGER_MAP)
     public abstract java.util.Optional<java.util.Map<String, Integer>> getIntegerMap();
 
     /**
@@ -67,7 +67,7 @@ public abstract class ModelWithMapProperties {
      * @return errorInfoMap
      */
     @javax.validation.Valid
-    @javax.json.bind.annotation.JsonbProperty("errorInfoMap")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_MAP)
     public abstract java.util.Optional<java.util.Map<String, ErrorInfo>> getErrorInfoMap();
 
     /**
@@ -76,7 +76,7 @@ public abstract class ModelWithMapProperties {
      * @return errorInfoArrayMap
      */
     @javax.validation.Valid
-    @javax.json.bind.annotation.JsonbProperty("errorInfoArrayMap")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP)
     public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
     getErrorInfoArrayMap();
 }

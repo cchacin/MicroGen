@@ -26,14 +26,14 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       PersonCard.JSON_PROPERTY_FIRST_NAME,
-                                                       PersonCard.JSON_PROPERTY_LAST_NAME
+                                                       PersonCard.JSONB_PROPERTY_FIRST_NAME,
+                                                       PersonCard.JSONB_PROPERTY_LAST_NAME
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class PersonCard extends BaseCard {
 
-    public static final String JSON_PROPERTY_FIRST_NAME = "firstName";
-    public static final String JSON_PROPERTY_LAST_NAME = "lastName";
+    public static final String JSONB_PROPERTY_FIRST_NAME = "firstName";
+    public static final String JSONB_PROPERTY_LAST_NAME = "lastName";
 
     @javax.json.bind.annotation.JsonbCreator
     public PersonCard() {}
@@ -43,7 +43,7 @@ public abstract class PersonCard extends BaseCard {
      *
      * @return firstName
      */
-    @javax.json.bind.annotation.JsonbProperty("firstName")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_FIRST_NAME)
     public abstract java.util.Optional<String> getFirstName();
 
     /**
@@ -51,6 +51,6 @@ public abstract class PersonCard extends BaseCard {
      *
      * @return lastName
      */
-    @javax.json.bind.annotation.JsonbProperty("lastName")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_LAST_NAME)
     public abstract java.util.Optional<String> getLastName();
 }

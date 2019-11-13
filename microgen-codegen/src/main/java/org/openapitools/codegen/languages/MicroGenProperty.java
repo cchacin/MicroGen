@@ -125,4 +125,8 @@ class MicroGenProperty extends CodegenProperty {
     public String getGetter() {
         return this.vendorExtensions.getOrDefault("x-name", super.getGetter()).toString();
     }
+    
+    public String jsonbPropertyName() {
+        return "JSONB_PROPERTY_" + getNameInSnakeCase();
+    }
 }

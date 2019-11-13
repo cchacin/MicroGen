@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import io.swagger.v3.oas.models.media.Schema;
@@ -36,26 +37,15 @@ public interface ModelTest {
         REQUIRED
     }
 
-    default List<String> getDataTypesFor(
+    default List<String> extractProperty(
             final Schema schema,
-            final Optionality optionality
-    ) {
+            final Optionality optionality,
+            final Function<CodegenProperty, String> extractor
+            ) {
         return getVarsFor(schema, optionality)
                 .stream()
                 .filter(Objects::nonNull)
-                .map(CodegenProperty::getDataType)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-    }
-
-    default List<String> getDataTypeWithEnumsFor(
-            final Schema schema,
-            final Optionality optionality
-    ) {
-        return getVarsFor(schema, optionality)
-                .stream()
-                .filter(Objects::nonNull)
-                .map(CodegenProperty::getDatatypeWithEnum)
+                .map(extractor)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }

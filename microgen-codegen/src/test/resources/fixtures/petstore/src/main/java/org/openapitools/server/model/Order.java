@@ -26,22 +26,22 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Order.JSON_PROPERTY_ID,
-                                                       Order.JSON_PROPERTY_PET_ID,
-                                                       Order.JSON_PROPERTY_QUANTITY,
-                                                       Order.JSON_PROPERTY_SHIP_DATE,
-                                                       Order.JSON_PROPERTY_STATUS,
-                                                       Order.JSON_PROPERTY_COMPLETE
+                                                       Order.JSONB_PROPERTY_ID,
+                                                       Order.JSONB_PROPERTY_PET_ID,
+                                                       Order.JSONB_PROPERTY_QUANTITY,
+                                                       Order.JSONB_PROPERTY_SHIP_DATE,
+                                                       Order.JSONB_PROPERTY_STATUS,
+                                                       Order.JSONB_PROPERTY_COMPLETE
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Order {
 
-    public static final String JSON_PROPERTY_ID = "id";
-    public static final String JSON_PROPERTY_PET_ID = "petId";
-    public static final String JSON_PROPERTY_QUANTITY = "quantity";
-    public static final String JSON_PROPERTY_SHIP_DATE = "shipDate";
-    public static final String JSON_PROPERTY_STATUS = "status";
-    public static final String JSON_PROPERTY_COMPLETE = "complete";
+    public static final String JSONB_PROPERTY_ID = "id";
+    public static final String JSONB_PROPERTY_PET_ID = "petId";
+    public static final String JSONB_PROPERTY_QUANTITY = "quantity";
+    public static final String JSONB_PROPERTY_SHIP_DATE = "shipDate";
+    public static final String JSONB_PROPERTY_STATUS = "status";
+    public static final String JSONB_PROPERTY_COMPLETE = "complete";
 
     @javax.json.bind.annotation.JsonbCreator
     public Order() {}
@@ -51,7 +51,7 @@ public abstract class Order {
      *
      * @return id
      */
-    @javax.json.bind.annotation.JsonbProperty("id")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
     public abstract java.util.OptionalLong getId();
 
     /**
@@ -59,7 +59,7 @@ public abstract class Order {
      *
      * @return petId
      */
-    @javax.json.bind.annotation.JsonbProperty("petId")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PET_ID)
     public abstract java.util.OptionalLong getPetId();
 
     /**
@@ -67,7 +67,7 @@ public abstract class Order {
      *
      * @return quantity
      */
-    @javax.json.bind.annotation.JsonbProperty("quantity")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_QUANTITY)
     public abstract java.util.OptionalInt getQuantity();
 
     /**
@@ -76,7 +76,7 @@ public abstract class Order {
      * @return shipDate
      */
     @javax.validation.Valid
-    @javax.json.bind.annotation.JsonbProperty("shipDate")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_SHIP_DATE)
     public abstract java.util.Optional<java.time.OffsetDateTime> shipmentDate();
 
     /** Order Status */
@@ -146,7 +146,7 @@ public abstract class Order {
      *
      * @return status
      */
-    @javax.json.bind.annotation.JsonbProperty("status")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STATUS)
     public abstract StatusEnum getStatus();
 
     /**
@@ -154,6 +154,6 @@ public abstract class Order {
      *
      * @return complete
      */
-    @javax.json.bind.annotation.JsonbProperty("complete")
+    @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_COMPLETE)
     public abstract java.util.Optional<Boolean> getComplete();
 }

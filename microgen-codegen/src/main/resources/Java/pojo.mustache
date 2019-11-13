@@ -28,14 +28,14 @@
 {{{additionalAnnotations}}}{{/additionalAnnotations}}
 @javax.json.bind.annotation.JsonbPropertyOrder({
 {{#vars}}
-    {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
+    {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
 {{>generatedAnnotation}}
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
     {{#vars}}
-    public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
+    public static final String {{jsonbPropertyName}} = "{{baseName}}";
     {{/vars}}
 
     @javax.json.bind.annotation.JsonbCreator
@@ -59,7 +59,7 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{#vendorExtensions.extraAnnotation}}
     {{{vendorExtensions.extraAnnotation}}}
     {{/vendorExtensions.extraAnnotation}}
-    @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
+    @javax.json.bind.annotation.JsonbProperty({{jsonbPropertyName}})
     public abstract {{{datatypeWithEnum}}} {{getter}}();
 
 {{/vars}}
