@@ -31,7 +31,7 @@ public interface DefaultRestClient extends java.lang.AutoCloseable {
         description = "Add a new default pet to the store")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("defaultpet")
-    @javax.ws.rs.Consumes({"application/json", "application/xml"})
+    @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<Void> addDefPet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
@@ -60,7 +60,7 @@ public interface DefaultRestClient extends java.lang.AutoCloseable {
         description = "Update a new Default existing pet")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("defaultpet")
-    @javax.ws.rs.Consumes({"application/json", "application/xml"})
+    @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<Void> updateDefPet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;

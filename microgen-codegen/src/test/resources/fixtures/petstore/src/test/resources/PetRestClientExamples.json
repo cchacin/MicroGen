@@ -16,16 +16,6 @@
   } ],
   "status" : "available"
 },
-    "findPetsByStatus200Example": <Pet>
-  <id>123456789</id>
-  <name>doggie</name>
-  <photoUrls>
-    <photoUrls>aeiou</photoUrls>
-  </photoUrls>
-  <tags>
-  </tags>
-  <status>aeiou</status>
-</Pet>,
     "findPetsByTags200Example": {
   "photoUrls" : [ "photoUrls", "photoUrls" ],
   "name" : "doggie",
@@ -43,16 +33,6 @@
   } ],
   "status" : "available"
 },
-    "findPetsByTags200Example": <Pet>
-  <id>123456789</id>
-  <name>doggie</name>
-  <photoUrls>
-    <photoUrls>aeiou</photoUrls>
-  </photoUrls>
-  <tags>
-  </tags>
-  <status>aeiou</status>
-</Pet>,
     "getPetById200Example": {
   "photoUrls" : [ "photoUrls", "photoUrls" ],
   "name" : "doggie",
@@ -70,16 +50,6 @@
   } ],
   "status" : "available"
 },
-    "getPetById200Example": <Pet>
-  <id>123456789</id>
-  <name>doggie</name>
-  <photoUrls>
-    <photoUrls>aeiou</photoUrls>
-  </photoUrls>
-  <tags>
-  </tags>
-  <status>aeiou</status>
-</Pet>,
     "uploadFile200Example": {
   "code" : 0,
   "type" : "type",

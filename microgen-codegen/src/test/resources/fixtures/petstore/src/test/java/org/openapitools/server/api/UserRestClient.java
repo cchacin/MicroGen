@@ -155,7 +155,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
         description = "Get user by user name")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/{username}")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<User> getUserByName(
         @javax.ws.rs.BeanParam GetUserByNameParams params) throws javax.ws.rs.WebApplicationException;
 
@@ -194,7 +194,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
         description = "Logs user into the system")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/login")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<String> loginUser(
         @javax.ws.rs.BeanParam LoginUserParams params) throws javax.ws.rs.WebApplicationException;
 
