@@ -88,6 +88,17 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
 
+  mongodb:
+    image: mongo:3.6.16-xenial
+    container_name: mongodb
+    hostname: mongodb
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+
   ${rootArtifactId}:
     image: ${groupId}/${rootArtifactId}:${version}
     container_name: ${rootArtifactId}
