@@ -32,7 +32,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         description = "Add a new pet to the store")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
-    @javax.ws.rs.Consumes({"application/json", "application/xml"})
+    @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<Void> addPet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;
@@ -107,7 +107,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         description = "Finds Pets by status")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByStatus")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByStatus(
         @javax.ws.rs.BeanParam FindPetsByStatusParams params)
         throws javax.ws.rs.WebApplicationException;
@@ -149,7 +149,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         description = "Finds Pets by tags")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByTags")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByTags(
         @javax.ws.rs.BeanParam FindPetsByTagsParams params)
         throws javax.ws.rs.WebApplicationException;
@@ -190,7 +190,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         description = "Find pet by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/{petId}")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Pet> getPetById(
         @javax.ws.rs.BeanParam GetPetByIdParams params) throws javax.ws.rs.WebApplicationException;
 
@@ -228,7 +228,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
         description = "Update an existing pet")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
-    @javax.ws.rs.Consumes({"application/json", "application/xml"})
+    @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<Void> updatePet(
         @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
         throws javax.ws.rs.WebApplicationException;

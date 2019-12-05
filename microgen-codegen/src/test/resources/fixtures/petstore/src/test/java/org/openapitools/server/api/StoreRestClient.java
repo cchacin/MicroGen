@@ -99,7 +99,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
         description = "Find purchase order by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/order/{orderId}")
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Order> getOrderById(
         @javax.ws.rs.BeanParam GetOrderByIdParams params) throws javax.ws.rs.WebApplicationException;
 
@@ -140,7 +140,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("store/order")
     @javax.ws.rs.Consumes({"application/json"})
-    @javax.ws.rs.Produces({"application/xml", "application/json"})
+    @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Order> placeOrder(
         @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
         throws javax.ws.rs.WebApplicationException;

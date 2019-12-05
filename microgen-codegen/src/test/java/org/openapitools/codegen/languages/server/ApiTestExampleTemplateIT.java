@@ -25,7 +25,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.openapitools.codegen.languages.TemplateType;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 class ApiTestExampleTemplateIT implements ServerTemplateTest {
@@ -48,7 +47,7 @@ class ApiTestExampleTemplateIT implements ServerTemplateTest {
     @MethodSource("arguments")
     void test(final String openAPIFile,
               final String expectedFile) {
-        this.executeTest(openAPIFile, expectedFile, Paths.get("target"));
+        this.executeTest(openAPIFile, expectedFile, this.tmpFolder);
     }
 
     @Override
