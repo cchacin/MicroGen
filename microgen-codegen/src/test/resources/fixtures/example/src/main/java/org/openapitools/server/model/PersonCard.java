@@ -53,4 +53,10 @@ public abstract class PersonCard extends BaseCard {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_LAST_NAME)
     public abstract java.util.Optional<String> getLastName();
+
+    public static class Builder extends PersonCardInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

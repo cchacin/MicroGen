@@ -156,4 +156,10 @@ public abstract class Order {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_COMPLETE)
     public abstract java.util.Optional<Boolean> getComplete();
+
+    public static class Builder extends OrderInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

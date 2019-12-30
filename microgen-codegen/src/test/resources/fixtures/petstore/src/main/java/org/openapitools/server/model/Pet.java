@@ -159,4 +159,10 @@ public abstract class Pet {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STATUS)
     public abstract StatusEnum getStatus();
+
+    public static class Builder extends PetInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

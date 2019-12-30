@@ -42,4 +42,10 @@ public abstract class BaseCard {
     @javax.validation.constraints.NotNull
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_CARD_TYPE)
     public abstract String getCardType();
+
+    public static class Builder extends BaseCardInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

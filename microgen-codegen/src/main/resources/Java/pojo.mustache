@@ -63,4 +63,9 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     public abstract {{{datatypeWithEnum}}} {{getter}}();
 
 {{/vars}}
+    public static class Builder extends {{classname}}InternalBuilder {}
+    
+    public static Builder builder() {
+        return new Builder();
+    }
 }

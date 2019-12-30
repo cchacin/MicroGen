@@ -70,4 +70,10 @@ public abstract class ModelWithReadOnlyPropertyTest {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE)
     public abstract java.util.Optional<String> getStringPropWithReadOnlyTrue();
+
+    public static class Builder extends ModelWithReadOnlyPropertyTestInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

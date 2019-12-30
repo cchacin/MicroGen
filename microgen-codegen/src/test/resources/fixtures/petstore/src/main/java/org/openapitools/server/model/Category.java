@@ -53,4 +53,10 @@ public abstract class Category {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_NAME)
     public abstract java.util.Optional<String> getName();
+
+    public static class Builder extends CategoryInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }
