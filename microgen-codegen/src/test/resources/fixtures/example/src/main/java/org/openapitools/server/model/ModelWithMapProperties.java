@@ -79,4 +79,10 @@ public abstract class ModelWithMapProperties {
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP)
     public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
     getErrorInfoArrayMap();
+
+    public static class Builder extends ModelWithMapPropertiesInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

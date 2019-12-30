@@ -53,4 +53,10 @@ public abstract class SampleBase {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getBaseClassIntegerProp();
+
+    public static class Builder extends SampleBaseInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

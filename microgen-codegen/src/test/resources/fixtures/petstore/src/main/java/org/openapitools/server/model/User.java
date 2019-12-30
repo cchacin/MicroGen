@@ -113,4 +113,10 @@ public abstract class User {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_USER_STATUS)
     public abstract java.util.OptionalInt getUserStatus();
+
+    public static class Builder extends UserInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

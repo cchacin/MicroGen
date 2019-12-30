@@ -54,4 +54,10 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP)
     public abstract java.util.Optional<String> getStringProp();
+
+    public static class Builder extends ModelWithPropertiesAndAdditionalPropertiesInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }

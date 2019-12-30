@@ -50,4 +50,10 @@ public abstract class Tag {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_NAME)
     public abstract java.util.Optional<String> getName();
+
+    public static class Builder extends TagInternalBuilder {}
+
+    public static Builder builder() {
+        return new Builder();
+    }
 }
