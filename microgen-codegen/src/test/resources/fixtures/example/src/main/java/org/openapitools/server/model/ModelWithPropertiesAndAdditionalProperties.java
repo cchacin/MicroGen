@@ -29,6 +29,9 @@ package org.openapitools.server.model;
                                                        ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_INTEGER_PROP,
                                                        ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_STRING_PROP
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(
+        ModelWithPropertiesAndAdditionalProperties
+                .ModelWithPropertiesAndAdditionalPropertiesJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithPropertiesAndAdditionalProperties
         extends java.util.HashMap<String, String> {
@@ -54,6 +57,31 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP)
     public abstract java.util.Optional<String> getStringProp();
+
+    @javax.ws.rs.ext.Provider
+    public static class ModelWithPropertiesAndAdditionalPropertiesJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            ModelWithPropertiesAndAdditionalProperties,
+            ModelWithPropertiesAndAdditionalPropertiesInternalBuilder
+                    .ImmutableModelWithPropertiesAndAdditionalProperties> {
+
+        @Override
+        public ModelWithPropertiesAndAdditionalPropertiesInternalBuilder
+                .ImmutableModelWithPropertiesAndAdditionalProperties
+        adaptToJson(ModelWithPropertiesAndAdditionalProperties obj) throws Exception {
+            return ModelWithPropertiesAndAdditionalPropertiesInternalBuilder
+                    .ImmutableModelWithPropertiesAndAdditionalProperties.copyOf(obj);
+        }
+
+        @Override
+        public ModelWithPropertiesAndAdditionalProperties adaptFromJson(
+                ModelWithPropertiesAndAdditionalPropertiesInternalBuilder
+                        .ImmutableModelWithPropertiesAndAdditionalProperties
+                        obj)
+                throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends ModelWithPropertiesAndAdditionalPropertiesInternalBuilder {}
 

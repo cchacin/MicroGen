@@ -31,6 +31,7 @@
     {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+@javax.json.bind.annotation.JsonbTypeAdapter({{classname}}.{{classname}}JsonbTypeAdapter.class)
 {{>generatedAnnotation}}
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
@@ -63,6 +64,20 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     public abstract {{{datatypeWithEnum}}} {{getter}}();
 
 {{/vars}}
+    @javax.ws.rs.ext.Provider
+    public static class {{classname}}JsonbTypeAdapter implements javax.json.bind.adapter.JsonbAdapter<{{classname}}, {{classname}}InternalBuilder.Immutable{{classname}}> {
+    
+        @Override
+        public {{classname}}InternalBuilder.Immutable{{classname}} adaptToJson({{classname}} obj) throws Exception {
+            return {{classname}}InternalBuilder.Immutable{{classname}}.copyOf(obj);
+        }
+        
+        @Override
+        public {{classname}} adaptFromJson({{classname}}InternalBuilder.Immutable{{classname}} obj) throws Exception {
+            return obj;
+        }
+    }
+
     public static class Builder extends {{classname}}InternalBuilder {}
     
     public static Builder builder() {

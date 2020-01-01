@@ -33,6 +33,7 @@ package org.openapitools.server.model;
                                                        Pet.JSONB_PROPERTY_TAGS,
                                                        Pet.JSONB_PROPERTY_STATUS
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(Pet.PetJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Pet {
 
@@ -159,6 +160,21 @@ public abstract class Pet {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STATUS)
     public abstract StatusEnum getStatus();
+
+    @javax.ws.rs.ext.Provider
+    public static class PetJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<Pet, PetInternalBuilder.ImmutablePet> {
+
+        @Override
+        public PetInternalBuilder.ImmutablePet adaptToJson(Pet obj) throws Exception {
+            return PetInternalBuilder.ImmutablePet.copyOf(obj);
+        }
+
+        @Override
+        public Pet adaptFromJson(PetInternalBuilder.ImmutablePet obj) throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends PetInternalBuilder {}
 
