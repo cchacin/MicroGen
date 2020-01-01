@@ -29,6 +29,7 @@ package org.openapitools.server.model;
                                                        Category.JSONB_PROPERTY_ID,
                                                        Category.JSONB_PROPERTY_NAME
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(Category.CategoryJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Category {
 
@@ -53,6 +54,22 @@ public abstract class Category {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_NAME)
     public abstract java.util.Optional<String> getName();
+
+    @javax.ws.rs.ext.Provider
+    public static class CategoryJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            Category, CategoryInternalBuilder.ImmutableCategory> {
+
+        @Override
+        public CategoryInternalBuilder.ImmutableCategory adaptToJson(Category obj) throws Exception {
+            return CategoryInternalBuilder.ImmutableCategory.copyOf(obj);
+        }
+
+        @Override
+        public Category adaptFromJson(CategoryInternalBuilder.ImmutableCategory obj) throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends CategoryInternalBuilder {}
 

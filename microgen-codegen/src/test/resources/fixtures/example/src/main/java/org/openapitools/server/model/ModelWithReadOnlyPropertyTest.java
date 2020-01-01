@@ -30,6 +30,8 @@ package org.openapitools.server.model;
                                                        ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE,
                                                        ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(
+        ModelWithReadOnlyPropertyTest.ModelWithReadOnlyPropertyTestJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithReadOnlyPropertyTest {
 
@@ -70,6 +72,27 @@ public abstract class ModelWithReadOnlyPropertyTest {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE)
     public abstract java.util.Optional<String> getStringPropWithReadOnlyTrue();
+
+    @javax.ws.rs.ext.Provider
+    public static class ModelWithReadOnlyPropertyTestJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            ModelWithReadOnlyPropertyTest,
+            ModelWithReadOnlyPropertyTestInternalBuilder.ImmutableModelWithReadOnlyPropertyTest> {
+
+        @Override
+        public ModelWithReadOnlyPropertyTestInternalBuilder.ImmutableModelWithReadOnlyPropertyTest
+        adaptToJson(ModelWithReadOnlyPropertyTest obj) throws Exception {
+            return ModelWithReadOnlyPropertyTestInternalBuilder.ImmutableModelWithReadOnlyPropertyTest
+                    .copyOf(obj);
+        }
+
+        @Override
+        public ModelWithReadOnlyPropertyTest adaptFromJson(
+                ModelWithReadOnlyPropertyTestInternalBuilder.ImmutableModelWithReadOnlyPropertyTest obj)
+                throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends ModelWithReadOnlyPropertyTestInternalBuilder {}
 

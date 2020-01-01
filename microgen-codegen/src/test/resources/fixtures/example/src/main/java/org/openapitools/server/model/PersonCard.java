@@ -29,6 +29,7 @@ package org.openapitools.server.model;
                                                        PersonCard.JSONB_PROPERTY_FIRST_NAME,
                                                        PersonCard.JSONB_PROPERTY_LAST_NAME
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(PersonCard.PersonCardJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class PersonCard extends BaseCard {
 
@@ -53,6 +54,24 @@ public abstract class PersonCard extends BaseCard {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_LAST_NAME)
     public abstract java.util.Optional<String> getLastName();
+
+    @javax.ws.rs.ext.Provider
+    public static class PersonCardJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            PersonCard, PersonCardInternalBuilder.ImmutablePersonCard> {
+
+        @Override
+        public PersonCardInternalBuilder.ImmutablePersonCard adaptToJson(PersonCard obj)
+                throws Exception {
+            return PersonCardInternalBuilder.ImmutablePersonCard.copyOf(obj);
+        }
+
+        @Override
+        public PersonCard adaptFromJson(PersonCardInternalBuilder.ImmutablePersonCard obj)
+                throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends PersonCardInternalBuilder {}
 

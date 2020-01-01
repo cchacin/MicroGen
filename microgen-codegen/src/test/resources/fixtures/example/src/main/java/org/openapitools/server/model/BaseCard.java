@@ -26,6 +26,7 @@ package org.openapitools.server.model;
         },
         jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSONB_PROPERTY_CARD_TYPE})
+@javax.json.bind.annotation.JsonbTypeAdapter(BaseCard.BaseCardJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class BaseCard {
 
@@ -42,6 +43,22 @@ public abstract class BaseCard {
     @javax.validation.constraints.NotNull
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_CARD_TYPE)
     public abstract String getCardType();
+
+    @javax.ws.rs.ext.Provider
+    public static class BaseCardJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            BaseCard, BaseCardInternalBuilder.ImmutableBaseCard> {
+
+        @Override
+        public BaseCardInternalBuilder.ImmutableBaseCard adaptToJson(BaseCard obj) throws Exception {
+            return BaseCardInternalBuilder.ImmutableBaseCard.copyOf(obj);
+        }
+
+        @Override
+        public BaseCard adaptFromJson(BaseCardInternalBuilder.ImmutableBaseCard obj) throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends BaseCardInternalBuilder {}
 

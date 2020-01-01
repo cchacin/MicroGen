@@ -34,6 +34,8 @@ package org.openapitools.server.model;
                                                        ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_MAP,
                                                        ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(
+        ModelWithMapProperties.ModelWithMapPropertiesJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithMapProperties {
 
@@ -79,6 +81,26 @@ public abstract class ModelWithMapProperties {
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP)
     public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
     getErrorInfoArrayMap();
+
+    @javax.ws.rs.ext.Provider
+    public static class ModelWithMapPropertiesJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            ModelWithMapProperties,
+            ModelWithMapPropertiesInternalBuilder.ImmutableModelWithMapProperties> {
+
+        @Override
+        public ModelWithMapPropertiesInternalBuilder.ImmutableModelWithMapProperties adaptToJson(
+                ModelWithMapProperties obj) throws Exception {
+            return ModelWithMapPropertiesInternalBuilder.ImmutableModelWithMapProperties.copyOf(obj);
+        }
+
+        @Override
+        public ModelWithMapProperties adaptFromJson(
+                ModelWithMapPropertiesInternalBuilder.ImmutableModelWithMapProperties obj)
+                throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends ModelWithMapPropertiesInternalBuilder {}
 

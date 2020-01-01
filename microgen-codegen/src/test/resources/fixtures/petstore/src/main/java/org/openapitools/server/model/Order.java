@@ -33,6 +33,7 @@ package org.openapitools.server.model;
                                                        Order.JSONB_PROPERTY_STATUS,
                                                        Order.JSONB_PROPERTY_COMPLETE
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(Order.OrderJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Order {
 
@@ -156,6 +157,21 @@ public abstract class Order {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_COMPLETE)
     public abstract java.util.Optional<Boolean> getComplete();
+
+    @javax.ws.rs.ext.Provider
+    public static class OrderJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<Order, OrderInternalBuilder.ImmutableOrder> {
+
+        @Override
+        public OrderInternalBuilder.ImmutableOrder adaptToJson(Order obj) throws Exception {
+            return OrderInternalBuilder.ImmutableOrder.copyOf(obj);
+        }
+
+        @Override
+        public Order adaptFromJson(OrderInternalBuilder.ImmutableOrder obj) throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends OrderInternalBuilder {}
 

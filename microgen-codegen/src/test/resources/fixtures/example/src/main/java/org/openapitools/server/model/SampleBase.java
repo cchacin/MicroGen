@@ -29,6 +29,7 @@ package org.openapitools.server.model;
                                                        SampleBase.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
                                                        SampleBase.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(SampleBase.SampleBaseJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class SampleBase {
 
@@ -53,6 +54,24 @@ public abstract class SampleBase {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getBaseClassIntegerProp();
+
+    @javax.ws.rs.ext.Provider
+    public static class SampleBaseJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<
+            SampleBase, SampleBaseInternalBuilder.ImmutableSampleBase> {
+
+        @Override
+        public SampleBaseInternalBuilder.ImmutableSampleBase adaptToJson(SampleBase obj)
+                throws Exception {
+            return SampleBaseInternalBuilder.ImmutableSampleBase.copyOf(obj);
+        }
+
+        @Override
+        public SampleBase adaptFromJson(SampleBaseInternalBuilder.ImmutableSampleBase obj)
+                throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends SampleBaseInternalBuilder {}
 

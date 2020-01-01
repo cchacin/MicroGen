@@ -35,6 +35,7 @@ package org.openapitools.server.model;
                                                        User.JSONB_PROPERTY_PHONE,
                                                        User.JSONB_PROPERTY_USER_STATUS
                                                })
+@javax.json.bind.annotation.JsonbTypeAdapter(User.UserJsonbTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class User {
 
@@ -113,6 +114,21 @@ public abstract class User {
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_USER_STATUS)
     public abstract java.util.OptionalInt getUserStatus();
+
+    @javax.ws.rs.ext.Provider
+    public static class UserJsonbTypeAdapter
+            implements javax.json.bind.adapter.JsonbAdapter<User, UserInternalBuilder.ImmutableUser> {
+
+        @Override
+        public UserInternalBuilder.ImmutableUser adaptToJson(User obj) throws Exception {
+            return UserInternalBuilder.ImmutableUser.copyOf(obj);
+        }
+
+        @Override
+        public User adaptFromJson(UserInternalBuilder.ImmutableUser obj) throws Exception {
+            return obj;
+        }
+    }
 
     public static class Builder extends UserInternalBuilder {}
 
