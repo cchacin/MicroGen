@@ -46,9 +46,9 @@
                             <library>server</library>
 
                             <generateApis>true</generateApis>
-                            <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateSupportingFiles>true</generateSupportingFiles>
                             <generateApiDocumentation>false</generateApiDocumentation>
-                            <generateApiTests>false</generateApiTests>
+                            <generateApiTests>true</generateApiTests>
                             <generateModelTests>false</generateModelTests>
                             <generateModelDocumentation>false</generateModelDocumentation>
                             <generateModels>true</generateModels>
