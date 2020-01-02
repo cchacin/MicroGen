@@ -79,7 +79,7 @@ public abstract class ModelWithMapProperties {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP)
-    public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
+    public abstract java.util.Optional<java.util.Map<String, java.util.ArrayList<ErrorInfo>>>
     getErrorInfoArrayMap();
 
     @javax.ws.rs.ext.Provider
