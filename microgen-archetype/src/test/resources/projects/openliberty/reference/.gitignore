@@ -112,3 +112,4 @@ local.properties
 /docs/diagrams/
 pom.xml.releaseBackup
 release.properties
+.mvn/wrapper/maven-wrapper.jar
