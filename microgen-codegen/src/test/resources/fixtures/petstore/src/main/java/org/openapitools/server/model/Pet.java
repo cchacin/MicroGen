@@ -80,7 +80,7 @@ public abstract class Pet {
      */
     @javax.validation.constraints.NotNull
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PHOTO_URLS)
-    public abstract java.util.List<String> getPhotoUrls();
+    public abstract java.util.ArrayList<String> getPhotoUrls();
 
     /**
      * Get tags
@@ -89,7 +89,7 @@ public abstract class Pet {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_TAGS)
-    public abstract java.util.Optional<java.util.List<Tag>> getTags();
+    public abstract java.util.Optional<java.util.ArrayList<Tag>> getTags();
 
     /** pet status in the store */
     @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
