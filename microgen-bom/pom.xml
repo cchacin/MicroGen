@@ -20,8 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <microgen.version>${project.version}</microgen.version>
-        
-        <immutables.version>2.8.3</immutables.version>
+
         <google-java-format.version>1.7</google-java-format.version>
 
         <junit.version>5.5.2</junit.version>
@@ -31,7 +30,7 @@
 
         <asciidoctor.version>1.5.7.1</asciidoctor.version>
     </properties>
-    
+
     <dependencyManagement>
         <dependencies>
             <!-- JakartaEE -->
@@ -50,7 +49,7 @@
                 <type>pom</type>
                 <scope>provided</scope>
             </dependency>
-            
+
             <!-- test dependencies -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -102,7 +101,7 @@
                 <artifactId>value</artifactId>
                 <version>${immutables.version}</version>
             </dependency>
-            
+
             <!-- μGen Dependencies -->
             <dependency>
                 <groupId>io.microgen</groupId>
