@@ -215,7 +215,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- JaCoCo -->
             <plugin>
                 <groupId>org.jacoco</groupId>

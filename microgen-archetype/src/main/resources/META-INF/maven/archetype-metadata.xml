@@ -18,7 +18,7 @@
                 <include>**/*.yml</include>
             </includes>
         </fileSet>
-        
+
         <fileSet filtered="true" encoding="UTF-8">
             <directory>src/main/webapp</directory>
             <includes>
@@ -39,6 +39,8 @@
             <includes>
                 <include>.mvn/**</include>
                 <include>.dockerignore</include>
+                <include>.editorconfig</include>
+                <include>.gitattributes</include>
                 <include>.gitignore</include>
                 <include>.java-version</include>
                 <include>mvnw</include>
@@ -46,7 +48,7 @@
                 <include>Dockerfile</include>
             </includes>
         </fileSet>
-        
+
         <fileSet filtered="true" encoding="UTF-8">
             <directory />
             <includes>
