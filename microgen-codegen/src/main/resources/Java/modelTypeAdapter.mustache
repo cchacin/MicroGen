@@ -1,0 +1,21 @@
+package {{package}};
+
+{{#imports}}
+import {{import}};
+{{/imports}}
+
+{{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
+@javax.ws.rs.ext.Provider
+public class {{classname}}TypeAdapter implements javax.json.bind.adapter.JsonbAdapter<{{classname}}, Immutable{{classname}}> {
+
+    @Override
+    public Immutable{{classname}} adaptToJson({{classname}} obj) throws Exception {
+        return Immutable{{classname}}.copyOf(obj);
+    }
+
+    @Override
+    public {{classname}} adaptFromJson(Immutable{{classname}} obj) throws Exception {
+        return obj;
+    }
+}
+{{/isEnum}}{{/model}}{{/models}}

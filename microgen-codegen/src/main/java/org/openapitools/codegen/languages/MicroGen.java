@@ -125,8 +125,13 @@ public class MicroGen extends JavaClientCodegen {
         this.importMapping.clear();
         this.supportingFiles.clear();
         this.modelDocTemplateFiles.clear();
+        this.modelTemplateFiles.clear();
+        this.modelTemplateFiles.put("model.mustache", ".java");
+        this.modelTemplateFiles.put("modelTypeAdapter.mustache", "TypeAdapter.java");
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
+        this.apiTemplateFiles.clear();
+        this.apiTemplateFiles.put("api.mustache", ".java");
         this.apiTestTemplateFiles.clear();
         this.apiTestTemplateFiles.put("api_test.mustache", ".java");
         this.apiTestTemplateFiles.put("examples.mustache", "Examples.json");
@@ -136,7 +141,9 @@ public class MicroGen extends JavaClientCodegen {
         this.instantiationTypes.put("map", Builder.JAVA_UTIL_HASHMAP);
 
         final String resourcesFolder = this.projectFolder + File.separator + "resources";
+        final String modelsFolder = this.sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar);
         this.supportingFiles.add(new SupportingFile("versions.mustache", resourcesFolder, "versions.properties"));
+        this.supportingFiles.add(new SupportingFile("openAPIModel.mustache", modelsFolder,                         "OpenAPIModel.java"));
 
         this.additionalProperties.put(this.EXCLUDED_TAGS,
                                       Util.extractStringSet(this.additionalProperties, this.EXCLUDED_TAGS));

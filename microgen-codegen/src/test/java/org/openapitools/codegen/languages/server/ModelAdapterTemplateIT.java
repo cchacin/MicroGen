@@ -27,27 +27,25 @@ import org.openapitools.codegen.languages.TemplateType;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-class ModelTemplateIT implements ServerTemplateTest {
+class ModelAdapterTemplateIT implements ServerTemplateTest {
 
     @TempDir
     Path tmpFolder;
 
     static Stream<Arguments> arguments() {
         return Stream.of(
-                Arguments.of("petstore", "OpenAPIModel.java"),
-                Arguments.of("petstore", "Pet.java"),
-                Arguments.of("petstore", "User.java"),
-                Arguments.of("petstore", "Category.java"),
-                Arguments.of("petstore", "Order.java"),
-                Arguments.of("petstore", "Tag.java"),
-                Arguments.of("example", "OpenAPIModel.java"),
-                Arguments.of("example", "SampleBase.java"),
-                Arguments.of("example", "SampleSubClass.java"),
-                Arguments.of("example", "PersonCard.java"),
-                Arguments.of("example", "BaseCard.java"),
-                Arguments.of("example", "ModelWithPropertiesAndAdditionalProperties.java"),
-                Arguments.of("example", "ModelWithMapProperties.java"),
-                Arguments.of("example", "ModelWithReadOnlyPropertyTest.java")
+            Arguments.of("petstore", "PetTypeAdapter.java"),
+            Arguments.of("petstore", "UserTypeAdapter.java"),
+            Arguments.of("petstore", "CategoryTypeAdapter.java"),
+            Arguments.of("petstore", "OrderTypeAdapter.java"),
+            Arguments.of("petstore", "TagTypeAdapter.java"),
+            Arguments.of("example", "SampleBaseTypeAdapter.java"),
+            Arguments.of("example", "SampleSubClassTypeAdapter.java"),
+            Arguments.of("example", "PersonCardTypeAdapter.java"),
+            Arguments.of("example", "BaseCardTypeAdapter.java"),
+            Arguments.of("example", "ModelWithPropertiesAndAdditionalPropertiesTypeAdapter.java"),
+            Arguments.of("example", "ModelWithMapPropertiesTypeAdapter.java"),
+            Arguments.of("example", "ModelWithReadOnlyPropertyTestTypeAdapter.java")
         );
     }
 

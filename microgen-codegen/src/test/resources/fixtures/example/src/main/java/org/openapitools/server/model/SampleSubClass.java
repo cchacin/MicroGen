@@ -3,37 +3,35 @@ package org.openapitools.server.model;
 /** This is an subclass defived from the SampleBase class. */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbAnnotation.class,
-                javax.json.bind.annotation.JsonbCreator.class,
-                javax.json.bind.annotation.JsonbDateFormat.class,
-                javax.json.bind.annotation.JsonbNillable.class,
-                javax.json.bind.annotation.JsonbNumberFormat.class,
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbPropertyOrder.class,
-                javax.json.bind.annotation.JsonbTransient.class,
-                javax.json.bind.annotation.JsonbTypeAdapter.class,
-                javax.json.bind.annotation.JsonbTypeSerializer.class,
-                javax.json.bind.annotation.JsonbTypeDeserializer.class,
-                javax.json.bind.annotation.JsonbVisibility.class
-        },
-        jdkOnly = true)
+    defaultAsDefault = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
+    jacksonIntegration = false,
+    of = "new",
+    allParameters = true,
+    passAnnotations = {
+        javax.json.bind.annotation.JsonbAnnotation.class,
+        javax.json.bind.annotation.JsonbCreator.class,
+        javax.json.bind.annotation.JsonbDateFormat.class,
+        javax.json.bind.annotation.JsonbNillable.class,
+        javax.json.bind.annotation.JsonbNumberFormat.class,
+        javax.json.bind.annotation.JsonbProperty.class,
+        javax.json.bind.annotation.JsonbPropertyOrder.class,
+        javax.json.bind.annotation.JsonbTransient.class,
+        javax.json.bind.annotation.JsonbTypeAdapter.class,
+        javax.json.bind.annotation.JsonbTypeSerializer.class,
+        javax.json.bind.annotation.JsonbTypeDeserializer.class,
+        javax.json.bind.annotation.JsonbVisibility.class
+    },
+    jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       SampleSubClass.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
-                                                       SampleSubClass.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP,
-                                                       SampleSubClass.JSONB_PROPERTY_SUB_CLASS_STRING_PROP,
-                                                       SampleSubClass.JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP
+                                                   SampleSubClass.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
+                                                   SampleSubClass.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP,
+                                                   SampleSubClass.JSONB_PROPERTY_SUB_CLASS_STRING_PROP,
+                                                   SampleSubClass.JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(SampleSubClass.SampleSubClassJsonbTypeAdapter.class)
+@javax.json.bind.annotation.JsonbTypeAdapter(SampleSubClassTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public abstract class SampleSubClass {
+public abstract class SampleSubClass implements OpenAPIModel {
 
     public static final String JSONB_PROPERTY_BASE_CLASS_STRING_PROP = "baseClassStringProp";
     public static final String JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP = "baseClassIntegerProp";
@@ -75,25 +73,7 @@ public abstract class SampleSubClass {
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_SUB_CLASS_INTEGER_PROP)
     public abstract java.util.OptionalInt getSubClassIntegerProp();
 
-    @javax.ws.rs.ext.Provider
-    public static class SampleSubClassJsonbTypeAdapter
-            implements javax.json.bind.adapter.JsonbAdapter<
-            SampleSubClass, SampleSubClassInternalBuilder.ImmutableSampleSubClass> {
-
-        @Override
-        public SampleSubClassInternalBuilder.ImmutableSampleSubClass adaptToJson(SampleSubClass obj)
-                throws Exception {
-            return SampleSubClassInternalBuilder.ImmutableSampleSubClass.copyOf(obj);
-        }
-
-        @Override
-        public SampleSubClass adaptFromJson(SampleSubClassInternalBuilder.ImmutableSampleSubClass obj)
-                throws Exception {
-            return obj;
-        }
-    }
-
-    public static class Builder extends SampleSubClassInternalBuilder {}
+    public static class Builder extends ImmutableSampleSubClass.Builder {}
 
     public static Builder builder() {
         return new Builder();

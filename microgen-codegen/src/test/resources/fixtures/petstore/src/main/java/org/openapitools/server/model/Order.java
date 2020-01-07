@@ -3,39 +3,37 @@ package org.openapitools.server.model;
 /** Order */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-        defaultAsDefault = true,
-        typeBuilder = "*InternalBuilder",
-        implementationNestedInBuilder = true,
-        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-        jacksonIntegration = false,
-        of = "new",
-        allParameters = true,
-        passAnnotations = {
-                javax.json.bind.annotation.JsonbAnnotation.class,
-                javax.json.bind.annotation.JsonbCreator.class,
-                javax.json.bind.annotation.JsonbDateFormat.class,
-                javax.json.bind.annotation.JsonbNillable.class,
-                javax.json.bind.annotation.JsonbNumberFormat.class,
-                javax.json.bind.annotation.JsonbProperty.class,
-                javax.json.bind.annotation.JsonbPropertyOrder.class,
-                javax.json.bind.annotation.JsonbTransient.class,
-                javax.json.bind.annotation.JsonbTypeAdapter.class,
-                javax.json.bind.annotation.JsonbTypeSerializer.class,
-                javax.json.bind.annotation.JsonbTypeDeserializer.class,
-                javax.json.bind.annotation.JsonbVisibility.class
-        },
-        jdkOnly = true)
+    defaultAsDefault = true,
+    validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
+    jacksonIntegration = false,
+    of = "new",
+    allParameters = true,
+    passAnnotations = {
+        javax.json.bind.annotation.JsonbAnnotation.class,
+        javax.json.bind.annotation.JsonbCreator.class,
+        javax.json.bind.annotation.JsonbDateFormat.class,
+        javax.json.bind.annotation.JsonbNillable.class,
+        javax.json.bind.annotation.JsonbNumberFormat.class,
+        javax.json.bind.annotation.JsonbProperty.class,
+        javax.json.bind.annotation.JsonbPropertyOrder.class,
+        javax.json.bind.annotation.JsonbTransient.class,
+        javax.json.bind.annotation.JsonbTypeAdapter.class,
+        javax.json.bind.annotation.JsonbTypeSerializer.class,
+        javax.json.bind.annotation.JsonbTypeDeserializer.class,
+        javax.json.bind.annotation.JsonbVisibility.class
+    },
+    jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Order.JSONB_PROPERTY_ID,
-                                                       Order.JSONB_PROPERTY_PET_ID,
-                                                       Order.JSONB_PROPERTY_QUANTITY,
-                                                       Order.JSONB_PROPERTY_SHIP_DATE,
-                                                       Order.JSONB_PROPERTY_STATUS,
-                                                       Order.JSONB_PROPERTY_COMPLETE
+                                                   Order.JSONB_PROPERTY_ID,
+                                                   Order.JSONB_PROPERTY_PET_ID,
+                                                   Order.JSONB_PROPERTY_QUANTITY,
+                                                   Order.JSONB_PROPERTY_SHIP_DATE,
+                                                   Order.JSONB_PROPERTY_STATUS,
+                                                   Order.JSONB_PROPERTY_COMPLETE
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(Order.OrderJsonbTypeAdapter.class)
+@javax.json.bind.annotation.JsonbTypeAdapter(OrderTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
-public abstract class Order {
+public abstract class Order implements OpenAPIModel {
 
     public static final String JSONB_PROPERTY_ID = "id";
     public static final String JSONB_PROPERTY_PET_ID = "petId";
@@ -115,29 +113,29 @@ public abstract class Order {
     }
 
     public static class StatusEnumSerializer
-            implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+        implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
 
         public StatusEnumSerializer() {}
 
         @Override
         public void serialize(
-                StatusEnum aEnum,
-                javax.json.stream.JsonGenerator jsonGenerator,
-                javax.json.bind.serializer.SerializationContext serializationContext) {
+            StatusEnum aEnum,
+            javax.json.stream.JsonGenerator jsonGenerator,
+            javax.json.bind.serializer.SerializationContext serializationContext) {
             jsonGenerator.write(aEnum.value);
         }
     }
 
     public static class StatusEnumDeserializer
-            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+        implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
         @Override
         public StatusEnum deserialize(
-                javax.json.stream.JsonParser jsonParser,
-                javax.json.bind.serializer.DeserializationContext deserializationContext,
-                java.lang.reflect.Type type) {
+            javax.json.stream.JsonParser jsonParser,
+            javax.json.bind.serializer.DeserializationContext deserializationContext,
+            java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
@@ -158,22 +156,7 @@ public abstract class Order {
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_COMPLETE)
     public abstract java.util.Optional<Boolean> getComplete();
 
-    @javax.ws.rs.ext.Provider
-    public static class OrderJsonbTypeAdapter
-            implements javax.json.bind.adapter.JsonbAdapter<Order, OrderInternalBuilder.ImmutableOrder> {
-
-        @Override
-        public OrderInternalBuilder.ImmutableOrder adaptToJson(Order obj) throws Exception {
-            return OrderInternalBuilder.ImmutableOrder.copyOf(obj);
-        }
-
-        @Override
-        public Order adaptFromJson(OrderInternalBuilder.ImmutableOrder obj) throws Exception {
-            return obj;
-        }
-    }
-
-    public static class Builder extends OrderInternalBuilder {}
+    public static class Builder extends ImmutableOrder.Builder {}
 
     public static Builder builder() {
         return new Builder();
