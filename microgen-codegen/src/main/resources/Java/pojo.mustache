@@ -3,8 +3,6 @@
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
     defaultAsDefault = true,
-    typeBuilder = "*InternalBuilder",
-    implementationNestedInBuilder = true,
     validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
     jacksonIntegration = false,
     of = "new",
@@ -31,9 +29,9 @@
     {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
-@javax.json.bind.annotation.JsonbTypeAdapter({{classname}}.{{classname}}JsonbTypeAdapter.class)
+@javax.json.bind.annotation.JsonbTypeAdapter({{classname}}TypeAdapter.class)
 {{>generatedAnnotation}}
-public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
+public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 
     {{#vars}}
     public static final String {{jsonbPropertyName}} = "{{baseName}}";
@@ -64,22 +62,8 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     public abstract {{{datatypeWithEnum}}} {{getter}}();
 
 {{/vars}}
-    @javax.ws.rs.ext.Provider
-    public static class {{classname}}JsonbTypeAdapter implements javax.json.bind.adapter.JsonbAdapter<{{classname}}, {{classname}}InternalBuilder.Immutable{{classname}}> {
-    
-        @Override
-        public {{classname}}InternalBuilder.Immutable{{classname}} adaptToJson({{classname}} obj) throws Exception {
-            return {{classname}}InternalBuilder.Immutable{{classname}}.copyOf(obj);
-        }
-        
-        @Override
-        public {{classname}} adaptFromJson({{classname}}InternalBuilder.Immutable{{classname}} obj) throws Exception {
-            return obj;
-        }
-    }
+    public static class Builder extends Immutable{{classname}}.Builder {}
 
-    public static class Builder extends {{classname}}InternalBuilder {}
-    
     public static Builder builder() {
         return new Builder();
     }
