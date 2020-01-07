@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="OpenLiberty Server">
+
+    <featureManager>
+        <feature>microProfile-3.2</feature>
+        <feature>usr:opentracingZipkin-0.31</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}"/>
+
+    <applicationManager autoExpand="true"/>
+
+    <opentracingZipkin/>
+
+    <mpMetrics authentication="false"/>
+
+    <webApplication id="api" location="api.war" name="api"/>
+
+</server>
