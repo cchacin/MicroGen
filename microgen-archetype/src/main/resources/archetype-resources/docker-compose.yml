@@ -103,6 +103,13 @@ services:
     image: ${groupId}/${rootArtifactId}:${version}
     container_name: ${rootArtifactId}
     hostname: ${rootArtifactId}
+    environment:
+      - WLP_LOGGING_CONSOLE_LOGLEVEL=info
+      - WLP_LOGGING_CONSOLE_SOURCE=message,trace,accessLog,ffdc
+      - WLP_LOGGING_CONSOLE_FORMAT=json
+      - WLP_LOGGING_MESSAGE_FORMAT=json
+      - WLP_LOGGING_MESSAGE_SOURCE=
+      - LOG_DIR=/tmp/logs
     depends_on:
       - kibana
       - zipkin
