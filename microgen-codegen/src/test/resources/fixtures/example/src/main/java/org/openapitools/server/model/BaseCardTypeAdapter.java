@@ -1,6 +1,5 @@
 package org.openapitools.server.model;
 
-@javax.ws.rs.ext.Provider
 public class BaseCardTypeAdapter
     implements javax.json.bind.adapter.JsonbAdapter<BaseCard, ImmutableBaseCard> {
 

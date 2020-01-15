@@ -27,7 +27,6 @@ package org.openapitools.server.model;
                                                    Category.JSONB_PROPERTY_ID,
                                                    Category.JSONB_PROPERTY_NAME
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(CategoryTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Category implements OpenAPIModel {
 

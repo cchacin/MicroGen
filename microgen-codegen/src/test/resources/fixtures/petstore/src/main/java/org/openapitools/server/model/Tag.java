@@ -24,7 +24,6 @@ package org.openapitools.server.model;
     },
     jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({Tag.JSONB_PROPERTY_ID, Tag.JSONB_PROPERTY_NAME})
-@javax.json.bind.annotation.JsonbTypeAdapter(TagTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Tag implements OpenAPIModel {
 

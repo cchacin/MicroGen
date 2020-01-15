@@ -33,7 +33,6 @@ package org.openapitools.server.model;
                                                    User.JSONB_PROPERTY_PHONE,
                                                    User.JSONB_PROPERTY_USER_STATUS
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(UserTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class User implements OpenAPIModel {
 

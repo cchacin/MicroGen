@@ -32,7 +32,6 @@ package org.openapitools.server.model;
                                                    ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_MAP,
                                                    ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(ModelWithMapPropertiesTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithMapProperties implements OpenAPIModel {
 

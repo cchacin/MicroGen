@@ -27,7 +27,6 @@ package org.openapitools.server.model;
                                                    PersonCard.JSONB_PROPERTY_FIRST_NAME,
                                                    PersonCard.JSONB_PROPERTY_LAST_NAME
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(PersonCardTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class PersonCard extends BaseCard implements OpenAPIModel {
 
