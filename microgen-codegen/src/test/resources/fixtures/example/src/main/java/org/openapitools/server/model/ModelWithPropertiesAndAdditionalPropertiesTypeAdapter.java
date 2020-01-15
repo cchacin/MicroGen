@@ -1,6 +1,5 @@
 package org.openapitools.server.model;
 
-@javax.ws.rs.ext.Provider
 public class ModelWithPropertiesAndAdditionalPropertiesTypeAdapter
     implements javax.json.bind.adapter.JsonbAdapter<
     ModelWithPropertiesAndAdditionalProperties,

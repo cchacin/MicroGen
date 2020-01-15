@@ -27,8 +27,6 @@ package org.openapitools.server.model;
                                                    ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_INTEGER_PROP,
                                                    ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_STRING_PROP
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(
-    ModelWithPropertiesAndAdditionalPropertiesTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithPropertiesAndAdditionalProperties
     extends java.util.HashMap<String, String> implements OpenAPIModel {

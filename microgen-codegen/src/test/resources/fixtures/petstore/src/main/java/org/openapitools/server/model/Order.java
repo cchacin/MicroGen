@@ -31,7 +31,6 @@ package org.openapitools.server.model;
                                                    Order.JSONB_PROPERTY_STATUS,
                                                    Order.JSONB_PROPERTY_COMPLETE
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(OrderTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Order implements OpenAPIModel {
 

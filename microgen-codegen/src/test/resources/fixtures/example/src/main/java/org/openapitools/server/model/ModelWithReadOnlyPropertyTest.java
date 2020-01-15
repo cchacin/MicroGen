@@ -28,7 +28,6 @@ package org.openapitools.server.model;
                                                    ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_EXPLICIT_READ_ONLY_FALSE,
                                                    ModelWithReadOnlyPropertyTest.JSONB_PROPERTY_STRING_PROP_WITH_READ_ONLY_TRUE
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(ModelWithReadOnlyPropertyTestTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithReadOnlyPropertyTest implements OpenAPIModel {
 

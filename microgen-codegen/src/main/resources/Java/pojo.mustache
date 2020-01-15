@@ -29,7 +29,6 @@
     {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
-@javax.json.bind.annotation.JsonbTypeAdapter({{classname}}TypeAdapter.class)
 {{>generatedAnnotation}}
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 

@@ -5,7 +5,6 @@ import {{import}};
 {{/imports}}
 
 {{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
-@javax.ws.rs.ext.Provider
 public class {{classname}}TypeAdapter implements javax.json.bind.adapter.JsonbAdapter<{{classname}}, Immutable{{classname}}> {
 
     @Override

@@ -1,8 +1,6 @@
 package org.openapitools.server.model;
 
-@javax.ws.rs.ext.Provider
-public class PetTypeAdapter
-    implements javax.json.bind.adapter.JsonbAdapter<Pet, ImmutablePet> {
+public class PetTypeAdapter implements javax.json.bind.adapter.JsonbAdapter<Pet, ImmutablePet> {
 
     @Override
     public ImmutablePet adaptToJson(Pet obj) throws Exception {

@@ -1,6 +1,5 @@
 package org.openapitools.server.model;
 
-@javax.ws.rs.ext.Provider
 public class SampleBaseTypeAdapter
     implements javax.json.bind.adapter.JsonbAdapter<SampleBase, ImmutableSampleBase> {
 

@@ -31,7 +31,6 @@ package org.openapitools.server.model;
                                                    Pet.JSONB_PROPERTY_TAGS,
                                                    Pet.JSONB_PROPERTY_STATUS
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(PetTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Pet implements OpenAPIModel {
 

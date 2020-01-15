@@ -27,7 +27,6 @@ package org.openapitools.server.model;
                                                    SampleBase.JSONB_PROPERTY_BASE_CLASS_STRING_PROP,
                                                    SampleBase.JSONB_PROPERTY_BASE_CLASS_INTEGER_PROP
                                                })
-@javax.json.bind.annotation.JsonbTypeAdapter(SampleBaseTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class SampleBase implements OpenAPIModel {
 

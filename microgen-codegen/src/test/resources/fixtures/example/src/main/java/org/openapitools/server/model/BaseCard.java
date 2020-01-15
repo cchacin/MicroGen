@@ -24,7 +24,6 @@ package org.openapitools.server.model;
     },
     jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSONB_PROPERTY_CARD_TYPE})
-@javax.json.bind.annotation.JsonbTypeAdapter(BaseCardTypeAdapter.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class BaseCard implements OpenAPIModel {
 
