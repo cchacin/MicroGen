@@ -23,7 +23,7 @@ import java.util.Map;
 
 interface Builder {
     String JAVA_UTIL_LIST = "java.util.ArrayList";
-    String JAVA_UTIL_MAP = "java.util.Map";
+    String JAVA_UTIL_MAP = "java.util.HashMap";
     String JAVA_UTIL_HASHMAP = "java.util.HashMap";
 
     static Map<String, String> buildTypeMapping() {

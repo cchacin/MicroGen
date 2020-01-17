@@ -15,25 +15,25 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "DELETE_store/order/{orderId}",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "deleteOrder",
-        reusable = false,
-        tags = {"action=StoreApi.deleteOrder"},
-        description = "Delete purchase order by ID")
+            name = "DELETE_store/order/{orderId}",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "deleteOrder",
+            reusable = false,
+            tags = {"action=StoreApi.deleteOrder"},
+            description = "Delete purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "DELETE_store/order/{orderId}",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "deleteOrder",
-        reusable = false,
-        tags = {"action=StoreApi.deleteOrder"},
-        description = "Delete purchase order by ID")
+            name = "DELETE_store/order/{orderId}",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "deleteOrder",
+            reusable = false,
+            tags = {"action=StoreApi.deleteOrder"},
+            description = "Delete purchase order by ID")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("store/order/{orderId}")
     java.util.concurrent.CompletionStage<Void> deleteOrder(
-        @javax.ws.rs.BeanParam DeleteOrderParams params) throws javax.ws.rs.WebApplicationException;
+            @javax.ws.rs.BeanParam DeleteOrderParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeleteOrderParams {
         @javax.ws.rs.PathParam("orderId")
@@ -49,30 +49,30 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     /**
      * Returns pet inventories by status Returns a map of status codes to quantities
      *
-     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.Map&lt;String,
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.HashMap&lt;String,
      *     Integer&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "GET_store/inventory",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "getInventory",
-        reusable = false,
-        tags = {"action=StoreApi.getInventory"},
-        description = "Returns pet inventories by status")
+            name = "GET_store/inventory",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "getInventory",
+            reusable = false,
+            tags = {"action=StoreApi.getInventory"},
+            description = "Returns pet inventories by status")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "GET_store/inventory",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "getInventory",
-        reusable = false,
-        tags = {"action=StoreApi.getInventory"},
-        description = "Returns pet inventories by status")
+            name = "GET_store/inventory",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "getInventory",
+            reusable = false,
+            tags = {"action=StoreApi.getInventory"},
+            description = "Returns pet inventories by status")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/inventory")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<java.util.Map<String, Integer>> getInventory()
-        throws javax.ws.rs.WebApplicationException;
+    java.util.concurrent.CompletionStage<java.util.HashMap<String, Integer>> getInventory()
+            throws javax.ws.rs.WebApplicationException;
 
     /**
      * Find purchase order by ID For valid response try integer IDs with value &gt;&#x3D; 1 and
@@ -82,26 +82,26 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Order&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "GET_store/order/{orderId}",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "getOrderById",
-        reusable = false,
-        tags = {"action=StoreApi.getOrderById"},
-        description = "Find purchase order by ID")
+            name = "GET_store/order/{orderId}",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "getOrderById",
+            reusable = false,
+            tags = {"action=StoreApi.getOrderById"},
+            description = "Find purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "GET_store/order/{orderId}",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "getOrderById",
-        reusable = false,
-        tags = {"action=StoreApi.getOrderById"},
-        description = "Find purchase order by ID")
+            name = "GET_store/order/{orderId}",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "getOrderById",
+            reusable = false,
+            tags = {"action=StoreApi.getOrderById"},
+            description = "Find purchase order by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/order/{orderId}")
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Order> getOrderById(
-        @javax.ws.rs.BeanParam GetOrderByIdParams params) throws javax.ws.rs.WebApplicationException;
+            @javax.ws.rs.BeanParam GetOrderByIdParams params) throws javax.ws.rs.WebApplicationException;
 
     class GetOrderByIdParams {
         @javax.ws.rs.PathParam("orderId")
@@ -122,26 +122,26 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Order&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "POST_store/order",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "placeOrder",
-        reusable = false,
-        tags = {"action=StoreApi.placeOrder"},
-        description = "Place an order for a pet")
+            name = "POST_store/order",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "placeOrder",
+            reusable = false,
+            tags = {"action=StoreApi.placeOrder"},
+            description = "Place an order for a pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "POST_store/order",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "placeOrder",
-        reusable = false,
-        tags = {"action=StoreApi.placeOrder"},
-        description = "Place an order for a pet")
+            name = "POST_store/order",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "placeOrder",
+            reusable = false,
+            tags = {"action=StoreApi.placeOrder"},
+            description = "Place an order for a pet")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("store/order")
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Order> placeOrder(
-        @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
-        throws javax.ws.rs.WebApplicationException;
+            @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
+            throws javax.ws.rs.WebApplicationException;
 }
