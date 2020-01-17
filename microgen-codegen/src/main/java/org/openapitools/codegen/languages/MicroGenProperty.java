@@ -105,7 +105,7 @@ class MicroGenProperty extends CodegenProperty {
 
     @Override
     public String getDatatypeWithEnum() {
-        if (!this.required) {
+        if (!this.required && !this.isContainer && this.dataType != null) {
             if (!this.isEnum) {
                 if ("Integer".equals(this.dataType)) {
                     return "java.util.OptionalInt";

@@ -3,33 +3,33 @@ package org.openapitools.server.model;
 /** Pet */
 @org.immutables.value.Value.Immutable
 @org.immutables.value.Value.Style(
-    defaultAsDefault = true,
-    validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-    jacksonIntegration = false,
-    of = "new",
-    allParameters = true,
-    passAnnotations = {
-        javax.json.bind.annotation.JsonbAnnotation.class,
-        javax.json.bind.annotation.JsonbCreator.class,
-        javax.json.bind.annotation.JsonbDateFormat.class,
-        javax.json.bind.annotation.JsonbNillable.class,
-        javax.json.bind.annotation.JsonbNumberFormat.class,
-        javax.json.bind.annotation.JsonbProperty.class,
-        javax.json.bind.annotation.JsonbPropertyOrder.class,
-        javax.json.bind.annotation.JsonbTransient.class,
-        javax.json.bind.annotation.JsonbTypeAdapter.class,
-        javax.json.bind.annotation.JsonbTypeSerializer.class,
-        javax.json.bind.annotation.JsonbTypeDeserializer.class,
-        javax.json.bind.annotation.JsonbVisibility.class
-    },
-    jdkOnly = true)
+        defaultAsDefault = true,
+        validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
+        jacksonIntegration = false,
+        of = "new",
+        allParameters = true,
+        passAnnotations = {
+                javax.json.bind.annotation.JsonbAnnotation.class,
+                javax.json.bind.annotation.JsonbCreator.class,
+                javax.json.bind.annotation.JsonbDateFormat.class,
+                javax.json.bind.annotation.JsonbNillable.class,
+                javax.json.bind.annotation.JsonbNumberFormat.class,
+                javax.json.bind.annotation.JsonbProperty.class,
+                javax.json.bind.annotation.JsonbPropertyOrder.class,
+                javax.json.bind.annotation.JsonbTransient.class,
+                javax.json.bind.annotation.JsonbTypeAdapter.class,
+                javax.json.bind.annotation.JsonbTypeSerializer.class,
+                javax.json.bind.annotation.JsonbTypeDeserializer.class,
+                javax.json.bind.annotation.JsonbVisibility.class
+        },
+        jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                   Pet.JSONB_PROPERTY_ID,
-                                                   Pet.JSONB_PROPERTY_CATEGORY,
-                                                   Pet.JSONB_PROPERTY_NAME,
-                                                   Pet.JSONB_PROPERTY_PHOTO_URLS,
-                                                   Pet.JSONB_PROPERTY_TAGS,
-                                                   Pet.JSONB_PROPERTY_STATUS
+                                                       Pet.JSONB_PROPERTY_ID,
+                                                       Pet.JSONB_PROPERTY_CATEGORY,
+                                                       Pet.JSONB_PROPERTY_NAME,
+                                                       Pet.JSONB_PROPERTY_PHOTO_URLS,
+                                                       Pet.JSONB_PROPERTY_TAGS,
+                                                       Pet.JSONB_PROPERTY_STATUS
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Pet implements OpenAPIModel {
@@ -86,7 +86,7 @@ public abstract class Pet implements OpenAPIModel {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_TAGS)
-    public abstract java.util.Optional<java.util.ArrayList<Tag>> getTags();
+    public abstract java.util.ArrayList<Tag> getTags();
 
     /** pet status in the store */
     @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
@@ -123,29 +123,29 @@ public abstract class Pet implements OpenAPIModel {
     }
 
     public static class StatusEnumSerializer
-        implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
+            implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
 
         public StatusEnumSerializer() {}
 
         @Override
         public void serialize(
-            StatusEnum aEnum,
-            javax.json.stream.JsonGenerator jsonGenerator,
-            javax.json.bind.serializer.SerializationContext serializationContext) {
+                StatusEnum aEnum,
+                javax.json.stream.JsonGenerator jsonGenerator,
+                javax.json.bind.serializer.SerializationContext serializationContext) {
             jsonGenerator.write(aEnum.value);
         }
     }
 
     public static class StatusEnumDeserializer
-        implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
+            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         public StatusEnumDeserializer() {}
 
         @Override
         public StatusEnum deserialize(
-            javax.json.stream.JsonParser jsonParser,
-            javax.json.bind.serializer.DeserializationContext deserializationContext,
-            java.lang.reflect.Type type) {
+                javax.json.stream.JsonParser jsonParser,
+                javax.json.bind.serializer.DeserializationContext deserializationContext,
+                java.lang.reflect.Type type) {
             return StatusEnum.fromValue(jsonParser.getString());
         }
     }
