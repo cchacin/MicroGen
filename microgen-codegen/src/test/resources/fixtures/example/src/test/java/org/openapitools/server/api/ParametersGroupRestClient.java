@@ -206,7 +206,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      *     of string arrays. The outer delimiter is the pipe (&#39;|&#39;) and the inner delimiter is
      *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional, default
      *     to new java.util.ArrayList<java.util.ArrayList<String>>())
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "GET_test/parameters/arrays/collectionFormat",
@@ -226,7 +226,8 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
             description = "Summary: This is an endpoint which tests collectionFormat.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays/collectionFormat")
-    java.util.concurrent.CompletionStage<Void> getParametersArraysCollectionFormat(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
+    getParametersArraysCollectionFormat(
             @javax.ws.rs.BeanParam GetParametersArraysCollectionFormatParams params)
             throws javax.ws.rs.WebApplicationException;
 
@@ -535,7 +536,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      *     to new java.util.ArrayList<String>())
      * @param integerParameterWithMultipleOf This is an integer parameter with multipleOf&#x3D;10. So
      *     therefore values of 10, 100, and 10000 would pass validation but 25 would not. (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "GET_test/parameters/validation",
@@ -555,7 +556,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
             description = "Summary: This is an endpoint which tests validation conditions on parameters.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/validation")
-    java.util.concurrent.CompletionStage<Void> getParametersValidation(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> getParametersValidation(
             @javax.ws.rs.BeanParam GetParametersValidationParams params)
             throws javax.ws.rs.WebApplicationException;
 
@@ -675,7 +676,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * for testing an input parameter serialized in the body of the request.
      *
      * @param errorInfo This parameter will be serialized in the request body. (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_test/parameters/body",
@@ -696,7 +697,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> postBodyParameterJSON(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
             @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
             throws javax.ws.rs.WebApplicationException;
 
@@ -705,7 +706,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * operation is for testing multipart/form-data input parameters.
      *
      * @param fileParam This is an in&#x3D;formData type&#x3D;file input parameter (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_test/parameters/multiPartFormData",
@@ -726,7 +727,8 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/multiPartFormData")
     @javax.ws.rs.Consumes({"multipart/form-data"})
-    java.util.concurrent.CompletionStage<Void> postFormDataParameterMultipartFormData(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response>
+    postFormDataParameterMultipartFormData(
             @javax.ws.rs.BeanParam PostFormDataParameterMultipartFormDataParams params)
             throws javax.ws.rs.WebApplicationException;
 
@@ -759,7 +761,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @param numberParam This is an in&#x3D;body type&#x3D;number input parameter (optional)
      * @param integerParam This is an in&#x3D;body type&#x3D;integer input parameter (optional)
      * @param booleanParam This is an in&#x3D;body type&#x3D;boolean input parameter (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_test/parameters/urlEncoded",
@@ -780,7 +782,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/urlEncoded")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
-    java.util.concurrent.CompletionStage<Void> postFormDataParametersUrlEncoded(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postFormDataParametersUrlEncoded(
             @javax.ws.rs.BeanParam PostFormDataParametersUrlEncodedParams params)
             throws javax.ws.rs.WebApplicationException;
 

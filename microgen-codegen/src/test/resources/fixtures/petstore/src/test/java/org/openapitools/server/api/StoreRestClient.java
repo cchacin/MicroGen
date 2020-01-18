@@ -12,7 +12,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * Negative or non-integer values will generate API errors
      *
      * @param orderId ID of the order that needs to be deleted (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "DELETE_store/order/{orderId}",
@@ -32,7 +32,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
             description = "Delete purchase order by ID")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("store/order/{orderId}")
-    java.util.concurrent.CompletionStage<Void> deleteOrder(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
             @javax.ws.rs.BeanParam DeleteOrderParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeleteOrderParams {

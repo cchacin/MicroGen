@@ -11,7 +11,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
      * Create user This can only be done by the logged in user.
      *
      * @param user Created user object (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_user",
@@ -32,7 +32,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> createUser(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
             @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -40,7 +40,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
      * Creates list of users with given input array
      *
      * @param user List of user object (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_user/createWithArray",
@@ -61,7 +61,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> createUsersWithArrayInput(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.ArrayList<User> user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -69,7 +69,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
      * Creates list of users with given input array
      *
      * @param user List of user object (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_user/createWithList",
@@ -90,7 +90,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> createUsersWithListInput(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.ArrayList<User> user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -98,7 +98,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
      * Delete user This can only be done by the logged in user.
      *
      * @param username The name that needs to be deleted (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "DELETE_user/{username}",
@@ -118,7 +118,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             description = "Delete user")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("user/{username}")
-    java.util.concurrent.CompletionStage<Void> deleteUser(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteUser(
             @javax.ws.rs.BeanParam DeleteUserParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeleteUserParams {
@@ -222,7 +222,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     /**
      * Logs out current logged in user session
      *
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "GET_user/logout",
@@ -242,7 +242,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             description = "Logs out current logged in user session")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/logout")
-    java.util.concurrent.CompletionStage<Void> logoutUser()
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
             throws javax.ws.rs.WebApplicationException;
 
     /**
@@ -250,7 +250,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
      *
      * @param username name that need to be updated (required)
      * @param user Updated user object (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "PUT_user/{username}",
@@ -271,7 +271,7 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("user/{username}")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> updateUser(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateUser(
             @javax.ws.rs.BeanParam UpdateUserParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
