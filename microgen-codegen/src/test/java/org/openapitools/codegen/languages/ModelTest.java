@@ -38,7 +38,7 @@ public interface ModelTest {
     }
 
     default List<String> extractProperty(
-            final Schema schema,
+            final Schema<?> schema,
             final Optionality optionality,
             final Function<CodegenProperty, String> extractor
             ) {
@@ -51,15 +51,15 @@ public interface ModelTest {
     }
 
     default List<CodegenProperty> getVarsFor(
-            final Schema schema,
+            final Schema<?> schema,
             final Optionality optionality) {
         return getCodegenModel(schema, optionality).vars;
     }
 
     default CodegenModel getCodegenModel(
-            final Schema schema,
+            final Schema<?> schema,
             final Optionality optionality) {
-        final Schema rootSchema = new Schema()
+        final Schema<?> rootSchema = new Schema<>()
                 .name("id")
                 .description("a sample model");
         final Map<String, Schema> properties = new HashMap<>();

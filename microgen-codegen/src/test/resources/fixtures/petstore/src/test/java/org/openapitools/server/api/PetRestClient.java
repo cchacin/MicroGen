@@ -12,7 +12,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * Add a new pet to the store
      *
      * @param pet Pet object that needs to be added to the store (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_pet",
@@ -33,7 +33,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> addPet(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
@@ -42,7 +42,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      *
      * @param petId Pet id to delete (required)
      * @param apiKey (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "DELETE_pet/{petId}",
@@ -62,7 +62,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
             description = "Deletes a pet")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("pet/{petId}")
-    java.util.concurrent.CompletionStage<Void> deletePet(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deletePet(
             @javax.ws.rs.BeanParam DeletePetParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeletePetParams {
@@ -208,7 +208,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * Update an existing pet
      *
      * @param pet Pet object that needs to be added to the store (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "PUT_pet",
@@ -229,7 +229,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json"})
-    java.util.concurrent.CompletionStage<Void> updatePet(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
@@ -239,7 +239,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @param petId ID of pet that needs to be updated (required)
      * @param name Updated name of the pet (optional)
      * @param status Updated status of the pet (optional)
-     * @return {@code java.util.concurrent.CompletionStage&lt;Void&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "POST_pet/{petId}",
@@ -260,7 +260,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet/{petId}")
     @javax.ws.rs.Consumes({"application/x-www-form-urlencoded"})
-    java.util.concurrent.CompletionStage<Void> updatePetWithForm(
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePetWithForm(
             @javax.ws.rs.BeanParam UpdatePetWithFormParams params)
             throws javax.ws.rs.WebApplicationException;
 

@@ -171,7 +171,7 @@ public class MicroGen extends JavaClientCodegen {
                     }
                 }
                 if (operation.returnType == null) {
-                    operation.returnType = "Void";
+                    operation.returnType = "javax.ws.rs.core.Response";
                 }
                 if (StringUtils.isNotEmpty(operation.path) && operation.path.charAt(0) == '/') {
                     operation.path = operation.path.substring(1);
