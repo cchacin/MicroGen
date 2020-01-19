@@ -141,9 +141,11 @@ public class MicroGen extends JavaClientCodegen {
         this.instantiationTypes.put("map", Builder.JAVA_UTIL_HASHMAP);
 
         final String resourcesFolder = this.projectFolder + File.separator + "resources";
-        final String modelsFolder = this.sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar);
+        final String modelsFolder = this.sourceFolder + File.separator + modelPackage().replace('.',
+                                                                                                File.separatorChar);
         this.supportingFiles.add(new SupportingFile("versions.mustache", resourcesFolder, "versions.properties"));
-        this.supportingFiles.add(new SupportingFile("openAPIModel.mustache", modelsFolder,                         "OpenAPIModel.java"));
+        this.supportingFiles.add(new SupportingFile("openAPIModel.mustache", modelsFolder, "OpenAPIModel.java"));
+        this.supportingFiles.add(new SupportingFile("modelPackageInfo.mustache", modelsFolder, "package-info.java"));
 
         this.additionalProperties.put(this.EXCLUDED_TAGS,
                                       Util.extractStringSet(this.additionalProperties, this.EXCLUDED_TAGS));
