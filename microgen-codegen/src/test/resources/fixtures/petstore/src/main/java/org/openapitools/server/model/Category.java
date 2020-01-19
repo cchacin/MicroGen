@@ -2,30 +2,9 @@ package org.openapitools.server.model;
 
 /** Category */
 @org.immutables.value.Value.Immutable
-@org.immutables.value.Value.Style(
-    defaultAsDefault = true,
-    validationMethod = org.immutables.value.Value.Style.ValidationMethod.NONE,
-    jacksonIntegration = false,
-    of = "new",
-    allParameters = true,
-    passAnnotations = {
-        javax.json.bind.annotation.JsonbAnnotation.class,
-        javax.json.bind.annotation.JsonbCreator.class,
-        javax.json.bind.annotation.JsonbDateFormat.class,
-        javax.json.bind.annotation.JsonbNillable.class,
-        javax.json.bind.annotation.JsonbNumberFormat.class,
-        javax.json.bind.annotation.JsonbProperty.class,
-        javax.json.bind.annotation.JsonbPropertyOrder.class,
-        javax.json.bind.annotation.JsonbTransient.class,
-        javax.json.bind.annotation.JsonbTypeAdapter.class,
-        javax.json.bind.annotation.JsonbTypeSerializer.class,
-        javax.json.bind.annotation.JsonbTypeDeserializer.class,
-        javax.json.bind.annotation.JsonbVisibility.class
-    },
-    jdkOnly = true)
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                   Category.JSONB_PROPERTY_ID,
-                                                   Category.JSONB_PROPERTY_NAME
+                                                       Category.JSONB_PROPERTY_ID,
+                                                       Category.JSONB_PROPERTY_NAME
                                                })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Category implements OpenAPIModel {
