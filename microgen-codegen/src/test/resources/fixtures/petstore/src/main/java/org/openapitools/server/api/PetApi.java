@@ -157,9 +157,9 @@ public interface PetApi {
 
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<String> status;
+        public java.util.List<String> status;
 
-        public FindPetsByStatusParams status(final java.util.ArrayList<String> status) {
+        public FindPetsByStatusParams status(final java.util.List<String> status) {
             this.status = status;
             return this;
         }
@@ -213,9 +213,9 @@ public interface PetApi {
 
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<String> tags;
+        public java.util.List<String> tags;
 
-        public FindPetsByTagsParams tags(final java.util.ArrayList<String> tags) {
+        public FindPetsByTagsParams tags(final java.util.List<String> tags) {
             this.tags = tags;
             return this;
         }

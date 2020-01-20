@@ -127,7 +127,7 @@ public class MicroGen extends JavaClientCodegen {
         this.modelDocTemplateFiles.clear();
         this.modelTemplateFiles.clear();
         this.modelTemplateFiles.put("model.mustache", ".java");
-        this.modelTemplateFiles.put("modelTypeAdapter.mustache", "TypeAdapter.java");
+        // this.modelTemplateFiles.put("modelTypeAdapter.mustache", "TypeAdapter.java");
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
         this.apiTemplateFiles.clear();
@@ -145,7 +145,7 @@ public class MicroGen extends JavaClientCodegen {
                                                                                                 File.separatorChar);
         this.supportingFiles.add(new SupportingFile("versions.mustache", resourcesFolder, "versions.properties"));
         this.supportingFiles.add(new SupportingFile("openAPIModel.mustache", modelsFolder, "OpenAPIModel.java"));
-        this.supportingFiles.add(new SupportingFile("modelPackageInfo.mustache", modelsFolder, "package-info.java"));
+        // this.supportingFiles.add(new SupportingFile("modelPackageInfo.mustache", modelsFolder, "package-info.java"));
 
         this.additionalProperties.put(this.EXCLUDED_TAGS,
                                       Util.extractStringSet(this.additionalProperties, this.EXCLUDED_TAGS));
@@ -249,7 +249,7 @@ public class MicroGen extends JavaClientCodegen {
 
     @Override
     public String toDefaultValue(final Schema p) {
-        final Schema schema = ModelUtils.getReferencedSchema(this.openAPI, p);
+        final Schema<?> schema = ModelUtils.getReferencedSchema(this.openAPI, p);
         if (schema.getDefault() != null && ModelUtils.isStringSchema(schema)) {
             return schema.getDefault().toString();
         }

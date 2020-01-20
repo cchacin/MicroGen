@@ -22,9 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 interface Builder {
-    String JAVA_UTIL_LIST = "java.util.ArrayList";
-    String JAVA_UTIL_MAP = "java.util.HashMap";
-    String JAVA_UTIL_HASHMAP = "java.util.HashMap";
+    String JAVA_UTIL_LIST = "java.util.List";
+    String JAVA_UTIL_MAP = "java.util.Map";
+    String JAVA_UTIL_HASHMAP = "java.util.Map";
 
     static Map<String, String> buildTypeMapping() {
         final HashMap<String, String> typeMapping = new HashMap<>();

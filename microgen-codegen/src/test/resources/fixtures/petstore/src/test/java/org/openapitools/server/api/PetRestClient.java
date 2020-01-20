@@ -87,7 +87,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * Finds Pets by status Multiple status values can be provided with comma separated strings
      *
      * @param status Status values that need to be considered for filter (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.ArrayList&lt;Pet&gt;&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "GET_pet/findByStatus",
@@ -108,7 +108,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByStatus")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<java.util.ArrayList<Pet>> findPetsByStatus(
+    java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByStatus(
             @javax.ws.rs.BeanParam FindPetsByStatusParams params)
             throws javax.ws.rs.WebApplicationException;
 
@@ -116,9 +116,9 @@ public interface PetRestClient extends java.lang.AutoCloseable {
 
         @javax.ws.rs.QueryParam("status")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<String> status;
+        public java.util.List<String> status;
 
-        public FindPetsByStatusParams status(final java.util.ArrayList<String> status) {
+        public FindPetsByStatusParams status(final java.util.List<String> status) {
             this.status = status;
             return this;
         }
@@ -129,7 +129,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * tag3 for testing.
      *
      * @param tags Tags to filter by (required)
-     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.ArrayList&lt;Pet&gt;&gt;}
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
             name = "GET_pet/findByTags",
@@ -150,7 +150,7 @@ public interface PetRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByTags")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<java.util.ArrayList<Pet>> findPetsByTags(
+    java.util.concurrent.CompletionStage<java.util.List<Pet>> findPetsByTags(
             @javax.ws.rs.BeanParam FindPetsByTagsParams params)
             throws javax.ws.rs.WebApplicationException;
 
@@ -158,9 +158,9 @@ public interface PetRestClient extends java.lang.AutoCloseable {
 
         @javax.ws.rs.QueryParam("tags")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<String> tags;
+        public java.util.List<String> tags;
 
-        public FindPetsByTagsParams tags(final java.util.ArrayList<String> tags) {
+        public FindPetsByTagsParams tags(final java.util.List<String> tags) {
             this.tags = tags;
             return this;
         }

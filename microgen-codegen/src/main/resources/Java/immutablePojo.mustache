@@ -3,11 +3,15 @@
     {{{additionalAnnotations}}}{{/additionalAnnotations}}
 @javax.json.bind.annotation.JsonbPropertyOrder({
 {{#vars}}
-    {{classname}}.JSON_PROPERTY_{{nameInSnakeCase}}{{^-last}},{{/-last}}
+    {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
 {{>generatedAnnotation}}
-public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
+public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
+
+{{#vars}}
+    public static final String {{jsonbPropertyName}} = "{{baseName}}";
+{{/vars}}
 {{#vars}}
     {{#isEnum}}
         {{^isContainer}}
@@ -22,21 +26,27 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         {{/items}}
     {{/items.isEnum}}
     {{>beanValidation}}
-    private final {{{datatypeWithEnum}}} {{name}};
-    public static final String JSON_PROPERTY_{{nameInSnakeCase}} = "{{baseName}}";
+    private {{{fieldType}}} {{name}}{{^required}}{{^isContainer}} = java.util.Optional.empty(){{/isContainer}}{{#isContainer}}{{#defaultValue}} = java.util.Optional.of({{{.}}}){{/defaultValue}}{{/isContainer}}{{/required}};
     
 {{/vars}}
 
-    @javax.json.bind.annotation.JsonbCreator
+    public {{classname}}() {
+    {{#parent}}
+        super();
+    {{/parent}}
+    }
+
     public {{classname}}(
     {{#vars}}
-        @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
-        final {{{datatypeWithEnum}}} {{name}}{{#hasMore}},{{/hasMore}}
+        final {{{fieldType}}} {{name}}{{^-last}},{{/-last}}
     {{/vars}}
     ) {
-        {{#vars}}   
-        this.{{name}} = {{name}};
-        {{/vars}}
+    {{#parent}}
+        super();
+    {{/parent}}
+    {{#vars}}
+    this.{{name}} = {{name}};
+    {{/vars}}
     }
 {{#vars}}
     
@@ -44,9 +54,14 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
     {{#vendorExtensions.extraAnnotation}}
         {{{vendorExtensions.extraAnnotation}}}
     {{/vendorExtensions.extraAnnotation}}
-    @javax.json.bind.annotation.JsonbProperty("{{baseName}}")
-    public {{{datatypeWithEnum}}} {{#isBoolean}}is{{/isBoolean}}{{getter}}() {
+    @javax.json.bind.annotation.JsonbProperty({{jsonbPropertyName}})
+    public {{{fieldType}}} {{#isBoolean}}is{{/isBoolean}}{{getter}}() {
         return {{name}};
+    }
+
+    @javax.json.bind.annotation.JsonbProperty({{jsonbPropertyName}})
+    public void {{setter}}({{{fieldType}}} {{name}}) {
+        this.{{name}} = {{name}};
     }
 
 {{/vars}}
@@ -60,7 +75,7 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
             return false;
         }{{#hasVars}}
         {{classname}} {{classVarName}} = ({{classname}}) o;
-        return {{#vars}}{{#isByteArray}}java.util.Arrays{{/isByteArray}}{{#isBinary}}java.util.Arrays{{/isBinary}}{{^isByteArray}}{{^isBinary}}java.util.Objects{{/isBinary}}{{/isByteArray}}.equals(this.{{name}}, {{classVarName}}.{{name}}){{#hasMore}} &&
+        return {{#vars}}{{#isByteArray}}java.util.Arrays{{/isByteArray}}{{#isBinary}}java.util.Objects{{/isBinary}}{{^isByteArray}}{{^isBinary}}java.util.Objects{{/isBinary}}{{/isByteArray}}.equals(this.{{name}}, {{classVarName}}.{{name}}){{#hasMore}} &&
     {{/hasMore}}{{/vars}}{{#parent}} &&
         super.equals(o){{/parent}};{{/hasVars}}{{^hasVars}}
         return {{#parent}}super.equals(o){{/parent}}{{^parent}}true{{/parent}};{{/hasVars}}
@@ -68,7 +83,7 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash({{#vars}}{{^isByteArray}}{{^isBinary}}{{name}}{{/isBinary}}{{/isByteArray}}{{#isByteArray}}java.util.Arrays.hashCode({{name}}){{/isByteArray}}{{#isBinary}}java.util.Arrays.hashCode({{name}}){{/isBinary}}{{#hasMore}}, {{/hasMore}}{{/vars}}{{#parent}}{{#hasVars}}, {{/hasVars}}super.hashCode(){{/parent}});
+        return java.util.Objects.hash({{#vars}}{{^isByteArray}}{{name}}{{/isByteArray}}{{#isByteArray}}java.util.Arrays.hashCode({{name}}){{/isByteArray}}{{#hasMore}}, {{/hasMore}}{{/vars}}{{#parent}}{{#hasVars}}, {{/hasVars}}super.hashCode(){{/parent}});
     }
 
     @Override
@@ -76,7 +91,7 @@ public final class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{
         StringBuilder sb = new StringBuilder();
         sb.append("class {{classname}} {\n");
         {{#parent}}sb.append("    ").append(toIndentedString(super.toString())).append("\n");{{/parent}}
-        {{#vars}}sb.append("    {{name}}: ").append(toIndentedString({{name}})).append("\n");
+        {{#vars}}sb.append("    " + {{jsonbPropertyName}} + ": ").append(toIndentedString({{name}})).append("\n");
         {{/vars}}sb.append("}");
         return sb.toString();
     }
