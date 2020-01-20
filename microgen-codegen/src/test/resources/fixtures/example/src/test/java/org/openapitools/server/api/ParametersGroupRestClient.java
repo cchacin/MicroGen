@@ -70,114 +70,114 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
 
         @javax.ws.rs.QueryParam("queryParamStringArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<String> queryParamStringArrayRequired;
+        public java.util.List<String> queryParamStringArrayRequired;
 
         public GetParametersArraysParams queryParamStringArrayRequired(
-                final java.util.ArrayList<String> queryParamStringArrayRequired) {
+                final java.util.List<String> queryParamStringArrayRequired) {
             this.queryParamStringArrayRequired = queryParamStringArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamIntArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<Integer> queryParamIntArrayRequired;
+        public java.util.List<Integer> queryParamIntArrayRequired;
 
         public GetParametersArraysParams queryParamIntArrayRequired(
-                final java.util.ArrayList<Integer> queryParamIntArrayRequired) {
+                final java.util.List<Integer> queryParamIntArrayRequired) {
             this.queryParamIntArrayRequired = queryParamIntArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<Long> queryParamInt64ArrayRequired;
+        public java.util.List<Long> queryParamInt64ArrayRequired;
 
         public GetParametersArraysParams queryParamInt64ArrayRequired(
-                final java.util.ArrayList<Long> queryParamInt64ArrayRequired) {
+                final java.util.List<Long> queryParamInt64ArrayRequired) {
             this.queryParamInt64ArrayRequired = queryParamInt64ArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<Float> queryParamFloatArrayRequired;
+        public java.util.List<Float> queryParamFloatArrayRequired;
 
         public GetParametersArraysParams queryParamFloatArrayRequired(
-                final java.util.ArrayList<Float> queryParamFloatArrayRequired) {
+                final java.util.List<Float> queryParamFloatArrayRequired) {
             this.queryParamFloatArrayRequired = queryParamFloatArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<Double> queryParamDoubleArrayRequired;
+        public java.util.List<Double> queryParamDoubleArrayRequired;
 
         public GetParametersArraysParams queryParamDoubleArrayRequired(
-                final java.util.ArrayList<Double> queryParamDoubleArrayRequired) {
+                final java.util.List<Double> queryParamDoubleArrayRequired) {
             this.queryParamDoubleArrayRequired = queryParamDoubleArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayRequired")
         @javax.validation.constraints.NotNull
-        public java.util.ArrayList<Boolean> queryParamBooleanArrayRequired;
+        public java.util.List<Boolean> queryParamBooleanArrayRequired;
 
         public GetParametersArraysParams queryParamBooleanArrayRequired(
-                final java.util.ArrayList<Boolean> queryParamBooleanArrayRequired) {
+                final java.util.List<Boolean> queryParamBooleanArrayRequired) {
             this.queryParamBooleanArrayRequired = queryParamBooleanArrayRequired;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamStringArrayOptional")
-        public java.util.ArrayList<String> queryParamStringArrayOptional;
+        public java.util.List<String> queryParamStringArrayOptional;
 
         public GetParametersArraysParams queryParamStringArrayOptional(
-                final java.util.ArrayList<String> queryParamStringArrayOptional) {
+                final java.util.List<String> queryParamStringArrayOptional) {
             this.queryParamStringArrayOptional = queryParamStringArrayOptional;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamIntArrayOptional")
-        public java.util.ArrayList<Integer> queryParamIntArrayOptional;
+        public java.util.List<Integer> queryParamIntArrayOptional;
 
         public GetParametersArraysParams queryParamIntArrayOptional(
-                final java.util.ArrayList<Integer> queryParamIntArrayOptional) {
+                final java.util.List<Integer> queryParamIntArrayOptional) {
             this.queryParamIntArrayOptional = queryParamIntArrayOptional;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamInt64ArrayOptional")
-        public java.util.ArrayList<Long> queryParamInt64ArrayOptional;
+        public java.util.List<Long> queryParamInt64ArrayOptional;
 
         public GetParametersArraysParams queryParamInt64ArrayOptional(
-                final java.util.ArrayList<Long> queryParamInt64ArrayOptional) {
+                final java.util.List<Long> queryParamInt64ArrayOptional) {
             this.queryParamInt64ArrayOptional = queryParamInt64ArrayOptional;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamFloatArrayOptional")
-        public java.util.ArrayList<Float> queryParamFloatArrayOptional;
+        public java.util.List<Float> queryParamFloatArrayOptional;
 
         public GetParametersArraysParams queryParamFloatArrayOptional(
-                final java.util.ArrayList<Float> queryParamFloatArrayOptional) {
+                final java.util.List<Float> queryParamFloatArrayOptional) {
             this.queryParamFloatArrayOptional = queryParamFloatArrayOptional;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamDoubleArrayOptional")
-        public java.util.ArrayList<Double> queryParamDoubleArrayOptional;
+        public java.util.List<Double> queryParamDoubleArrayOptional;
 
         public GetParametersArraysParams queryParamDoubleArrayOptional(
-                final java.util.ArrayList<Double> queryParamDoubleArrayOptional) {
+                final java.util.List<Double> queryParamDoubleArrayOptional) {
             this.queryParamDoubleArrayOptional = queryParamDoubleArrayOptional;
             return this;
         }
 
         @javax.ws.rs.QueryParam("queryParamBooleanArrayOptional")
-        public java.util.ArrayList<Boolean> queryParamBooleanArrayOptional;
+        public java.util.List<Boolean> queryParamBooleanArrayOptional;
 
         public GetParametersArraysParams queryParamBooleanArrayOptional(
-                final java.util.ArrayList<Boolean> queryParamBooleanArrayOptional) {
+                final java.util.List<Boolean> queryParamBooleanArrayOptional) {
             this.queryParamBooleanArrayOptional = queryParamBooleanArrayOptional;
             return this;
         }
@@ -205,7 +205,7 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @param stringArrayPipesOfStringArrayCSV This is an optional parameter which is a string array
      *     of string arrays. The outer delimiter is the pipe (&#39;|&#39;) and the inner delimiter is
      *     the comma (&#39;,&#39;). An example would be: &#39;a,b,c|d,e|f,g,h&#39;. (optional, default
-     *     to new java.util.ArrayList<java.util.ArrayList<String>>())
+     *     to new java.util.ArrayList<java.util.List<String>>())
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
@@ -234,55 +234,55 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
     class GetParametersArraysCollectionFormatParams {
 
         @javax.ws.rs.QueryParam("stringArrayCSV")
-        public java.util.ArrayList<String> stringArrayCSV;
+        public java.util.List<String> stringArrayCSV;
 
         public GetParametersArraysCollectionFormatParams stringArrayCSV(
-                final java.util.ArrayList<String> stringArrayCSV) {
+                final java.util.List<String> stringArrayCSV) {
             this.stringArrayCSV = stringArrayCSV;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArraySSV")
-        public java.util.ArrayList<String> stringArraySSV;
+        public java.util.List<String> stringArraySSV;
 
         public GetParametersArraysCollectionFormatParams stringArraySSV(
-                final java.util.ArrayList<String> stringArraySSV) {
+                final java.util.List<String> stringArraySSV) {
             this.stringArraySSV = stringArraySSV;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayTSV")
-        public java.util.ArrayList<String> stringArrayTSV;
+        public java.util.List<String> stringArrayTSV;
 
         public GetParametersArraysCollectionFormatParams stringArrayTSV(
-                final java.util.ArrayList<String> stringArrayTSV) {
+                final java.util.List<String> stringArrayTSV) {
             this.stringArrayTSV = stringArrayTSV;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayPipes")
-        public java.util.ArrayList<String> stringArrayPipes;
+        public java.util.List<String> stringArrayPipes;
 
         public GetParametersArraysCollectionFormatParams stringArrayPipes(
-                final java.util.ArrayList<String> stringArrayPipes) {
+                final java.util.List<String> stringArrayPipes) {
             this.stringArrayPipes = stringArrayPipes;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayMulti")
-        public java.util.ArrayList<String> stringArrayMulti;
+        public java.util.List<String> stringArrayMulti;
 
         public GetParametersArraysCollectionFormatParams stringArrayMulti(
-                final java.util.ArrayList<String> stringArrayMulti) {
+                final java.util.List<String> stringArrayMulti) {
             this.stringArrayMulti = stringArrayMulti;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayPipesOfStringArrayCSV")
-        public java.util.ArrayList<java.util.ArrayList<String>> stringArrayPipesOfStringArrayCSV;
+        public java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV;
 
         public GetParametersArraysCollectionFormatParams stringArrayPipesOfStringArrayCSV(
-                final java.util.ArrayList<java.util.ArrayList<String>> stringArrayPipesOfStringArrayCSV) {
+                final java.util.List<java.util.List<String>> stringArrayPipesOfStringArrayCSV) {
             this.stringArrayPipesOfStringArrayCSV = stringArrayPipesOfStringArrayCSV;
             return this;
         }
@@ -634,29 +634,29 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMaxItems")
         @javax.validation.constraints.Size(max = 3)
-        public java.util.ArrayList<String> stringArrayParameterWithMaxItems;
+        public java.util.List<String> stringArrayParameterWithMaxItems;
 
         public GetParametersValidationParams stringArrayParameterWithMaxItems(
-                final java.util.ArrayList<String> stringArrayParameterWithMaxItems) {
+                final java.util.List<String> stringArrayParameterWithMaxItems) {
             this.stringArrayParameterWithMaxItems = stringArrayParameterWithMaxItems;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithMinItems")
         @javax.validation.constraints.Size(min = 3)
-        public java.util.ArrayList<String> stringArrayParameterWithMinItems;
+        public java.util.List<String> stringArrayParameterWithMinItems;
 
         public GetParametersValidationParams stringArrayParameterWithMinItems(
-                final java.util.ArrayList<String> stringArrayParameterWithMinItems) {
+                final java.util.List<String> stringArrayParameterWithMinItems) {
             this.stringArrayParameterWithMinItems = stringArrayParameterWithMinItems;
             return this;
         }
 
         @javax.ws.rs.QueryParam("stringArrayParameterWithUniqueItems")
-        public java.util.ArrayList<String> stringArrayParameterWithUniqueItems;
+        public java.util.List<String> stringArrayParameterWithUniqueItems;
 
         public GetParametersValidationParams stringArrayParameterWithUniqueItems(
-                final java.util.ArrayList<String> stringArrayParameterWithUniqueItems) {
+                final java.util.List<String> stringArrayParameterWithUniqueItems) {
             this.stringArrayParameterWithUniqueItems = stringArrayParameterWithUniqueItems;
             return this;
         }

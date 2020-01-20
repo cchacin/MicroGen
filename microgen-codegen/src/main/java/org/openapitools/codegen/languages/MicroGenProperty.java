@@ -21,9 +21,9 @@ package org.openapitools.codegen.languages;
 
 import org.openapitools.codegen.CodegenProperty;
 
-class MicroGenProperty extends CodegenProperty {
+public class MicroGenProperty extends CodegenProperty {
 
-    MicroGenProperty(final CodegenProperty delegate) {
+    public MicroGenProperty(final CodegenProperty delegate) {
         super();
         this.openApiType = delegate.openApiType;
         this.baseName = delegate.baseName;
@@ -103,30 +103,27 @@ class MicroGenProperty extends CodegenProperty {
         this.isXmlWrapped = delegate.isXmlWrapped;
     }
 
-    @Override
-    public String getDatatypeWithEnum() {
-        if (!this.required && !this.isContainer && this.dataType != null) {
-            if (!this.isEnum) {
-                if ("Integer".equals(this.dataType)) {
-                    return "java.util.OptionalInt";
-                } else if ("Double".equals(this.dataType)) {
-                    return "java.util.OptionalDouble";
-                } else if ("Long".equals(this.dataType)) {
-                    return "java.util.OptionalLong";
-                } else {
-                    return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());
-                }
-            }
-        }
-        return super.getDatatypeWithEnum();
-    }
+//    @Override
+//    public String getDatatypeWithEnum() {
+//        if (this.dataType != null && !this.required && !this.isEnum) {
+//            return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());
+//        }
+//        return super.getDatatypeWithEnum();
+//    }
 
     @Override
     public String getGetter() {
         return this.vendorExtensions.getOrDefault("x-name", super.getGetter()).toString();
     }
-    
+
     public String jsonbPropertyName() {
         return "JSONB_PROPERTY_" + getNameInSnakeCase();
+    }
+    
+    public String getFieldType() {
+        if (!this.required) {
+            return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());
+        }
+        return super.getDatatypeWithEnum();
     }
 }

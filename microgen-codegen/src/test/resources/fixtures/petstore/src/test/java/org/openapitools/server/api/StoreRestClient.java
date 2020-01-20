@@ -49,7 +49,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     /**
      * Returns pet inventories by status Returns a map of status codes to quantities
      *
-     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.HashMap&lt;String,
+     * @return {@code java.util.concurrent.CompletionStage&lt;java.util.Map&lt;String,
      *     Integer&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
@@ -71,7 +71,7 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/inventory")
     @javax.ws.rs.Produces({"application/json"})
-    java.util.concurrent.CompletionStage<java.util.HashMap<String, Integer>> getInventory()
+    java.util.concurrent.CompletionStage<java.util.Map<String, Integer>> getInventory()
             throws javax.ws.rs.WebApplicationException;
 
     /**

@@ -53,7 +53,7 @@ public class MicroGenTemplateEngine extends MustacheEngineAdapter {
             LOGGER.error("Final result was not a proper Java file: {}", e.getMessage());
             e.printStackTrace();
             e.diagnostics().forEach(diagnostic -> LOGGER
-                    .error("Line: {}, Column: {}", diagnostic.line(), diagnostic.column()));
+                    .error("Message: {}, Line: {}, Column: {}", diagnostic.message(), diagnostic.line(), diagnostic.column()));
             throw new IOException("Final result was not a proper Java file", e);
         }
         return rendered;

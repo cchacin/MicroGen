@@ -19,7 +19,6 @@
 package org.openapitools.codegen.languages;
 
 import org.openapitools.codegen.CodegenModel;
-import org.openapitools.codegen.CodegenProperty;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +39,7 @@ public interface ModelTest {
     default List<String> extractProperty(
             final Schema<?> schema,
             final Optionality optionality,
-            final Function<CodegenProperty, String> extractor
+            final Function<MicroGenProperty, String> extractor
             ) {
         return getVarsFor(schema, optionality)
                 .stream()
@@ -50,10 +49,10 @@ public interface ModelTest {
                 .collect(Collectors.toList());
     }
 
-    default List<CodegenProperty> getVarsFor(
+    default List<MicroGenProperty> getVarsFor(
             final Schema<?> schema,
             final Optionality optionality) {
-        return getCodegenModel(schema, optionality).vars;
+        return getCodegenModel(schema, optionality).vars.stream().map(MicroGenProperty::new).collect(Collectors.toList());
     }
 
     default CodegenModel getCodegenModel(

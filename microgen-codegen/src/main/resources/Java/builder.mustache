@@ -1,6 +1,6 @@
 public static final class Builder {
 {{#vars}}
-    private {{{datatypeWithEnum}}} {{name}};
+    private {{{fieldType}}} {{name}};
 {{/vars}}
 
     private Builder() {
@@ -10,10 +10,28 @@ public static final class Builder {
         return new Builder();
     }
 {{#vars}}
-    public Builder {{setter}}(final {{{datatypeWithEnum}}} {{name}}) {
+    public Builder {{name}}(final {{{fieldType}}} {{name}}) {
         this.{{name}} = {{name}};
         return this;
     }
+
+    {{#isListContainer}}
+    public Builder add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
+    {{^required}}
+        if (this.{{name}} == null || !this.{{name}}.isPresent()) {
+            this.{{name}} = java.util.Optional.of({{{defaultValue}}});
+        }
+        this.{{name}}.get().add({{name}}Item);
+    {{/required}}
+    {{#required}}
+        if (this.{{name}} == null) {
+            this.{{name}} = {{{defaultValue}}};
+        }
+        this.{{name}}.add({{name}}Item);
+    {{/required}}
+        return this;
+    }
+    {{/isListContainer}}
 {{/vars}}
     
     public {{classname}} build() {

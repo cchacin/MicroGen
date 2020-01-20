@@ -20,12 +20,6 @@
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.immutables</groupId>
-            <artifactId>value</artifactId>
-            <version>\${immutables.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -117,13 +111,6 @@
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
                 <version>3.1</version>
-                <configuration>
-                    <serverName>\${project.artifactId}Server</serverName>
-                    <bootstrapProperties>
-                        <default.http.port>\${testServerHttpPort}</default.http.port>
-                        <default.https.port>\${testServerHttpsPort}</default.https.port>
-                    </bootstrapProperties>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -134,11 +121,6 @@
                         <goals>
                             <goal>integration-test</goal>
                         </goals>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <liberty.test.port>${testServerHttpPort}</liberty.test.port>
-                            </systemPropertyVariables>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -153,6 +135,7 @@
                     <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>dockerfile-maven-plugin</artifactId>
+                        <version>1.4.13</version>
                         <executions>
                             <execution>
                                 <id>default</id>
@@ -201,7 +184,6 @@
         <microprofile.version>${microprofile.version}</microprofile.version>
         <openapitools.version>${openapitools.version}</openapitools.version>
         <microgen.version>${project.version}</microgen.version>
-        <immutables.version>${immutables.version}</immutables.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -210,8 +192,6 @@
         </zipkin.usr.feature>
 
         <!-- Properties for scopes: test -->
-        <testServerHttpPort>9080</testServerHttpPort>
-        <testServerHttpsPort>9443</testServerHttpsPort>
         <resteasy.version>4.4.2.Final</resteasy.version>
         <yasson.version>1.0.6</yasson.version>
     </properties>

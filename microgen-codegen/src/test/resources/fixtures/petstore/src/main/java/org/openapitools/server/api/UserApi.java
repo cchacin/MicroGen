@@ -76,7 +76,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.ArrayList<User> user)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
     class CreateUsersWithArrayInputParams {
@@ -122,7 +122,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
-            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.ArrayList<User> user)
+            @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
     class CreateUsersWithListInputParams {
