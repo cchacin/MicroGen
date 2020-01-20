@@ -17,4 +17,17 @@
 
     <webApplication id="api" location="api.war" name="api"/>
 
+    <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
+        <jdbcDriver libraryRef="PostgresLib"/>
+        <properties.postgresql serverName="127.0.0.1"
+                               portNumber="5432"
+                               databaseName="myservice"
+                               user="duke"
+                               password="foobar"/>
+    </dataSource>
+
+    <library id="PostgresLib">
+        <fileset id="PostgreSQLFileset" dir="${wlp.install.dir}/lib" includes="postgresql*.jar" />
+    </library>
+
 </server>
