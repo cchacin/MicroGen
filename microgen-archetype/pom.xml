@@ -19,19 +19,19 @@
             <extension>
                 <groupId>org.apache.maven.archetype</groupId>
                 <artifactId>archetype-packaging</artifactId>
-                <version>3.1.2</version>
+                <version>${version.archetype.plugin}</version>
             </extension>
         </extensions>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-archetype-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>${version.archetype.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.5</version>
+                    <version>${version.resources.plugin}</version>
                     <configuration>
                         <escapeString>\</escapeString>
                     </configuration>
@@ -42,7 +42,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>${version.source.plugin}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -56,7 +56,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>${version.release.plugin}</version>
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
