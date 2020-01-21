@@ -15,14 +15,14 @@ import javax.sql.DataSource;
 @TransactionManagement(TransactionManagementType.BEAN)
 public class FlywayUpdater {
 
-  @Resource(lookup = "jdbc/postgresql")
-  private DataSource dataSource;
+    @Resource(lookup = "jdbc/postgresql")
+    private DataSource dataSource;
 
-  @PostConstruct
-  public void initFlyway() {
-    System.out.println("Starting to migrate the database schema with Flyway");
-    Flyway flyway = Flyway.configure().dataSource(dataSource).load();
-    flyway.migrate();
-    System.out.println("Successfully applied latest schema changes");
-  }
+    @PostConstruct
+    public void initFlyway() {
+        System.out.println("Starting to migrate the database schema with Flyway");
+        Flyway flyway = Flyway.configure().dataSource(dataSource).load();
+        flyway.migrate();
+        System.out.println("Successfully applied latest schema changes");
+    }
 }

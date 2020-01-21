@@ -27,7 +27,7 @@
     </dataSource>
 
     <library id="PostgresLib">
-        <fileset id="PostgreSQLFileset" dir="${wlp.install.dir}/lib" includes="postgresql*.jar" />
+        <fileset id="PostgreSQLFileset" dir="${wlp.install.dir}/lib" includes="postgresql*.jar"/>
     </library>
 
 </server>

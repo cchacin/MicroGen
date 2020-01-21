@@ -23,12 +23,13 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>${flyway.version}</version>
+            <version>\${flyway.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.9</version>
+            <version>\${postgresql.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Test Dependencies -->
@@ -283,6 +284,7 @@
         <openapitools.version>${openapitools.version}</openapitools.version>
         <microgen.version>${project.version}</microgen.version>
         <flyway.version>6.1.4</flyway.version>
+        <postgresql.version>42.2.9</postgresql.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
