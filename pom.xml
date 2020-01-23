@@ -79,6 +79,7 @@
         <javaxannotation.version>1.3.2</javaxannotation.version>
         <flyway.version>6.1.4</flyway.version>
         <postgresql.version>42.2.9</postgresql.version>
+        <deltaspike.version>1.9.2</deltaspike.version>
 
         <!-- Plugins -->
         <version.clean.plugin>3.1.0</version.clean.plugin>

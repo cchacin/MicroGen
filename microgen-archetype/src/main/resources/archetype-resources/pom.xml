@@ -31,6 +31,18 @@
             <version>\${postgresql.version}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-api</artifactId>
+            <version>\${deltaspike.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.modules</groupId>
+            <artifactId>deltaspike-data-module-impl</artifactId>
+            <version>\${deltaspike.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- Test Dependencies -->
         <dependency>
@@ -279,6 +291,7 @@
         <microgen.version>${project.version}</microgen.version>
         <flyway.version>${flyway.version}</flyway.version>
         <postgresql.version>${postgresql.version}</postgresql.version>
+        <deltaspike.version>${deltaspike.version}</deltaspike.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
