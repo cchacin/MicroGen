@@ -160,40 +160,17 @@
                 <version>3.1</version>
                 <executions>
                     <execution>
-                        <id>stop-before-clean</id>
-                        <phase>pre-clean</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>create-server</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-server</goal>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-feature</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-feature</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-apps</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                    <execution>
                         <id>package-server</id>
                         <phase>package</phase>
                         <goals>
+                            <goal>create</goal>
+                            <goal>install-feature</goal>
+                            <goal>deploy</goal>
                             <goal>package</goal>
                         </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/wlp-package</outputDirectory>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>test-start</id>
@@ -210,6 +187,14 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <include>runnable</include>
+                    <serverName>${final.name}</serverName>
+                    <bootstrapProperties>
+                        <project.name>${final.name}</project.name>
+                        <jwt.issuer>https://server.example.com</jwt.issuer>
+                    </bootstrapProperties>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
