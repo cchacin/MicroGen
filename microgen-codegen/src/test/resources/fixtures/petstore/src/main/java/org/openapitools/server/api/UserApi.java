@@ -31,6 +31,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
+            @javax.ws.rs.BeanParam CreateUserParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -76,6 +77,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
+            @javax.ws.rs.BeanParam CreateUsersWithArrayInputParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -122,6 +124,7 @@ public interface UserApi {
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
+            @javax.ws.rs.BeanParam CreateUsersWithListInputParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
 
@@ -331,8 +334,8 @@ public interface UserApi {
             description = "Logs out current logged in user session")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("user/logout")
-    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
-            throws javax.ws.rs.WebApplicationException;
+    java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser(
+            @javax.ws.rs.BeanParam LogoutUserParams params) throws javax.ws.rs.WebApplicationException;
 
     class LogoutUserParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;

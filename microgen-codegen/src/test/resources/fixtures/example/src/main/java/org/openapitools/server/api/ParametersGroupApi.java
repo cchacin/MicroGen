@@ -753,6 +753,7 @@ public interface ParametersGroupApi {
     @javax.ws.rs.Path("test/parameters/body")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> postBodyParameterJSON(
+            @javax.ws.rs.BeanParam PostBodyParameterJSONParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid ErrorInfo errorInfo)
             throws javax.ws.rs.WebApplicationException;
 

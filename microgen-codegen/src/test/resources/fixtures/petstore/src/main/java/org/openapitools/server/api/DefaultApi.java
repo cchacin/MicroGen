@@ -12,27 +12,28 @@ public interface DefaultApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "POST_defaultpet",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "addDefPet",
-        reusable = false,
-        tags = {"action=DefaultApi.addDefPet"},
-        description = "Add a new default pet to the store")
+            name = "POST_defaultpet",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "addDefPet",
+            reusable = false,
+            tags = {"action=DefaultApi.addDefPet"},
+            description = "Add a new default pet to the store")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "POST_defaultpet",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "addDefPet",
-        reusable = false,
-        tags = {"action=DefaultApi.addDefPet"},
-        description = "Add a new default pet to the store")
+            name = "POST_defaultpet",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "addDefPet",
+            reusable = false,
+            tags = {"action=DefaultApi.addDefPet"},
+            description = "Add a new default pet to the store")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addDefPet(
-        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-        throws javax.ws.rs.WebApplicationException;
+            @javax.ws.rs.BeanParam AddDefPetParams params,
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+            throws javax.ws.rs.WebApplicationException;
 
     class AddDefPetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
@@ -57,27 +58,28 @@ public interface DefaultApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-        name = "PUT_defaultpet",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-        displayName = "updateDefPet",
-        reusable = false,
-        tags = {"action=DefaultApi.updateDefPet"},
-        description = "Update a new Default existing pet")
+            name = "PUT_defaultpet",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
+            displayName = "updateDefPet",
+            reusable = false,
+            tags = {"action=DefaultApi.updateDefPet"},
+            description = "Update a new Default existing pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-        name = "PUT_defaultpet",
-        absolute = true,
-        unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-        displayName = "updateDefPet",
-        reusable = false,
-        tags = {"action=DefaultApi.updateDefPet"},
-        description = "Update a new Default existing pet")
+            name = "PUT_defaultpet",
+            absolute = true,
+            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
+            displayName = "updateDefPet",
+            reusable = false,
+            tags = {"action=DefaultApi.updateDefPet"},
+            description = "Update a new Default existing pet")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("defaultpet")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updateDefPet(
-        @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
-        throws javax.ws.rs.WebApplicationException;
+            @javax.ws.rs.BeanParam UpdateDefPetParams params,
+            @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
+            throws javax.ws.rs.WebApplicationException;
 
     class UpdateDefPetParams {
         @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
