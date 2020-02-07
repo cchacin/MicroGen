@@ -31,6 +31,7 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> addPet(
+            @javax.ws.rs.BeanParam AddPetParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
@@ -299,6 +300,7 @@ public interface PetApi {
     @javax.ws.rs.Path("pet")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> updatePet(
+            @javax.ws.rs.BeanParam UpdatePetParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid Pet pet)
             throws javax.ws.rs.WebApplicationException;
 
