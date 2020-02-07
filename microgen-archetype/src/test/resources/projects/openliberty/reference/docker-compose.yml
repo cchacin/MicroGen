@@ -100,7 +100,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=example
 
   myservice:
-    image: io.microgen/myservice:1.0-SNAPSHOT
+    image: myservice:1.0-SNAPSHOT
     container_name: myservice
     hostname: myservice
     environment:

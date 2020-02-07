@@ -100,7 +100,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=example
 
   ${rootArtifactId}:
-    image: ${groupId}/${rootArtifactId}:${version}
+    image: ${rootArtifactId}:${version}
     container_name: ${rootArtifactId}
     hostname: ${rootArtifactId}
     environment:
