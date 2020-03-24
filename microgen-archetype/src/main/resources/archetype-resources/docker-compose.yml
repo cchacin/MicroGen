@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   portainer:
-    image: portainer/portainer:1.23.0
+    image: portainer/portainer:1.23.2
     container_name: portainer
     hostname: portainer
     volumes:
@@ -14,7 +14,7 @@ services:
     # username:admin password: portainer
 
   filebeat:
-    image: docker.elastic.co/beats/filebeat-oss:7.5.1
+    image: docker.elastic.co/beats/filebeat-oss:7.6.1
     container_name: filebeat
     hostname: filebeat
     depends_on:
@@ -28,7 +28,7 @@ services:
     user: root
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.5.1
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.1
     container_name: elasticsearch
     hostname: elasticsearch
     environment:
@@ -38,7 +38,7 @@ services:
       - 9300:9300
 
   kibana:
-    image: docker.elastic.co/kibana/kibana-oss:7.5.1
+    image: docker.elastic.co/kibana/kibana-oss:7.6.1
     container_name: kibana
     hostname: kibana
     depends_on:
@@ -47,7 +47,7 @@ services:
       - 5601:5601
 
   zipkin:
-    image: openzipkin/zipkin-slim:2.19.2
+    image: openzipkin/zipkin-slim:2.20.2
     container_name: zipkin
     environment:
       - STORAGE_TYPE=mem
@@ -57,7 +57,7 @@ services:
       - elasticsearch
 
   prometheus:
-    image: prom/prometheus:v2.14.0
+    image: prom/prometheus:v2.16.0
     container_name: prometheus
     hostname: prometheus
     volumes:
@@ -73,7 +73,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:6.5.2
+    image: grafana/grafana:6.7.1
     container_name: grafana
     hostname: grafana
     user: "104"

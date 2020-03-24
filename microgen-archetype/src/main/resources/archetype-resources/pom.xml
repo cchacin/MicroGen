@@ -257,7 +257,7 @@
                                     <url>${zipkin.usr.feature}</url>
                                     <unpack>true</unpack>
                                     <outputDirectory>
-                                        \${project.build.directory}/liberty/wlp/usr
+                                        \${project.build.directory}/extension
                                     </outputDirectory>
                                 </configuration>
                             </execution>
