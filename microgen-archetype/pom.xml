@@ -33,6 +33,7 @@
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${version.resources.plugin}</version>
                     <configuration>
+                        <addDefaultExcludes>false</addDefaultExcludes>
                         <escapeString>\</escapeString>
                     </configuration>
                 </plugin>
