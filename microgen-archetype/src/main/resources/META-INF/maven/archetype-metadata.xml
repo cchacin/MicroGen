@@ -52,7 +52,7 @@
                 <include>.gitignore</include>
                 <include>.java-version</include>
                 <include>mvnw</include>
-                <include>mvnw.cmd</include>
+                <include>mvnw*</include>
                 <include>Dockerfile</include>
             </includes>
         </fileSet>
