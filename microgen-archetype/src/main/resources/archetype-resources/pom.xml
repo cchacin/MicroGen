@@ -26,12 +26,6 @@
             <version>\${flyway.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>\${postgresql.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.deltaspike.modules</groupId>
             <artifactId>deltaspike-data-module-api</artifactId>
             <version>\${deltaspike.version}</version>
@@ -154,66 +148,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
-                <groupId>io.openliberty.tools</groupId>
-                <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.1</version>
-                <executions>
-                    <execution>
-                        <id>package-server</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>create</goal>
-                            <goal>install-feature</goal>
-                            <goal>deploy</goal>
-                            <goal>package</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/wlp-package</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>test-start</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-stop</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <include>runnable</include>
-                    <serverName>${final.name}</serverName>
-                    <bootstrapProperties>
-                        <project.name>${final.name}</project.name>
-                        <jwt.issuer>https://server.example.com</jwt.issuer>
-                    </bootstrapProperties>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.1</version>
-                <executions>
-                    <execution>
-                        <id>copy-postgresql-dependency</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeArtifactIds>postgresql</includeArtifactIds>
-                            <outputDirectory>\${project.build.directory}/drivers/</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
@@ -237,31 +171,10 @@
                         </executions>
                         <configuration>
                             <contextDirectory>.</contextDirectory>
-                            <repository>\${project.groupId}/\${project.artifactId}</repository>
+                            <repository>\${project.artifactId}</repository>
                             <tag>\${project.version}</tag>
                             <buildArgs/>
                         </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.googlecode.maven-download-plugin</groupId>
-                        <artifactId>download-maven-plugin</artifactId>
-                        <version>1.3.0</version>
-                        <executions>
-                            <execution>
-                                <id>install-tracer</id>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>wget</goal>
-                                </goals>
-                                <configuration>
-                                    <url>${zipkin.usr.feature}</url>
-                                    <unpack>true</unpack>
-                                    <outputDirectory>
-                                        \${project.build.directory}
-                                    </outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
@@ -275,14 +188,10 @@
         <openapitools.version>${openapitools.version}</openapitools.version>
         <microgen.version>${project.version}</microgen.version>
         <flyway.version>${flyway.version}</flyway.version>
-        <postgresql.version>${postgresql.version}</postgresql.version>
         <deltaspike.version>${deltaspike.version}</deltaspike.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <zipkin.usr.feature>
-            https://github.com/WASdev/sample.opentracing.zipkintracer/releases/download/1.3/liberty-opentracing-zipkintracer-1.3-sample.zip
-        </zipkin.usr.feature>
 
         <!-- Properties for scopes: test -->
         <junit.version>${junit.version}</junit.version>

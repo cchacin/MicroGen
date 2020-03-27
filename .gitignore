@@ -54,7 +54,7 @@ target/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
@@ -112,4 +112,3 @@ local.properties
 /docs/diagrams/
 pom.xml.releaseBackup
 release.properties
-.mvn/wrapper/maven-wrapper.jar

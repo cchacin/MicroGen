@@ -32,10 +32,7 @@
         </fileSet>
 
         <fileSet filtered="false" encoding="UTF-8">
-            <directory>src/main/liberty/config</directory>
-            <includes>
-                <include>server.xml</include>
-            </includes>
+            <directory>src/main/liberty</directory>
         </fileSet>
 
         <fileSet filtered="true" encoding="UTF-8">
