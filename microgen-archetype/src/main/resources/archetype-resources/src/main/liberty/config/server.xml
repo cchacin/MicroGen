@@ -19,11 +19,11 @@
 
     <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="PostgresLib"/>
-        <properties.postgresql serverName="127.0.0.1"
+        <properties.postgresql serverName="postgres"
                                portNumber="5432"
-                               databaseName="myservice"
-                               user="duke"
-                               password="foobar"/>
+                               databaseName="postgres"
+                               user="postgres"
+                               password="postgres"/>
     </dataSource>
 
     <library id="PostgresLib">

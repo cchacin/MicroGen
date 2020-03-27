@@ -17,8 +17,6 @@ services:
     image: docker.elastic.co/beats/filebeat-oss:7.6.1
     container_name: filebeat
     hostname: filebeat
-    depends_on:
-      - elasticsearch
     environment:
       - setup.kibana.host=kibana:5601
       - output.elasticsearch.hosts=["elasticsearch:9200"]
@@ -41,8 +39,6 @@ services:
     image: docker.elastic.co/kibana/kibana-oss:7.6.1
     container_name: kibana
     hostname: kibana
-    depends_on:
-      - elasticsearch
     ports:
       - 5601:5601
 
@@ -53,8 +49,6 @@ services:
       - STORAGE_TYPE=mem
     ports:
       - 9411:9411
-    depends_on:
-      - elasticsearch
 
   prometheus:
     image: prom/prometheus:v2.16.0
@@ -77,8 +71,6 @@ services:
     container_name: grafana
     hostname: grafana
     user: "104"
-    depends_on:
-      - prometheus
     ports:
       - 3000:3000
     volumes:
@@ -88,16 +80,23 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
 
-  mongodb:
-    image: mongo:4.2.2-bionic
-    container_name: mongodb
-    hostname: mongodb
+  postgres:
+    image: postgres:12.2-alpine
+    container_name: postgres
+    hostname: postgres
     restart: always
     ports:
-      - 27017:27017
+      - 5432:5432
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=example
+      - POSTGRES_PASSWORD=postgres
+
+  adminer:
+    image: adminer:4.7.6-standalone
+    container_name: adminer
+    hostname: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
   myservice:
     image: myservice:1.0-SNAPSHOT
@@ -108,12 +107,13 @@ services:
       - WLP_LOGGING_CONSOLE_SOURCE=message,trace,accessLog,ffdc
       - WLP_LOGGING_CONSOLE_FORMAT=json
       - WLP_LOGGING_MESSAGE_FORMAT=json
-      - WLP_LOGGING_MESSAGE_SOURCE=
+      - WLP_LOGGING_MESSAGE_SOURCE=message
       - LOG_DIR=/tmp/logs
     depends_on:
-      - kibana
+      - filebeat
       - zipkin
-      - grafana
+      - prometheus
+      - postgres
     ports:
       - 9080:9080
       - 9443:9443
