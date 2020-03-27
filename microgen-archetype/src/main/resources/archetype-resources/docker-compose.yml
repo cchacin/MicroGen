@@ -2,8 +2,8 @@ version: "3.7"
 services:
   portainer:
     image: portainer/portainer:1.23.2
-    container_name: portainer
-    hostname: portainer
+    container_name: ${rootArtifactId}-portainer
+    hostname: ${rootArtifactId}-portainer
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/portainer_password:/tmp/portainer_password
@@ -15,8 +15,8 @@ services:
 
   filebeat:
     image: docker.elastic.co/beats/filebeat-oss:7.6.1
-    container_name: filebeat
-    hostname: filebeat
+    container_name: ${rootArtifactId}-filebeat
+    hostname: ${rootArtifactId}-filebeat
     environment:
       - setup.kibana.host=kibana:5601
       - output.elasticsearch.hosts=["elasticsearch:9200"]
@@ -27,8 +27,8 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.1
-    container_name: elasticsearch
-    hostname: elasticsearch
+    container_name: ${rootArtifactId}-elasticsearch
+    hostname: ${rootArtifactId}-elasticsearch
     environment:
       - discovery.type=single-node
     ports:
@@ -37,14 +37,14 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:7.6.1
-    container_name: kibana
-    hostname: kibana
+    container_name: ${rootArtifactId}-kibana
+    hostname: ${rootArtifactId}-kibana
     ports:
       - 5601:5601
 
   zipkin:
     image: openzipkin/zipkin-slim:2.20.2
-    container_name: zipkin
+    container_name: ${rootArtifactId}-zipkin
     environment:
       - STORAGE_TYPE=mem
     ports:
@@ -52,8 +52,8 @@ services:
 
   prometheus:
     image: prom/prometheus:v2.16.0
-    container_name: prometheus
-    hostname: prometheus
+    container_name: ${rootArtifactId}-prometheus
+    hostname: ${rootArtifactId}-prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -68,8 +68,8 @@ services:
 
   grafana:
     image: grafana/grafana:6.7.1
-    container_name: grafana
-    hostname: grafana
+    container_name: ${rootArtifactId}-grafana
+    hostname: ${rootArtifactId}-grafana
     user: "104"
     ports:
       - 3000:3000
@@ -82,8 +82,8 @@ services:
 
   postgres:
     image: postgres:12.2-alpine
-    container_name: postgres
-    hostname: postgres
+    container_name: ${rootArtifactId}-postgres
+    hostname: ${rootArtifactId}-postgres
     restart: always
     ports:
       - 5432:5432
@@ -92,8 +92,8 @@ services:
 
   adminer:
     image: adminer:4.7.6-standalone
-    container_name: adminer
-    hostname: adminer
+    container_name: ${rootArtifactId}-adminer
+    hostname: ${rootArtifactId}-adminer
     restart: always
     ports:
       - 8080:8080
@@ -110,10 +110,10 @@ services:
       - WLP_LOGGING_MESSAGE_SOURCE=message
       - LOG_DIR=/tmp/logs
     depends_on:
-      - filebeat
-      - zipkin
-      - prometheus
-      - postgres
+      - ${rootArtifactId}-filebeat
+      - ${rootArtifactId}-zipkin
+      - ${rootArtifactId}-prometheus
+      - ${rootArtifactId}-postgres
     ports:
       - 9080:9080
       - 9443:9443
