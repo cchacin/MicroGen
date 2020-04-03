@@ -110,10 +110,10 @@ services:
       - WLP_LOGGING_MESSAGE_SOURCE=message
       - LOG_DIR=/tmp/logs
     depends_on:
-      - ${rootArtifactId}-filebeat
-      - ${rootArtifactId}-zipkin
-      - ${rootArtifactId}-prometheus
-      - ${rootArtifactId}-postgres
+      - filebeat
+      - zipkin
+      - prometheus
+      - postgres
     ports:
       - 9080:9080
       - 9443:9443
