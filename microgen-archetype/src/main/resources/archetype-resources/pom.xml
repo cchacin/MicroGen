@@ -170,6 +170,7 @@
                             </execution>
                         </executions>
                         <configuration>
+                            <noCache>true</noCache>
                             <contextDirectory>.</contextDirectory>
                             <repository>\${project.artifactId}</repository>
                             <tag>\${project.version}</tag>
