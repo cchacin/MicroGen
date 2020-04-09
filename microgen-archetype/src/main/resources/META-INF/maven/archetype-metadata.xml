@@ -54,6 +54,7 @@
                 <include>mvnw</include>
                 <include>mvnw*</include>
                 <include>Dockerfile</include>
+                <include>*.sh</include>
             </includes>
         </fileSet>
 
