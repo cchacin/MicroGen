@@ -10,7 +10,7 @@ services:
     ports:
       - 9000:9000
       - 8000:8000
-    command: --admin-password='$$2y$$05$$U6g.5sn3AAJRShJD2Yahh.QW.K9B2YdSj4.SuGZRlpo14W1My08E2'
+    command: --admin-password='$$2y$$05$$U6g.5sn3AAJRShJD2Yahh.QW.K9B2YdSj4.SuGZRlpo14W1My08E2' -H unix:///var/run/docker.sock
     # username:admin password: portainer
 
   filebeat:
@@ -104,10 +104,10 @@ services:
     hostname: ${rootArtifactId}
     environment:
       - WLP_LOGGING_CONSOLE_LOGLEVEL=info
-      - WLP_LOGGING_CONSOLE_SOURCE=message,trace,accessLog,ffdc
+      - WLP_LOGGING_CONSOLE_SOURCE=message,trace,accessLog,ffdc,audit
       - WLP_LOGGING_CONSOLE_FORMAT=json
       - WLP_LOGGING_MESSAGE_FORMAT=json
-      - WLP_LOGGING_MESSAGE_SOURCE=message
+      - WLP_LOGGING_MESSAGE_SOURCE=message,trace,accessLog,ffdc,audit
       - LOG_DIR=/tmp/logs
     depends_on:
       - filebeat

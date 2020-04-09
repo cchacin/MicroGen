@@ -21,8 +21,10 @@ public class FlywayUpdater {
     @PostConstruct
     public void initFlyway() {
         System.out.println("Starting to migrate the database schema with Flyway");
-        Flyway flyway = Flyway.configure().dataSource(dataSource).load();
-        flyway.migrate();
+        Flyway.configure()
+                .dataSource(dataSource)
+                .load()
+                .migrate();
         System.out.println("Successfully applied latest schema changes");
     }
 }
