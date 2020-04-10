@@ -3,8 +3,8 @@ global:
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
 
 scrape_configs:
-  - job_name: '${rootArtifactId}'
+  - job_name: 'myservice'
     scrape_interval: 5s
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['${rootArtifactId}:8080']
+      - targets: ['myservice:8080']

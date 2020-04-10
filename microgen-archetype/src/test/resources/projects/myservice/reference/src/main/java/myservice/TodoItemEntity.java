@@ -1,4 +1,4 @@
-package ${package};
+package myservice;
 
 import java.time.LocalDateTime;
 
