@@ -1,4 +1,4 @@
-//package ${package};
+//package myservice;
 //
 //import org.assertj.core.api.WithAssertions;
 //import org.junit.jupiter.api.Test;
