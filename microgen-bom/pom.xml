@@ -83,11 +83,6 @@
                 <version>${google-java-format.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.annotation</groupId>
-                <artifactId>javax.annotation-api</artifactId>
-                <version>${javaxannotation.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.immutables</groupId>
                 <artifactId>value</artifactId>
                 <version>${immutables.version}</version>
