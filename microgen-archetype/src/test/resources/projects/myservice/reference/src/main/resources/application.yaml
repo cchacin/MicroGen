@@ -1,0 +1,45 @@
+quarkus:
+  flyway:
+    migrate-at-start: true
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: postgres
+    jdbc:
+      url: jdbc:tracing:postgresql://postgres:5432/postgres
+      driver: io.opentracing.contrib.jdbc.TracingDriver
+
+  swagger-ui:
+    always-include: true
+
+  log:
+    console:
+      async: true
+      json: true
+      enable: true
+      format: "%d{HH:mm:ss} %-5p traceId=%X{traceId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n"
+      level: INFO
+    category:
+      "io.quarkus.arc.processor":
+        level: DEBUG
+
+  jaeger:
+    endpoint: http://jaeger:14268/api/traces
+    service-name: example
+    sampler-type: const
+    sampler-param: 1
+
+mp:
+  openapi:
+    scan:
+      disable: true
+  opentracing:
+    server:
+      operation-name-provider: http-path
+
+org:
+  eclipse:
+    microprofile:
+      rest:
+        client:
+          propagateHeaders: "X-Request-Id,X-Forwarded-For,X-Forwarded-Proto"

@@ -1,33 +1,32 @@
-filebeat:
-  inputs:
-    - type: log
-      json.keys_under_root: true
-      json.message_key: message
-      json.add_error_key: true
-      enabled: true
-      paths:
-        - /tmp/logs/messages.log
+filebeat.inputs:
+  - type: container
+    paths:
+      - '/var/lib/docker/containers/*/*.log'
 
-logging.to_files: true
-logging.to_syslog: false
+processors:
+  - add_docker_metadata:
+      host: "unix:///var/run/docker.sock"
 
-filebeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: true
-  reload.period: 120s
-
-setup.template.settings:
-  index.number_of_shards: 3
-  #index.codec: best_compression
-  #_source.enabled: false
-
-tags: ["example", "api"]
+  - decode_json_fields:
+      fields: ["message"]
+      target: ""
+      overwrite_keys: true
+  - add_fields:
+      target: service
+      fields:
+        name: "${SERVICE_NAME}"
+        id: "${SERVICE_NAME}"
 
 fields:
-  env: staging
+  env: "${ENVIRONMENT}"
 
 setup.kibana:
-  host: "kibana:5601"
+  host: "${KIBANA_HOST}"
 
 output.elasticsearch:
-  hosts: ["elasticsearch:9200"]
+  hosts: ["${ELASTICSEARCH_HOST}"]
+  indices:
+    - index: "${SERVICE_NAME}-%{[agent.version]}-%{+yyyy.MM.dd}"
+
+logging.json: true
+logging.metrics.enabled: false
