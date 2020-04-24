@@ -2,8 +2,6 @@ version: "3.7"
 services:
   portainer:
     image: portainer/portainer:1.23.2
-    container_name: myservice-portainer
-    hostname: myservice-portainer
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/portainer_password:/tmp/portainer_password
@@ -13,36 +11,47 @@ services:
 
   filebeat:
     image: docker.elastic.co/beats/filebeat-oss:7.6.2
-    container_name: myservice-filebeat
-    hostname: myservice-filebeat
     environment:
-      - setup.kibana.host=kibana:5601
-      - output.elasticsearch.hosts=["elasticsearch:9200"]
+      - SERVICE_NAME=example-app
+      - ENVIRONMENT=staging
+      - ELASTICSEARCH_HOST=elasticsearch:9200
+      - KIBANA_HOST=kibana:5601
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /tmp/logs:/tmp/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers/:/var/lib/docker/containers/:ro
     user: root
+    depends_on:
+      - kibana
+      - elasticsearch
+    links:
+      - kibana
+      - elasticsearch
+    restart: always
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.2
-    container_name: myservice-elasticsearch
-    hostname: myservice-elasticsearch
     environment:
       - discovery.type=single-node
     ports:
       - 9200:9200
       - 9300:9300
+    restart: always
 
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:7.6.2
-    container_name: myservice-kibana
-    hostname: myservice-kibana
     ports:
       - 5601:5601
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    restart: always
 
   jaeger:
     image: jaegertracing/all-in-one:1.17.1
-    container_name: myservice-jaeger
     ports:
       - 5775:5775
       - 6831:6831
@@ -50,81 +59,67 @@ services:
       - 5778:5778
       - 16686:16686
       - 14268:14268
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
 
   prometheus:
-    image: prom/prometheus:v2.17.2
-    container_name: myservice-prometheus
-    hostname: myservice-prometheus
+    image: prom/prometheus:v2.16.0
     volumes:
       - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
       - 9090:9090
     restart: always
+    depends_on:
+      - example
+    links:
+      - example
 
   grafana:
-    image: grafana/grafana:6.7.2
-    container_name: myservice-grafana
-    hostname: myservice-grafana
+    image: grafana/grafana:6.7.1
     user: "104"
     ports:
       - 3000:3000
-    volumes:
-      - grafana_data:/var/lib/grafana
     restart: always
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    links:
+      - prometheus
 
   postgres:
     image: postgres:12.2-alpine
-    container_name: myservice-postgres
-    hostname: myservice-postgres
     ports:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=postgres
-    volumes:
-      - postgres_data:/data/postgres
-    restart: unless-stopped
+    restart: always
 
   pgadmin:
     image: dpage/pgadmin4:4.20
-    container_name: myservice-pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL="pgadmin4@pgadmin.org"
-      - PGADMIN_DEFAULT_PASSWORD="admin"
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
-      - pgadmin_data:/root/.pgadmin
       - ./postgres/servers.json:/pgadmin4/servers.json
     ports:
       - 5050:80
-    restart: unless-stopped
+    restart: always
+    links:
+      - postgres
 
   myservice:
     image: myservice:1.0-SNAPSHOT
-    container_name: myservice
-    hostname: myservice
-    environment:
-      - LOG_DIR=/tmp/logs
     depends_on:
       - filebeat
       - jaeger
-      - prometheus
       - postgres
     ports:
       - 8080:8080
-    volumes:
-      - /tmp/logs:/tmp/logs
     restart: always
-
-volumes:
-  prometheus_data:
-  grafana_data:
-  postgres_data:
-  pgadmin_data:
+    links:
+      - jaeger
+      - postgres
