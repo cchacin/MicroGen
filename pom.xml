@@ -61,7 +61,7 @@
 
         <jakartaee.version>8.0.0</jakartaee.version>
         <microprofile.version>3.3</microprofile.version>
-        <openapitools.version>4.3.0</openapitools.version>
+        <openapitools.version>4.3.1</openapitools.version>
 
         <preparationGoals>clean compile test-compile</preparationGoals>
 
