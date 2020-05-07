@@ -19,6 +19,7 @@
 package org.openapitools.codegen.languages.server;
 
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.openapitools.codegen.languages.TemplateType;
@@ -26,29 +27,29 @@ import org.openapitools.codegen.languages.TemplateType;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-class ModelAdapterTemplateIT implements ServerTemplateTest {
+class ModelSerializerTemplateIT implements ServerTemplateTest {
 
     @TempDir
     Path tmpFolder;
 
     static Stream<Arguments> arguments() {
         return Stream.of(
-                //            Arguments.of("petstore", "PetTypeAdapter.java"),
-                //            Arguments.of("petstore", "UserTypeAdapter.java"),
-                //            Arguments.of("petstore", "CategoryTypeAdapter.java"),
-                //            Arguments.of("petstore", "OrderTypeAdapter.java"),
-                //            Arguments.of("petstore", "TagTypeAdapter.java"),
-                //            Arguments.of("example", "SampleBaseTypeAdapter.java"),
-                //            Arguments.of("example", "SampleSubClassTypeAdapter.java"),
-                //            Arguments.of("example", "PersonCardTypeAdapter.java"),
-                //            Arguments.of("example", "BaseCardTypeAdapter.java"),
-                //            Arguments.of("example", "ModelWithPropertiesAndAdditionalPropertiesTypeAdapter.java"),
-                //            Arguments.of("example", "ModelWithMapPropertiesTypeAdapter.java"),
-                //            Arguments.of("example", "ModelWithReadOnlyPropertyTestTypeAdapter.java")
+                Arguments.of("petstore", "PetSerializer.java"),
+                Arguments.of("petstore", "UserSerializer.java"),
+                Arguments.of("petstore", "CategorySerializer.java"),
+                Arguments.of("petstore", "OrderSerializer.java"),
+                Arguments.of("petstore", "TagSerializer.java"),
+                Arguments.of("example", "SampleBaseSerializer.java"),
+                Arguments.of("example", "SampleSubClassSerializer.java"),
+                Arguments.of("example", "PersonCardSerializer.java"),
+                Arguments.of("example", "BaseCardSerializer.java"),
+                Arguments.of("example", "ModelWithPropertiesAndAdditionalPropertiesSerializer.java"),
+                Arguments.of("example", "ModelWithMapPropertiesSerializer.java"),
+                Arguments.of("example", "ModelWithReadOnlyPropertyTestSerializer.java")
         );
     }
 
-    //    @ParameterizedTest(name = "Generated {1} should be equals to fixtures/model/{1}")
+    @ParameterizedTest(name = "Generated {1} should be equals to fixtures/model/{1}")
     @MethodSource("arguments")
     void test(final String openAPIFile,
               final String expectedFile) {

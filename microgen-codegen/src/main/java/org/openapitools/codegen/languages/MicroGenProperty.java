@@ -119,11 +119,47 @@ public class MicroGenProperty extends CodegenProperty {
     public String jsonbPropertyName() {
         return "JSONB_PROPERTY_" + getNameInSnakeCase();
     }
-    
+
     public String getFieldType() {
         if (!this.required) {
             return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());
         }
         return super.getDatatypeWithEnum();
+    }
+
+    public String deserializer() {
+        if (!isContainer) {
+            if (isLong) {
+                return "jsonObject.getJsonNumber(\"" + baseName + "\").longValue()";
+            }
+
+            if (isInteger) {
+                return "jsonObject.getJsonNumber(\"" + baseName + "\").intValue()";
+            }
+
+            if (isDouble) {
+                return "jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue()";
+            }
+
+            if (isFloat) {
+                return "jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue()";
+            }
+
+            if (isString) {
+                return "jsonObject.getString(\"" + baseName + "\")";
+            }
+
+            if (isBoolean) {
+                return "jsonObject.getBoolean(\"" + baseName + "\")";
+            }
+        }
+
+        if (isListContainer) {
+            if ("String".equals(items.dataType)) {
+                return "addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonString::getString))";
+            }
+        }
+
+        return "jsonObject.getJsonObject(\"" + baseName + "\")";
     }
 }

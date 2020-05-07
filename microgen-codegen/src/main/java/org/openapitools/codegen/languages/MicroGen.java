@@ -50,20 +50,20 @@ import static org.openapitools.codegen.utils.StringUtils.camelize;
 
 public class MicroGen extends JavaClientCodegen {
 
-    private static final String PREFIX_IS               = "x-is-";
-    private static final String PREFIX_HAS              = "x-has-";
-    private static final String HAS_MORE_EXT_NAME       = PREFIX_HAS + "more";
-    private static final String HAS_CONSUMES_EXT_NAME   = PREFIX_HAS + "consumes";
-    private static final String HAS_PRODUCES_EXT_NAME   = PREFIX_HAS + "produces";
+    private static final String PREFIX_IS = "x-is-";
+    private static final String PREFIX_HAS = "x-has-";
+    private static final String HAS_MORE_EXT_NAME = PREFIX_HAS + "more";
+    private static final String HAS_CONSUMES_EXT_NAME = PREFIX_HAS + "consumes";
+    private static final String HAS_PRODUCES_EXT_NAME = PREFIX_HAS + "produces";
     private static final String IS_QUERY_PARAM_EXT_NAME = PREFIX_IS + "query-param";
-    private static final String IS_PATH_PARAM_EXT_NAME  = PREFIX_IS + "path-param";
-    private static final String IS_MULTIPART_EXT_NAME   = PREFIX_IS + "multipart";
+    private static final String IS_PATH_PARAM_EXT_NAME = PREFIX_IS + "path-param";
+    private static final String IS_MULTIPART_EXT_NAME = PREFIX_IS + "multipart";
 
     private final String EXCLUDED_TAGS = "excludedTags";
-    private final String TAG_MAPPING   = "tagMapping";
+    private final String TAG_MAPPING = "tagMapping";
 
     private static final Pattern TAG_MAPPING_PATTERN = Pattern.compile("^(.+):(.*?)$");
-    private static final Pattern WHITESPACE_PATTERN  = Pattern.compile("[, \t\r\n]+");
+    private static final Pattern WHITESPACE_PATTERN = Pattern.compile("[, \t\r\n]+");
 
     protected List<Pair<Pattern, String>> tagMapping = new ArrayList<>();
 
@@ -74,11 +74,11 @@ public class MicroGen extends JavaClientCodegen {
         this.supportingFiles().clear();
         this.supportedLibraries.clear();
         this.supportedLibraries.put("server",
-                                    "JavaEE + Eclipse Micro Profile");
+                "JavaEE + Eclipse Micro Profile");
 
         this.cliOptions.clear();
         final CliOption libraryOption = new CliOption(CodegenConstants.LIBRARY,
-                                                      "library template (sub-template) to use");
+                "library template (sub-template) to use");
         libraryOption.setEnum(this.supportedLibraries);
         this.cliOptions.add(libraryOption);
 
@@ -107,8 +107,8 @@ public class MicroGen extends JavaClientCodegen {
         final CodegenModel delegate = super.fromModel(name, model2);
         delegate.imports.clear();
         delegate.vars = delegate.vars.stream()
-                                     .map(MicroGenProperty::new)
-                                     .collect(toList());
+                .map(MicroGenProperty::new)
+                .collect(toList());
         return new MicroGenModel(delegate);
     }
 
@@ -127,7 +127,7 @@ public class MicroGen extends JavaClientCodegen {
         this.modelDocTemplateFiles.clear();
         this.modelTemplateFiles.clear();
         this.modelTemplateFiles.put("model.mustache", ".java");
-        // this.modelTemplateFiles.put("modelTypeAdapter.mustache", "TypeAdapter.java");
+        this.modelTemplateFiles.put("modelTypeSerializer.mustache", "Serializer.java");
         this.supportsInheritance = true;
         this.apiDocTemplateFiles.clear();
         this.apiTemplateFiles.clear();
@@ -142,13 +142,13 @@ public class MicroGen extends JavaClientCodegen {
 
         final String resourcesFolder = this.projectFolder + File.separator + "resources";
         final String modelsFolder = this.sourceFolder + File.separator + modelPackage().replace('.',
-                                                                                                File.separatorChar);
+                File.separatorChar);
         this.supportingFiles.add(new SupportingFile("versions.mustache", resourcesFolder, "versions.properties"));
         this.supportingFiles.add(new SupportingFile("openAPIModel.mustache", modelsFolder, "OpenAPIModel.java"));
         // this.supportingFiles.add(new SupportingFile("modelPackageInfo.mustache", modelsFolder, "package-info.java"));
 
         this.additionalProperties.put(this.EXCLUDED_TAGS,
-                                      Util.extractStringSet(this.additionalProperties, this.EXCLUDED_TAGS));
+                Util.extractStringSet(this.additionalProperties, this.EXCLUDED_TAGS));
 
         if (this.additionalProperties.containsKey(this.TAG_MAPPING)) {
             this.tagMapping = this.parseTagMappings(String.valueOf(this.additionalProperties.get(this.TAG_MAPPING)));
@@ -167,8 +167,7 @@ public class MicroGen extends JavaClientCodegen {
                 if (operation.hasConsumes) {
                     if (Util.isMultipartType(operation.consumes)) {
                         operation.vendorExtensions.put(IS_MULTIPART_EXT_NAME, Boolean.TRUE);
-                    }
-                    else {
+                    } else {
                         operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
                     }
                 }
@@ -237,9 +236,9 @@ public class MicroGen extends JavaClientCodegen {
             for (final Operation operation : paths.get(resourcePath).readOperations()) {
                 final List<String> tags = operation.getTags();
                 operation.setTags(tags == null ? Collections.singletonList("default") : tags.stream()
-                                                                                            .filter(tag -> !excludedTags
-                                                                                                    .contains(tag))
-                                                                                            .collect(toList()));
+                        .filter(tag -> !excludedTags
+                                .contains(tag))
+                        .collect(toList()));
             }
         }
         if (!this.tagMapping.isEmpty()) {
@@ -258,19 +257,19 @@ public class MicroGen extends JavaClientCodegen {
 
     private void mapTagsOnOperations(final OpenAPI openAPI) {
         openAPI.getPaths()
-               .values()
-               .stream()
-               .flatMap(path -> path.readOperations().stream())
-               .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
-               .forEach(op -> op.setTags(this.mapOperationTags(op)));
+                .values()
+                .stream()
+                .flatMap(path -> path.readOperations().stream())
+                .filter(op -> op.getTags() != null && !op.getTags().isEmpty())
+                .forEach(op -> op.setTags(this.mapOperationTags(op)));
     }
 
     private List<String> mapOperationTags(final Operation op) {
         return op.getTags()
-                 .stream()
-                 .map(this::mapOperationTag)
-                 .distinct()
-                 .collect(toList());
+                .stream()
+                .map(this::mapOperationTag)
+                .distinct()
+                .collect(toList());
     }
 
     private String mapOperationTag(final String originalTag) {
@@ -286,17 +285,17 @@ public class MicroGen extends JavaClientCodegen {
 
     private List<Pair<Pattern, String>> parseTagMappings(final String value) {
         return WHITESPACE_PATTERN.splitAsStream(value)
-                                 .map(StringUtils::trimToNull)
-                                 .filter(Objects::nonNull)
-                                 .map(this::compileTagMatchPattern)
-                                 .collect(toList());
+                .map(StringUtils::trimToNull)
+                .filter(Objects::nonNull)
+                .map(this::compileTagMatchPattern)
+                .collect(toList());
     }
 
     private Pair<Pattern, String> compileTagMatchPattern(final String str) {
         final Matcher matcher = TAG_MAPPING_PATTERN.matcher(str);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("Tag mapping pattern must be of the form pattern:replacement, but is "
-                                                       + str);
+                    + str);
         }
         return Pair.of(Pattern.compile("^" + matcher.group(1) + "$"), matcher.group(2));
     }

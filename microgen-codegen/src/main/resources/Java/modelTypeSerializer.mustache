@@ -1,0 +1,34 @@
+package {{package}};
+
+{{#imports}}
+import {{import}};
+{{/imports}}
+
+{{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
+public static class {{classname}}Serializer
+        implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>, javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
+
+    @Override
+    public void serialize(
+            {{classname}} obj,
+            JsonGenerator generator,
+            SerializationContext ctx) {
+        generator.writeStartObject();
+        {{#vars}}
+        ctx.serialize("{{baseName}}", obj.{{getter}}(), generator);
+        {{/vars}}
+        generator.writeEnd();
+    }
+
+    @Override
+    public {{classname}} deserialize(
+            final JsonParser parser,
+            final DeserializationContext ctx,
+            final Type rtType) {
+        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+        return {{classname}}.builder()
+                   {{#vars}}.{{name}}({{{deserializer}}}){{/vars}}
+                            .build();
+    }
+}
+{{/isEnum}}{{/model}}{{/models}}
