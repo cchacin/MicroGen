@@ -10,6 +10,8 @@ public static class SampleSubClassSerializer
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
+        ctx.serialize("baseClassStringProp", obj.getBaseClassStringProp(), generator);
+        ctx.serialize("baseClassIntegerProp", obj.getBaseClassIntegerProp(), generator);
         ctx.serialize("subClassStringProp", obj.getSubClassStringProp(), generator);
         ctx.serialize("subClassIntegerProp", obj.getSubClassIntegerProp(), generator);
         generator.writeEnd();
@@ -25,6 +27,8 @@ public static class SampleSubClassSerializer
 
     public static SampleSubClass fromJsonObject(final javax.json.JsonObject jsonObject) {
         return SampleSubClass.builder()
+                .baseClassStringProp(jsonObject.getString("baseClassStringProp"))
+                .baseClassIntegerProp(jsonObject.getJsonNumber("baseClassIntegerProp").intValue())
                 .subClassStringProp(jsonObject.getString("subClassStringProp"))
                 .subClassIntegerProp(jsonObject.getJsonNumber("subClassIntegerProp").intValue())
                 .build();
