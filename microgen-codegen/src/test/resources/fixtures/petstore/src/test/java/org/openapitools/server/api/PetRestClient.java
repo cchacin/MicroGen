@@ -15,20 +15,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet",
+            name = "POST_pet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "addPet",
             reusable = false,
-            tags = {"action=PetApi.addPet"},
+            tags = {"class=PetApi,method=addPet_AddPetParams"},
             description = "Add a new pet to the store")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet",
+            name = "POST_pet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "addPet",
             reusable = false,
-            tags = {"action=PetApi.addPet"},
+            tags = {"class=PetApi,method=addPet_AddPetParams"},
             description = "Add a new pet to the store")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet")
@@ -45,20 +45,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_pet/{petId}",
+            name = "DELETE_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "deletePet",
             reusable = false,
-            tags = {"action=PetApi.deletePet"},
+            tags = {"class=PetApi,method=deletePet_DeletePetParams"},
             description = "Deletes a pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_pet/{petId}",
+            name = "DELETE_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "deletePet",
             reusable = false,
-            tags = {"action=PetApi.deletePet"},
+            tags = {"class=PetApi,method=deletePet_DeletePetParams"},
             description = "Deletes a pet")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("pet/{petId}")
@@ -90,20 +90,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/findByStatus",
+            name = "GET_pet/findByStatus_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "findPetsByStatus",
             reusable = false,
-            tags = {"action=PetApi.findPetsByStatus"},
+            tags = {"class=PetApi,method=findPetsByStatus_FindPetsByStatusParams"},
             description = "Finds Pets by status")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/findByStatus",
+            name = "GET_pet/findByStatus_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "findPetsByStatus",
             reusable = false,
-            tags = {"action=PetApi.findPetsByStatus"},
+            tags = {"class=PetApi,method=findPetsByStatus_FindPetsByStatusParams"},
             description = "Finds Pets by status")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByStatus")
@@ -132,20 +132,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;java.util.List&lt;Pet&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/findByTags",
+            name = "GET_pet/findByTags_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "findPetsByTags",
             reusable = false,
-            tags = {"action=PetApi.findPetsByTags"},
+            tags = {"class=PetApi,method=findPetsByTags_FindPetsByTagsParams"},
             description = "Finds Pets by tags")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/findByTags",
+            name = "GET_pet/findByTags_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "findPetsByTags",
             reusable = false,
-            tags = {"action=PetApi.findPetsByTags"},
+            tags = {"class=PetApi,method=findPetsByTags_FindPetsByTagsParams"},
             description = "Finds Pets by tags")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/findByTags")
@@ -173,20 +173,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Pet&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/{petId}",
+            name = "GET_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getPetById",
             reusable = false,
-            tags = {"action=PetApi.getPetById"},
+            tags = {"class=PetApi,method=getPetById_GetPetByIdParams"},
             description = "Find pet by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/{petId}",
+            name = "GET_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getPetById",
             reusable = false,
-            tags = {"action=PetApi.getPetById"},
+            tags = {"class=PetApi,method=getPetById_GetPetByIdParams"},
             description = "Find pet by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("pet/{petId}")
@@ -211,20 +211,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_pet",
+            name = "PUT_pet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updatePet",
             reusable = false,
-            tags = {"action=PetApi.updatePet"},
+            tags = {"class=PetApi,method=updatePet_UpdatePetParams"},
             description = "Update an existing pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_pet",
+            name = "PUT_pet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updatePet",
             reusable = false,
-            tags = {"action=PetApi.updatePet"},
+            tags = {"class=PetApi,method=updatePet_UpdatePetParams"},
             description = "Update an existing pet")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("pet")
@@ -242,20 +242,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet/{petId}",
+            name = "POST_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updatePetWithForm",
             reusable = false,
-            tags = {"action=PetApi.updatePetWithForm"},
+            tags = {"class=PetApi,method=updatePetWithForm_UpdatePetWithFormParams"},
             description = "Updates a pet in the store with form data")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet/{petId}",
+            name = "POST_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updatePetWithForm",
             reusable = false,
-            tags = {"action=PetApi.updatePetWithForm"},
+            tags = {"class=PetApi,method=updatePetWithForm_UpdatePetWithFormParams"},
             description = "Updates a pet in the store with form data")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet/{petId}")
@@ -283,20 +283,20 @@ public interface PetRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;ModelApiResponse&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet/{petId}/uploadImage",
+            name = "POST_pet/{petId}/uploadImage_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "uploadFile",
             reusable = false,
-            tags = {"action=PetApi.uploadFile"},
+            tags = {"class=PetApi,method=uploadFile_UploadFileParams"},
             description = "uploads an image")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet/{petId}/uploadImage",
+            name = "POST_pet/{petId}/uploadImage_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "uploadFile",
             reusable = false,
-            tags = {"action=PetApi.uploadFile"},
+            tags = {"class=PetApi,method=uploadFile_UploadFileParams"},
             description = "uploads an image")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("pet/{petId}/uploadImage")
