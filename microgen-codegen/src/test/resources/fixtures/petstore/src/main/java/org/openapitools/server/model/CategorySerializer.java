@@ -5,7 +5,10 @@ public static class CategorySerializer
         javax.json.bind.serializer.JsonbDeserializer<Category> {
 
     @Override
-    public void serialize(Category obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            Category obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("name", obj.getName(), generator);
@@ -14,11 +17,22 @@ public static class CategorySerializer
 
     @Override
     public Category deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static Category fromJsonObject(final javax.json.JsonObject jsonObject) {
         return Category.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
                 .name(jsonObject.getString("name"))
                 .build();
+    }
+
+    public static java.util.List<Category> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

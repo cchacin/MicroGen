@@ -5,7 +5,10 @@ public static class PetSerializer
         javax.json.bind.serializer.JsonbDeserializer<Pet> {
 
     @Override
-    public void serialize(Pet obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            Pet obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("category", obj.getCategory(), generator);
@@ -18,17 +21,26 @@ public static class PetSerializer
 
     @Override
     public Pet deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static Pet fromJsonObject(final javax.json.JsonObject jsonObject) {
         return Pet.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
-                .category(jsonObject.getJsonObject("category"))
+                .category(CategorySerializer.fromJson(jsonObject))
                 .name(jsonObject.getString("name"))
-                .photoUrls(
-                        addAllPhotoUrls(
-                                jsonObject.getJsonArray("photoUrls").getValuesAs(JsonString::getString)))
-                .tags(jsonObject.getJsonObject("tags"))
+                .addAllPhotoUrls(jsonObject.getJsonArray("photoUrls").getValuesAs(JsonString::getString))
+                .addAllTags(Tag.TagSerializer.fromJsonArray(jsonObject.getJsonArray("tags")))
                 .status(jsonObject.getString("status"))
                 .build();
+    }
+
+    public static java.util.List<Pet> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

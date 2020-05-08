@@ -5,7 +5,10 @@ public static class PersonCardSerializer
         javax.json.bind.serializer.JsonbDeserializer<PersonCard> {
 
     @Override
-    public void serialize(PersonCard obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            PersonCard obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("firstName", obj.getFirstName(), generator);
         ctx.serialize("lastName", obj.getLastName(), generator);
@@ -14,11 +17,22 @@ public static class PersonCardSerializer
 
     @Override
     public PersonCard deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static PersonCard fromJsonObject(final javax.json.JsonObject jsonObject) {
         return PersonCard.builder()
                 .firstName(jsonObject.getString("firstName"))
                 .lastName(jsonObject.getString("lastName"))
                 .build();
+    }
+
+    public static java.util.List<PersonCard> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

@@ -5,7 +5,10 @@ public static class BaseCardSerializer
         javax.json.bind.serializer.JsonbDeserializer<BaseCard> {
 
     @Override
-    public void serialize(BaseCard obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            BaseCard obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("cardType", obj.getCardType(), generator);
         generator.writeEnd();
@@ -13,8 +16,19 @@ public static class BaseCardSerializer
 
     @Override
     public BaseCard deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static BaseCard fromJsonObject(final javax.json.JsonObject jsonObject) {
         return BaseCard.builder().cardType(jsonObject.getString("cardType")).build();
+    }
+
+    public static java.util.List<BaseCard> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

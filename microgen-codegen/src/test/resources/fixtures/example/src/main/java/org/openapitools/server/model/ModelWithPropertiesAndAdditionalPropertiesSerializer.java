@@ -8,8 +8,8 @@ public static class ModelWithPropertiesAndAdditionalPropertiesSerializer
     @Override
     public void serialize(
             ModelWithPropertiesAndAdditionalProperties obj,
-            JsonGenerator generator,
-            SerializationContext ctx) {
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("integerProp", obj.getIntegerProp(), generator);
         ctx.serialize("stringProp", obj.getStringProp(), generator);
@@ -18,11 +18,24 @@ public static class ModelWithPropertiesAndAdditionalPropertiesSerializer
 
     @Override
     public ModelWithPropertiesAndAdditionalProperties deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static ModelWithPropertiesAndAdditionalProperties fromJsonObject(
+            final javax.json.JsonObject jsonObject) {
         return ModelWithPropertiesAndAdditionalProperties.builder()
                 .integerProp(jsonObject.getJsonNumber("integerProp").intValue())
                 .stringProp(jsonObject.getString("stringProp"))
                 .build();
+    }
+
+    public static java.util.List<ModelWithPropertiesAndAdditionalProperties> fromJsonArray(
+            final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

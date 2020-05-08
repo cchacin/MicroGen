@@ -5,7 +5,10 @@ public static class UserSerializer
         javax.json.bind.serializer.JsonbDeserializer<User> {
 
     @Override
-    public void serialize(User obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            User obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("username", obj.getUsername(), generator);
@@ -20,8 +23,13 @@ public static class UserSerializer
 
     @Override
     public User deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static User fromJsonObject(final javax.json.JsonObject jsonObject) {
         return User.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
                 .username(jsonObject.getString("username"))
@@ -32,5 +40,11 @@ public static class UserSerializer
                 .phone(jsonObject.getString("phone"))
                 .userStatus(jsonObject.getJsonNumber("userStatus").intValue())
                 .build();
+    }
+
+    public static java.util.List<User> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

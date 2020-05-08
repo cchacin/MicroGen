@@ -5,7 +5,10 @@ public static class OrderSerializer
         javax.json.bind.serializer.JsonbDeserializer<Order> {
 
     @Override
-    public void serialize(Order obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            Order obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("petId", obj.getPetId(), generator);
@@ -18,8 +21,13 @@ public static class OrderSerializer
 
     @Override
     public Order deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static Order fromJsonObject(final javax.json.JsonObject jsonObject) {
         return Order.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
                 .petId(jsonObject.getJsonNumber("petId").longValue())
@@ -28,5 +36,11 @@ public static class OrderSerializer
                 .status(jsonObject.getString("status"))
                 .complete(jsonObject.getBoolean("complete"))
                 .build();
+    }
+
+    public static java.util.List<Order> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

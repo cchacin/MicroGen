@@ -5,7 +5,10 @@ public static class SampleBaseSerializer
         javax.json.bind.serializer.JsonbDeserializer<SampleBase> {
 
     @Override
-    public void serialize(SampleBase obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            SampleBase obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("baseClassStringProp", obj.getBaseClassStringProp(), generator);
         ctx.serialize("baseClassIntegerProp", obj.getBaseClassIntegerProp(), generator);
@@ -14,11 +17,22 @@ public static class SampleBaseSerializer
 
     @Override
     public SampleBase deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static SampleBase fromJsonObject(final javax.json.JsonObject jsonObject) {
         return SampleBase.builder()
                 .baseClassStringProp(jsonObject.getString("baseClassStringProp"))
                 .baseClassIntegerProp(jsonObject.getJsonNumber("baseClassIntegerProp").intValue())
                 .build();
+    }
+
+    public static java.util.List<SampleBase> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

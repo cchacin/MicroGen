@@ -5,7 +5,10 @@ public static class SampleSubClassSerializer
         javax.json.bind.serializer.JsonbDeserializer<SampleSubClass> {
 
     @Override
-    public void serialize(SampleSubClass obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            SampleSubClass obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("subClassStringProp", obj.getSubClassStringProp(), generator);
         ctx.serialize("subClassIntegerProp", obj.getSubClassIntegerProp(), generator);
@@ -14,11 +17,22 @@ public static class SampleSubClassSerializer
 
     @Override
     public SampleSubClass deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static SampleSubClass fromJsonObject(final javax.json.JsonObject jsonObject) {
         return SampleSubClass.builder()
                 .subClassStringProp(jsonObject.getString("subClassStringProp"))
                 .subClassIntegerProp(jsonObject.getJsonNumber("subClassIntegerProp").intValue())
                 .build();
+    }
+
+    public static java.util.List<SampleSubClass> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

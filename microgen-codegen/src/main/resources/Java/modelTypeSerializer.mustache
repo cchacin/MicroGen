@@ -1,9 +1,5 @@
 package {{package}};
 
-{{#imports}}
-import {{import}};
-{{/imports}}
-
 {{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
 public static class {{classname}}Serializer
         implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>, javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
@@ -11,8 +7,8 @@ public static class {{classname}}Serializer
     @Override
     public void serialize(
             {{classname}} obj,
-            JsonGenerator generator,
-            SerializationContext ctx) {
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         {{#vars}}
         ctx.serialize("{{baseName}}", obj.{{getter}}(), generator);
@@ -22,13 +18,22 @@ public static class {{classname}}Serializer
 
     @Override
     public {{classname}} deserialize(
-            final JsonParser parser,
-            final DeserializationContext ctx,
-            final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static {{classname}} fromJsonObject(
+            final javax.json.JsonObject jsonObject) {
         return {{classname}}.builder()
-                   {{#vars}}.{{name}}({{{deserializer}}}){{/vars}}
+                   {{#vars}}{{{deserializer}}}{{/vars}}
                             .build();
+    }
+
+    public static java.util.List<{{classname}}> fromJsonArray(
+            final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream().map(jsonValue -> fromJsonObject(jsonValue.asJsonObject())).collect(java.util.stream.Collectors.toList());
     }
 }
 {{/isEnum}}{{/model}}{{/models}}

@@ -36,43 +36,43 @@ class DeserializerTypeTest implements ModelTest, WithAssertions {
 
     static Stream<Arguments> arguments() {
         return Stream
-                .of(of(NON_REQUIRED, new NumberSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new NumberSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new IntegerSchema(), "jsonObject.getJsonNumber(\"myschema\").intValue()"),
-                        of(REQUIRED, new IntegerSchema(), "jsonObject.getJsonNumber(\"myschema\").intValue()"),
-                        of(NON_REQUIRED, new IntegerSchema().format("int64"), "jsonObject.getJsonNumber(\"myschema\").longValue()"),
-                        of(REQUIRED, new IntegerSchema().format("int64"), "jsonObject.getJsonNumber(\"myschema\").longValue()"),
-                        of(NON_REQUIRED, new EmailSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(REQUIRED, new EmailSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(NON_REQUIRED, new PasswordSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(REQUIRED, new PasswordSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(NON_REQUIRED, new FileSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new FileSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new StringSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(REQUIRED, new StringSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(NON_REQUIRED, new UUIDSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(REQUIRED, new UUIDSchema(), "jsonObject.getString(\"myschema\")"),
-                        of(NON_REQUIRED, new DateSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new DateSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new DateTimeSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new DateTimeSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new ArraySchema(), "addAllMyschema(jsonObject.getJsonArray(\"myschema\").getValuesAs(JsonString::getString))"),
-                        of(REQUIRED, new ArraySchema(), "addAllMyschema(jsonObject.getJsonArray(\"myschema\").getValuesAs(JsonString::getString))"),
-                        of(NON_REQUIRED, new MapSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new MapSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new ObjectSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new ObjectSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new BooleanSchema(), "jsonObject.getBoolean(\"myschema\")"),
-                        of(REQUIRED, new BooleanSchema(), "jsonObject.getBoolean(\"myschema\")"),
-                        of(NON_REQUIRED, new BinarySchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new BinarySchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new ByteArraySchema(), "jsonObject.getJsonObject(\"myschema\")"), // TODO fix optional byte[]
-                        of(REQUIRED, new ByteArraySchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(NON_REQUIRED, new ComposedSchema(), "jsonObject.getJsonObject(\"myschema\")"),
-                        of(REQUIRED, new ComposedSchema(), "jsonObject.getJsonObject(\"myschema\")"));
+                .of(of(NON_REQUIRED, new NumberSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new NumberSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new IntegerSchema(), ".myschema(jsonObject.getJsonNumber(\"myschema\").intValue())"),
+                        of(REQUIRED, new IntegerSchema(), ".myschema(jsonObject.getJsonNumber(\"myschema\").intValue())"),
+                        of(NON_REQUIRED, new IntegerSchema().format("int64"), ".myschema(jsonObject.getJsonNumber(\"myschema\").longValue())"),
+                        of(REQUIRED, new IntegerSchema().format("int64"), ".myschema(jsonObject.getJsonNumber(\"myschema\").longValue())"),
+                        of(NON_REQUIRED, new EmailSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(REQUIRED, new EmailSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(NON_REQUIRED, new PasswordSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(REQUIRED, new PasswordSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(NON_REQUIRED, new FileSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new FileSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new StringSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(REQUIRED, new StringSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(NON_REQUIRED, new UUIDSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(REQUIRED, new UUIDSchema(), ".myschema(jsonObject.getString(\"myschema\"))"),
+                        of(NON_REQUIRED, new DateSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new DateSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new DateTimeSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new DateTimeSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new ArraySchema(), ".addAllMyschema(jsonObject.getJsonArray(\"myschema\").getValuesAs(JsonString::getString))"),
+                        of(REQUIRED, new ArraySchema(), ".addAllMyschema(jsonObject.getJsonArray(\"myschema\").getValuesAs(JsonString::getString))"),
+                        of(NON_REQUIRED, new MapSchema(), ".putAllMyschema(jsonObject.getJsonObject(\"myschema\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))"),
+                        of(REQUIRED, new MapSchema(), ".putAllMyschema(jsonObject.getJsonObject(\"myschema\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))"),
+                        of(NON_REQUIRED, new ObjectSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new ObjectSchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new BooleanSchema(), ".myschema(jsonObject.getBoolean(\"myschema\"))"),
+                        of(REQUIRED, new BooleanSchema(), ".myschema(jsonObject.getBoolean(\"myschema\"))"),
+                        of(NON_REQUIRED, new BinarySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(REQUIRED, new BinarySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new ByteArraySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"), // TODO fix optional byte[]
+                        of(REQUIRED, new ByteArraySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
+                        of(NON_REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJson(jsonObject))"),
+                        of(REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJson(jsonObject))"));
     }
 
-    @ParameterizedTest(name = "{0} {2}")
+    @ParameterizedTest(name = "{0} {1}")
     @MethodSource("arguments")
     void test(
             final Optionality optionality, final Schema fieldSchema, final String dataType) {

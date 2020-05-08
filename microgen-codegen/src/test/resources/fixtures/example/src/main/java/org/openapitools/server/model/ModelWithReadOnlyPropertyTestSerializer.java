@@ -6,7 +6,9 @@ public static class ModelWithReadOnlyPropertyTestSerializer
 
     @Override
     public void serialize(
-            ModelWithReadOnlyPropertyTest obj, JsonGenerator generator, SerializationContext ctx) {
+            ModelWithReadOnlyPropertyTest obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize(
                 "stringPropWithImplicitReadOnlyFalse",
@@ -22,8 +24,14 @@ public static class ModelWithReadOnlyPropertyTestSerializer
 
     @Override
     public ModelWithReadOnlyPropertyTest deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static ModelWithReadOnlyPropertyTest fromJsonObject(
+            final javax.json.JsonObject jsonObject) {
         return ModelWithReadOnlyPropertyTest.builder()
                 .stringPropWithImplicitReadOnlyFalse(
                         jsonObject.getString("stringPropWithImplicitReadOnlyFalse"))
@@ -31,5 +39,12 @@ public static class ModelWithReadOnlyPropertyTestSerializer
                         jsonObject.getString("stringPropWithExplicitReadOnlyFalse"))
                 .stringPropWithReadOnlyTrue(jsonObject.getString("stringPropWithReadOnlyTrue"))
                 .build();
+    }
+
+    public static java.util.List<ModelWithReadOnlyPropertyTest> fromJsonArray(
+            final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

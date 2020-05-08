@@ -5,7 +5,10 @@ public static class TagSerializer
         javax.json.bind.serializer.JsonbDeserializer<Tag> {
 
     @Override
-    public void serialize(Tag obj, JsonGenerator generator, SerializationContext ctx) {
+    public void serialize(
+            Tag obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("name", obj.getName(), generator);
@@ -14,11 +17,22 @@ public static class TagSerializer
 
     @Override
     public Tag deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static Tag fromJsonObject(final javax.json.JsonObject jsonObject) {
         return Tag.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
                 .name(jsonObject.getString("name"))
                 .build();
+    }
+
+    public static java.util.List<Tag> fromJsonArray(final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

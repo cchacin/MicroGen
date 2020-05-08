@@ -6,7 +6,9 @@ public static class ModelWithMapPropertiesSerializer
 
     @Override
     public void serialize(
-            ModelWithMapProperties obj, JsonGenerator generator, SerializationContext ctx) {
+            ModelWithMapProperties obj,
+            javax.json.stream.JsonGenerator generator,
+            javax.json.bind.serializer.SerializationContext ctx) {
         generator.writeStartObject();
         ctx.serialize("stringMap", obj.getStringMap(), generator);
         ctx.serialize("integerMap", obj.getIntegerMap(), generator);
@@ -17,13 +19,36 @@ public static class ModelWithMapPropertiesSerializer
 
     @Override
     public ModelWithMapProperties deserialize(
-            final JsonParser parser, final DeserializationContext ctx, final Type rtType) {
-        final JsonObject jsonObject = ctx.deserialize(JsonObject.class, parser);
+            final javax.json.stream.JsonParser parser,
+            final javax.json.bind.serializer.DeserializationContext ctx,
+            final java.lang.reflect.Type rtType) {
+        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+    }
+
+    public static ModelWithMapProperties fromJsonObject(final javax.json.JsonObject jsonObject) {
         return ModelWithMapProperties.builder()
-                .stringMap(jsonObject.getJsonObject("stringMap"))
-                .integerMap(jsonObject.getJsonObject("integerMap"))
-                .errorInfoMap(jsonObject.getJsonObject("errorInfoMap"))
+                .putAllStringMap(
+                        jsonObject.getJsonObject("stringMap").entrySet().stream()
+                                .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))
+                .putAllIntegerMap(
+                        jsonObject.getJsonObject("integerMap").entrySet().stream()
+                                .collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))
+                .putAllErrorInfoMap(
+                        jsonObject.getJsonObject("errorInfoMap").entrySet().stream()
+                                .collect(
+                                        Collectors.toMap(
+                                                Map.Entry::getKey,
+                                                entry ->
+                                                        ErrorInfo.ErrorInfoSerializer.fromJson(
+                                                                entry.getValue().asJsonObject()))))
                 .errorInfoArrayMap(jsonObject.getJsonObject("errorInfoArrayMap"))
                 .build();
+    }
+
+    public static java.util.List<ModelWithMapProperties> fromJsonArray(
+            final javax.json.JsonArray jsonArray) {
+        return jsonArray.stream()
+                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }
