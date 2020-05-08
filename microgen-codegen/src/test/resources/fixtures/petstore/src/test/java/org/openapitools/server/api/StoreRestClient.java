@@ -15,20 +15,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_store/order/{orderId}",
+            name = "DELETE_store/order/{orderId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "deleteOrder",
             reusable = false,
-            tags = {"action=StoreApi.deleteOrder"},
+            tags = {"class=StoreApi,method=deleteOrder_DeleteOrderParams"},
             description = "Delete purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_store/order/{orderId}",
+            name = "DELETE_store/order/{orderId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "deleteOrder",
             reusable = false,
-            tags = {"action=StoreApi.deleteOrder"},
+            tags = {"class=StoreApi,method=deleteOrder_DeleteOrderParams"},
             description = "Delete purchase order by ID")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("store/order/{orderId}")
@@ -53,20 +53,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      *     Integer&gt;&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/inventory",
+            name = "GET_store/inventory_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getInventory",
             reusable = false,
-            tags = {"action=StoreApi.getInventory"},
+            tags = {"class=StoreApi,method=getInventory_GetInventoryParams"},
             description = "Returns pet inventories by status")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/inventory",
+            name = "GET_store/inventory_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getInventory",
             reusable = false,
-            tags = {"action=StoreApi.getInventory"},
+            tags = {"class=StoreApi,method=getInventory_GetInventoryParams"},
             description = "Returns pet inventories by status")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/inventory")
@@ -82,20 +82,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Order&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/order/{orderId}",
+            name = "GET_store/order/{orderId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getOrderById",
             reusable = false,
-            tags = {"action=StoreApi.getOrderById"},
+            tags = {"class=StoreApi,method=getOrderById_GetOrderByIdParams"},
             description = "Find purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/order/{orderId}",
+            name = "GET_store/order/{orderId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getOrderById",
             reusable = false,
-            tags = {"action=StoreApi.getOrderById"},
+            tags = {"class=StoreApi,method=getOrderById_GetOrderByIdParams"},
             description = "Find purchase order by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/order/{orderId}")
@@ -122,20 +122,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;Order&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_store/order",
+            name = "POST_store/order_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "placeOrder",
             reusable = false,
-            tags = {"action=StoreApi.placeOrder"},
+            tags = {"class=StoreApi,method=placeOrder_PlaceOrderParams"},
             description = "Place an order for a pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_store/order",
+            name = "POST_store/order_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "placeOrder",
             reusable = false,
-            tags = {"action=StoreApi.placeOrder"},
+            tags = {"class=StoreApi,method=placeOrder_PlaceOrderParams"},
             description = "Place an order for a pet")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("store/order")

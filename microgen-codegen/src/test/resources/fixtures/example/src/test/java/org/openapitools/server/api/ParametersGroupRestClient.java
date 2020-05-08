@@ -44,20 +44,20 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/arrays",
+            name = "GET_test/parameters/arrays_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersArrays",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersArrays"},
+            tags = {"class=ParametersGroupApi,method=getParametersArrays_GetParametersArraysParams"},
             description = "Summary: This is an endpoint which tests array input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/arrays",
+            name = "GET_test/parameters/arrays_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersArrays",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersArrays"},
+            tags = {"class=ParametersGroupApi,method=getParametersArrays_GetParametersArraysParams"},
             description = "Summary: This is an endpoint which tests array input parameters.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays")
@@ -209,20 +209,24 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/arrays/collectionFormat",
+            name = "GET_test/parameters/arrays/collectionFormat_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersArraysCollectionFormat",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersArraysCollectionFormat"},
+            tags = {
+                    "class=ParametersGroupApi,method=getParametersArraysCollectionFormat_GetParametersArraysCollectionFormatParams"
+            },
             description = "Summary: This is an endpoint which tests collectionFormat.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/arrays/collectionFormat",
+            name = "GET_test/parameters/arrays/collectionFormat_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersArraysCollectionFormat",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersArraysCollectionFormat"},
+            tags = {
+                    "class=ParametersGroupApi,method=getParametersArraysCollectionFormat_GetParametersArraysCollectionFormatParams"
+            },
             description = "Summary: This is an endpoint which tests collectionFormat.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/arrays/collectionFormat")
@@ -324,20 +328,20 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}",
+            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersScalars",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersScalars"},
+            tags = {"class=ParametersGroupApi,method=getParametersScalars_GetParametersScalarsParams"},
             description = "Summary: This is an endpoint which tests parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}",
+            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersScalars",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersScalars"},
+            tags = {"class=ParametersGroupApi,method=getParametersScalars_GetParametersScalarsParams"},
             description = "Summary: This is an endpoint which tests parameters.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/{pathParam}/all/{enumPathParam}")
@@ -539,20 +543,24 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/validation",
+            name = "GET_test/parameters/validation_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersValidation",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersValidation"},
+            tags = {
+                    "class=ParametersGroupApi,method=getParametersValidation_GetParametersValidationParams"
+            },
             description = "Summary: This is an endpoint which tests validation conditions on parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/validation",
+            name = "GET_test/parameters/validation_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersValidation",
             reusable = false,
-            tags = {"action=ParametersGroupApi.getParametersValidation"},
+            tags = {
+                    "class=ParametersGroupApi,method=getParametersValidation_GetParametersValidationParams"
+            },
             description = "Summary: This is an endpoint which tests validation conditions on parameters.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/parameters/validation")
@@ -679,20 +687,20 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/body",
+            name = "POST_test/parameters/body_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postBodyParameterJSON",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postBodyParameterJSON"},
+            tags = {"class=ParametersGroupApi,method=postBodyParameterJSON_PostBodyParameterJSONParams"},
             description = "Summary: This operation is for testing body input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/body",
+            name = "POST_test/parameters/body_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postBodyParameterJSON",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postBodyParameterJSON"},
+            tags = {"class=ParametersGroupApi,method=postBodyParameterJSON_PostBodyParameterJSONParams"},
             description = "Summary: This operation is for testing body input parameters.")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/body")
@@ -709,20 +717,24 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/multiPartFormData",
+            name = "POST_test/parameters/multiPartFormData_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postFormDataParameterMultipartFormData",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postFormDataParameterMultipartFormData"},
+            tags = {
+                    "class=ParametersGroupApi,method=postFormDataParameterMultipartFormData_PostFormDataParameterMultipartFormDataParams"
+            },
             description = "Summary: This endpoint is for testing multipart/form-data input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/multiPartFormData",
+            name = "POST_test/parameters/multiPartFormData_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postFormDataParameterMultipartFormData",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postFormDataParameterMultipartFormData"},
+            tags = {
+                    "class=ParametersGroupApi,method=postFormDataParameterMultipartFormData_PostFormDataParameterMultipartFormDataParams"
+            },
             description = "Summary: This endpoint is for testing multipart/form-data input parameters.")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/multiPartFormData")
@@ -764,20 +776,24 @@ public interface ParametersGroupRestClient extends java.lang.AutoCloseable {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/urlEncoded",
+            name = "POST_test/parameters/urlEncoded_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postFormDataParametersUrlEncoded",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postFormDataParametersUrlEncoded"},
+            tags = {
+                    "class=ParametersGroupApi,method=postFormDataParametersUrlEncoded_PostFormDataParametersUrlEncodedParams"
+            },
             description = "Summary: This endpoint is for testing url-enoded input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/urlEncoded",
+            name = "POST_test/parameters/urlEncoded_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postFormDataParametersUrlEncoded",
             reusable = false,
-            tags = {"action=ParametersGroupApi.postFormDataParametersUrlEncoded"},
+            tags = {
+                    "class=ParametersGroupApi,method=postFormDataParametersUrlEncoded_PostFormDataParametersUrlEncodedParams"
+            },
             description = "Summary: This endpoint is for testing url-enoded input parameters.")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("test/parameters/urlEncoded")
