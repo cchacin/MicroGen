@@ -56,8 +56,10 @@
     <properties>
         <argLine/>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <jdk.version>1.8</jdk.version>
+        <maven.compiler.source>${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
         <jakartaee.version>8.0.0</jakartaee.version>
         <microprofile.version>3.3</microprofile.version>
@@ -69,7 +71,6 @@
         <google-java-format.version>1.8</google-java-format.version>
 
         <junit.version>5.6.2</junit.version>
-        <junit.platform.version>1.3.2</junit.platform.version>
         <immutables.version>2.8.8</immutables.version>
         <api.guardian.version>1.1.0</api.guardian.version>
         <assertj.version>3.16.1</assertj.version>
@@ -119,11 +120,6 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${version.exec.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${version.failsafe.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
