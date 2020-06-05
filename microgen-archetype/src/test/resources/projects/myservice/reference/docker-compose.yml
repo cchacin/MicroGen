@@ -28,6 +28,8 @@ services:
       - kibana
       - elasticsearch
     restart: always
+    networks:
+      - myservice-network
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.2
@@ -37,6 +39,8 @@ services:
       - 9200:9200
       - 9300:9300
     restart: always
+    networks:
+      - myservice-network
 
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:7.6.2
@@ -49,6 +53,8 @@ services:
     links:
       - elasticsearch
     restart: always
+    networks:
+      - myservice-network
 
   jaeger:
     image: jaegertracing/all-in-one:1.17.1
@@ -63,6 +69,8 @@ services:
       - elasticsearch
     links:
       - elasticsearch
+    networks:
+      - myservice-network
 
   prometheus:
     image: prom/prometheus:v2.16.0
@@ -77,6 +85,8 @@ services:
       - example
     links:
       - example
+    networks:
+      - myservice-network
 
   grafana:
     image: grafana/grafana:6.7.1
@@ -87,8 +97,16 @@ services:
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./grafana/mp-dashboard.json:/var/lib/grafana/dashboards/mp-dashboard.json
+      - ./grafana/mp-fault-tolerance.json:/var/lib/grafana/dashboards/mp-fault-tolerance.json
+      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/all.yml
     links:
       - prometheus
+      - myservice
+    networks:
+      - myservice-network
 
   postgres:
     image: postgres:12.2-alpine
@@ -97,6 +115,8 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
     restart: always
+    networks:
+      - myservice-network
 
   pgadmin:
     image: dpage/pgadmin4:4.20
@@ -110,6 +130,8 @@ services:
     restart: always
     links:
       - postgres
+    networks:
+      - myservice-network
 
   myservice:
     image: myservice:1.0-SNAPSHOT
@@ -123,3 +145,9 @@ services:
     links:
       - jaeger
       - postgres
+    networks:
+      - myservice-network
+
+networks:
+  my-network:
+    name: myservice-network
