@@ -56,6 +56,9 @@
             <includes>
                 <include>docker-compose.yml</include>
                 <include>filebeat/*.yml</include>
+                <include>grafana/*.yml</include>
+                <include>grafana/*.json</include>
+                <include>postgres/*.json</include>
                 <include>prometheus/*.yml</include>
             </includes>
         </fileSet>
