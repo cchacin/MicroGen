@@ -40,6 +40,19 @@ jobs:
       with:
         java-version: 14
 
+    - name: Cache Maven dependencies
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-maven-dependencies
+      with:
+        # maven dependencies are stored in `~/.m2/repository` on Linux/macOS
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('microgen-bom/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
     - name: Build with Maven
       run: ./mvnw compile test-compile --file pom.xml -s settings.xml
 
