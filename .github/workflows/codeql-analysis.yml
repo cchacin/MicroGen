@@ -2,7 +2,11 @@ name: "Code scanning - action"
 
 on:
   push:
+    # paths:
+    # - '**.java'
   pull_request:
+    # paths:
+    # - '**.java'
   schedule:
     - cron: '0 1 * * 0'
 
@@ -31,13 +35,13 @@ jobs:
       with:
         languages: java
 
-    # - name: Set up JDK
-    #   uses: actions/setup-java@v1
-    #   with:
-    #     java-version: 14
-    #
-    # - name: Build with Maven
-    #   run: ./mvnw compile test-compile --file pom.xml -s settings.xml
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+
+    - name: Build with Maven
+      run: ./mvnw compile test-compile --file pom.xml -s settings.xml
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
