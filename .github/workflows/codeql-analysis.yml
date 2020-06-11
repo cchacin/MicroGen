@@ -2,11 +2,11 @@ name: "Code scanning - action"
 
 on:
   push:
-    # paths:
-    # - '**.java'
+    paths:
+    - '**.java'
   pull_request:
-    # paths:
-    # - '**.java'
+    paths:
+    - '**.java'
   schedule:
     - cron: '0 1 * * 0'
 
