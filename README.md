@@ -433,6 +433,7 @@ $ curl -s -X GET -H "Accept: application/json" http://localhost:9080/api/v1/pet/
 
 [![forthebadge](https://forthebadge.com/images/badges/approved-by-george-costanza.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://forthebadge.com)
 
+![CodeQL](https://github.com/cchacin/MicroGen/workflows/Code%20scanning%20-%20action/badge.svg)
 ![Java CI](https://github.com/cchacin/MicroGen/workflows/Java%20CI/badge.svg)
 ![Greetings](https://github.com/cchacin/MicroGen/workflows/Greetings/badge.svg)
 ![Release Drafter](https://github.com/cchacin/MicroGen/workflows/Release%20Management/badge.svg)
