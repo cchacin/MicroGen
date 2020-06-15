@@ -41,6 +41,23 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- Annotation Processors dependencies -->
+            <dependency>
+                <groupId>org.immutables</groupId>
+                <artifactId>value</artifactId>
+                <version>${immutables.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
             <!-- test dependencies -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -66,11 +83,6 @@
                 <groupId>com.google.googlejavaformat</groupId>
                 <artifactId>google-java-format</artifactId>
                 <version>${google-java-format.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.immutables</groupId>
-                <artifactId>value</artifactId>
-                <version>${immutables.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse</groupId>
