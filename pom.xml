@@ -76,6 +76,7 @@
         <assertj.version>3.16.1</assertj.version>
         <yasson.version>1.0.7</yasson.version>
         <logback.version>1.2.3</logback.version>
+        <mapstruct.version>1.3.1.Final</mapstruct.version>
         <quarkus.v>1.5.0.Final</quarkus.v>
 
         <!-- Plugins -->
