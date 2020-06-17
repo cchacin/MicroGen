@@ -1,7 +1,7 @@
 package {{package}};
 
 {{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
-public static class {{classname}}Serializer
+public class {{classname}}Serializer
         implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>, javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
 
     @Override
@@ -21,7 +21,7 @@ public static class {{classname}}Serializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static {{classname}} fromJsonObject(

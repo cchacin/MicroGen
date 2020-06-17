@@ -68,8 +68,8 @@ class DeserializerTypeTest implements ModelTest, WithAssertions {
                         of(REQUIRED, new BinarySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
                         of(NON_REQUIRED, new ByteArraySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"), // TODO fix optional byte[]
                         of(REQUIRED, new ByteArraySchema(), ".myschema(jsonObject.getJsonObject(\"myschema\"))"),
-                        of(NON_REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJson(jsonObject))"),
-                        of(REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJson(jsonObject))"));
+                        of(NON_REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJsonObject(jsonObject))"),
+                        of(REQUIRED, new ComposedSchema(), ".myschema(ObjectSerializer.fromJsonObject(jsonObject))"));
     }
 
     @ParameterizedTest(name = "{0} {1}")

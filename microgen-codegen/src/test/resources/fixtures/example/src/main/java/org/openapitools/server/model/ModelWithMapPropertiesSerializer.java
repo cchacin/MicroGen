@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class ModelWithMapPropertiesSerializer
+public class ModelWithMapPropertiesSerializer
         implements javax.json.bind.serializer.JsonbSerializer<ModelWithMapProperties>,
         javax.json.bind.serializer.JsonbDeserializer<ModelWithMapProperties> {
 
@@ -22,7 +22,7 @@ public static class ModelWithMapPropertiesSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static ModelWithMapProperties fromJsonObject(final javax.json.JsonObject jsonObject) {
@@ -39,7 +39,7 @@ public static class ModelWithMapPropertiesSerializer
                                         Collectors.toMap(
                                                 Map.Entry::getKey,
                                                 entry ->
-                                                        ErrorInfo.ErrorInfoSerializer.fromJson(
+                                                        ErrorInfo.ErrorInfoSerializer.fromJsonObject(
                                                                 entry.getValue().asJsonObject()))))
                 .errorInfoArrayMap(jsonObject.getJsonObject("errorInfoArrayMap"))
                 .build();

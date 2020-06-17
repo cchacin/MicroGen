@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class BaseCardSerializer
+public class BaseCardSerializer
         implements javax.json.bind.serializer.JsonbSerializer<BaseCard>,
         javax.json.bind.serializer.JsonbDeserializer<BaseCard> {
 
@@ -19,7 +19,7 @@ public static class BaseCardSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static BaseCard fromJsonObject(final javax.json.JsonObject jsonObject) {

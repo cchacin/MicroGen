@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class PersonCardSerializer
+public class PersonCardSerializer
         implements javax.json.bind.serializer.JsonbSerializer<PersonCard>,
         javax.json.bind.serializer.JsonbDeserializer<PersonCard> {
 
@@ -20,7 +20,7 @@ public static class PersonCardSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static PersonCard fromJsonObject(final javax.json.JsonObject jsonObject) {

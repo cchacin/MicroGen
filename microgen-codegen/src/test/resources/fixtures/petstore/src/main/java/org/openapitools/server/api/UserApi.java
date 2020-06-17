@@ -12,7 +12,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_user",
+            name = "POST_user_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "createUser",
@@ -20,7 +20,7 @@ public interface UserApi {
             tags = {"action=UserApi.createUser"},
             description = "Create user")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_user",
+            name = "POST_user_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "createUser",
@@ -58,7 +58,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_user/createWithArray",
+            name = "POST_user/createWithArray_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "createUsersWithArrayInput",
@@ -66,7 +66,7 @@ public interface UserApi {
             tags = {"action=UserApi.createUsersWithArrayInput"},
             description = "Creates list of users with given input array")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_user/createWithArray",
+            name = "POST_user/createWithArray_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "createUsersWithArrayInput",
@@ -105,7 +105,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_user/createWithList",
+            name = "POST_user/createWithList_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "createUsersWithListInput",
@@ -113,7 +113,7 @@ public interface UserApi {
             tags = {"action=UserApi.createUsersWithListInput"},
             description = "Creates list of users with given input array")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_user/createWithList",
+            name = "POST_user/createWithList_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "createUsersWithListInput",
@@ -152,7 +152,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_user/{username}",
+            name = "DELETE_user/{username}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "deleteUser",
@@ -160,7 +160,7 @@ public interface UserApi {
             tags = {"action=UserApi.deleteUser"},
             description = "Delete user")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_user/{username}",
+            name = "DELETE_user/{username}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "deleteUser",
@@ -203,7 +203,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_user/{username}",
+            name = "GET_user/{username}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getUserByName",
@@ -211,7 +211,7 @@ public interface UserApi {
             tags = {"action=UserApi.getUserByName"},
             description = "Get user by user name")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_user/{username}",
+            name = "GET_user/{username}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getUserByName",
@@ -256,7 +256,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_user/login",
+            name = "GET_user/login_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "loginUser",
@@ -264,7 +264,7 @@ public interface UserApi {
             tags = {"action=UserApi.loginUser"},
             description = "Logs user into the system")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_user/login",
+            name = "GET_user/login_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "loginUser",
@@ -317,7 +317,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_user/logout",
+            name = "GET_user/logout_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "logoutUser",
@@ -325,7 +325,7 @@ public interface UserApi {
             tags = {"action=UserApi.logoutUser"},
             description = "Logs out current logged in user session")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_user/logout",
+            name = "GET_user/logout_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "logoutUser",
@@ -361,7 +361,7 @@ public interface UserApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_user/{username}",
+            name = "PUT_user/{username}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updateUser",
@@ -369,7 +369,7 @@ public interface UserApi {
             tags = {"action=UserApi.updateUser"},
             description = "Updated user")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_user/{username}",
+            name = "PUT_user/{username}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updateUser",

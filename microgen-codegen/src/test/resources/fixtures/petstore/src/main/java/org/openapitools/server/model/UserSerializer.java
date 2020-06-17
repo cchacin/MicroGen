@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class UserSerializer
+public class UserSerializer
         implements javax.json.bind.serializer.JsonbSerializer<User>,
         javax.json.bind.serializer.JsonbDeserializer<User> {
 
@@ -26,7 +26,7 @@ public static class UserSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static User fromJsonObject(final javax.json.JsonObject jsonObject) {

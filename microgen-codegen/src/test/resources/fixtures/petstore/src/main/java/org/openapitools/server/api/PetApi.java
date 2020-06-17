@@ -12,7 +12,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet",
+            name = "POST_pet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "addPet",
@@ -20,7 +20,7 @@ public interface PetApi {
             tags = {"action=PetApi.addPet"},
             description = "Add a new pet to the store")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet",
+            name = "POST_pet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "addPet",
@@ -59,7 +59,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_pet/{petId}",
+            name = "DELETE_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "deletePet",
@@ -67,7 +67,7 @@ public interface PetApi {
             tags = {"action=PetApi.deletePet"},
             description = "Deletes a pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_pet/{petId}",
+            name = "DELETE_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "deletePet",
@@ -118,7 +118,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/findByStatus",
+            name = "GET_pet/findByStatus_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "findPetsByStatus",
@@ -126,7 +126,7 @@ public interface PetApi {
             tags = {"action=PetApi.findPetsByStatus"},
             description = "Finds Pets by status")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/findByStatus",
+            name = "GET_pet/findByStatus_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "findPetsByStatus",
@@ -174,7 +174,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/findByTags",
+            name = "GET_pet/findByTags_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "findPetsByTags",
@@ -182,7 +182,7 @@ public interface PetApi {
             tags = {"action=PetApi.findPetsByTags"},
             description = "Finds Pets by tags")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/findByTags",
+            name = "GET_pet/findByTags_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "findPetsByTags",
@@ -229,7 +229,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_pet/{petId}",
+            name = "GET_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getPetById",
@@ -237,7 +237,7 @@ public interface PetApi {
             tags = {"action=PetApi.getPetById"},
             description = "Find pet by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_pet/{petId}",
+            name = "GET_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getPetById",
@@ -281,7 +281,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_pet",
+            name = "PUT_pet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updatePet",
@@ -289,7 +289,7 @@ public interface PetApi {
             tags = {"action=PetApi.updatePet"},
             description = "Update an existing pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_pet",
+            name = "PUT_pet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updatePet",
@@ -329,7 +329,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet/{petId}",
+            name = "POST_pet/{petId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updatePetWithForm",
@@ -337,7 +337,7 @@ public interface PetApi {
             tags = {"action=PetApi.updatePetWithForm"},
             description = "Updates a pet in the store with form data")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet/{petId}",
+            name = "POST_pet/{petId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updatePetWithForm",
@@ -385,7 +385,7 @@ public interface PetApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_pet/{petId}/uploadImage",
+            name = "POST_pet/{petId}/uploadImage_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "uploadFile",
@@ -393,7 +393,7 @@ public interface PetApi {
             tags = {"action=PetApi.uploadFile"},
             description = "uploads an image")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_pet/{petId}/uploadImage",
+            name = "POST_pet/{petId}/uploadImage_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "uploadFile",

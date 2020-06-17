@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class OrderSerializer
+public class OrderSerializer
         implements javax.json.bind.serializer.JsonbSerializer<Order>,
         javax.json.bind.serializer.JsonbDeserializer<Order> {
 
@@ -24,7 +24,7 @@ public static class OrderSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static Order fromJsonObject(final javax.json.JsonObject jsonObject) {

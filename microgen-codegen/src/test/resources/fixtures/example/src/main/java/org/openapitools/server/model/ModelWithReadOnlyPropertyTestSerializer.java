@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class ModelWithReadOnlyPropertyTestSerializer
+public class ModelWithReadOnlyPropertyTestSerializer
         implements javax.json.bind.serializer.JsonbSerializer<ModelWithReadOnlyPropertyTest>,
         javax.json.bind.serializer.JsonbDeserializer<ModelWithReadOnlyPropertyTest> {
 
@@ -27,7 +27,7 @@ public static class ModelWithReadOnlyPropertyTestSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static ModelWithReadOnlyPropertyTest fromJsonObject(

@@ -133,30 +133,30 @@ public class MicroGenProperty extends CodegenProperty {
     public String deserializer() {
         if (!isContainer) {
             if (isLong) {
-                return "." + baseName + "(jsonObject.getJsonNumber(\"" + baseName + "\").longValue())";
+                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").longValue())";
             }
 
             if (isInteger) {
-                return "." + baseName + "(jsonObject.getJsonNumber(\"" + baseName + "\").intValue())";
+                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").intValue())";
             }
 
             if (isDouble) {
-                return "." + baseName + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
+                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
             }
 
             if (isFloat) {
-                return "." + baseName + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
+                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
             }
 
             if (isString) {
-                return "." + baseName + "(jsonObject.getString(\"" + baseName + "\"))";
+                return "." + name + "(jsonObject.getString(\"" + baseName + "\"))";
             }
 
             if (isBoolean) {
-                return "." + baseName + "(jsonObject.getBoolean(\"" + baseName + "\"))";
+                return "." + name + "(jsonObject.getBoolean(\"" + baseName + "\"))";
             }
             if (isModel) {
-                return "." + baseName + "(" + dataType + "Serializer.fromJson(jsonObject))";
+                return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject))";
             }
         }
 
@@ -204,10 +204,10 @@ public class MicroGenProperty extends CodegenProperty {
                 return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))";
             }
             if (items.isModel) {
-                return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> " + items.dataType + "." + items.dataType + "Serializer.fromJson(entry.getValue().asJsonObject()))))";
+                return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> " + items.dataType + "." + items.dataType + "Serializer.fromJsonObject(entry.getValue().asJsonObject()))))";
             }
         }
 
-        return "." + baseName + "(jsonObject.getJsonObject(\"" + baseName + "\"))";
+        return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\"))";
     }
 }

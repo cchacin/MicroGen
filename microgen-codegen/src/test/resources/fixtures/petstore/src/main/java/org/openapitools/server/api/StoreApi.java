@@ -13,7 +13,7 @@ public interface StoreApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_store/order/{orderId}",
+            name = "DELETE_store/order/{orderId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "deleteOrder",
@@ -21,7 +21,7 @@ public interface StoreApi {
             tags = {"action=StoreApi.deleteOrder"},
             description = "Delete purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_store/order/{orderId}",
+            name = "DELETE_store/order/{orderId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "deleteOrder",
@@ -64,7 +64,7 @@ public interface StoreApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/inventory",
+            name = "GET_store/inventory_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getInventory",
@@ -72,7 +72,7 @@ public interface StoreApi {
             tags = {"action=StoreApi.getInventory"},
             description = "Returns pet inventories by status")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/inventory",
+            name = "GET_store/inventory_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getInventory",
@@ -109,7 +109,7 @@ public interface StoreApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/order/{orderId}",
+            name = "GET_store/order/{orderId}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getOrderById",
@@ -117,7 +117,7 @@ public interface StoreApi {
             tags = {"action=StoreApi.getOrderById"},
             description = "Find purchase order by ID")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/order/{orderId}",
+            name = "GET_store/order/{orderId}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getOrderById",
@@ -163,7 +163,7 @@ public interface StoreApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_store/order",
+            name = "POST_store/order_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "placeOrder",
@@ -171,7 +171,7 @@ public interface StoreApi {
             tags = {"action=StoreApi.placeOrder"},
             description = "Place an order for a pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_store/order",
+            name = "POST_store/order_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "placeOrder",

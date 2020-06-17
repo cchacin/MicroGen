@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class SampleSubClassSerializer
+public class SampleSubClassSerializer
         implements javax.json.bind.serializer.JsonbSerializer<SampleSubClass>,
         javax.json.bind.serializer.JsonbDeserializer<SampleSubClass> {
 
@@ -22,7 +22,7 @@ public static class SampleSubClassSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static SampleSubClass fromJsonObject(final javax.json.JsonObject jsonObject) {

@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class PetSerializer
+public class PetSerializer
         implements javax.json.bind.serializer.JsonbSerializer<Pet>,
         javax.json.bind.serializer.JsonbDeserializer<Pet> {
 
@@ -24,13 +24,13 @@ public static class PetSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static Pet fromJsonObject(final javax.json.JsonObject jsonObject) {
         return Pet.builder()
                 .id(jsonObject.getJsonNumber("id").longValue())
-                .category(CategorySerializer.fromJson(jsonObject))
+                .category(CategorySerializer.fromJsonObject(jsonObject))
                 .name(jsonObject.getString("name"))
                 .addAllPhotoUrls(jsonObject.getJsonArray("photoUrls").getValuesAs(JsonString::getString))
                 .addAllTags(Tag.TagSerializer.fromJsonArray(jsonObject.getJsonArray("tags")))

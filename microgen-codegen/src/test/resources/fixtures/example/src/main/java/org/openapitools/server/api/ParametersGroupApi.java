@@ -41,7 +41,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/arrays",
+            name = "GET_test/parameters/arrays_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersArrays",
@@ -49,7 +49,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.getParametersArrays"},
             description = "Summary: This is an endpoint which tests array input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/arrays",
+            name = "GET_test/parameters/arrays_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersArrays",
@@ -220,7 +220,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/arrays/collectionFormat",
+            name = "GET_test/parameters/arrays/collectionFormat_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersArraysCollectionFormat",
@@ -228,7 +228,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.getParametersArraysCollectionFormat"},
             description = "Summary: This is an endpoint which tests collectionFormat.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/arrays/collectionFormat",
+            name = "GET_test/parameters/arrays/collectionFormat_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersArraysCollectionFormat",
@@ -350,7 +350,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}",
+            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersScalars",
@@ -358,7 +358,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.getParametersScalars"},
             description = "Summary: This is an endpoint which tests parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}",
+            name = "GET_test/parameters/{pathParam}/all/{enumPathParam}_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersScalars",
@@ -580,7 +580,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/parameters/validation",
+            name = "GET_test/parameters/validation_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getParametersValidation",
@@ -588,7 +588,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.getParametersValidation"},
             description = "Summary: This is an endpoint which tests validation conditions on parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/parameters/validation",
+            name = "GET_test/parameters/validation_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getParametersValidation",
@@ -734,7 +734,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/body",
+            name = "POST_test/parameters/body_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postBodyParameterJSON",
@@ -742,7 +742,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.postBodyParameterJSON"},
             description = "Summary: This operation is for testing body input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/body",
+            name = "POST_test/parameters/body_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postBodyParameterJSON",
@@ -782,7 +782,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/multiPartFormData",
+            name = "POST_test/parameters/multiPartFormData_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postFormDataParameterMultipartFormData",
@@ -790,7 +790,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.postFormDataParameterMultipartFormData"},
             description = "Summary: This endpoint is for testing multipart/form-data input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/multiPartFormData",
+            name = "POST_test/parameters/multiPartFormData_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postFormDataParameterMultipartFormData",
@@ -852,7 +852,7 @@ public interface ParametersGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_test/parameters/urlEncoded",
+            name = "POST_test/parameters/urlEncoded_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "postFormDataParametersUrlEncoded",
@@ -860,7 +860,7 @@ public interface ParametersGroupApi {
             tags = {"action=ParametersGroupApi.postFormDataParametersUrlEncoded"},
             description = "Summary: This endpoint is for testing url-enoded input parameters.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_test/parameters/urlEncoded",
+            name = "POST_test/parameters/urlEncoded_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "postFormDataParametersUrlEncoded",

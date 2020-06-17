@@ -1,6 +1,6 @@
 package org.openapitools.server.model;
 
-public static class TagSerializer
+public class TagSerializer
         implements javax.json.bind.serializer.JsonbSerializer<Tag>,
         javax.json.bind.serializer.JsonbDeserializer<Tag> {
 
@@ -20,7 +20,7 @@ public static class TagSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJson(ctx.deserialize(javax.json.JsonObject.class, parser));
+        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
     public static Tag fromJsonObject(final javax.json.JsonObject jsonObject) {

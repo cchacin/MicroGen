@@ -2,13 +2,13 @@ package org.openapitools.server.model;
 
 /** Pet */
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Pet.JSONB_PROPERTY_ID,
-                                                       Pet.JSONB_PROPERTY_CATEGORY,
-                                                       Pet.JSONB_PROPERTY_NAME,
-                                                       Pet.JSONB_PROPERTY_PHOTO_URLS,
-                                                       Pet.JSONB_PROPERTY_TAGS,
-                                                       Pet.JSONB_PROPERTY_STATUS
-                                               })
+        Pet.JSONB_PROPERTY_ID,
+        Pet.JSONB_PROPERTY_CATEGORY,
+        Pet.JSONB_PROPERTY_NAME,
+        Pet.JSONB_PROPERTY_PHOTO_URLS,
+        Pet.JSONB_PROPERTY_TAGS,
+        Pet.JSONB_PROPERTY_STATUS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public class Pet implements OpenAPIModel {
 
@@ -60,9 +60,9 @@ public class Pet implements OpenAPIModel {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                    .findFirst()
+                    .orElse(null);
         }
     }
 
@@ -232,12 +232,12 @@ public class Pet implements OpenAPIModel {
 
         sb.append("    " + JSONB_PROPERTY_ID + ": ").append(toIndentedString(id)).append("\n");
         sb.append("    " + JSONB_PROPERTY_CATEGORY + ": ")
-          .append(toIndentedString(category))
-          .append("\n");
+                .append(toIndentedString(category))
+                .append("\n");
         sb.append("    " + JSONB_PROPERTY_NAME + ": ").append(toIndentedString(name)).append("\n");
         sb.append("    " + JSONB_PROPERTY_PHOTO_URLS + ": ")
-          .append(toIndentedString(photoUrls))
-          .append("\n");
+                .append(toIndentedString(photoUrls))
+                .append("\n");
         sb.append("    " + JSONB_PROPERTY_TAGS + ": ").append(toIndentedString(tags)).append("\n");
         sb.append("    " + JSONB_PROPERTY_STATUS + ": ").append(toIndentedString(status)).append("\n");
         sb.append("}");
@@ -274,8 +274,18 @@ public class Pet implements OpenAPIModel {
             return this;
         }
 
+        public Builder id(final Long id) {
+            this.id = java.util.Optional.ofNullable(id);
+            return this;
+        }
+
         public Builder category(final java.util.Optional<Category> category) {
             this.category = category;
+            return this;
+        }
+
+        public Builder category(final Category category) {
+            this.category = java.util.Optional.ofNullable(category);
             return this;
         }
 
@@ -302,9 +312,14 @@ public class Pet implements OpenAPIModel {
             return this;
         }
 
+        public Builder tags(final java.util.List<Tag> tags) {
+            this.tags = java.util.Optional.ofNullable(tags);
+            return this;
+        }
+
         public Builder addTagsItem(Tag tagsItem) {
             if (this.tags == null || !this.tags.isPresent()) {
-                this.tags = java.util.Optional.of(new java.util.ArrayList<Tag>());
+                this.tags = java.util.Optional.ofNullable(new java.util.ArrayList<Tag>());
             }
             this.tags.get().add(tagsItem);
             return this;
@@ -312,6 +327,11 @@ public class Pet implements OpenAPIModel {
 
         public Builder status(final java.util.Optional<StatusEnum> status) {
             this.status = status;
+            return this;
+        }
+
+        public Builder status(final String status) {
+            this.status = java.util.Optional.ofNullable(status);
             return this;
         }
 

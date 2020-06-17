@@ -12,7 +12,7 @@ public interface DefaultApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_defaultpet",
+            name = "POST_defaultpet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "addDefPet",
@@ -20,7 +20,7 @@ public interface DefaultApi {
             tags = {"action=DefaultApi.addDefPet"},
             description = "Add a new default pet to the store")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_defaultpet",
+            name = "POST_defaultpet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "addDefPet",
@@ -58,7 +58,7 @@ public interface DefaultApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_defaultpet",
+            name = "PUT_defaultpet_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "updateDefPet",
@@ -66,7 +66,7 @@ public interface DefaultApi {
             tags = {"action=DefaultApi.updateDefPet"},
             description = "Update a new Default existing pet")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_defaultpet",
+            name = "PUT_defaultpet_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "updateDefPet",

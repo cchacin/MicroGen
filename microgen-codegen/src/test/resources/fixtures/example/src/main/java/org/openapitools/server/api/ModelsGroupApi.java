@@ -16,7 +16,7 @@ public interface ModelsGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/models/all",
+            name = "GET_test/models/all_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getAllModels",
@@ -24,7 +24,7 @@ public interface ModelsGroupApi {
             tags = {"action=ModelsGroupApi.getAllModels"},
             description = "Return all of the defined models.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/models/all",
+            name = "GET_test/models/all_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getAllModels",
@@ -82,7 +82,7 @@ public interface ModelsGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/operations/defaultResponse",
+            name = "GET_test/operations/defaultResponse_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "getDefaultResponse",
@@ -90,7 +90,7 @@ public interface ModelsGroupApi {
             tags = {"action=ModelsGroupApi.getDefaultResponse"},
             description = "This operation has a default response.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/operations/defaultResponse",
+            name = "GET_test/operations/defaultResponse_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "getDefaultResponse",
@@ -148,7 +148,7 @@ public interface ModelsGroupApi {
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
     @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_test/models/readonly",
+            name = "PUT_test/models/readonly_time",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
             displayName = "putModelsReadOnly",
@@ -156,7 +156,7 @@ public interface ModelsGroupApi {
             tags = {"action=ModelsGroupApi.putModelsReadOnly"},
             description = "Summary: This is an endpoint which tests readOnly properties.")
     @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_test/models/readonly",
+            name = "PUT_test/models/readonly_count",
             absolute = true,
             unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
             displayName = "putModelsReadOnly",
