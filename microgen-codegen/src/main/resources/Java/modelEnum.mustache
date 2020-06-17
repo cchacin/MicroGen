@@ -1,0 +1,39 @@
+/**
+ * {{^description}}Gets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
+ */
+@javax.json.bind.annotation.JsonbTypeSerializer({{classname}}Serializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}Serializer.class)
+public enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
+
+    {{#allowableValues}}{{#enumVars}}
+        {{#enumDescription}}
+    /**
+     * {{enumDescription}}
+     */
+        {{/enumDescription}}
+    {{{name}}}({{{value}}}){{^-last}},
+    {{/-last}}{{#-last}};{{/-last}}{{/enumVars}}{{/allowableValues}}
+
+    private final {{{dataType}}} value;
+
+    {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(final {{{dataType}}} value) {
+        this.value = value;
+    }
+
+    public {{{dataType}}} getValue() {
+        return this.value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.value);
+    }
+
+    @javax.json.bind.annotation.JsonbCreator
+    public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue(final String text) {
+        return java.util.Arrays.stream({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values())
+                      .filter(b -> b.value.equals(text))
+                      .findFirst()
+                      .orElse(null);
+    }
+}

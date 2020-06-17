@@ -50,6 +50,7 @@ public class MicroGenTemplateEngine extends MustacheEngineAdapter {
                 return this.formatter.formatSourceAndFixImports(rendered);
             }
         } catch (final FormatterException e) {
+            LOGGER.error("Rendered: \n{}", rendered);
             LOGGER.error("Final result was not a proper Java file: {}", e.getMessage());
             e.printStackTrace();
             e.diagnostics().forEach(diagnostic -> LOGGER

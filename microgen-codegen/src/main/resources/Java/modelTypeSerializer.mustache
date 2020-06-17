@@ -1,6 +1,6 @@
 package {{package}};
 
-{{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}
+{{#models}}{{#model}}
 public class {{classname}}Serializer
         implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>, javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
 
@@ -36,4 +36,4 @@ public class {{classname}}Serializer
         return jsonArray.stream().map(jsonValue -> fromJsonObject(jsonValue.asJsonObject())).collect(java.util.stream.Collectors.toList());
     }
 }
-{{/isEnum}}{{/model}}{{/models}}
+{{/model}}{{/models}}

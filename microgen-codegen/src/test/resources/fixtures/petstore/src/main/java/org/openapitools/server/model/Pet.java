@@ -60,7 +60,7 @@ public class Pet implements OpenAPIModel {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                    .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                    .filter(b -> b.value.equals(text))
                     .findFirst()
                     .orElse(null);
         }
