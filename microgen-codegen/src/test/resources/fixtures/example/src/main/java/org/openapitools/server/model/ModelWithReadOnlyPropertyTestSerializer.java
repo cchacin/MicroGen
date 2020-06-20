@@ -9,6 +9,7 @@ public class ModelWithReadOnlyPropertyTestSerializer
             ModelWithReadOnlyPropertyTest obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize(
                 "stringPropWithImplicitReadOnlyFalse",
@@ -27,6 +28,7 @@ public class ModelWithReadOnlyPropertyTestSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

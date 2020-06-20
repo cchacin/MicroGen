@@ -9,6 +9,7 @@ public class BaseCardSerializer
             BaseCard obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("cardType", obj.getCardType(), generator);
         generator.writeEnd();
@@ -19,6 +20,7 @@ public class BaseCardSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

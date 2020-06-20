@@ -9,6 +9,7 @@ public class SampleBaseSerializer
             SampleBase obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("baseClassStringProp", obj.getBaseClassStringProp(), generator);
         ctx.serialize("baseClassIntegerProp", obj.getBaseClassIntegerProp(), generator);
@@ -20,6 +21,7 @@ public class SampleBaseSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

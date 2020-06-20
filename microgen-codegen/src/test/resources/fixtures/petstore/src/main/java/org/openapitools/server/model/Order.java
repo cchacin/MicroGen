@@ -93,30 +93,23 @@ public abstract class Order implements OpenAPIModel {
     }
 
     public static class StatusEnumSerializer
-            implements javax.json.bind.serializer.JsonbSerializer<StatusEnum> {
-
-        public StatusEnumSerializer() {}
+            implements javax.json.bind.serializer.JsonbSerializer<StatusEnum>,
+            javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
 
         @Override
         public void serialize(
-                StatusEnum aEnum,
-                javax.json.stream.JsonGenerator jsonGenerator,
+                StatusEnum obj,
+                javax.json.stream.JsonGenerator generator,
                 javax.json.bind.serializer.SerializationContext serializationContext) {
-            jsonGenerator.write(aEnum.value);
+            generator.write(obj.getValue());
         }
-    }
-
-    public static class StatusEnumDeserializer
-            implements javax.json.bind.serializer.JsonbDeserializer<StatusEnum> {
-
-        public StatusEnumDeserializer() {}
 
         @Override
         public StatusEnum deserialize(
-                javax.json.stream.JsonParser jsonParser,
+                javax.json.stream.JsonParser parser,
                 javax.json.bind.serializer.DeserializationContext deserializationContext,
                 java.lang.reflect.Type type) {
-            return StatusEnum.fromValue(jsonParser.getString());
+            return StatusEnum.fromValue(parser.getString());
         }
     }
 

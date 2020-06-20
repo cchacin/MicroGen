@@ -9,8 +9,7 @@ public class EnumStringSerializer
             EnumString obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
-        generator.writeStartObject();
-        generator.writeEnd();
+        generator.write(obj.getValue());
     }
 
     @Override
@@ -18,16 +17,6 @@ public class EnumStringSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
-    }
-
-    public static EnumString fromJsonObject(final javax.json.JsonObject jsonObject) {
-        return EnumString.builder().build();
-    }
-
-    public static java.util.List<EnumString> fromJsonArray(final javax.json.JsonArray jsonArray) {
-        return jsonArray.stream()
-                .map(jsonValue -> fromJsonObject(jsonValue.asJsonObject()))
-                .collect(java.util.stream.Collectors.toList());
+        return EnumString.fromValue(parser.getString());
     }
 }

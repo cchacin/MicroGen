@@ -2,18 +2,20 @@ package {{package}};
 
 {{#models}}{{#model}}
 public class {{classname}}Serializer
-        implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>, javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
+        implements javax.json.bind.serializer.JsonbSerializer<{{classname}}>,
+        javax.json.bind.serializer.JsonbDeserializer<{{classname}}> {
 
     @Override
     public void serialize(
             {{classname}} obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
-        generator.writeStartObject();
+        {{#isEnum}}generator.write(obj.getValue());{{/isEnum}}
+        {{^isEnum}}generator.writeStartObject();
         {{#vars}}
         ctx.serialize("{{baseName}}", obj.{{getter}}(), generator);
         {{/vars}}
-        generator.writeEnd();
+        generator.writeEnd();{{/isEnum}}
     }
 
     @Override
@@ -21,19 +23,20 @@ public class {{classname}}Serializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
-        return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
+        {{#isEnum}}return {{classname}}.fromValue(parser.getString());{{/isEnum}}
+        {{^isEnum}}return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));{{/isEnum}}
     }
 
-    public static {{classname}} fromJsonObject(
+    {{^isEnum}}public static {{classname}} fromJsonObject(
             final javax.json.JsonObject jsonObject) {
-        return {{classname}}.builder()
-                   {{#vars}}{{{deserializer}}}{{/vars}}
-                            .build();
+        return {{classname}}.builder(){{#vars}}
+                            {{{deserializer}}}
+                            {{/vars}}.build();
     }
 
     public static java.util.List<{{classname}}> fromJsonArray(
             final javax.json.JsonArray jsonArray) {
         return jsonArray.stream().map(jsonValue -> fromJsonObject(jsonValue.asJsonObject())).collect(java.util.stream.Collectors.toList());
-    }
+    }{{/isEnum}}
 }
 {{/model}}{{/models}}

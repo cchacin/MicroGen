@@ -21,12 +21,10 @@ package org.openapitools.codegen.languages;
 
 import org.openapitools.codegen.CodegenProperty;
 
-import java.util.Map;
-import java.util.stream.Collectors;
-
 public class MicroGenProperty extends CodegenProperty {
 
-    public MicroGenProperty(final CodegenProperty delegate) {
+    public MicroGenProperty(
+            final CodegenProperty delegate) {
         super();
         this.openApiType = delegate.openApiType;
         this.baseName = delegate.baseName;
@@ -132,38 +130,33 @@ public class MicroGenProperty extends CodegenProperty {
 
     public String deserializer() {
         if (!isContainer) {
+            if (isEnum) {
+                return "." + name + "(" + datatypeWithEnum + ".fromValue(jsonObject.getString(\"" + baseName + "\")))";
+            }
             if (isLong) {
                 return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").longValue())";
             }
-
             if (isInteger) {
                 return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").intValue())";
             }
-
-            if (isDouble) {
+            if (isDouble || isFloat) {
                 return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
             }
-
-            if (isFloat) {
-                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").doubleValue())";
-            }
-
             if (isString) {
                 return "." + name + "(jsonObject.getString(\"" + baseName + "\"))";
             }
-
+            if (isUuid) {
+                return "." + name + "(java.util.UUID.fromString(jsonObject.getString(\"" + baseName + "\")))";
+            }
             if (isBoolean) {
                 return "." + name + "(jsonObject.getBoolean(\"" + baseName + "\"))";
             }
-
-            if(isDate) {
+            if (isDate) {
                 return "." + name + "(java.time.LocalDate.parse(jsonObject.getString(\"" + baseName + "\")))";
             }
-
-            if(isDateTime) {
+            if (isDateTime) {
                 return "." + name + "(java.time.OffsetDateTime.parse(jsonObject.getString(\"" + baseName + "\")))";
             }
-
             if (isModel) {
                 return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject))";
             }
@@ -176,21 +169,19 @@ public class MicroGenProperty extends CodegenProperty {
             if (items.isInteger) {
                 return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonNumber::intValue))";
             }
-            if (items.isDouble) {
-                return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonNumber::doubleValue))";
-            }
-            if (items.isFloat) {
+            if (items.isDouble || items.isFloat) {
                 return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonNumber::doubleValue))";
             }
             if (items.isString) {
                 return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonString::getString))";
             }
             if (items.isBoolean) {
-                return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonString::getString))"; // TODO Boolean, DateTime, Date, UUID
+                return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonString::getString))"; // TODO Boolean, DateTime, Date, UUID, Bytes, Binary, File
             }
             if (items.isModel) {
                 return ".addAll" + nameInCamelCase + "(" + items.dataType + "." + items.dataType + "Serializer.fromJsonArray(jsonObject.getJsonArray(\"" + baseName + "\")))";
             }
+            return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
         }
 
         if (isMapContainer) {
@@ -215,8 +206,12 @@ public class MicroGenProperty extends CodegenProperty {
             if (items.isModel) {
                 return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> " + items.dataType + "." + items.dataType + "Serializer.fromJsonObject(entry.getValue().asJsonObject()))))";
             }
+            return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
         }
 
-        return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\"))";
+        if (!isPrimitiveType) {
+            return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums";
+        }
+        return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
     }
 }

@@ -9,6 +9,7 @@ public class PetSerializer
             Pet obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("category", obj.getCategory(), generator);
@@ -24,6 +25,7 @@ public class PetSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
@@ -34,7 +36,7 @@ public class PetSerializer
                 .name(jsonObject.getString("name"))
                 .addAllPhotoUrls(jsonObject.getJsonArray("photoUrls").getValuesAs(JsonString::getString))
                 .addAllTags(Tag.TagSerializer.fromJsonArray(jsonObject.getJsonArray("tags")))
-                .status(jsonObject.getString("status"))
+                .status(StatusEnum.fromValue(jsonObject.getString("status")))
                 .build();
     }
 

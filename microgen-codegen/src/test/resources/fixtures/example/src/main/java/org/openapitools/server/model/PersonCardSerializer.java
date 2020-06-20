@@ -9,6 +9,7 @@ public class PersonCardSerializer
             PersonCard obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("firstName", obj.getFirstName(), generator);
         ctx.serialize("lastName", obj.getLastName(), generator);
@@ -20,6 +21,7 @@ public class PersonCardSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

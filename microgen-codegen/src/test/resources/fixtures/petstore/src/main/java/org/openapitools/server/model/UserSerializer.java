@@ -9,6 +9,7 @@ public class UserSerializer
             User obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("username", obj.getUsername(), generator);
@@ -26,6 +27,7 @@ public class UserSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

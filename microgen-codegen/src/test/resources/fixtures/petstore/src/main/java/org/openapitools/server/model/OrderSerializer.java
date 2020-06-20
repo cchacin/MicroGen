@@ -9,6 +9,7 @@ public class OrderSerializer
             Order obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("petId", obj.getPetId(), generator);
@@ -24,6 +25,7 @@ public class OrderSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
@@ -33,7 +35,7 @@ public class OrderSerializer
                 .petId(jsonObject.getJsonNumber("petId").longValue())
                 .quantity(jsonObject.getJsonNumber("quantity").intValue())
                 .shipDate(java.time.OffsetDateTime.parse(jsonObject.getString("shipDate")))
-                .status(jsonObject.getString("status"))
+                .status(StatusEnum.fromValue(jsonObject.getString("status")))
                 .complete(jsonObject.getBoolean("complete"))
                 .build();
     }

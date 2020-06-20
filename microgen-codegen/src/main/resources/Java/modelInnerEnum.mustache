@@ -38,28 +38,23 @@
             }
     }
 
-    public static class {{datatypeWithEnum}}Serializer implements javax.json.bind.serializer.JsonbSerializer<{{datatypeWithEnum}}> {
-
-        public {{datatypeWithEnum}}Serializer() { }
+    public static class {{datatypeWithEnum}}Serializer implements
+            javax.json.bind.serializer.JsonbSerializer<{{datatypeWithEnum}}>,
+            javax.json.bind.serializer.JsonbDeserializer<{{datatypeWithEnum}}> {
 
         @Override
         public void serialize(
-            {{datatypeWithEnum}} aEnum,
-            javax.json.stream.JsonGenerator jsonGenerator,
+            {{datatypeWithEnum}} obj,
+            javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext serializationContext) {
-                jsonGenerator.write(aEnum.value);
+            generator.write(obj.getValue());
         }
-    }
-
-    public static class {{datatypeWithEnum}}Deserializer implements javax.json.bind.serializer.JsonbDeserializer<{{datatypeWithEnum}}> {
-
-        public {{datatypeWithEnum}}Deserializer(){}
 
         @Override
         public {{datatypeWithEnum}} deserialize(
-            javax.json.stream.JsonParser jsonParser,
+            javax.json.stream.JsonParser parser,
             javax.json.bind.serializer.DeserializationContext deserializationContext,
             java.lang.reflect.Type type) {
-            return {{datatypeWithEnum}}.fromValue(jsonParser.getString());
+            return {{datatypeWithEnum}}.fromValue(parser.getString());
         }
     }

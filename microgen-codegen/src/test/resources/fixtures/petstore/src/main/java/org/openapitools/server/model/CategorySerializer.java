@@ -9,6 +9,7 @@ public class CategorySerializer
             Category obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("id", obj.getId(), generator);
         ctx.serialize("name", obj.getName(), generator);
@@ -20,6 +21,7 @@ public class CategorySerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 

@@ -39,6 +39,7 @@ class ModelSerializerTemplateIT implements ServerTemplateTest {
                 Arguments.of("petstore", "CategorySerializer.java"),
                 Arguments.of("petstore", "OrderSerializer.java"),
                 Arguments.of("petstore", "TagSerializer.java"),
+                Arguments.of("example", "AllPrimitivesSerializer.java"),
                 Arguments.of("example", "EnumStringSerializer.java"),
                 Arguments.of("example", "EnumIntegerSerializer.java"),
                 Arguments.of("example", "EnumNumberSerializer.java"),

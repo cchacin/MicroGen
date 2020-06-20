@@ -42,6 +42,7 @@ class ModelTemplateIT implements ServerTemplateTest {
                 Arguments.of("petstore", "Order.java"),
                 Arguments.of("petstore", "Tag.java"),
                 Arguments.of("example", "OpenAPIModel.java"),
+                Arguments.of("example", "AllPrimitives.java"),
                 Arguments.of("example", "EnumInteger.java"),
                 Arguments.of("example", "EnumNumber.java"),
                 Arguments.of("example", "EnumString.java"),

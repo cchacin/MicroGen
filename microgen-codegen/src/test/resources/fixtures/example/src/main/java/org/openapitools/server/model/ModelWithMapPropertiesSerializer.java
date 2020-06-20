@@ -9,6 +9,7 @@ public class ModelWithMapPropertiesSerializer
             ModelWithMapProperties obj,
             javax.json.stream.JsonGenerator generator,
             javax.json.bind.serializer.SerializationContext ctx) {
+
         generator.writeStartObject();
         ctx.serialize("stringMap", obj.getStringMap(), generator);
         ctx.serialize("integerMap", obj.getIntegerMap(), generator);
@@ -22,6 +23,7 @@ public class ModelWithMapPropertiesSerializer
             final javax.json.stream.JsonParser parser,
             final javax.json.bind.serializer.DeserializationContext ctx,
             final java.lang.reflect.Type rtType) {
+
         return fromJsonObject(ctx.deserialize(javax.json.JsonObject.class, parser));
     }
 
@@ -41,7 +43,7 @@ public class ModelWithMapPropertiesSerializer
                                                 entry ->
                                                         ErrorInfo.ErrorInfoSerializer.fromJsonObject(
                                                                 entry.getValue().asJsonObject()))))
-                .errorInfoArrayMap(jsonObject.getJsonObject("errorInfoArrayMap"))
+                .errorInfoArrayMap(jsonObject.getJsonObject("errorInfoArrayMap")) // TODO
                 .build();
     }
 
