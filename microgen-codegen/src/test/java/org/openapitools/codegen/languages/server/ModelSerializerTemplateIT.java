@@ -34,22 +34,22 @@ class ModelSerializerTemplateIT implements ServerTemplateTest {
 
     static Stream<Arguments> arguments() {
         return Stream.of(
-//                Arguments.of("petstore", "PetSerializer.java"),
-//                Arguments.of("petstore", "UserSerializer.java"),
-//                Arguments.of("petstore", "CategorySerializer.java"),
-//                Arguments.of("petstore", "OrderSerializer.java"),
-//                Arguments.of("petstore", "TagSerializer.java"),
-                Arguments.of("example", "AllPrimitivesSerializer.java")
-//                Arguments.of("example", "EnumStringSerializer.java"),
-//                Arguments.of("example", "EnumIntegerSerializer.java"),
-//                Arguments.of("example", "EnumNumberSerializer.java"),
-//                Arguments.of("example", "SampleBaseSerializer.java"),
-//                Arguments.of("example", "SampleSubClassSerializer.java"),
-//                Arguments.of("example", "PersonCardSerializer.java"),
-//                Arguments.of("example", "BaseCardSerializer.java"),
-//                Arguments.of("example", "ModelWithPropertiesAndAdditionalPropertiesSerializer.java"),
-//                Arguments.of("example", "ModelWithMapPropertiesSerializer.java"),
-//                Arguments.of("example", "ModelWithReadOnlyPropertyTestSerializer.java")
+                Arguments.of("petstore", "PetSerializer.java"),
+                Arguments.of("petstore", "UserSerializer.java"),
+                Arguments.of("petstore", "CategorySerializer.java"),
+                Arguments.of("petstore", "OrderSerializer.java"),
+                Arguments.of("petstore", "TagSerializer.java"),
+                Arguments.of("example", "AllPrimitivesSerializer.java"),
+                Arguments.of("example", "EnumStringSerializer.java"),
+                Arguments.of("example", "EnumIntegerSerializer.java"),
+                Arguments.of("example", "EnumNumberSerializer.java"),
+                Arguments.of("example", "SampleBaseSerializer.java"),
+                Arguments.of("example", "SampleSubClassSerializer.java"),
+                Arguments.of("example", "PersonCardSerializer.java"),
+                Arguments.of("example", "BaseCardSerializer.java"),
+                Arguments.of("example", "ModelWithPropertiesAndAdditionalPropertiesSerializer.java"),
+                Arguments.of("example", "ModelWithMapPropertiesSerializer.java"),
+                Arguments.of("example", "ModelWithReadOnlyPropertyTestSerializer.java")
         );
     }
 

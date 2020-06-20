@@ -400,9 +400,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumStringOptionalEnum fromValue(final String text) {
+        public static MyInlineEnumStringOptionalEnum fromValue(final String value) {
             return java.util.Arrays.stream(MyInlineEnumStringOptionalEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }
@@ -470,9 +470,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumStringRequiredEnum fromValue(final String text) {
+        public static MyInlineEnumStringRequiredEnum fromValue(final String value) {
             return java.util.Arrays.stream(MyInlineEnumStringRequiredEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }
@@ -540,9 +540,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumIntegerOptionalEnum fromValue(final String text) {
+        public static MyInlineEnumIntegerOptionalEnum fromValue(final Integer value) {
             return java.util.Arrays.stream(MyInlineEnumIntegerOptionalEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }
@@ -610,9 +610,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumIntegerRequiredEnum fromValue(final String text) {
+        public static MyInlineEnumIntegerRequiredEnum fromValue(final Integer value) {
             return java.util.Arrays.stream(MyInlineEnumIntegerRequiredEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }
@@ -680,9 +680,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumNumberOptionalEnum fromValue(final String text) {
+        public static MyInlineEnumNumberOptionalEnum fromValue(final Float value) {
             return java.util.Arrays.stream(MyInlineEnumNumberOptionalEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }
@@ -750,9 +750,9 @@ public abstract class AllPrimitives implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static MyInlineEnumNumberRequiredEnum fromValue(final String text) {
+        public static MyInlineEnumNumberRequiredEnum fromValue(final Float value) {
             return java.util.Arrays.stream(MyInlineEnumNumberRequiredEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }

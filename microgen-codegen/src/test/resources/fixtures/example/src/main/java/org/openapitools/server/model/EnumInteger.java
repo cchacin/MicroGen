@@ -38,9 +38,9 @@ public enum EnumInteger {
     }
 
     @javax.json.bind.annotation.JsonbCreator
-    public static EnumInteger fromValue(final String text) {
+    public static EnumInteger fromValue(final Integer value) {
         return java.util.Arrays.stream(EnumInteger.values())
-                .filter(b -> b.value.equals(text))
+                .filter(b -> b.getValue().equals(value))
                 .findFirst()
                 .orElse(null);
     }

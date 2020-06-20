@@ -38,9 +38,9 @@ public enum EnumNumber {
     }
 
     @javax.json.bind.annotation.JsonbCreator
-    public static EnumNumber fromValue(final String text) {
+    public static EnumNumber fromValue(final BigDecimal value) {
         return java.util.Arrays.stream(EnumNumber.values())
-                .filter(b -> b.value.equals(text))
+                .filter(b -> b.getValue().equals(value))
                 .findFirst()
                 .orElse(null);
     }

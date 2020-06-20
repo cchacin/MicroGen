@@ -26,9 +26,9 @@ public enum EnumString {
     }
 
     @javax.json.bind.annotation.JsonbCreator
-    public static EnumString fromValue(final String text) {
+    public static EnumString fromValue(final String value) {
         return java.util.Arrays.stream(EnumString.values())
-                .filter(b -> b.value.equals(text))
+                .filter(b -> b.getValue().equals(value))
                 .findFirst()
                 .orElse(null);
     }

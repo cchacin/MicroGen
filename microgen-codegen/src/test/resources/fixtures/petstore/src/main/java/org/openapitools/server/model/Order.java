@@ -84,9 +84,9 @@ public abstract class Order implements OpenAPIModel {
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static StatusEnum fromValue(final String text) {
+        public static StatusEnum fromValue(final String value) {
             return java.util.Arrays.stream(StatusEnum.values())
-                    .filter(b -> b.value.equals(text))
+                    .filter(b -> b.getValue().equals(value))
                     .findFirst()
                     .orElse(null);
         }

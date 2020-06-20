@@ -30,9 +30,9 @@ public enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum
     }
 
     @javax.json.bind.annotation.JsonbCreator
-    public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue(final String text) {
+    public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue(final {{{dataType}}} value) {
         return java.util.Arrays.stream({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values())
-                      .filter(b -> b.value.equals(text))
+                      .filter(b -> b.getValue().equals(value))
                       .findFirst()
                       .orElse(null);
     }
