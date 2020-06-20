@@ -2,7 +2,7 @@
      * {{^description}}Gets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
      */
     @javax.json.bind.annotation.JsonbTypeSerializer({{classname}}.{{datatypeWithEnum}}Serializer.class)
-    @javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}.{{datatypeWithEnum}}Deserializer.class)
+    @javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}.{{datatypeWithEnum}}Serializer.class)
     public static enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
 
         {{#allowableValues}}{{#enumVars}}

@@ -35,24 +35,24 @@ class ModelTemplateIT implements ServerTemplateTest {
     static Stream<Arguments> arguments() {
         return Stream.of(
                 Arguments.of("petstore", "OpenAPIModel.java"),
-//                Arguments.of("petstore", "package-info.java"),
+                Arguments.of("petstore", "package-info.java"),
                 Arguments.of("petstore", "Pet.java"),
-//                Arguments.of("petstore", "User.java"),
-//                Arguments.of("petstore", "Category.java"),
-//                Arguments.of("petstore", "Order.java"),
-//                Arguments.of("petstore", "Tag.java"),
+                Arguments.of("petstore", "User.java"),
+                Arguments.of("petstore", "Category.java"),
+                Arguments.of("petstore", "Order.java"),
+                Arguments.of("petstore", "Tag.java"),
                 Arguments.of("example", "OpenAPIModel.java"),
                 Arguments.of("example", "EnumInteger.java"),
                 Arguments.of("example", "EnumNumber.java"),
-                Arguments.of("example", "EnumString.java")
-//                Arguments.of("example", "package-info.java"),
-//                Arguments.of("example", "SampleBase.java"),
-//                Arguments.of("example", "SampleSubClass.java"),
-//                Arguments.of("example", "PersonCard.java"),
-//                Arguments.of("example", "BaseCard.java"),
-//                Arguments.of("example", "ModelWithPropertiesAndAdditionalProperties.java"),
-//                Arguments.of("example", "ModelWithMapProperties.java"),
-//                Arguments.of("example", "ModelWithReadOnlyPropertyTest.java")
+                Arguments.of("example", "EnumString.java"),
+                Arguments.of("example", "package-info.java"),
+                Arguments.of("example", "SampleBase.java"),
+                Arguments.of("example", "SampleSubClass.java"),
+                Arguments.of("example", "PersonCard.java"),
+                Arguments.of("example", "BaseCard.java"),
+                Arguments.of("example", "ModelWithPropertiesAndAdditionalProperties.java"),
+                Arguments.of("example", "ModelWithMapProperties.java"),
+                Arguments.of("example", "ModelWithReadOnlyPropertyTest.java")
         );
     }
 

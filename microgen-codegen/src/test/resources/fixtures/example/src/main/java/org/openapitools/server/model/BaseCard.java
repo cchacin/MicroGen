@@ -3,6 +3,8 @@ package org.openapitools.server.model;
 /** This is a base card object which uses a &#39;cardType&#39; discriminator. */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({BaseCard.JSONB_PROPERTY_CARD_TYPE})
+@javax.json.bind.annotation.JsonbTypeSerializer(BaseCardSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(BaseCardSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class BaseCard implements OpenAPIModel {
 

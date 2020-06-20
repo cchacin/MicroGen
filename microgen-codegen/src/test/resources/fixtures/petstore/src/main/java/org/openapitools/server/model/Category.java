@@ -3,9 +3,11 @@ package org.openapitools.server.model;
 /** Category */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Category.JSONB_PROPERTY_ID,
-                                                       Category.JSONB_PROPERTY_NAME
-                                               })
+        Category.JSONB_PROPERTY_ID,
+        Category.JSONB_PROPERTY_NAME
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(CategorySerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(CategorySerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Category implements OpenAPIModel {
 
@@ -21,7 +23,7 @@ public abstract class Category implements OpenAPIModel {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
-    public abstract java.util.OptionalLong getId();
+    public abstract java.util.Optional<Long> getId();
 
     /**
      * Get name

@@ -8,6 +8,8 @@
     {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+@javax.json.bind.annotation.JsonbTypeSerializer({{classname}}Serializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}Serializer.class)
 {{>generatedAnnotation}}
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 
@@ -37,7 +39,7 @@ public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} 
     {{{vendorExtensions.extraAnnotation}}}
     {{/vendorExtensions.extraAnnotation}}
     @javax.json.bind.annotation.JsonbProperty({{jsonbPropertyName}})
-    public abstract {{{datatypeWithEnum}}} {{getter}}();
+    public abstract {{{fieldType}}} {{getter}}();
 
 {{/vars}}
     public static class Builder extends Immutable{{classname}}.Builder {}

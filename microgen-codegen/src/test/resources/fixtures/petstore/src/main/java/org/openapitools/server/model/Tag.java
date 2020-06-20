@@ -3,6 +3,8 @@ package org.openapitools.server.model;
 /** Tag */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({Tag.JSONB_PROPERTY_ID, Tag.JSONB_PROPERTY_NAME})
+@javax.json.bind.annotation.JsonbTypeSerializer(TagSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(TagSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Tag implements OpenAPIModel {
 
@@ -18,7 +20,7 @@ public abstract class Tag implements OpenAPIModel {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
-    public abstract java.util.OptionalLong getId();
+    public abstract java.util.Optional<Long> getId();
 
     /**
      * Get name

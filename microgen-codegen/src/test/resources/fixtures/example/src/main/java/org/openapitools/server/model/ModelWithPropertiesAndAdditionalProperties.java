@@ -3,12 +3,16 @@ package org.openapitools.server.model;
 /** This is a model object that has properties and additionalProperties. */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_INTEGER_PROP,
-                                                       ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_STRING_PROP
-                                               })
+        ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_INTEGER_PROP,
+        ModelWithPropertiesAndAdditionalProperties.JSONB_PROPERTY_STRING_PROP
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(
+        ModelWithPropertiesAndAdditionalPropertiesSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(
+        ModelWithPropertiesAndAdditionalPropertiesSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithPropertiesAndAdditionalProperties
-        extends java.util.HashMap<String, String> implements OpenAPIModel {
+        extends java.util.Map<String, String> implements OpenAPIModel {
 
     public static final String JSONB_PROPERTY_INTEGER_PROP = "integerProp";
     public static final String JSONB_PROPERTY_STRING_PROP = "stringProp";
@@ -22,7 +26,7 @@ public abstract class ModelWithPropertiesAndAdditionalProperties
      * @return integerProp
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_INTEGER_PROP)
-    public abstract java.util.OptionalInt getIntegerProp();
+    public abstract java.util.Optional<Integer> getIntegerProp();
 
     /**
      * Get stringProp

@@ -3,9 +3,11 @@ package org.openapitools.server.model;
 /** This is an card object for a Person derived from BaseCard. */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       PersonCard.JSONB_PROPERTY_FIRST_NAME,
-                                                       PersonCard.JSONB_PROPERTY_LAST_NAME
-                                               })
+        PersonCard.JSONB_PROPERTY_FIRST_NAME,
+        PersonCard.JSONB_PROPERTY_LAST_NAME
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(PersonCardSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(PersonCardSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class PersonCard extends BaseCard implements OpenAPIModel {
 

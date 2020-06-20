@@ -6,11 +6,13 @@ package org.openapitools.server.model;
  */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       ModelWithMapProperties.JSONB_PROPERTY_STRING_MAP,
-                                                       ModelWithMapProperties.JSONB_PROPERTY_INTEGER_MAP,
-                                                       ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_MAP,
-                                                       ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP
-                                               })
+        ModelWithMapProperties.JSONB_PROPERTY_STRING_MAP,
+        ModelWithMapProperties.JSONB_PROPERTY_INTEGER_MAP,
+        ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_MAP,
+        ModelWithMapProperties.JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(ModelWithMapPropertiesSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(ModelWithMapPropertiesSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class ModelWithMapProperties implements OpenAPIModel {
 
@@ -28,7 +30,7 @@ public abstract class ModelWithMapProperties implements OpenAPIModel {
      * @return stringMap
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STRING_MAP)
-    public abstract java.util.HashMap<String, String> getStringMap();
+    public abstract java.util.Optional<java.util.Map<String, String>> getStringMap();
 
     /**
      * Get integerMap
@@ -36,7 +38,7 @@ public abstract class ModelWithMapProperties implements OpenAPIModel {
      * @return integerMap
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_INTEGER_MAP)
-    public abstract java.util.HashMap<String, Integer> getIntegerMap();
+    public abstract java.util.Optional<java.util.Map<String, Integer>> getIntegerMap();
 
     /**
      * Get errorInfoMap
@@ -45,7 +47,7 @@ public abstract class ModelWithMapProperties implements OpenAPIModel {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_MAP)
-    public abstract java.util.HashMap<String, ErrorInfo> getErrorInfoMap();
+    public abstract java.util.Optional<java.util.Map<String, ErrorInfo>> getErrorInfoMap();
 
     /**
      * Get errorInfoArrayMap
@@ -54,7 +56,8 @@ public abstract class ModelWithMapProperties implements OpenAPIModel {
      */
     @javax.validation.Valid
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ERROR_INFO_ARRAY_MAP)
-    public abstract java.util.HashMap<String, java.util.ArrayList<ErrorInfo>> getErrorInfoArrayMap();
+    public abstract java.util.Optional<java.util.Map<String, java.util.List<ErrorInfo>>>
+    getErrorInfoArrayMap();
 
     public static class Builder extends ImmutableModelWithMapProperties.Builder {}
 

@@ -4,4 +4,4 @@ package {{package}};
 import {{import}};
 {{/imports}}
 
-{{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>immutablePojo}}{{/isEnum}}{{/model}}{{/models}}
+{{#models}}{{#model}}{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>pojo}}{{/isEnum}}{{/model}}{{/models}}

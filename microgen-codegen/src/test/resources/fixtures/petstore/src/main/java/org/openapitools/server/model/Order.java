@@ -3,13 +3,15 @@ package org.openapitools.server.model;
 /** Order */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       Order.JSONB_PROPERTY_ID,
-                                                       Order.JSONB_PROPERTY_PET_ID,
-                                                       Order.JSONB_PROPERTY_QUANTITY,
-                                                       Order.JSONB_PROPERTY_SHIP_DATE,
-                                                       Order.JSONB_PROPERTY_STATUS,
-                                                       Order.JSONB_PROPERTY_COMPLETE
-                                               })
+        Order.JSONB_PROPERTY_ID,
+        Order.JSONB_PROPERTY_PET_ID,
+        Order.JSONB_PROPERTY_QUANTITY,
+        Order.JSONB_PROPERTY_SHIP_DATE,
+        Order.JSONB_PROPERTY_STATUS,
+        Order.JSONB_PROPERTY_COMPLETE
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(OrderSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(OrderSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class Order implements OpenAPIModel {
 
@@ -29,7 +31,7 @@ public abstract class Order implements OpenAPIModel {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
-    public abstract java.util.OptionalLong getId();
+    public abstract java.util.Optional<Long> getId();
 
     /**
      * Get petId
@@ -37,7 +39,7 @@ public abstract class Order implements OpenAPIModel {
      * @return petId
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_PET_ID)
-    public abstract java.util.OptionalLong getPetId();
+    public abstract java.util.Optional<Long> getPetId();
 
     /**
      * Get quantity
@@ -45,7 +47,7 @@ public abstract class Order implements OpenAPIModel {
      * @return quantity
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_QUANTITY)
-    public abstract java.util.OptionalInt getQuantity();
+    public abstract java.util.Optional<Integer> getQuantity();
 
     /**
      * Get shipDate
@@ -58,7 +60,7 @@ public abstract class Order implements OpenAPIModel {
 
     /** Order Status */
     @javax.json.bind.annotation.JsonbTypeSerializer(Order.StatusEnumSerializer.class)
-    @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumDeserializer.class)
+    @javax.json.bind.annotation.JsonbTypeDeserializer(Order.StatusEnumSerializer.class)
     public static enum StatusEnum {
         PLACED("placed"),
 
@@ -84,9 +86,9 @@ public abstract class Order implements OpenAPIModel {
         @javax.json.bind.annotation.JsonbCreator
         public static StatusEnum fromValue(final String text) {
             return java.util.Arrays.stream(StatusEnum.values())
-                                   .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
-                                   .findFirst()
-                                   .orElse(null);
+                    .filter(b -> b.value.equals(text))
+                    .findFirst()
+                    .orElse(null);
         }
     }
 
@@ -124,7 +126,7 @@ public abstract class Order implements OpenAPIModel {
      * @return status
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_STATUS)
-    public abstract StatusEnum getStatus();
+    public abstract java.util.Optional<StatusEnum> getStatus();
 
     /**
      * Get complete

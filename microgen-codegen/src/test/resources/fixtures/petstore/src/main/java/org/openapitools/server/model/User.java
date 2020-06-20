@@ -3,15 +3,17 @@ package org.openapitools.server.model;
 /** User */
 @org.immutables.value.Value.Immutable
 @javax.json.bind.annotation.JsonbPropertyOrder({
-                                                       User.JSONB_PROPERTY_ID,
-                                                       User.JSONB_PROPERTY_USERNAME,
-                                                       User.JSONB_PROPERTY_FIRST_NAME,
-                                                       User.JSONB_PROPERTY_LAST_NAME,
-                                                       User.JSONB_PROPERTY_EMAIL,
-                                                       User.JSONB_PROPERTY_PASSWORD,
-                                                       User.JSONB_PROPERTY_PHONE,
-                                                       User.JSONB_PROPERTY_USER_STATUS
-                                               })
+        User.JSONB_PROPERTY_ID,
+        User.JSONB_PROPERTY_USERNAME,
+        User.JSONB_PROPERTY_FIRST_NAME,
+        User.JSONB_PROPERTY_LAST_NAME,
+        User.JSONB_PROPERTY_EMAIL,
+        User.JSONB_PROPERTY_PASSWORD,
+        User.JSONB_PROPERTY_PHONE,
+        User.JSONB_PROPERTY_USER_STATUS
+})
+@javax.json.bind.annotation.JsonbTypeSerializer(UserSerializer.class)
+@javax.json.bind.annotation.JsonbTypeDeserializer(UserSerializer.class)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
 public abstract class User implements OpenAPIModel {
 
@@ -33,7 +35,7 @@ public abstract class User implements OpenAPIModel {
      * @return id
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_ID)
-    public abstract java.util.OptionalLong getId();
+    public abstract java.util.Optional<Long> getId();
 
     /**
      * Get username
@@ -89,7 +91,7 @@ public abstract class User implements OpenAPIModel {
      * @return userStatus
      */
     @javax.json.bind.annotation.JsonbProperty(JSONB_PROPERTY_USER_STATUS)
-    public abstract java.util.OptionalInt getUserStatus();
+    public abstract java.util.Optional<Integer> getUserStatus();
 
     public static class Builder extends ImmutableUser.Builder {}
 

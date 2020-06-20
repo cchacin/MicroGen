@@ -155,6 +155,15 @@ public class MicroGenProperty extends CodegenProperty {
             if (isBoolean) {
                 return "." + name + "(jsonObject.getBoolean(\"" + baseName + "\"))";
             }
+
+            if(isDate) {
+                return "." + name + "(java.time.LocalDate.parse(jsonObject.getString(\"" + baseName + "\")))";
+            }
+
+            if(isDateTime) {
+                return "." + name + "(java.time.OffsetDateTime.parse(jsonObject.getString(\"" + baseName + "\")))";
+            }
+
             if (isModel) {
                 return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject))";
             }

@@ -32,7 +32,7 @@ public class OrderSerializer
                 .id(jsonObject.getJsonNumber("id").longValue())
                 .petId(jsonObject.getJsonNumber("petId").longValue())
                 .quantity(jsonObject.getJsonNumber("quantity").intValue())
-                .shipDate(jsonObject.getJsonObject("shipDate"))
+                .shipDate(java.time.OffsetDateTime.parse(jsonObject.getString("shipDate")))
                 .status(jsonObject.getString("status"))
                 .complete(jsonObject.getBoolean("complete"))
                 .build();
