@@ -210,6 +210,9 @@ public class MicroGenProperty extends CodegenProperty {
         }
 
         if (!isPrimitiveType) {
+            if(allowableValues != null && !allowableValues.isEmpty()) {
+                return "." + name + "(" + datatypeWithEnum + ".fromValue(jsonObject.getString(\"" + baseName + "\")))";
+            }
             return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums";
         }
         return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";

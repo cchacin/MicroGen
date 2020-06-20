@@ -92,18 +92,12 @@ public class AllPrimitivesSerializer
                         java.io.FileSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
                 .myUUIDOptional(jsonObject.getString("myUUIDOptional"))
                 .myUUIDRequired(jsonObject.getString("myUUIDRequired"))
-                .myEnumStringOptional(
-                        EnumStringSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
-                .myEnumStringRequired(
-                        EnumStringSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
-                .myEnumIntegerOptional(
-                        EnumIntegerSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
-                .myEnumIntegerRequired(
-                        EnumIntegerSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
-                .myEnumNumberOptional(
-                        EnumNumberSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
-                .myEnumNumberRequired(
-                        EnumNumberSerializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums
+                .myEnumStringOptional(EnumString.fromValue(jsonObject.getString("myEnumStringOptional")))
+                .myEnumStringRequired(EnumString.fromValue(jsonObject.getString("myEnumStringRequired")))
+                .myEnumIntegerOptional(EnumInteger.fromValue(jsonObject.getString("myEnumIntegerOptional")))
+                .myEnumIntegerRequired(EnumInteger.fromValue(jsonObject.getString("myEnumIntegerRequired")))
+                .myEnumNumberOptional(EnumNumber.fromValue(jsonObject.getString("myEnumNumberOptional")))
+                .myEnumNumberRequired(EnumNumber.fromValue(jsonObject.getString("myEnumNumberRequired")))
                 .myInlineEnumStringOptional(
                         MyInlineEnumStringOptionalEnum.fromValue(
                                 jsonObject.getString("myInlineEnumStringOptional")))
