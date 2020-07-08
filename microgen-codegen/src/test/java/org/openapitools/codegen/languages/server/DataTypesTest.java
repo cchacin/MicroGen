@@ -92,7 +92,9 @@ class DataTypesTest implements ModelTest, WithAssertions {
     @ParameterizedTest(name = "{0} {2}")
     @MethodSource("arguments")
     void test(
-            final Optionality optionality, final Schema fieldSchema, final String dataType) {
+            final Optionality optionality,
+            final Schema<?> fieldSchema,
+            final String dataType) {
         assertThat(extractProperty(fieldSchema, optionality, MicroGenProperty::getFieldType))
                 .containsExactlyInAnyOrder(dataType);
     }

@@ -133,6 +133,9 @@ public class MicroGenProperty extends CodegenProperty {
             if (isEnum) {
                 return "." + name + "(" + datatypeWithEnum + ".fromValue(jsonObject.getString(\"" + baseName + "\")))";
             }
+            if (isNumber) {
+                return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").bigDecimalValue())";
+            }
             if (isLong) {
                 return "." + name + "(jsonObject.getJsonNumber(\"" + baseName + "\").longValue())";
             }
@@ -163,6 +166,9 @@ public class MicroGenProperty extends CodegenProperty {
         }
 
         if (isListContainer) {
+            if (items.isNumber) {
+                return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonNumber::bigDecimalValue))";
+            }
             if (items.isLong) {
                 return ".addAll" + nameInCamelCase + "(jsonObject.getJsonArray(\"" + baseName + "\").getValuesAs(JsonNumber::longValue))";
             }
@@ -181,10 +187,15 @@ public class MicroGenProperty extends CodegenProperty {
             if (items.isModel) {
                 return ".addAll" + nameInCamelCase + "(" + items.dataType + "." + items.dataType + "Serializer.fromJsonArray(jsonObject.getJsonArray(\"" + baseName + "\")))";
             }
-            return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
         }
 
         if (isMapContainer) {
+            if(items.isEnum) {
+                return ".putAll(null)";
+            }
+            if (items.isNumber) {
+                return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))";
+            }
             if (items.isLong) {
                 return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().toString())))";
             }
@@ -206,15 +217,14 @@ public class MicroGenProperty extends CodegenProperty {
             if (items.isModel) {
                 return ".putAll" + nameInCamelCase + "(jsonObject.getJsonObject(\"" + baseName + "\").entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> " + items.dataType + "." + items.dataType + "Serializer.fromJsonObject(entry.getValue().asJsonObject()))))";
             }
-            return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
         }
 
-        if (!isPrimitiveType) {
+//        if (!isPrimitiveType) {
             if(allowableValues != null && !allowableValues.isEmpty()) {
                 return "." + name + "(" + datatypeWithEnum + ".fromValue(jsonObject.getString(\"" + baseName + "\")))";
             }
-            return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums";
-        }
+//            return "." + name + "(" + dataType + "Serializer.fromJsonObject(jsonObject)) // TODO fix non-inner enums";
+//        }
         return "." + name + "(jsonObject.getJsonObject(\"" + baseName + "\")) // TODO";
     }
 }
