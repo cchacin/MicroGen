@@ -87,7 +87,7 @@
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.jar.plugin>3.2.0</version.jar.plugin>
         <version.license.plugin>2.0.0</version.license.plugin>
-        <version.processor.plugin>3.3.3</version.processor.plugin>
+        <version.processor.plugin>4.0-jdk8</version.processor.plugin>
         <version.release.plugin>2.5.3</version.release.plugin>
         <version.resources.plugin>3.1.0</version.resources.plugin>
         <version.archetype.plugin>3.1.2</version.archetype.plugin>
