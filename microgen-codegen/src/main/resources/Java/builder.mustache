@@ -15,11 +15,18 @@ public static final class Builder {
         return this;
     }
 
+    {{^required}}
+    public Builder {{name}}(final {{{dataType}}} {{name}}) {
+        this.{{name}} = java.util.Optional.ofNullable({{name}});
+        return this;
+    }
+    {{/required}}
+
     {{#isListContainer}}
     public Builder add{{nameInCamelCase}}Item({{{items.datatypeWithEnum}}} {{name}}Item) {
     {{^required}}
         if (this.{{name}} == null || !this.{{name}}.isPresent()) {
-            this.{{name}} = java.util.Optional.of({{{defaultValue}}});
+            this.{{name}} = java.util.Optional.ofNullable({{{defaultValue}}});
         }
         this.{{name}}.get().add({{name}}Item);
     {{/required}}

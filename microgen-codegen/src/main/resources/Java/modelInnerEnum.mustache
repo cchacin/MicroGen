@@ -11,7 +11,7 @@
 
         private final {{{datatype}}} value;
 
-        {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(final {{{datatype}}} value) {
+        {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(final {{{dataType}}} value) {
             this.value = value;
         }
 
@@ -25,9 +25,9 @@
         }
 
         @javax.json.bind.annotation.JsonbCreator
-        public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue(final String text) {
+        public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue(final {{{dataType}}} value) {
             return java.util.Arrays.stream({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values())
-                          .filter(b -> java.util.Objects.equals(String.valueOf(b.value), text))
+                          .filter(b -> b.getValue().equals(value))
                           .findFirst()
                           .orElse(null);
             }
