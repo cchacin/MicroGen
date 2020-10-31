@@ -18,8 +18,6 @@ public interface {{classname}}RestClient extends java.lang.AutoCloseable { {{#op
      {{/allParams}}
      * @return {@code java.util.concurrent.CompletionStage&lt;{{returnType}}&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(name = "{{{httpMethod}}}_{{{path}}}_time", absolute = true, unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS, displayName = "{{nickname}}", reusable = false, tags = {"class={{classname}}Api,method={{nickname}}_{{operationIdCamelCase}}Params"}, description = "{{summary}}")
-    @org.eclipse.microprofile.metrics.annotation.Counted(name = "{{{httpMethod}}}_{{{path}}}_count", absolute = true, unit = org.eclipse.microprofile.metrics.MetricUnits.NONE, displayName = "{{nickname}}", reusable = false, tags = {"class={{classname}}Api,method={{nickname}}_{{operationIdCamelCase}}Params"}, description = "{{summary}}")
     @javax.ws.rs.{{httpMethod}}
     @javax.ws.rs.Path("{{{path}}}"){{#hasConsumes}}
     @javax.ws.rs.Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}{{#hasProduces}}

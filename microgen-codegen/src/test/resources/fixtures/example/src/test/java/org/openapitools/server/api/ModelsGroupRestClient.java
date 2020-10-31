@@ -18,22 +18,6 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
      *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/models/all_time",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "getAllModels",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=getAllModels_GetAllModelsParams"},
-            description = "Return all of the defined models.")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/models/all_count",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "getAllModels",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=getAllModels_GetAllModelsParams"},
-            description = "Return all of the defined models.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/models/all")
     @javax.ws.rs.Produces({"application/json"})
@@ -71,22 +55,6 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
      *     schema-level parameters section. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;AllModels&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_test/operations/defaultResponse_time",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "getDefaultResponse",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=getDefaultResponse_GetDefaultResponseParams"},
-            description = "This operation has a default response.")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_test/operations/defaultResponse_count",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "getDefaultResponse",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=getDefaultResponse_GetDefaultResponseParams"},
-            description = "This operation has a default response.")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("test/operations/defaultResponse")
     @javax.ws.rs.Produces({"application/json"})
@@ -123,22 +91,6 @@ public interface ModelsGroupRestClient extends java.lang.AutoCloseable {
      * @param modelWithReadOnlyPropertyTest This is json-serialized property in the body. (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;ModelWithReadOnlyPropertyTest&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "PUT_test/models/readonly_time",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "putModelsReadOnly",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=putModelsReadOnly_PutModelsReadOnlyParams"},
-            description = "Summary: This is an endpoint which tests readOnly properties.")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "PUT_test/models/readonly_count",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "putModelsReadOnly",
-            reusable = false,
-            tags = {"class=ModelsGroupApi,method=putModelsReadOnly_PutModelsReadOnlyParams"},
-            description = "Summary: This is an endpoint which tests readOnly properties.")
     @javax.ws.rs.PUT
     @javax.ws.rs.Path("test/models/readonly")
     @javax.ws.rs.Consumes({"application/json"})

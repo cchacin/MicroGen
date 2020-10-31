@@ -12,22 +12,6 @@ public interface StoreApi {
      * @param orderId ID of the order that needs to be deleted (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "DELETE_store/order/{orderId}",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "deleteOrder",
-            reusable = false,
-            tags = {"action=StoreApi.deleteOrder"},
-            description = "Delete purchase order by ID")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "DELETE_store/order/{orderId}",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "deleteOrder",
-            reusable = false,
-            tags = {"action=StoreApi.deleteOrder"},
-            description = "Delete purchase order by ID")
     @javax.ws.rs.DELETE
     @javax.ws.rs.Path("store/order/{orderId}")
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> deleteOrder(
@@ -63,22 +47,6 @@ public interface StoreApi {
      *
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/inventory",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "getInventory",
-            reusable = false,
-            tags = {"action=StoreApi.getInventory"},
-            description = "Returns pet inventories by status")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/inventory",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "getInventory",
-            reusable = false,
-            tags = {"action=StoreApi.getInventory"},
-            description = "Returns pet inventories by status")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/inventory")
     @javax.ws.rs.Produces({"application/json"})
@@ -108,22 +76,6 @@ public interface StoreApi {
      * @param orderId ID of pet that needs to be fetched (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "GET_store/order/{orderId}",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "getOrderById",
-            reusable = false,
-            tags = {"action=StoreApi.getOrderById"},
-            description = "Find purchase order by ID")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "GET_store/order/{orderId}",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "getOrderById",
-            reusable = false,
-            tags = {"action=StoreApi.getOrderById"},
-            description = "Find purchase order by ID")
     @javax.ws.rs.GET
     @javax.ws.rs.Path("store/order/{orderId}")
     @javax.ws.rs.Produces({"application/json"})
@@ -162,22 +114,6 @@ public interface StoreApi {
      * @param order order placed for purchasing the pet (required)
      * @return {@code java.util.concurrent.CompletionStage&lt;javax.ws.rs.core.Response&gt;}
      */
-    @org.eclipse.microprofile.metrics.annotation.Timed(
-            name = "POST_store/order",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NANOSECONDS,
-            displayName = "placeOrder",
-            reusable = false,
-            tags = {"action=StoreApi.placeOrder"},
-            description = "Place an order for a pet")
-    @org.eclipse.microprofile.metrics.annotation.Counted(
-            name = "POST_store/order",
-            absolute = true,
-            unit = org.eclipse.microprofile.metrics.MetricUnits.NONE,
-            displayName = "placeOrder",
-            reusable = false,
-            tags = {"action=StoreApi.placeOrder"},
-            description = "Place an order for a pet")
     @javax.ws.rs.POST
     @javax.ws.rs.Path("store/order")
     @javax.ws.rs.Consumes({"application/json"})
