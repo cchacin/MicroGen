@@ -35,7 +35,7 @@ interface Builder {
         typeMapping.put("string", "String");
         typeMapping.put("int", "Integer");
         typeMapping.put("float", "Float");
-        typeMapping.put("number", "java.math.BigDecimal");
+        typeMapping.put("number", "BigDecimal");
         typeMapping.put("DateTime", "java.time.OffsetDateTime");
         typeMapping.put("date", "java.time.LocalDate");
         typeMapping.put("long", "Long");

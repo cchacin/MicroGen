@@ -34,6 +34,7 @@ public class Pet implements OpenAPIModel {
             java.util.Optional.of(new java.util.ArrayList<Tag>());
 
     /** pet status in the store */
+    @io.quarkus.runtime.annotations.RegisterForReflection
     @javax.json.bind.annotation.JsonbTypeSerializer(Pet.StatusEnumSerializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer(Pet.StatusEnumDeserializer.class)
     public static enum StatusEnum {

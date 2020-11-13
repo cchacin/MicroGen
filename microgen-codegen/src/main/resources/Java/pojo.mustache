@@ -1,15 +1,13 @@
 {{>classJavadoc}}
 {{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
 @org.immutables.value.Value.Immutable
-{{#additionalAnnotations}}
-{{{additionalAnnotations}}}{{/additionalAnnotations}}
 @javax.json.bind.annotation.JsonbPropertyOrder({
 {{#vars}}
     {{classname}}.{{jsonbPropertyName}}{{^-last}},{{/-last}}
 {{/vars}}
 })
+{{>additionalModelTypeAnnotations}}
 {{>generatedAnnotation}}
-@io.quarkus.runtime.annotations.RegisterForReflection
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 
     {{#vars}}
