@@ -10,6 +10,7 @@ package org.openapitools.server.model;
         Pet.JSONB_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
+@io.quarkus.runtime.annotations.RegisterForReflection
 public class Pet implements OpenAPIModel {
 
     public static final String JSONB_PROPERTY_ID = "id";

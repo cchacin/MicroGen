@@ -9,6 +9,7 @@
 {{/vars}}
 })
 {{>generatedAnnotation}}
+@io.quarkus.runtime.annotations.RegisterForReflection
 public abstract class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 
     {{#vars}}

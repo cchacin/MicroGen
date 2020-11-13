@@ -7,6 +7,7 @@
 {{/vars}}
 })
 {{>generatedAnnotation}}
+@io.quarkus.runtime.annotations.RegisterForReflection
 public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implements OpenAPIModel {
 
 {{#vars}}
@@ -27,7 +28,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implement
     {{/items.isEnum}}
     {{>beanValidation}}
     private {{{fieldType}}} {{name}}{{^required}}{{^isContainer}} = java.util.Optional.empty(){{/isContainer}}{{#isContainer}}{{#defaultValue}} = java.util.Optional.of({{{.}}}){{/defaultValue}}{{/isContainer}}{{/required}};
-    
+
 {{/vars}}
 
     public {{classname}}() {
@@ -49,7 +50,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}} implement
     {{/vars}}
     }
 {{#vars}}
-    
+
     {{>methodJavadoc}}
     {{#vendorExtensions.extraAnnotation}}
         {{{vendorExtensions.extraAnnotation}}}
