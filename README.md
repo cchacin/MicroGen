@@ -180,6 +180,7 @@ Generate the Request and Response java objects with the `Json-b` annotations:
     Pet.JSON_PROPERTY_STATUS
   })
   @javax.annotation.Generated(value = "org.openapitools.codegen.languages.MicroGen")
+  @io.quarkus.runtime.annotations.RegisterForReflection
   public final class Pet {
       private final java.util.OptionalLong id;
       public static final String JSON_PROPERTY_ID = "id";
