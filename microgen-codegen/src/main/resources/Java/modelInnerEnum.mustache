@@ -1,15 +1,20 @@
     /**
      * {{^description}}Gets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
      */
+    {{>additionalModelTypeAnnotations}}
     @javax.json.bind.annotation.JsonbTypeSerializer({{classname}}.{{datatypeWithEnum}}Serializer.class)
     @javax.json.bind.annotation.JsonbTypeDeserializer({{classname}}.{{datatypeWithEnum}}Deserializer.class)
     public static enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}} {
-    {{#allowableValues}}{{#enumVars}}
+        {{#allowableValues}}{{#enumVars}}
+        {{#enumDescription}}
+        /**
+         * {{enumDescription}}
+         */
+        {{/enumDescription}}
         {{{name}}}({{{value}}}){{^-last}},
-    {{/-last}}{{#-last}};{{/-last}}
-    {{/enumVars}}{{/allowableValues}}
+        {{/-last}}{{#-last}};{{/-last}}{{/enumVars}}{{/allowableValues}}
 
-        private final {{{datatype}}} value;
+        private final {{{dataType}}} value;
 
         {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{classname}}{{/datatypeWithEnum}}(final {{{dataType}}} value) {
             this.value = value;
@@ -30,7 +35,7 @@
                           .filter(b -> b.getValue().equals(value))
                           .findFirst()
                           .orElse(null);
-            }
+        }
     }
 
     public static class {{datatypeWithEnum}}Serializer implements javax.json.bind.serializer.JsonbSerializer<{{datatypeWithEnum}}> {
