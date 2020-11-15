@@ -20,6 +20,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
             @javax.ws.rs.BeanParam DeleteOrderParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeleteOrderParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public DeleteOrderParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public DeleteOrderParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
         public Long orderId;
@@ -42,6 +56,22 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<java.util.Map<String, Integer>> getInventory()
             throws javax.ws.rs.WebApplicationException;
 
+    class GetInventoryParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetInventoryParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetInventoryParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
+
     /**
      * Find purchase order by ID For valid response try integer IDs with value &gt;&#x3D; 1 and
      * &lt;&#x3D; 10. Other values will generated exceptions
@@ -56,6 +86,20 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
             @javax.ws.rs.BeanParam GetOrderByIdParams params) throws javax.ws.rs.WebApplicationException;
 
     class GetOrderByIdParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetOrderByIdParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetOrderByIdParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("orderId")
         @javax.validation.constraints.Min(1)
         @javax.validation.constraints.Max(10)
@@ -78,6 +122,23 @@ public interface StoreRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.Consumes({"application/json"})
     @javax.ws.rs.Produces({"application/json"})
     java.util.concurrent.CompletionStage<Order> placeOrder(
+            @javax.ws.rs.BeanParam PlaceOrderParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid Order order)
             throws javax.ws.rs.WebApplicationException;
+
+    class PlaceOrderParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public PlaceOrderParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public PlaceOrderParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 }
