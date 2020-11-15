@@ -97,7 +97,7 @@ public class MicroGen extends JavaClientCodegen {
         delegate.vars = delegate.vars.stream()
                 .map(MicroGenProperty::new)
                 .collect(toList());
-        return new MicroGenModel(delegate);
+        return delegate;
     }
 
     @Override
