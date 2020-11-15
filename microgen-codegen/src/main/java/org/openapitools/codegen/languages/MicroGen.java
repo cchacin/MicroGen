@@ -81,16 +81,6 @@ public class MicroGen extends JavaClientCodegen {
     }
 
     @Override
-    public CodegenOperation fromOperation(
-            final String path,
-            final String httpMethod,
-            final Operation operation,
-            final List<Server> servers) {
-        final CodegenOperation delegate = super.fromOperation(path, httpMethod, operation, servers);
-        return new MicroGenOperation(delegate);
-    }
-
-    @Override
     public CodegenModel fromModel(final String name, final Schema model2) {
         final CodegenModel delegate = super.fromModel(name, model2);
         delegate.imports.clear();

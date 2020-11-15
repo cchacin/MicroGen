@@ -18,7 +18,6 @@
  */
 package org.openapitools.codegen.languages;
 
-
 import org.openapitools.codegen.CodegenProperty;
 
 public class MicroGenProperty extends CodegenProperty {
@@ -107,14 +106,6 @@ public class MicroGenProperty extends CodegenProperty {
         this.xmlNamespace = delegate.xmlNamespace;
         this.isXmlWrapped = delegate.isXmlWrapped;
     }
-
-//    @Override
-//    public String getDatatypeWithEnum() {
-//        if (this.dataType != null && !this.required && !this.isEnum) {
-//            return String.format("java.util.Optional<%s>", super.getDatatypeWithEnum());
-//        }
-//        return super.getDatatypeWithEnum();
-//    }
 
     @Override
     public String getGetter() {

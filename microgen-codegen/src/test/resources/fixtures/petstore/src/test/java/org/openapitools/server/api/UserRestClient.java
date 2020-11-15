@@ -17,8 +17,25 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.Path("user")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUser(
+            @javax.ws.rs.BeanParam CreateUserParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid User user)
             throws javax.ws.rs.WebApplicationException;
+
+    class CreateUserParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public CreateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public CreateUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 
     /**
      * Creates list of users with given input array
@@ -30,8 +47,26 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.Path("user/createWithArray")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithArrayInput(
+            @javax.ws.rs.BeanParam CreateUsersWithArrayInputParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
+
+    class CreateUsersWithArrayInputParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public CreateUsersWithArrayInputParams coreHttpHeaders(
+                final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public CreateUsersWithArrayInputParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 
     /**
      * Creates list of users with given input array
@@ -43,8 +78,26 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     @javax.ws.rs.Path("user/createWithList")
     @javax.ws.rs.Consumes({"application/json"})
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> createUsersWithListInput(
+            @javax.ws.rs.BeanParam CreateUsersWithListInputParams params,
             @javax.validation.constraints.NotNull @javax.validation.Valid java.util.List<User> user)
             throws javax.ws.rs.WebApplicationException;
+
+    class CreateUsersWithListInputParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public CreateUsersWithListInputParams coreHttpHeaders(
+                final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public CreateUsersWithListInputParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
 
     /**
      * Delete user This can only be done by the logged in user.
@@ -58,6 +111,20 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             @javax.ws.rs.BeanParam DeleteUserParams params) throws javax.ws.rs.WebApplicationException;
 
     class DeleteUserParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public DeleteUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public DeleteUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("username")
         public String username;
 
@@ -80,6 +147,20 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             @javax.ws.rs.BeanParam GetUserByNameParams params) throws javax.ws.rs.WebApplicationException;
 
     class GetUserByNameParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public GetUserByNameParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public GetUserByNameParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("username")
         public String username;
 
@@ -103,6 +184,19 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             @javax.ws.rs.BeanParam LoginUserParams params) throws javax.ws.rs.WebApplicationException;
 
     class LoginUserParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public LoginUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public LoginUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
 
         @javax.ws.rs.QueryParam("username")
         @javax.validation.constraints.NotNull
@@ -133,6 +227,22 @@ public interface UserRestClient extends java.lang.AutoCloseable {
     java.util.concurrent.CompletionStage<javax.ws.rs.core.Response> logoutUser()
             throws javax.ws.rs.WebApplicationException;
 
+    class LogoutUserParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public LogoutUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public LogoutUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+    }
+
     /**
      * Updated user This can only be done by the logged in user.
      *
@@ -149,6 +259,20 @@ public interface UserRestClient extends java.lang.AutoCloseable {
             throws javax.ws.rs.WebApplicationException;
 
     class UpdateUserParams {
+        @javax.ws.rs.core.Context public javax.ws.rs.core.HttpHeaders coreHttpHeaders;
+
+        public UpdateUserParams coreHttpHeaders(final javax.ws.rs.core.HttpHeaders coreHttpHeaders) {
+            this.coreHttpHeaders = coreHttpHeaders;
+            return this;
+        }
+
+        @javax.ws.rs.core.Context public javax.ws.rs.core.UriInfo coreUriInfo;
+
+        public UpdateUserParams coreUriInfo(final javax.ws.rs.core.UriInfo coreUriInfo) {
+            this.coreUriInfo = coreUriInfo;
+            return this;
+        }
+
         @javax.ws.rs.PathParam("username")
         public String username;
 
