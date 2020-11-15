@@ -50,10 +50,12 @@ public class MicroGenProperty extends CodegenProperty {
         this.jsonSchema = delegate.jsonSchema;
         this.minimum = delegate.minimum;
         this.maximum = delegate.maximum;
+        this.multipleOf = delegate.multipleOf;
         this.exclusiveMinimum = delegate.exclusiveMinimum;
         this.exclusiveMaximum = delegate.exclusiveMaximum;
         this.hasMore = delegate.hasMore;
         this.required = delegate.required;
+        this.deprecated = delegate.deprecated;
         this.secondaryParam = delegate.secondaryParam;
         this.hasMoreNonReadOnly = delegate.hasMoreNonReadOnly;
         this.isPrimitiveType = delegate.isPrimitiveType;
@@ -76,6 +78,7 @@ public class MicroGenProperty extends CodegenProperty {
         this.isUri = delegate.isUri;
         this.isEmail = delegate.isEmail;
         this.isFreeFormObject = delegate.isFreeFormObject;
+        this.isAnyType = delegate.isAnyType;
         this.isListContainer = delegate.isListContainer;
         this.isMapContainer = delegate.isMapContainer;
         this.isEnum = delegate.isEnum;
@@ -83,6 +86,8 @@ public class MicroGenProperty extends CodegenProperty {
         this.isWriteOnly = delegate.isWriteOnly;
         this.isNullable = delegate.isNullable;
         this.isSelfReference = delegate.isSelfReference;
+        this.isCircularReference = delegate.isCircularReference;
+        this.isDiscriminator = delegate.isDiscriminator;
         this._enum = delegate._enum;
         this.allowableValues = delegate.allowableValues;
         this.items = delegate.items;
