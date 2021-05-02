@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  target-branch: master
+  reviewers:
+  - cchacin
+  labels:
+  - dependabot
+  allow:
+  - dependency-type: development
+  - dependency-type: production
+  ignore:
+  - dependency-name: org.openapitools:openapi-generator
+    versions:
+    - 5.0.0
+    - 5.0.1
+  - dependency-name: org.apache.maven.plugins:maven-archetype-plugin
+    versions:
+    - 3.2.0
+  - dependency-name: org.apache.maven.archetype:archetype-packaging
+    versions:
+    - 3.2.0
