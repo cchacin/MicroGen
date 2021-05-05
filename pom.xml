@@ -95,7 +95,7 @@
         <version.site.plugin>3.9.1</version.site.plugin>
         <version.surefire.plugin>2.22.2</version.surefire.plugin>
         <version.failsafe.plugin>2.22.2</version.failsafe.plugin>
-        <version.jacoco.plugin>0.8.6</version.jacoco.plugin>
+        <version.jacoco.plugin>0.8.7</version.jacoco.plugin>
         <version.war.plugin>3.3.1</version.war.plugin>
     </properties>
 
