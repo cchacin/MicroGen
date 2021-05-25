@@ -61,7 +61,7 @@
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
-        <jakartaee.version>9.0.0</jakartaee.version>
+        <jakartaee.version>9.1.0</jakartaee.version>
         <microprofile.version>4.0.1</microprofile.version>
         <openapitools.version>4.3.1</openapitools.version>
 
