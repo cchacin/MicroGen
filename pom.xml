@@ -82,7 +82,7 @@
         <!-- Plugins -->
         <version.clean.plugin>3.1.0</version.clean.plugin>
         <version.compiler.plugin>3.8.1</version.compiler.plugin>
-        <version.dependency.plugin>3.1.2</version.dependency.plugin>
+        <version.dependency.plugin>3.2.0</version.dependency.plugin>
         <version.exec.plugin>3.0.0</version.exec.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.jar.plugin>3.2.0</version.jar.plugin>
