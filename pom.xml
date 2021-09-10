@@ -75,7 +75,7 @@
         <api.guardian.version>1.1.1</api.guardian.version>
         <assertj.version>3.19.0</assertj.version>
         <yasson.version>2.0.2</yasson.version>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.2.6</logback.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <quarkus.v>1.7.0.Final</quarkus.v>
 
