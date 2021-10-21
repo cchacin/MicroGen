@@ -68,7 +68,7 @@
         <preparationGoals>clean compile test-compile</preparationGoals>
 
         <!-- Dependencies -->
-        <google-java-format.version>1.10.0</google-java-format.version>
+        <google-java-format.version>1.12.0</google-java-format.version>
 
         <junit.version>5.7.1</junit.version>
         <immutables.version>2.8.9-ea-1</immutables.version>
